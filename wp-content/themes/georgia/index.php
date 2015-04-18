@@ -19,13 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?php echo get_bloginfo('template_url')?>/"></base>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="Eventica &raquo; Feed" href="http://demo.toko.press/eventica-tecpro/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Eventica &raquo; Comments Feed" href="http://demo.toko.press/eventica-tecpro/comments/feed/" />
-    <link rel="alternate" type="text/calendar" title="Eventica &raquo; iCal Feed" href="http://demo.toko.press/eventica-tecpro/events/?ical=1" />
-    <link rel="alternate" type="application/rss+xml" title="Eventica &raquo; Home Events Comments Feed" href="http://demo.toko.press/eventica-tecpro/home-events/feed/" />
-    <link rel='stylesheet' id='woocommerce-layout-css' href='assets/css/woocommerce-layout.css?ver=2.3.7' type='text/css' media='all' />
-    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='assets/css/woocommerce-smallscreen.css?ver=2.3.7' type='text/css' media='only screen and (max-width: 768px)' />
-    <link rel='stylesheet' id='woocommerce-general-css' href='assets/css/woocommerce.css?ver=2.3.7' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-full-pro-calendar-style-css' href='assets/css/tribe-events-pro-full.min.css' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-calendar-pro-style-css' href='assets/css/tribe-events-pro-theme.min.css?ver=3.9.1' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-calendar-full-pro-mobile-style-css' href='assets/css/tribe-events-pro-full-mobile.min.css?ver=3.9.1' type='text/css' media='only screen and (max-width: 768px)' />
@@ -33,24 +26,13 @@
     <link rel='stylesheet' id='mailchimp-for-wp-checkbox-css' href='assets/css/checkbox.min.css?ver=2.2.8' type='text/css' media='all' />
     <link rel='stylesheet' id='tokopress-fonts-css' href='http://fonts.googleapis.com/css?family=Noto+Sans%3A400%2C700%7CRaleway%3A400%2C700&#038;ver=1.3' type='text/css' media='all' />
     <link rel='stylesheet' id='mailchimp-for-wp-form-css' href='assets/css/form.min.css?ver=2.2.8' type='text/css' media='all' />
-    <link rel='stylesheet' id='tokopress-woo-css' href='assets/css/style-woocommerce.css?ver=1.3' type='text/css' media='all' />
     <link rel='stylesheet' id='style-theme-css' href='assets/css/style.css?ver=1.3' type='text/css' media='all' />
     
     <link rel='stylesheet' id='style-theme-css' href='css/all.css?ver=1.3' type='text/css' media='all' />
-    
-    <style id='style-theme-inline-css' type='text/css'>
-        .woocommerce h1.page-title {
-            display: none;
-        }
-    </style>
+
     <script type='text/javascript' src='js/jquery.js?ver=1.11.1'></script>
     <script type='text/javascript' src='js/jquery-migrate.min.js?ver=1.2.1'></script>
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://demo.toko.press/eventica-tecpro/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://demo.toko.press/eventica-tecpro/wp-includes/wlwmanifest.xml" />
-    <meta name="generator" content="WordPress 4.1.1" />
-    <meta name="generator" content="WooCommerce 2.3.7" />
-    <link rel='canonical' href='http://demo.toko.press/eventica-tecpro/' />
-    <link rel='shortlink' href='http://demo.toko.press/eventica-tecpro/' />
+
     <style>
         .page-title {
             background-image: url(images/eventica-header-dummy-01.jpg);
@@ -694,55 +676,10 @@
         </div><!-- ./footer block -->
     </div>
     <div class="sb-slidebar sb-left sb-style-push"></div>
-    <script type="text/javascript">
-        (function () {
 
-            function addSubmittedClass() {
-                var className = 'mc4wp-form-submitted';
-                (this.classList) ? this.classList.add(className) : this.className += ' ' + className;
-            }
-
-            var forms = document.querySelectorAll('.mc4wp-form');
-            for (var i = 0; i < forms.length; i++) {
-                (function (f) {
-
-                    // hide honeypot
-                    var honeypot = f.querySelector('input[name="_mc4wp_required_but_not_really"]');
-                    honeypot.style.display = 'none';
-                    honeypot.setAttribute('type', 'hidden');
-
-                    // add class on submit
-                    var b = f.querySelector('[type="submit"]');
-                    if (b.addEventListener) {
-                        b.addEventListener('click', addSubmittedClass.bind(f));
-                    } else {
-                        b.attachEvent('onclick', addSubmittedClass.bind(f));
-                    }
-
-                })(forms[i]);
-            }
-        })();
-
-    </script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wc_add_to_cart_params = { "ajax_url": "\/eventica-tecpro\/wp-admin\/admin-ajax.php", "i18n_view_cart": "View Cart", "cart_url": "http:\/\/demo.toko.press\/eventica-tecpro\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
-        /* ]]> */
-    </script>
     <script type='text/javascript' src='assets/js/add-to-cart.min.js?ver=2.3.7'></script>
     <script type='text/javascript' src='assets/js/jquery.blockUI.min.js?ver=2.60'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var woocommerce_params = { "ajax_url": "\/eventica-tecpro\/wp-admin\/admin-ajax.php" };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='assets/js/woocommerce.min.js?ver=2.3.7'></script>
-    <script type='text/javascript' src='assets/js/jquery.cookie.min.js?ver=1.4.1'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wc_cart_fragments_params = { "ajax_url": "\/eventica-tecpro\/wp-admin\/admin-ajax.php", "fragment_name": "wc_fragments" };
-        /* ]]> */
-    </script>
+
     <script type='text/javascript' src='assets/js/cart-fragments.min.js?ver=2.3.7'></script>
     <script type='text/javascript' src='http://demo.toko.press/eventica-tecpro/wp-content/themes/eventica-wp/js/superfish.js?ver=4.1.1'></script>
     <script type='text/javascript' src='http://demo.toko.press/eventica-tecpro/wp-content/themes/eventica-wp/js/slidebars.js?ver=4.1.1'></script>
