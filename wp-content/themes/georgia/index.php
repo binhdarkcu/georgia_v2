@@ -35,6 +35,9 @@
     <link rel='stylesheet' id='mailchimp-for-wp-form-css' href='assets/css/form.min.css?ver=2.2.8' type='text/css' media='all' />
     <link rel='stylesheet' id='tokopress-woo-css' href='assets/css/style-woocommerce.css?ver=1.3' type='text/css' media='all' />
     <link rel='stylesheet' id='style-theme-css' href='assets/css/style.css?ver=1.3' type='text/css' media='all' />
+    
+    <link rel='stylesheet' id='style-theme-css' href='css/all.css?ver=1.3' type='text/css' media='all' />
+    
     <style id='style-theme-inline-css' type='text/css'>
         .woocommerce h1.page-title {
             display: none;
