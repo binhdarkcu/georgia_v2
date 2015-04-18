@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2015 at 05:14 PM
+-- Generation Time: Apr 18, 2015 at 05:29 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=148 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=150 ;
 
 --
 -- Dumping data for table `wp_options`
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=153 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=197 ;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -287,17 +287,17 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (3, 1, '_wp_trash_meta_time', '1429344937'),
 (4, 1, '_wp_trash_meta_comments_status', 'a:1:{i:1;s:1:"1";}'),
 (5, 5, '_edit_last', '1'),
-(6, 5, '_edit_lock', '1429348462:1'),
+(6, 5, '_edit_lock', '1429349354:1'),
 (10, 7, 'field_5532135948f79', 'a:12:{s:3:"key";s:19:"field_5532135948f79";s:5:"label";s:5:"Place";s:4:"name";s:5:"place";s:4:"type";s:10:"google_map";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:10:"center_lat";s:0:"";s:10:"center_lng";s:0:"";s:4:"zoom";s:0:"";s:6:"height";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}'),
 (9, 7, '_edit_last', '1'),
-(96, 7, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:4:"post";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
+(175, 7, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:4:"post";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
 (12, 7, 'position', 'acf_after_title'),
 (13, 7, 'layout', 'no_box'),
 (14, 7, 'hide_on_screen', ''),
-(15, 7, '_edit_lock', '1429348315:1'),
-(18, 7, 'field_55321420312d0', 'a:11:{s:3:"key";s:19:"field_55321420312d0";s:5:"label";s:8:"DateTime";s:4:"name";s:8:"datetime";s:4:"type";s:11:"date_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"date_format";s:6:"ddmmyy";s:14:"display_format";s:8:"dd/mm/yy";s:9:"first_day";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}'),
-(21, 7, 'field_553214aecc770', 'a:13:{s:3:"key";s:19:"field_553214aecc770";s:5:"label";s:7:"Shedule";s:4:"name";s:7:"shedule";s:4:"type";s:8:"repeater";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:10:"sub_fields";a:3:{i:0;a:16:{s:3:"key";s:19:"field_55321ac89a735";s:5:"label";s:5:"Start";s:4:"name";s:5:"start";s:4:"type";s:16:"date_time_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:2:"25";s:9:"show_date";s:5:"false";s:11:"date_format";s:5:"m/d/y";s:11:"time_format";s:7:"h:mm tt";s:16:"show_week_number";s:5:"false";s:6:"picker";s:6:"slider";s:17:"save_as_timestamp";s:4:"true";s:16:"get_as_timestamp";s:5:"false";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}i:1;a:16:{s:3:"key";s:19:"field_55321add9a736";s:5:"label";s:6:"Finish";s:4:"name";s:6:"finish";s:4:"type";s:16:"date_time_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:2:"25";s:9:"show_date";s:5:"false";s:11:"date_format";s:5:"m/d/y";s:11:"time_format";s:7:"h:mm tt";s:16:"show_week_number";s:5:"false";s:6:"picker";s:6:"slider";s:17:"save_as_timestamp";s:4:"true";s:16:"get_as_timestamp";s:5:"false";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}i:2;a:15:{s:3:"key";s:19:"field_55321f477e57d";s:5:"label";s:6:"Action";s:4:"name";s:6:"action";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:2:"50";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}}s:7:"row_min";s:0:"";s:9:"row_limit";s:0:"";s:6:"layout";s:5:"table";s:12:"button_label";s:7:"Add Row";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}'),
-(23, 7, 'field_55321566e6d14', 'a:18:{s:3:"key";s:19:"field_55321566e6d14";s:5:"label";s:4:"Cost";s:4:"name";s:4:"cost";s:4:"type";s:5:"range";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"slider_type";s:7:"default";s:5:"title";s:1:"$";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:8:"separate";s:1:"-";s:15:"default_value_1";s:1:"0";s:15:"default_value_2";s:3:"100";s:3:"min";s:1:"0";s:3:"max";s:3:"100";s:4:"step";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}'),
+(15, 7, '_edit_lock', '1429349126:1'),
+(18, 7, 'field_55321420312d0', 'a:11:{s:3:"key";s:19:"field_55321420312d0";s:5:"label";s:8:"DateTime";s:4:"name";s:8:"datetime";s:4:"type";s:11:"date_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"date_format";s:6:"ddmmyy";s:14:"display_format";s:8:"dd MM yy";s:9:"first_day";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}'),
+(21, 7, 'field_553214aecc770', 'a:13:{s:3:"key";s:19:"field_553214aecc770";s:5:"label";s:7:"Shedule";s:4:"name";s:7:"shedule";s:4:"type";s:8:"repeater";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:10:"sub_fields";a:3:{i:0;a:16:{s:3:"key";s:19:"field_55321ac89a735";s:5:"label";s:5:"Start";s:4:"name";s:5:"start";s:4:"type";s:16:"date_time_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:2:"25";s:9:"show_date";s:5:"false";s:11:"date_format";s:5:"m/d/y";s:11:"time_format";s:7:"h:mm tt";s:16:"show_week_number";s:5:"false";s:6:"picker";s:6:"slider";s:17:"save_as_timestamp";s:4:"true";s:16:"get_as_timestamp";s:5:"false";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}i:1;a:16:{s:3:"key";s:19:"field_55321add9a736";s:5:"label";s:6:"Finish";s:4:"name";s:6:"finish";s:4:"type";s:16:"date_time_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:2:"25";s:9:"show_date";s:5:"false";s:11:"date_format";s:5:"m/d/y";s:11:"time_format";s:7:"h:mm tt";s:16:"show_week_number";s:5:"false";s:6:"picker";s:6:"slider";s:17:"save_as_timestamp";s:4:"true";s:16:"get_as_timestamp";s:5:"false";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}i:2;a:15:{s:3:"key";s:19:"field_55321f477e57d";s:5:"label";s:6:"Action";s:4:"name";s:6:"action";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:2:"50";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}}s:7:"row_min";s:0:"";s:9:"row_limit";s:0:"";s:6:"layout";s:5:"table";s:12:"button_label";s:7:"Add Row";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}'),
+(23, 7, 'field_55321566e6d14', 'a:18:{s:3:"key";s:19:"field_55321566e6d14";s:5:"label";s:4:"Cost";s:4:"name";s:4:"cost";s:4:"type";s:5:"range";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"slider_type";s:7:"default";s:5:"title";s:1:"$";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:8:"separate";s:1:"-";s:15:"default_value_1";s:1:"0";s:15:"default_value_2";s:4:"1000";s:3:"min";s:1:"0";s:3:"max";s:4:"1000";s:4:"step";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}'),
 (28, 8, 'place', 'a:3:{s:7:"address";s:53:"Námestie slobody 2902/6, 811 06 Bratislava, Slovakia";s:3:"lat";s:17:"48.15291696385019";s:3:"lng";s:18:"17.112407684326172";}'),
 (29, 8, '_place', 'field_5532135948f79'),
 (30, 8, 'datetime', '11042015'),
@@ -310,10 +310,11 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (37, 5, '_place', 'field_5532135948f79'),
 (38, 5, 'datetime', '11042015'),
 (39, 5, '_datetime', 'field_55321420312d0'),
-(40, 5, 'time', ''),
+(40, 5, 'time', '5:am - 6:pm'),
 (41, 5, '_time', 'field_55321f5675652'),
 (42, 5, 'cost', '33'),
 (43, 5, '_cost', 'field_55321566e6d14'),
+(177, 16, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1000;s:6:"height";i:668;s:4:"file";s:35:"2015/04/eventica-dummy-image-23.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:35:"eventica-dummy-image-23-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:35:"eventica-dummy-image-23-300x200.jpg";s:5:"width";i:300;s:6:"height";i:200;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:11:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";s:11:"orientation";i:0;}}'),
 (49, 9, 'place', 'a:3:{s:7:"address";s:53:"Námestie slobody 2902/6, 811 06 Bratislava, Slovakia";s:3:"lat";s:17:"48.15291696385019";s:3:"lng";s:18:"17.112407684326172";}'),
 (50, 9, '_place', 'field_5532135948f79'),
 (51, 9, 'datetime', '11042015'),
@@ -343,6 +344,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (76, 10, '_time', 'field_553214aecc770'),
 (77, 10, 'cost', '37'),
 (78, 10, '_cost', 'field_55321566e6d14'),
+(176, 16, '_wp_attached_file', '2015/04/eventica-dummy-image-23.jpg'),
 (81, 11, 'place', 'a:3:{s:7:"address";s:53:"Námestie slobody 2902/6, 811 06 Bratislava, Slovakia";s:3:"lat";s:17:"48.15291696385019";s:3:"lng";s:18:"17.112407684326172";}'),
 (82, 11, '_place', 'field_5532135948f79'),
 (83, 11, 'datetime', '11042015'),
@@ -383,6 +385,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (124, 5, '_shedule_0_finish', 'field_55321add9a736'),
 (125, 5, 'shedule_0_action', 'Opening'),
 (126, 5, '_shedule_0_action', 'field_55321f477e57d'),
+(158, 15, 'place', 'a:3:{s:7:"address";s:53:"Námestie slobody 2902/6, 811 06 Bratislava, Slovakia";s:3:"lat";s:17:"48.15291696385019";s:3:"lng";s:18:"17.112407684326172";}'),
 (133, 5, 'shedule', '1'),
 (134, 5, '_shedule', 'field_553214aecc770'),
 (137, 14, 'place', 'a:3:{s:7:"address";s:53:"Námestie slobody 2902/6, 811 06 Bratislava, Slovakia";s:3:"lat";s:17:"48.15291696385019";s:3:"lng";s:18:"17.112407684326172";}'),
@@ -400,7 +403,39 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (149, 14, 'shedule', '1'),
 (150, 14, '_shedule', 'field_553214aecc770'),
 (151, 14, 'cost', '33'),
-(152, 14, '_cost', 'field_55321566e6d14');
+(152, 14, '_cost', 'field_55321566e6d14'),
+(159, 15, '_place', 'field_5532135948f79'),
+(160, 15, 'datetime', '11042015'),
+(161, 15, '_datetime', 'field_55321420312d0'),
+(162, 15, 'time', '5:am - 6:pm'),
+(163, 15, '_time', 'field_55321f5675652'),
+(164, 15, 'shedule_0_start', '1429336800'),
+(165, 15, '_shedule_0_start', 'field_55321ac89a735'),
+(166, 15, 'shedule_0_finish', '1429376400'),
+(167, 15, '_shedule_0_finish', 'field_55321add9a736'),
+(168, 15, 'shedule_0_action', 'Opening'),
+(169, 15, '_shedule_0_action', 'field_55321f477e57d'),
+(170, 15, 'shedule', '1'),
+(171, 15, '_shedule', 'field_553214aecc770'),
+(172, 15, 'cost', '33'),
+(173, 15, '_cost', 'field_55321566e6d14'),
+(178, 5, '_thumbnail_id', '16'),
+(181, 17, 'place', 'a:3:{s:7:"address";s:53:"Námestie slobody 2902/6, 811 06 Bratislava, Slovakia";s:3:"lat";s:17:"48.15291696385019";s:3:"lng";s:18:"17.112407684326172";}'),
+(182, 17, '_place', 'field_5532135948f79'),
+(183, 17, 'datetime', '11042015'),
+(184, 17, '_datetime', 'field_55321420312d0'),
+(185, 17, 'time', '5:am - 6:pm'),
+(186, 17, '_time', 'field_55321f5675652'),
+(187, 17, 'shedule_0_start', '1429336800'),
+(188, 17, '_shedule_0_start', 'field_55321ac89a735'),
+(189, 17, 'shedule_0_finish', '1429376400'),
+(190, 17, '_shedule_0_finish', 'field_55321add9a736'),
+(191, 17, 'shedule_0_action', 'Opening'),
+(192, 17, '_shedule_0_action', 'field_55321f477e57d'),
+(193, 17, 'shedule', '1'),
+(194, 17, '_shedule', 'field_553214aecc770'),
+(195, 17, 'cost', '33'),
+(196, 17, '_cost', 'field_55321566e6d14');
 
 -- --------------------------------------------------------
 
@@ -437,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `wp_posts`
@@ -448,16 +483,19 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (2, 1, '2015-04-18 07:36:57', '2015-04-18 07:36:57', 'This is an example page. It''s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:\r\n\r\n<blockquote>Hi there! I''m a bike messenger by day, aspiring actor by night, and this is my blog. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin'' caught in the rain.)</blockquote>\r\n\r\n...or something like this:\r\n\r\n<blockquote>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</blockquote>\r\n\r\nAs a new WordPress user, you should go to <a href="http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!', 'Sample Page', '', 'publish', 'open', 'open', '', 'sample-page', '', '', '2015-04-18 07:36:57', '2015-04-18 07:36:57', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?page_id=2', 0, 'page', '', 0),
 (3, 1, '2015-04-18 07:37:31', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2015-04-18 07:37:31', '0000-00-00 00:00:00', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=3', 0, 'post', '', 0),
 (4, 1, '2015-04-18 08:15:37', '2015-04-18 08:15:37', 'Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!', 'Hello world!', '', 'inherit', 'open', 'open', '', '1-revision-v1', '', '', '2015-04-18 08:15:37', '2015-04-18 08:15:37', '', 1, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=4', 0, 'revision', '', 0),
-(5, 1, '2015-04-18 08:17:42', '2015-04-18 08:17:42', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'publish', 'open', 'open', '', 'wordcamp-bratislava', '', '', '2015-04-18 09:12:07', '2015-04-18 09:12:07', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=5', 0, 'post', '', 0),
+(5, 1, '2015-04-18 08:17:42', '2015-04-18 08:17:42', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'publish', 'open', 'open', '', 'wordcamp-bratislava', '', '', '2015-04-18 09:29:14', '2015-04-18 09:29:14', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=5', 0, 'post', '', 0),
 (6, 1, '2015-04-18 08:17:42', '2015-04-18 08:17:42', '', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 08:17:42', '2015-04-18 08:17:42', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=6', 0, 'revision', '', 0),
-(7, 1, '2015-04-18 08:18:46', '2015-04-18 08:18:46', '', 'Events Control', '', 'publish', 'closed', 'closed', '', 'acf_events-control', '', '', '2015-04-18 09:10:43', '2015-04-18 09:10:43', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?post_type=acf&#038;p=7', 0, 'acf', '', 0),
+(7, 1, '2015-04-18 08:18:46', '2015-04-18 08:18:46', '', 'Events Control', '', 'publish', 'closed', 'closed', '', 'acf_events-control', '', '', '2015-04-18 09:27:48', '2015-04-18 09:27:48', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?post_type=acf&#038;p=7', 0, 'acf', '', 0),
 (8, 1, '2015-04-18 08:33:26', '2015-04-18 08:33:26', '', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 08:33:26', '2015-04-18 08:33:26', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=8', 0, 'revision', '', 0),
 (9, 1, '2015-04-18 08:52:52', '2015-04-18 08:52:52', '', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 08:52:52', '2015-04-18 08:52:52', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=9', 0, 'revision', '', 0),
 (10, 1, '2015-04-18 08:54:19', '2015-04-18 08:54:19', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p><p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p><p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 08:54:19', '2015-04-18 08:54:19', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=10', 0, 'revision', '', 0),
 (11, 1, '2015-04-18 08:55:11', '2015-04-18 08:55:11', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p><p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p><p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 08:55:11', '2015-04-18 08:55:11', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=11', 0, 'revision', '', 0),
 (12, 1, '2015-04-18 09:06:04', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2015-04-18 09:06:04', '0000-00-00 00:00:00', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=12', 0, 'post', '', 0),
 (13, 1, '2015-04-18 09:11:52', '2015-04-18 09:11:52', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 09:11:52', '2015-04-18 09:11:52', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/5-revision-v1/', 0, 'revision', '', 0),
-(14, 1, '2015-04-18 09:12:07', '2015-04-18 09:12:07', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 09:12:07', '2015-04-18 09:12:07', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/5-revision-v1/', 0, 'revision', '', 0);
+(14, 1, '2015-04-18 09:12:07', '2015-04-18 09:12:07', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 09:12:07', '2015-04-18 09:12:07', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/5-revision-v1/', 0, 'revision', '', 0),
+(15, 1, '2015-04-18 09:21:32', '2015-04-18 09:21:32', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 09:21:32', '2015-04-18 09:21:32', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/5-revision-v1/', 0, 'revision', '', 0),
+(16, 1, '2015-04-18 09:29:07', '2015-04-18 09:29:07', '', 'eventica-dummy-image-23', '', 'inherit', 'open', 'open', '', 'eventica-dummy-image-23', '', '', '2015-04-18 09:29:07', '2015-04-18 09:29:07', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/wp-content/uploads/2015/04/eventica-dummy-image-23.jpg', 0, 'attachment', 'image/jpeg', 0),
+(17, 1, '2015-04-18 09:29:14', '2015-04-18 09:29:14', '<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>\r\n<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>\r\n<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>', 'WORDCAMP BRATISLAVA', '', 'inherit', 'open', 'open', '', '5-revision-v1', '', '', '2015-04-18 09:29:14', '2015-04-18 09:29:14', '', 5, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/5-revision-v1/', 0, 'revision', '', 0);
 
 -- --------------------------------------------------------
 
@@ -574,8 +612,8 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (13, 1, 'show_welcome_panel', '1'),
 (14, 1, 'session_tokens', 'a:1:{s:64:"5d032036caff6a5f1151e276a0ba2744f02e59d60517b15d70c185890631dc8d";a:4:{s:10:"expiration";i:1429515448;s:2:"ip";s:3:"::1";s:2:"ua";s:108:"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36";s:5:"login";i:1429342648;}}'),
 (15, 1, 'wp_dashboard_quick_press_last_post_id', '3'),
-(16, 1, 'wp_user-settings', 'editor=tinymce'),
-(17, 1, 'wp_user-settings-time', '1429348083');
+(16, 1, 'wp_user-settings', 'editor=tinymce&libraryContent=browse'),
+(17, 1, 'wp_user-settings-time', '1429349350');
 
 -- --------------------------------------------------------
 
