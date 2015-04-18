@@ -6429,7 +6429,7 @@ article.page-none .search-form {
   height: 100%;
   width: 90px;
   padding: 15px 0 0 20px;
-  background: rgba(62, 201, 206, 0.64);
+  background: rgba(0, 0, 0, 0.64);
   font-family: 'Noto Sans', sans-serif;
   font-style: normal;
   color: white;
@@ -7558,7 +7558,7 @@ table.tribe-events-tickets td.woocommerce .quantity {
   background: white;
 }
 .home-featured-event .featured-event-title {
-  background: #1cbfc5;
+  background: #887554;
   padding: 30px 30px 30px 50px;
   color: white;
 }
