@@ -19,13 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?php echo get_bloginfo('template_url')?>/"></base>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="Eventica &raquo; Feed" href="http://demo.toko.press/eventica-tecpro/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Eventica &raquo; Comments Feed" href="http://demo.toko.press/eventica-tecpro/comments/feed/" />
-    <link rel="alternate" type="text/calendar" title="Eventica &raquo; iCal Feed" href="http://demo.toko.press/eventica-tecpro/events/?ical=1" />
-    <link rel="alternate" type="application/rss+xml" title="Eventica &raquo; Home Events Comments Feed" href="http://demo.toko.press/eventica-tecpro/home-events/feed/" />
-    <link rel='stylesheet' id='woocommerce-layout-css' href='assets/css/woocommerce-layout.css?ver=2.3.7' type='text/css' media='all' />
-    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='assets/css/woocommerce-smallscreen.css?ver=2.3.7' type='text/css' media='only screen and (max-width: 768px)' />
-    <link rel='stylesheet' id='woocommerce-general-css' href='assets/css/woocommerce.css?ver=2.3.7' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-full-pro-calendar-style-css' href='assets/css/tribe-events-pro-full.min.css' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-calendar-pro-style-css' href='assets/css/tribe-events-pro-theme.min.css?ver=3.9.1' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-calendar-full-pro-mobile-style-css' href='assets/css/tribe-events-pro-full-mobile.min.css?ver=3.9.1' type='text/css' media='only screen and (max-width: 768px)' />
@@ -33,24 +26,13 @@
     <link rel='stylesheet' id='mailchimp-for-wp-checkbox-css' href='assets/css/checkbox.min.css?ver=2.2.8' type='text/css' media='all' />
     <link rel='stylesheet' id='tokopress-fonts-css' href='http://fonts.googleapis.com/css?family=Noto+Sans%3A400%2C700%7CRaleway%3A400%2C700&#038;ver=1.3' type='text/css' media='all' />
     <link rel='stylesheet' id='mailchimp-for-wp-form-css' href='assets/css/form.min.css?ver=2.2.8' type='text/css' media='all' />
-    <link rel='stylesheet' id='tokopress-woo-css' href='assets/css/style-woocommerce.css?ver=1.3' type='text/css' media='all' />
     <link rel='stylesheet' id='style-theme-css' href='assets/css/style.css?ver=1.3' type='text/css' media='all' />
     
     <link rel='stylesheet' id='style-theme-css' href='css/all.css?ver=1.3' type='text/css' media='all' />
-    
-    <style id='style-theme-inline-css' type='text/css'>
-        .woocommerce h1.page-title {
-            display: none;
-        }
-    </style>
+
     <script type='text/javascript' src='js/jquery.js?ver=1.11.1'></script>
     <script type='text/javascript' src='js/jquery-migrate.min.js?ver=1.2.1'></script>
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://demo.toko.press/eventica-tecpro/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://demo.toko.press/eventica-tecpro/wp-includes/wlwmanifest.xml" />
-    <meta name="generator" content="WordPress 4.1.1" />
-    <meta name="generator" content="WooCommerce 2.3.7" />
-    <link rel='canonical' href='http://demo.toko.press/eventica-tecpro/' />
-    <link rel='shortlink' href='http://demo.toko.press/eventica-tecpro/' />
+
     <style>
         .page-title {
             background-image: url(images/eventica-header-dummy-01.jpg);
@@ -243,28 +225,6 @@
 
         <div id="main-content" class="home-plus-events">
 
-            <div class="home-search-box">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <form role="search" method="get" class="search-form" action="http://demo.toko.press/eventica-tecpro/events/">
-                                <input type="hidden" name="action" value="tribe_list" />
-                                <input type="hidden" name="tribe_paged" value="1" />
-                                <input type="hidden" name="tribe_event_display" value="list" />
-                                <label>
-                                    <span class="screen-reader-text">Search for:</span>
-                                    <input type="search" class="search-field" placeholder="Search Event &hellip;" value="" name="tribe-bar-search" title="Search for:" />
-                                </label>
-                                <button type="submit" class="search-submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
 
@@ -604,32 +564,6 @@
                                 </div>
 
                             </div>
-                            <div class="home-subscribe-form clearfix">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <h2>
-                                            Subscribe to our newsletter
-                                        </h2>
-                                        <p>
-                                            never miss our latest news and events updates
-                                        </p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <!-- Form by MailChimp for WordPress plugin v2.2.8 - https://mc4wp.com/ --><div id="mc4wp-form-1" class="form mc4wp-form">
-                                            <form method="post">
-                                                <p>
-                                                    <label>Email Address:</label>
-                                                    <input type="email" name="EMAIL" placeholder="Your email address" required="required">
-                                                </p>
-
-                                                <p>
-                                                    <input type="submit" value="Subscribe" />
-                                                </p><input type="text" name="_mc4wp_required_but_not_really" value="" /><input type="hidden" name="_mc4wp_timestamp" value="1428891632" /><input type="hidden" name="_mc4wp_form_submit" value="1" /><input type="hidden" name="_mc4wp_form_instance" value="1" /><input type="hidden" name="_mc4wp_form_nonce" value="4d5d983af5" />
-                                            </form>
-                                        </div><!-- / MailChimp for WP Plugin -->
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="col-md-4 col-md-pull-8">
@@ -670,50 +604,6 @@
                                             </div>
 
                                         </article>
-
-
-                                        <article id="post-1177" class="post-1177 post type-post status-publish format-standard has-post-thumbnail hentry category-recreration-sports blog-list col-sm-6 col-md-12">
-
-                                            <div class="inner-loop">
-                                                <div class="post-thumbnail">
-                                                    <a href="http://demo.toko.press/eventica-tecpro/exciting-multi-activity-corporate-events-in-oxfordshire/" title="Exciting Multi Activity Corporate Events In Oxfordshire">
-                                                        <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-32-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 32" />
-                                                    </a>
-                                                </div>
-
-                                                <div class="post-inner">
-                                                    <a href="http://demo.toko.press/eventica-tecpro/exciting-multi-activity-corporate-events-in-oxfordshire/" title="Exciting Multi Activity Corporate Events In Oxfordshire" class="post-title"><h2>Exciting Multi Activity Corporate Events In Oxfordshire</h2></a>
-                                                    <div class="post-meta"><time class="post-time" datetime="2013-01-10T20:15:40+00:00">January 10, 2013</time> </div>
-
-                                                    <div class="post-summary">
-                                                        <p>Oxfordshire has recently transformed itself into a wonderful location for corporate events. Hitherto corporate houses are always in search of event management companies who are offering exciting corporate events. So, if you are looking for such corporate events, which will effectively boost the efficiency and team-building attitude of the corporate people, then go for exciting [&hellip;]</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </article>
-
-
-                                        <article id="post-1176" class="post-1176 post type-post status-publish format-standard has-post-thumbnail hentry category-vacations blog-list col-sm-6 col-md-12">
-
-                                            <div class="inner-loop">
-                                                <div class="post-thumbnail">
-                                                    <a href="http://demo.toko.press/eventica-tecpro/arizona-the-host-of-great-events/" title="Arizona The Host Of Great Events">
-                                                        <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-31-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 31" />
-                                                    </a>
-                                                </div>
-
-                                                <div class="post-inner">
-                                                    <a href="http://demo.toko.press/eventica-tecpro/arizona-the-host-of-great-events/" title="Arizona The Host Of Great Events" class="post-title"><h2>Arizona The Host Of Great Events</h2></a>
-                                                    <div class="post-meta"><time class="post-time" datetime="2013-01-09T09:00:39+00:00">January 9, 2013</time> </div>
-
-                                                    <div class="post-summary">
-                                                        <p>When it comes to rental searches and home rentals in general, the Internet is the first place you should think to look. You have various properties advertised including townhouses, apartments, homes and condos. The World Wide Web can also provide you with property listings for duplexes, lofts and even vacation rentals. If you want to [&hellip;]</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </article>
                                     </div>
 
                                 </div>
@@ -726,244 +616,9 @@
             </div>
 
 
-            <div class="home-testimonials">
-                <div class="container">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-title">
-                            <h2>Testimonials</h2>
-                        </div>
 
-                        <div class="testimonial-loop">
-
-                            <div class="testimonial-field">
-                                <div class="testimonial-content">
-                                    <p>Fusce semper condimentum purus id placerat. Integer elementum in nisl in pretium. Mauris semper, ligula eget tempor egestas, quam diam vestibulum mi, sit amet tincidunt leo metus accumsan nisl. Phasellus dapibus, ligula et pulvinar mattis, elit lacus fringilla velit, sit amet placerat urna felis ut lectus. In hac habitasse platea dictumst. Phasellus lacus est, efficitur et dui et, suscipit mattis massa. Integer id pellentesque nisi. Aenean sed sagittis nulla.</p>
-                                </div>
-                                <div class="testimonial-name">
-                                    Jhonatan ru
-                                </div>
-                            </div>
-
-
-                            <div class="testimonial-field">
-                                <div class="testimonial-content">
-                                    <p>Maecenas venenatis tristique elit, vel pulvinar mi mollis ac. Praesent sit amet ultricies ex, sed consequat turpis. Nam ut est semper, malesuada justo id, vulputate orci. Praesent pretium, neque sit amet blandit eleifend, mi elit porttitor leo, sit amet dapibus libero risus et augue. Donec sed lectus turpis. Morbi ullamcorper, arcu euismod imperdiet iaculis, ligula ligula semper augue, ac vehicula nibh ipsum in diam. Sed lobortis lacinia tellus vitae vestibulum.</p>
-                                </div>
-                                <div class="testimonial-name">
-                                    Jhon Doe
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="home-sponsors">
-                <div class="container">
-
-                    <h3 class="section-title">
-                        Our Sponsors
-                    </h3>
-
-                    <div class="sponsors-inner clearfix">
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-08.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-07.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-06.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-05.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-04.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-03.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-02.png" alt="Sponsor"></a>
-                        </div>
-                        <div class="sponsor">
-                            <a href="#"><img src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-logo-dummy-01.png" alt="Sponsor"></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
 
-        <div id="footer-widget">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-sm-6 col-md-3">
-                        <div class="footer-col">
-
-                            <section id="text-2" class="widget widget_text">
-                                <div class="widget-inner">
-                                    <h3 class="widget-title">About Us</h3>			<div class="textwidget">
-                                        <p>European minnow priapumfish mosshead warbonnet shrimpfish bigscale. Cutlassfish Efficiently unleash cross-media information without cross-media value. </p>
-                                        <p>Here's the story of a man named Brady who Efficiently unleash cross-media information I'm gonna build me an airport, put my name on it. Neutra flexitarian farm-to-table.</p>
-                                        <p>European minnow priapumfish mosshead warbonnet shrimpfish bigscale.</p>
-                                        <p>
-                                            Office :<br />
-                                            Jl. Piit No.1.<br />
-                                            Kec. Coblong. Bandung.<br />
-                                            Indonesia 40131.
-                                        </p>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="footer-col">
-
-                            <section id="tokopress-upcoming-events-2" class="widget widget_upcoming_events">
-                                <div class="widget-inner">
-                                    <h3 class="widget-title">Upcoming Events</h3>		<ul>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-bratislava/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/01/eventica-dummy-image-23-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 23" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-bratislava/">WordCamp Bratislava</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">April 18 @ 8:00 am<span class="value-title" title="2015-04-18UTC08:00"></span></span> - <span class="end-time dtend">5:00 pm<span class="value-title" title="2015-04-18UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/03/eventica-dummy-image-29-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/">WordCamp Belgrade</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">April 18 @ 8:00 am<span class="value-title" title="2015-04-18UTC08:00"></span></span> - <span class="date-end dtend">April 19 @ 5:00 pm<span class="value-title" title="2015-04-19UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-31-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 31" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/">WordCamp Minneapolis</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">April 25 @ 8:00 am<span class="value-title" title="2015-04-25UTC08:00"></span></span> - <span class="date-end dtend">April 26 @ 5:00 pm<span class="value-title" title="2015-04-26UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/03/eventica-dummy-image-28-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 28" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/">WordCamp Lyon</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">June 5 @ 8:00 am<span class="value-title" title="2015-06-05UTC08:00"></span></span> - <span class="end-time dtend">5:00 pm<span class="value-title" title="2015-06-05UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-cologne/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2009/07/eventica-dummy-image-11-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 11" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-cologne/">WordCamp Cologne</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">June 6 @ 8:00 am<span class="value-title" title="2015-06-06UTC08:00"></span></span> - <span class="date-end dtend">June 7 @ 5:00 pm<span class="value-title" title="2015-06-07UTC05:00"></span></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="footer-col">
-
-                            <section id="tokopress-past-events-2" class="widget widget_past_events">
-                                <div class="widget-inner">
-                                    <h3 class="widget-title">Past Events</h3>		<ul>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-vienna/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2010/10/eventica-dummy-image-17-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 17" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-vienna/">WordCamp Vienna</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">April 11 @ 8:00 am<span class="value-title" title="2015-04-11UTC08:00"></span></span> - <span class="end-time dtend">5:00 pm<span class="value-title" title="2015-04-11UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-seattle/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/01/eventica-dummy-image-20-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 20" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-seattle/">WordCamp Seattle</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">March 28 @ 8:00 am<span class="value-title" title="2015-03-28UTC08:00"></span></span> - <span class="date-end dtend">March 29 @ 5:00 pm<span class="value-title" title="2015-03-29UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-san-diego/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/01/eventica-dummy-image-23-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 23" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-san-diego/">WordCamp San Diego</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">March 28 @ 8:00 am<span class="value-title" title="2015-03-28UTC08:00"></span></span> - <span class="date-end dtend">March 29 @ 5:00 pm<span class="value-title" title="2015-03-29UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-dayton/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/01/eventica-dummy-image-19-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 19" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-dayton/">WordCamp Dayton</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">March 20 @ 8:00 am<span class="value-title" title="2015-03-20UTC08:00"></span></span> - <span class="date-end dtend">March 21 @ 5:00 pm<span class="value-title" title="2015-03-21UTC05:00"></span></span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-london/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2009/09/eventica-dummy-image-15-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 15" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-london/">WordCamp London</a>
-                                            <span class="tp-entry-date"><span class="date-start dtstart">March 20 @ 8:00 am<span class="value-title" title="2015-03-20UTC08:00"></span></span> - <span class="date-end dtend">March 22 @ 5:00 pm<span class="value-title" title="2015-03-22UTC05:00"></span></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="footer-col">
-
-                            <section id="tokopress-recent-posts-2" class="widget widget_recent_posts">
-                                <div class="widget-inner">
-                                    <h3 class="widget-title">Recent Posts</h3>		<ul>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/how-to-live-life-free-of-stress-an-interview-with-joe-dimaggio/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-33-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 33" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/how-to-live-life-free-of-stress-an-interview-with-joe-dimaggio/">How To Live Life Free Of Stress An Interview With Joe Dimaggio</a>
-                                            <span class="tp-entry-date">January 11, 2013</span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/exciting-multi-activity-corporate-events-in-oxfordshire/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-32-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 32" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/exciting-multi-activity-corporate-events-in-oxfordshire/">Exciting Multi Activity Corporate Events In Oxfordshire</a>
-                                            <span class="tp-entry-date">January 10, 2013</span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/arizona-the-host-of-great-events/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-31-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 31" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/arizona-the-host-of-great-events/">Arizona The Host Of Great Events</a>
-                                            <span class="tp-entry-date">January 9, 2013</span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/great-british-sporting-events/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-30-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 30" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/great-british-sporting-events/">Great British Sporting Events</a>
-                                            <span class="tp-entry-date">January 5, 2013</span>
-                                        </li>
-                                        <li>
-                                            <a href="http://demo.toko.press/eventica-tecpro/special-relativity-lite-simplified-version/" title="">
-                                                <img width="150" height="150" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-12-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Eventica Dummy Image 12" />
-                                            </a>
-                                            <a class="tp-entry-title" href="http://demo.toko.press/eventica-tecpro/special-relativity-lite-simplified-version/">Special Relativity Lite Simplified Version</a>
-                                            <span class="tp-entry-date">January 5, 2013</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div><!-- ./footer widget -->
 
         <div id="footer-block">
             <div class="container">
@@ -999,55 +654,10 @@
         </div><!-- ./footer block -->
     </div>
     <div class="sb-slidebar sb-left sb-style-push"></div>
-    <script type="text/javascript">
-        (function () {
 
-            function addSubmittedClass() {
-                var className = 'mc4wp-form-submitted';
-                (this.classList) ? this.classList.add(className) : this.className += ' ' + className;
-            }
-
-            var forms = document.querySelectorAll('.mc4wp-form');
-            for (var i = 0; i < forms.length; i++) {
-                (function (f) {
-
-                    // hide honeypot
-                    var honeypot = f.querySelector('input[name="_mc4wp_required_but_not_really"]');
-                    honeypot.style.display = 'none';
-                    honeypot.setAttribute('type', 'hidden');
-
-                    // add class on submit
-                    var b = f.querySelector('[type="submit"]');
-                    if (b.addEventListener) {
-                        b.addEventListener('click', addSubmittedClass.bind(f));
-                    } else {
-                        b.attachEvent('onclick', addSubmittedClass.bind(f));
-                    }
-
-                })(forms[i]);
-            }
-        })();
-
-    </script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wc_add_to_cart_params = { "ajax_url": "\/eventica-tecpro\/wp-admin\/admin-ajax.php", "i18n_view_cart": "View Cart", "cart_url": "http:\/\/demo.toko.press\/eventica-tecpro\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
-        /* ]]> */
-    </script>
     <script type='text/javascript' src='assets/js/add-to-cart.min.js?ver=2.3.7'></script>
     <script type='text/javascript' src='assets/js/jquery.blockUI.min.js?ver=2.60'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var woocommerce_params = { "ajax_url": "\/eventica-tecpro\/wp-admin\/admin-ajax.php" };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='assets/js/woocommerce.min.js?ver=2.3.7'></script>
-    <script type='text/javascript' src='assets/js/jquery.cookie.min.js?ver=1.4.1'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wc_cart_fragments_params = { "ajax_url": "\/eventica-tecpro\/wp-admin\/admin-ajax.php", "fragment_name": "wc_fragments" };
-        /* ]]> */
-    </script>
+
     <script type='text/javascript' src='assets/js/cart-fragments.min.js?ver=2.3.7'></script>
     <script type='text/javascript' src='http://demo.toko.press/eventica-tecpro/wp-content/themes/eventica-wp/js/superfish.js?ver=4.1.1'></script>
     <script type='text/javascript' src='http://demo.toko.press/eventica-tecpro/wp-content/themes/eventica-wp/js/slidebars.js?ver=4.1.1'></script>
