@@ -225,28 +225,6 @@
 
         <div id="main-content" class="home-plus-events">
 
-            <div class="home-search-box">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <form role="search" method="get" class="search-form" action="http://demo.toko.press/eventica-tecpro/events/">
-                                <input type="hidden" name="action" value="tribe_list" />
-                                <input type="hidden" name="tribe_paged" value="1" />
-                                <input type="hidden" name="tribe_event_display" value="list" />
-                                <label>
-                                    <span class="screen-reader-text">Search for:</span>
-                                    <input type="search" class="search-field" placeholder="Search Event &hellip;" value="" name="tribe-bar-search" title="Search for:" />
-                                </label>
-                                <button type="submit" class="search-submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
 
