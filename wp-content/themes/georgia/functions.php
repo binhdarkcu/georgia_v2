@@ -12,7 +12,7 @@
 	require_once( 'meta-box/init.php' );
 
     //change label post
-    //include 'inc/change_label_post.php';
+    include 'inc/change_label_post.php';
 	
 	//add type columns
     //include 'inc/type_column.php';
