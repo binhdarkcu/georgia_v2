@@ -1,0 +1,21 @@
+.site-header{
+  background: #1b1a18; 
+}
+.header-menu.sf-menu li a{
+  color: #fff;
+  &:hover{
+    color: #827b5e;
+  }
+}
+.header-menu.sf-menu li:hover > a{
+  color: #827b5e;
+}
+.header-menu.sf-menu li li a{
+  background: #1b1a18; 
+}
+.site-branding{
+ background: #000; 
+}
+.home-slider-events .slide-event-detail{
+  background: rgba(0, 0, 0, 0.85)
+}
