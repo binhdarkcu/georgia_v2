@@ -8,7 +8,8 @@
   }
 }
 .header-menu.sf-menu li:hover > a{
-  color: #827b5e;
+  color: #fff;
+  background: #827b5e;
 }
 .header-menu.sf-menu li li a{
   background: #1b1a18; 
@@ -23,4 +24,14 @@
 .logo{
   padding-top: 31px;
   margin-left: 38px;
+}
+
+.sf-menu li a.wordt-lid{
+  border: 1px solid #fff;
+  &:hover{
+    border-color: #827b5e;
+  }
+}
+.header-menu.sf-menu > li:last-child a.wordt-lid{
+  padding-right: 15px;
 }

@@ -59,12 +59,7 @@
                                                     </div>
                                                 </div><!-- .tribe-events-event-meta -->
                                             </div>
-                                            <div class="wraper-bottom-right valign-wrapper">
-                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-bratislava/" class="more-link valign">
-                                                    <i class="fa fa-ticket"></i>
-                                                    <br /><span class="cost">$47</span>
-                                                </a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -113,12 +108,7 @@
                                                     </div>
                                                 </div><!-- .tribe-events-event-meta -->
                                             </div>
-                                            <div class="wraper-bottom-right valign-wrapper">
-                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" class="more-link valign">
-                                                    <i class="fa fa-ticket"></i>
-                                                    <br /><span class="cost">$47</span>
-                                                </a>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -167,12 +157,7 @@
                                                     </div>
                                                 </div><!-- .tribe-events-event-meta -->
                                             </div>
-                                            <div class="wraper-bottom-right valign-wrapper">
-                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" class="more-link valign">
-                                                    <i class="fa fa-ticket"></i>
-                                                    <br /><span class="cost">$47</span>
-                                                </a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

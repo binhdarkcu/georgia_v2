@@ -4569,7 +4569,7 @@ body {
 }
 
 a {
-  color: #3ec9ce;
+  color: #827b5e;
   text-decoration: none;
 }
 
@@ -6196,7 +6196,7 @@ article.page-none .search-form {
   margin-top: 30px;
   font-family: 'Noto Sans', sans-serif;
   font-style: normal;
-  background: #3ec9ce;
+  background: #887554;
 }
 #footer-block .footer-credit {
   text-align: center;
@@ -6476,7 +6476,7 @@ article.page-none .search-form {
   position: relative;
 }
 .tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left {
-  padding: 30px 90px 30px 30px;
+  padding: 30px;
 }
 .tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left h2.tribe-events-list-event-title {
   text-transform: uppercase;
@@ -7521,8 +7521,7 @@ table.tribe-events-tickets td.woocommerce .quantity {
 
 .page-template-page_home_event-php .home-upcoming-events {
   padding: 30px 0 0;
-  background-color: #222;
-  background-image: url(img/event-bg.png);
+  background: #000;
 }
 .page-template-page_home_event-php .home-upcoming-events .upcoming-event-title {
   color: white;
@@ -7532,7 +7531,7 @@ table.tribe-events-tickets td.woocommerce .quantity {
   text-transform: uppercase;
   font-size: 12px;
   margin: 0 0 30px;
-  color: #758182;
+  color: #fff;
   line-height: 12px;
   letter-spacing: 2px;
   font-weight: bold;

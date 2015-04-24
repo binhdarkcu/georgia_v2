@@ -32,7 +32,7 @@
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
                                                 <h2 class="entry-title">
                                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/" title="WordCamp Lyon" rel="bookmark">
-                                                        WordCamp Lyon
+                                                        EVENT IN BRUSSEL
                                                     </a>
                                                 </h2>
                                                 <div class="tribe-events-event-image">
@@ -57,65 +57,46 @@
                                                 </div>
                                                 <div class="tribe-events-cta-btn">
                                                     <a class="btn" href="http://lyon.wordcamp.org/2015">
-                                                        Register Now
+                                                        IK KOM
                                                     </a>
                                                 </div>
                                             </div>
 
 
                                             <div class="tribe-events-meta-group tribe-events-meta-group-details">
-                                                <h3 class="tribe-events-single-section-title"> Details </h3>
                                                 <table>
-
-
                                                     <tr>
-                                                        <th> Date: </th>
+                                                        <th> Datum: </th>
                                                         <td>
                                                             <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05">June 5</abbr>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
-                                                        <th> Time: </th>
+                                                        <th> van-tot: </th>
                                                         <td>
                                                             <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05">8:00 am - 5:00 pm</abbr>
                                                         </td>
                                                     </tr>
-
-
-                                                    <tr>
-                                                        <th> Cost: </th>
-                                                        <td class="tribe-events-event-cost"> $47 </td>
-                                                    </tr>
-
-                                                    <tr><th>Event Category:</th> <td class="tribe-events-event-categories"><a href="http://demo.toko.press/eventica-tecpro/events/category/wordcamp/" rel="tag">WordCamp</a></td></tr>
-                                                    <tr><th>Event Tags:</th><td class="tribe-event-tags"><a href="http://demo.toko.press/eventica-tecpro/tag/wordpress/" rel="tag">wordpress</a></td></tr>
-                                                    <tr>
-                                                        <th> Website: </th>
-                                                        <td class="tribe-events-event-url">
-                                                            <a href="http://lyon.wordcamp.org/2015">
-                                                                Visit Event Website
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-
-
                                                 </table>
                                             </div>
 
+											<div class="tribe-events-meta-group tribe-events-meta-group-details">
+                                                <h4>62 <span>leden komen</span></h4>
+                                            </div>
                                             <div class="tribe-events-meta-group tribe-events-meta-group-venue">
-                                                <h3 class="tribe-events-single-section-title"> Venue </h3>
+                                                <h3 class="tribe-events-single-section-title"> LOKATIE </h3>
                                                 <div class="meta-inner">
 
                                                     <p class="author fn org">
-                                                        Lyon
+                                                        Brussel 2000
                                                     </p>
 
 
                                                     <address class="tribe-events-address">
 
 
-                                                        Lyon,  France
+                                                        Brussel,  Belgie
                                                     </address>
                                                     <p class="location">
                                                         <a href="http://maps.google.com/maps?f=q&#038;source=s_q&#038;hl=en&#038;geocode=&#038;q=Lyon+France" title="Click to view a Google Map">+ Google Map</a>
@@ -128,7 +109,7 @@
 
                                             <div class="tribe-events-meta-group tribe-events-meta-group-schedule">
                                                 <h3 class="tribe-events-single-section-title">
-                                                    Schedule
+                                                    DAG INDELING
                                                 </h3>
                                                 <ul>
                                                     <li class="item">
