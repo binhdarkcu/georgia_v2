@@ -5324,20 +5324,8 @@ button[type="submit"].button.alt:hover,
   padding-left: 10px;
 }
 .blog-list .post-inner .post-summary {
-  position: relative;
-  overflow: hidden;
   line-height: 1.2em;
   height: 3.6em;
-}
-.blog-list .post-inner .post-summary:after {
-  content: "";
-  text-align: right;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30%;
-  height: 1.2em;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%);
 }
 .blog-list .post-inner .post-summary p {
   margin: 0;

@@ -8,8 +8,12 @@
   }
 }
 .header-menu.sf-menu li:hover > a{
+  color: #887554;
+  background: transparent;
+}
+.header-menu.sf-menu li .sub-menu li a:hover{
+  background: #887554;
   color: #fff;
-  background: #827b5e;
 }
 .header-menu.sf-menu li li a{
   background: #1b1a18; 
@@ -34,4 +38,36 @@
 }
 .header-menu.sf-menu > li:last-child a.wordt-lid{
   padding-right: 15px;
+}
+.header-menu.sf-menu li a{
+  font-size: 12px;
+}
+.home-slider-events .slide-event-title a{
+  @include RalewayBold(24px);
+  color: #887554;
+}
+.home-slider-events .slide-event-cta{
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  margin-top: 45px;
+}
+.home-slider-events .slide-event-cta .slide-event-cta-date{
+  .mm{
+    @include NotoSansRegular(14px);
+  }
+  .dd{
+    @include NotoSansBold(60px);
+  }
+  .yy{
+    @include NotoSansBold(16px);
+  }
+}
+.home-slider-events .slide-event-cta .btn{
+  @include NotoSansBold(14px); 
+}
+.home-slider-events{
+   .slide-event-venue-name, .slide-event-venue-address{
+     @include NotoSansBold(12px); 
+     padding-bottom: 5px;
+   }
 }

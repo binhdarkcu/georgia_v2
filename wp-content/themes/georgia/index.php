@@ -20,7 +20,7 @@
 
                                 <div class="featured-event-wrap ">
                                     <div class="featured-event-title">
-                                        <h2>Featured Event</h2>
+                                        <h2>Event in de kijker</h2>
                                     </div>
 
                                     <div id="tribe-events-content" class="tribe-events-single vevent clearfix">
@@ -141,17 +141,17 @@
 
                         <div class="col-md-4 col-md-pull-8">
 
-                            <div class="home-recent-posts">
+                            <div class="home-recent-posts ourgeorgia">
 
                                 <div class="recent-post-wrap">
 
                                     <a class="recent-post-nav" href="http://demo.toko.press/eventica-tecpro/blog/">
-                                        All Posts
+                                        LEES MEER
                                         <i class="fa fa-chevron-right"></i>
                                     </a>
 
                                     <h2 class="recent-post-title">
-                                        Recent Updates
+                                        OVER GEORGIA
                                     </h2>
 
                                     <div class="row">
@@ -162,16 +162,19 @@
                                             <div class="inner-loop">
                                                 <div class="post-thumbnail">
                                                     <a href="http://demo.toko.press/eventica-tecpro/how-to-live-life-free-of-stress-an-interview-with-joe-dimaggio/" title="How To Live Life Free Of Stress An Interview With Joe Dimaggio">
-                                                        <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-33-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 33" />
+                                                        <img width="400" height="200" src="images/home/our-georgia.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 33" />
                                                     </a>
                                                 </div>
 
                                                 <div class="post-inner">
-                                                    <a href="http://demo.toko.press/eventica-tecpro/how-to-live-life-free-of-stress-an-interview-with-joe-dimaggio/" title="How To Live Life Free Of Stress An Interview With Joe Dimaggio" class="post-title"><h2>How To Live Life Free Of Stress An Interview With Joe Dimaggio</h2></a>
-                                                    <div class="post-meta"><time class="post-time" datetime="2013-01-11T20:22:19+00:00">January 11, 2013</time> </div>
-
                                                     <div class="post-summary">
-                                                        <p>Stress! Everyone can relate to that overwhelming feeling. It creeps up on you at work, at home, sometimes even on your vacation. How can one impact this? How can one end the vicious cycle of stress? As a Senior Program Leader for Landmark Education, an international training and development company, I lead courses for hundreds [&hellip;]</p>
+                                                        <p>Georgiaquat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora </p>
+                                                        <p class="pad-bot-25">torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. </p>
+                                                        <p>Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci eni.</p>
+                                                        <p>Bent u geinteresseerd om lid te worden?</p>
+                                                        <a class="btn" href="http://lyon.wordcamp.org/2015">
+	                                                        WORD LID
+	                                                    </a>
                                                     </div>
                                                 </div>
                                             </div>

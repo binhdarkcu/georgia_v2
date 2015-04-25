@@ -1,0 +1,83 @@
+.page-template-page_home_event-php .home-upcoming-events .upcoming-event-title{
+  @include NotoSansBold(12px); 
+}
+.home-upcoming-events .upcoming-event-nav{
+  @include NotoSansBold(12px); 
+  color: #887554;
+}
+.tribe-events-list .tribe-events-event-date {
+  .dd{
+    @include NotoSansBold(24px); 
+    padding-bottom: 4px;
+  }
+  .mm,.yy{
+    @include NotoSansRegular(12px); 
+  }
+}
+
+.tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left h2.tribe-events-list-event-title{
+  @include NotoSansBold(14px); 
+  color: #474747;
+}
+.tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left .author .tribe-events-venue-details, .tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left .author.location .tribe-events-venue-details{
+  @include NotoSansRegular(12px); 
+  color: #887554;
+  padding-bottom: 3px;
+}
+.tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left .author .time-details, .tribe-events-list .event-list-wrapper-bottom .wraper-bottom-left .author.location .time-details{
+  @include NotoSansRegular(12px); 
+  color: #999;
+}
+.blog-list .post-inner .post-summary{
+  height: auto;
+}
+.blog-list .inner-loop{
+  background: #000;
+}
+.home-recent-posts .recent-post-nav, .home-recent-posts .recent-post-title{
+  @include NotoSansBold(12px);
+}
+.home-recent-posts .recent-post-nav{
+  color: #887554;
+  &:hover{
+    color: #fff;
+  }
+}
+.ourgeorgia{
+  .blog-list .post-inner .post-summary p{
+    color: #fff;
+    @include NotoSansRegular(12px); 
+    padding-bottom: 11px;
+    &.pad-bot-25{
+      padding-bottom: 25px;
+    }
+  }
+  a.btn{
+    color: #887554;
+    @include RalewayBold(12px);
+    border: 1px solid #887554;
+    padding: 10px 12px;
+    display: table;
+    margin: 28px auto;
+    &:hover{
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+}
+.home-featured-event .featured-event-title h2{
+   @include NotoSansBold(12px);
+}
+
+#tribe-events-content.tribe-events-single .tribe-events-cta .tribe-events-cta-date{
+   color: #1b1a19;
+  .mm{
+    @include NotoSansBold(12px);
+  }
+  .dd{
+    @include NotoSansBold(60px);
+  }
+  .yy{
+    @include NotoSansBold(18px);
+  }
+}

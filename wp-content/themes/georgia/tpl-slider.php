@@ -6,27 +6,26 @@
                             <div class="slide-event-detail">
                                 <h2 class="slide-event-title">
                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-seattle/" title="WordCamp Seattle" rel="bookmark">
-                                        WordCamp Seattle
+                                        SNACK EVENT
                                     </a>
                                 </h2>
                                 <div class="slide-event-cta">
                                     <div class="slide-event-cta-date">
-                                        <span class="mm">March</span>
+                                        <span class="mm">maart</span>
                                         <span class="dd">28</span>
                                         <span class="yy">2015</span>
                                     </div>
                                     <a class="btn" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-seattle/">
-                                        Detail
+                                        MEER INFO
                                     </a>
                                 </div>
                                 <div class="slide-event-venue">
                                     <div class="slide-event-venue-name">
-                                        Seattle
+                                        Lange wapper
                                     </div>
                                     <div class="slide-event-venue-address">
                                         <span class="adr">
-
-                                            <span class="locality">Seattle</span><span class="delimiter">,</span>  <abbr class="region tribe-events-abbr" title="Washington">WA</abbr> <span class="country-name">United States</span>
+                                            <span class="locality">Antwerpen 2000</span>
                                         </span>
                                     </div>
                                 </div>

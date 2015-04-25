@@ -1,11 +1,35 @@
 $fontArial12: normal 11px/1.2 Arial, Helvetica, sans-serif;
 
-@mixin PressStart2P( $value ) {
-	font-family: 'Press Start 2P', cursive;
-	font-size:$value;
-	line-height:1.1;
-	font-weight:normal;
+@mixin RalewayRegular( $value ) {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size:$value;
+  line-height:1.1;
 }
 
+@mixin RalewayBold( $value ) {
+	font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+	font-size:$value;
+	line-height:1.1;
+}
+
+@mixin NotoSansBold( $value ) {
+  font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size:$value;
+  line-height:1.1;
+}
+  
+@mixin NotoSansRegular( $value ) {
+  font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size:$value;
+  line-height:1.1;
+}
 /*COLOR*/
 $colorBlack:#000;
