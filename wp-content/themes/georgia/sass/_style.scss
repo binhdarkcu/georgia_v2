@@ -56,3 +56,21 @@ a{text-decoration: none;}
     }
   }
 }
+
+.location-box{
+  background: #000;
+  margin-bottom: 22px;
+  .loc-title{
+    padding: 60px 50px 30px 55px;
+  }
+  h3{
+    @include RalewayBold(20px);
+    color: #fff;
+    padding-bottom: 18px;
+  }
+  p{
+     @include NotoSansRegular(12px);
+     color: #fff;
+     line-height: 1.2;
+  }
+}
