@@ -6953,9 +6953,9 @@ article.page-none .search-form {
   margin-bottom: 30px !important;
 }
 .tribe-events-calendar thead th {
-  background: #1cbfc5;
-  border-left: 1px solid #1cbfc5;
-  border-right: 1px solid #1cbfc5;
+  background: #887554;
+  border-left: 1px solid #887554;
+  border-right: 1px solid #887554;
 }
 .tribe-events-calendar td {
   background: #fff;
@@ -6967,7 +6967,7 @@ article.page-none .search-form {
   color: #2e3e40;
 }
 .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-] > a {
-  background: #1cbfc5;
+  background: #887554;
 }
 
 .tribe-events-pagination {

@@ -1,6 +1,32 @@
+#footer-block{
+  padding: 9px 0;
+}
 #footer-block .footer-credit{
   p{
     @include NotoSansRegular(12px);
-    padding-top: 15px;
+    padding-top: 25px;
   }
+}
+#footer-block #footer-menu ul#social-icon{
+  padding-top: 15px;
+   li a{
+     .fa{
+      background: url(../images/social.png) no-repeat;
+      width: 33px;
+      height: 33px;
+      &:before{
+        content: "";
+      }
+      &.fa-twitter{
+        background-position: -39px 0px;
+      }
+      &.fa-google-plus{
+        background-position: -77px 0;
+      }
+      &.fa-linkedin{
+        background-position: right 0;
+      }
+    }
+   }
+  
 }

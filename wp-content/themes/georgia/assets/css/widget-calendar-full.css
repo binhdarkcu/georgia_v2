@@ -37,7 +37,7 @@
 }
 
 .tribe-mini-calendar thead {
-	background: #666666;
+	background: #efefef;
 }
 
 
@@ -66,7 +66,7 @@
 }
 
 .tribe-mini-calendar .tribe-events-has-events:hover a:hover {
-	background: #999;
+	background: #887554;
 }
 
 .tribe-mini-calendar .tribe-events-has-events:hover a,
@@ -83,7 +83,6 @@
 	padding: 5px 5px 15px 5px;
 }
 .tribe-mini-calendar .tribe-events-past {
-	opacity: .6;
 }
 
 .tribe-mini-calendar .tribe-events-has-events.tribe-mini-calendar-today:hover {
@@ -194,7 +193,7 @@
 	width:100%;
 	padding-bottom : 5px;
 	margin-bottom  : 5px;
-	border-bottom  : 1px dotted #2f2f2f;
+	border-bottom  : 1px solid #535251;
 }
 
 .tribe-mini-calendar-right .tribe-mini-calendar-event:last-child {
@@ -214,7 +213,7 @@
 	width: 15%;
 	text-align:center;
 	display: inline;
-	background: #666;
+	background: #887554;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;	

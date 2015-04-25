@@ -1,29 +1,29 @@
 // JavaScript Document
 var SiteMain = (function() {
 	function init(){
-		createRadio();
+		
 	}
 	
-	function createRadio(){
-		$('input.iCheckRadio').iCheck();
+	function createScrollbar(){
+		jQuery('.scrollbar').mCustomScrollbar({
+			theme:"light",
+			scrollButtons:{
+				enable:false
+			}
+		});
 	}
 	
-	function openPopup(idDiv){
-		$('.result_question').css('display','none')
-		$(idDiv).css('display','block');	
-	}
-	function closePopup(idDiv){
-		$(idDiv).css('display','none');
-	}
+	
 	return {
 		init:init,
-		openPopup:openPopup,
-		closePopup:closePopup
-	}
+		createScrollbar:createScrollbar
+	};
 	
 })();		
 
-$(document).ready( function() {
+jQuery(document).ready( function() {
 	SiteMain.init();
 });
-
+jQuery(window).load(function(){
+	SiteMain.createScrollbar();
+});
