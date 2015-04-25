@@ -1,0 +1,6 @@
+#footer-block .footer-credit{
+  p{
+    @include NotoSansRegular(12px);
+    padding-top: 15px;
+  }
+}

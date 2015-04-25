@@ -32,16 +32,14 @@
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
                                                 <h2 class="entry-title">
                                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/" title="WordCamp Lyon" rel="bookmark">
-                                                        EVENT IN BRUSSEL
+                                                        Event in Brussel
                                                     </a>
                                                 </h2>
                                                 <div class="tribe-events-event-image">
-                                                    <img width="929" height="646" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/03/eventica-dummy-image-28.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
+                                                    <img width="929" height="646" src="images/home/e-4.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
-                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                                    <p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                                    <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn�t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                                                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
                                                 </div>
                                             </div>
 
@@ -51,7 +49,7 @@
 
                                             <div class="tribe-events-cta">
                                                 <div class="tribe-events-cta-date">
-                                                    <span class="mm">June</span>
+                                                    <span class="mm">juni</span>
                                                     <span class="dd">05</span>
                                                     <span class="yy">2015</span>
                                                 </div>
@@ -72,7 +70,7 @@
                                                         </td>
                                                     </tr>
 
-                                                    <tr>
+                                                    <tr class="last">
                                                         <th> van-tot: </th>
                                                         <td>
                                                             <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05">8:00 am - 5:00 pm</abbr>
@@ -81,10 +79,63 @@
                                                 </table>
                                             </div>
 
-											<div class="tribe-events-meta-group tribe-events-meta-group-details">
+											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
                                                 <h4>62 <span>leden komen</span></h4>
+                                                <div class="scrollbar">
+                                                	<ul>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-1.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-2.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-1.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-2.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-1.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-2.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-1.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                	<li>
+	                                                		<a href="#">
+	                                                			<img src="images/home/p-2.jpg"/>
+	                                                			<p>Bastien Guggisberg</p>
+	                                                		</a>
+	                                                	</li>
+	                                                </ul>
+	                                                <div class="clear"></div>
+                                                </div>
                                             </div>
-                                            <div class="tribe-events-meta-group tribe-events-meta-group-venue">
+                                            <div class="tribe-events-meta-group tribe-events-meta-group-venue events-location">
                                                 <h3 class="tribe-events-single-section-title"> LOKATIE </h3>
                                                 <div class="meta-inner">
 

@@ -5,7 +5,7 @@
                     <div class="col-md-6">
                         <div class="footer-credit">
                             <p>
-                                &copy; <a href="http://demo.toko.press/eventica-tecpro">Eventica</a> Powered by <a href="http://demo.toko.press/eventica-tecpro">Eventica</a> and <a href="https://wordpress.org/">Wordpress</a>.
+                                &copy;Georgia Business Club 2015
 
                             </p>
                         </div>
