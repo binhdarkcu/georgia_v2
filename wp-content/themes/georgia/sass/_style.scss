@@ -50,5 +50,9 @@ a{text-decoration: none;}
     @include RalewayBold(12px);
     padding: 10px 12px 7px 12px;
     display: table;
+    &:hover{
+      color: #fff;
+      border-color: #fff;
+    }
   }
 }
