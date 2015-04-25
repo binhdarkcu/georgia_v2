@@ -1,3 +1,21 @@
+#primary-menu{
+  position: relative;
+}
+.user-logined{
+  background: #887554;
+  @include RalewayRegular(10px);
+  text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 11px 10px 8px 10px;
+  color: #fff;
+  a{
+    color: #fff;
+    text-decoration: underline;
+    
+  }
+}
 .contact-box{
   padding-top: 60px;
   h3{
