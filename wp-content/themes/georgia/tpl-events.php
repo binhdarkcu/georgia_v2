@@ -316,11 +316,11 @@
                                                     <!-- Left Navigation -->
 
                                                     <li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
-                                                        <a href="http://demo.toko.press/eventica-tecpro/events/list/" rel="prev">Previous Events</a>
+                                                        <a href="http://demo.toko.press/eventica-tecpro/events/list/" rel="prev">VOORBIJE EVENTS</a>
                                                     </li><!-- .tribe-events-nav-left -->
                                                     <!-- Right Navigation -->
                                                     <li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
-                                                        <a href="http://demo.toko.press/eventica-tecpro/events/list/" rel="next">Next Events</a>
+                                                        <a href="http://demo.toko.press/eventica-tecpro/events/list/" rel="next">eerstvolgende EVENTS</a>
                                                     </li><!-- .tribe-events-nav-right -->
                                                 </ul>
                                             </div>

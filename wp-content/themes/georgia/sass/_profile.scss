@@ -1,0 +1,97 @@
+.profilePage{
+  .nav-box{
+    padding-left: 36%;
+    padding-top: 72px;
+    min-height: 820px;
+    background: #000;
+    ul{
+      li{
+        padding-bottom: 12px;
+        a{
+          @include NotoSansBold(20px);
+          color: #333;
+          &:hover, &.current{
+            color: #887554;
+          }
+        }
+      }
+    }
+  }
+  .profileDetail{
+    padding-bottom: 50px;
+    padding-top: 68px;
+    padding-left: 17px;
+    .avatar-member{
+      padding-bottom: 52px;
+      img{
+        float: left;
+        padding-right: 51px;
+      }
+      .profile-name{
+        padding-top: 103px;
+        span{
+          color: #887554;
+          display: block;
+          @include RalewayBold(20px);
+          padding-bottom: 10px;
+        }
+        a.fedit{
+          span{
+             @include NotoSansRegular(12px);
+             padding-bottom: 0;
+             text-decoration: underline;
+          }
+          &:hover{
+            span{
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    a.fedit{
+      background: url(../images/fedit.png) no-repeat left center;
+      padding-left: 18px;
+      span{
+         @include NotoSansRegular(12px);
+         padding-bottom: 0;
+         text-decoration: underline;
+      }
+      &:hover{
+        span{
+          color: #fff;
+        }
+      }
+      &:hover{
+        background: url(../images/fedit-w.png) no-repeat left center;
+        color: #fff;
+      }
+    }
+    .row-f{
+      border-bottom: 1px solid #333;
+      padding-bottom: 13px;
+      margin-bottom: 15px;
+      float: left;
+      .col1{
+        color: #999;
+        @include NotoSansRegular(12px);
+        float: left;
+        width: 200px;
+      }
+      .col2{
+        @include NotoSansBold(12px);
+        color: #fff;
+        float: left;
+        width: 280px;
+        a{
+          &:hover{
+            color: #fff;
+          }
+        }
+      }
+      .col3{
+        float: left;
+      }
+    }
+  }
+}

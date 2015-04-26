@@ -1,0 +1,98 @@
+.popup{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  .overlays{
+    background: #000;
+    opacity: 0.84;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+  }
+  .popup-content{
+    left: 50%;
+    margin-left: -275px;
+    position: absolute;
+    z-index: 102;
+    width: 550px;
+    top: 50%;
+    margin-top: -175px;
+    img{
+      display: table;
+      margin: 0 auto 41px;
+    }
+    .login-form{
+      background: #1b1a19;
+      padding: 0 23px;
+      h4{
+        padding-top: 30px;
+        padding-bottom: 16px;
+        @include NotoSansBold(18px);
+        color: #fff;
+        text-align: center;
+      }
+      a.btn{
+        @include NotoSansBold(14px);
+        color: #887554;
+        border: 2px solid #887554;
+        text-align: center;
+        display: block;
+        margin-top: 2px;
+        &:hover{
+          color: #fff;
+          border-color: #fff;
+        }
+      }
+      input[type="text"], input[type="password"]{
+        width: 100%;
+        height: 26px;
+        border: 1px solid #a6a6a6;
+        @include RalewayRegular(12px);
+      }
+      .l-left{
+        width: 252px;
+        padding-right: 23px;
+        float: left;
+        border-right: 1px solid #000;
+      }
+      p{
+        padding-bottom: 11px;
+      }
+      p.txt{
+        @include NotoSansRegular(12px);
+        color: #fff;
+        padding-top: 20px;
+        padding-bottom: 35px;
+        a{
+          color: #887554;
+          @include RalewayRegular(12px);
+          text-decoration: underline;
+          &:hover{
+            color: #fff;
+          }
+        }
+      }
+      .l-right{
+        width: 252px;
+        float: left;
+        h4{
+          padding-top: 95px;
+        }
+        p.txt{
+          padding-top: 2px;
+          text-align: center;
+          a{
+              display: inline-block;
+            padding-top: 8px;
+          }
+        }
+      }
+    }
+  }
+}

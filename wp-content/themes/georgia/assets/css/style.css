@@ -4769,11 +4769,12 @@ textarea {
   position: relative;
 }
 .pagination .page-numbers a {
-  color: #6a7a7c;
+  color: #887554;
   border: none;
   background: none;
   margin: 0;
   padding: 0;
+   white-space: nowrap;
 }
 .pagination .page-numbers:after {
   content: "/";
@@ -4786,8 +4787,8 @@ textarea {
 .pagination .page-numbers.next {
   font-size: 12px !important;
   float: right !important;
-  padding: 10px 25px 10px 10px;
-  border: 2px solid #6a7a7c;
+  padding: 12px 25px 10px 10px;
+  border: 2px solid #887554;
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
   font-style: normal;
@@ -4801,16 +4802,18 @@ textarea {
   right: 10px;
   font-size: 14px;
   top: 9px;
+  color: #887554;
 }
+
 .pagination .page-numbers.prev {
   font-size: 12px !important;
   float: left !important;
   padding: 10px 10px 10px 25px;
-  border: 2px solid #6a7a7c;
+  border: 2px solid #887554;
   text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   width: auto !important;
 }
 .pagination .page-numbers.prev:before {
@@ -4819,7 +4822,8 @@ textarea {
   position: absolute;
   left: 10px;
   font-size: 14px;
-  top: 9px;
+  top: 12px;
+  color: #887554;
 }
 .pagination .page-numbers.prev:after {
   content: "";
@@ -6374,12 +6378,12 @@ article.page-none .search-form {
   font-size: 12px;
   font-family: 'Raleway', sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   border: none;
 }
 #tribe-events-footer .tribe-events-sub-nav li a, #tribe-events-footer .tribe-events-sub-nav li a:visited, #tribe-events-footer .tribe-events-sub-nav li a:hover {
-  color: #6a7a7c;
+  color: #887554;
 }
 
 .tribe-events-list .tribe-events-loop {
