@@ -15,7 +15,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="UTF-8">
-    <title>Eventica | Event Calendar &amp; eCommerce</title>
+    <title>Georgia Business Club 2015</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?php echo get_bloginfo('template_url')?>/"></base>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png?v=3" />
