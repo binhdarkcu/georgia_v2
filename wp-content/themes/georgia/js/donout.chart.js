@@ -135,7 +135,7 @@
 		var moduleData = [
 		
 			{
-				value: 6.57,
+				value: 1.57,
 				color: colours["Vlaams-Brabant"],
 				highlight: Colour(colours["Vlaams-Brabant"], 10),
 				label: "Vlaams-Brabant"
@@ -163,7 +163,7 @@
 			},
 		
 			{
-				value: 1.64,
+				value: 6.64,
 				color: colours["Namen"],
 				highlight: Colour(colours["Namen"], 10),
 				label: "Namen"

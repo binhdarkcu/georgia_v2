@@ -13,13 +13,13 @@
                                                         <div class="event-list-wrapper-top">
                                                             <div class="tribe-events-event-image">
                                                                 <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-bratislava/" title="WordCamp Bratislava">
-                                                                    <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/01/eventica-dummy-image-23-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 23" />
+                                                                    <img width="400" height="200" src="images/home/e-1.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 23" />
                                                                 </a>
                                                             </div>
 
                                                             <div class="tribe-events-event-date">
-                                                                <span class="dd">18</span>
-                                                                <span class="mm">April</span>
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
                                                                 <span class="yy">2015</span>
                                                             </div>
                                                         </div>
@@ -29,7 +29,7 @@
                                                                 <!-- Event Title -->
                                                                 <h2 class="tribe-events-list-event-title entry-title summary">
                                                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-bratislava/" title="WordCamp Bratislava" rel="bookmark">
-                                                                        WordCamp Bratislava
+                                                                        Sushi TASTING
                                                                     </a>
                                                                 </h2>
 
@@ -39,11 +39,11 @@
 
                                                                         <!-- Venue Display Info -->
                                                                         <div class="tribe-events-venue-details">
-                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/bratislava/">Bratislava</a>
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/bratislava/">Lange wapper, antwerpen 2000</a>
                                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                                         <div class="time-details">
-                                                                            8:00 am - 5:00 pm
+                                                                            8:00 AM- 5:00 PM
                                                                         </div>
 
                                                                     </div>
@@ -62,13 +62,13 @@
                                                         <div class="event-list-wrapper-top">
                                                             <div class="tribe-events-event-image">
                                                                 <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
-                                                                    <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/03/eventica-dummy-image-29-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
+                                                                    <img width="400" height="200" src="images/home/e-2.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
                                                                 </a>
                                                             </div>
 
                                                             <div class="tribe-events-event-date">
-                                                                <span class="dd">18</span>
-                                                                <span class="mm">April</span>
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
                                                                 <span class="yy">2015</span>
                                                             </div>
                                                         </div>
@@ -78,7 +78,7 @@
                                                                 <!-- Event Title -->
                                                                 <h2 class="tribe-events-list-event-title entry-title summary">
                                                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
-                                                                        WordCamp Belgrade
+                                                                        Sushi TASTING
                                                                     </a>
                                                                 </h2>
 
@@ -88,11 +88,11 @@
 
                                                                         <!-- Venue Display Info -->
                                                                         <div class="tribe-events-venue-details">
-                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Belgrade</a>
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
                                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                                         <div class="time-details">
-                                                                            1 day
+                                                                            8:00 AM- 5:00 PM
                                                                         </div>
 
                                                                     </div>
@@ -104,20 +104,20 @@
                                                 </div><!-- .hentry .vevent -->
                                                 <!-- Month / Year Headers -->
                                                 <!-- Event  -->
-                                                <div id="post-2057" class="hentry vevent type-tribe_events post-2057 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2058 col-sm-6">
+                                                <div id="post-2057" class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056 col-sm-6">
 
 
                                                     <div class="even-list-wrapper">
                                                         <div class="event-list-wrapper-top">
                                                             <div class="tribe-events-event-image">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" title="WordCamp Minneapolis">
-                                                                    <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2013/01/eventica-dummy-image-31-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 31" />
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
+                                                                    <img width="400" height="200" src="images/home/e-1.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
                                                                 </a>
                                                             </div>
 
                                                             <div class="tribe-events-event-date">
-                                                                <span class="dd">25</span>
-                                                                <span class="mm">April</span>
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
                                                                 <span class="yy">2015</span>
                                                             </div>
                                                         </div>
@@ -126,8 +126,8 @@
                                                             <div class="wraper-bottom-left">
                                                                 <!-- Event Title -->
                                                                 <h2 class="tribe-events-list-event-title entry-title summary">
-                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" title="WordCamp Minneapolis" rel="bookmark">
-                                                                        WordCamp Minneapolis
+                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
+                                                                        Sushi TASTING
                                                                     </a>
                                                                 </h2>
 
@@ -137,11 +137,59 @@
 
                                                                         <!-- Venue Display Info -->
                                                                         <div class="tribe-events-venue-details">
-                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/minneapolis/">Minneapolis</a>
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
                                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                                         <div class="time-details">
-                                                                            1 day
+                                                                            8:00 AM- 5:00 PM
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div><!-- .tribe-events-event-meta -->
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .hentry .vevent -->
+                                                <!-- Event  -->
+                                                <div id="post-2058" class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056 col-sm-6">
+
+
+                                                    <div class="even-list-wrapper">
+                                                        <div class="event-list-wrapper-top">
+                                                            <div class="tribe-events-event-image">
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
+                                                                    <img width="400" height="200" src="images/home/e-2.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="tribe-events-event-date">
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
+                                                                <span class="yy">2015</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="event-list-wrapper-bottom">
+                                                            <div class="wraper-bottom-left">
+                                                                <!-- Event Title -->
+                                                                <h2 class="tribe-events-list-event-title entry-title summary">
+                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
+                                                                        Sushi TASTING
+                                                                    </a>
+                                                                </h2>
+
+                                                                <!-- Event Meta -->
+                                                                <div class="tribe-events-event-meta vcard">
+                                                                    <div class="author  location">
+
+                                                                        <!-- Venue Display Info -->
+                                                                        <div class="tribe-events-venue-details">
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
+                                                                        </div> <!-- .tribe-events-venue-details -->
+
+                                                                        <div class="time-details">
+                                                                            8:00 AM- 5:00 PM
                                                                         </div>
 
                                                                     </div>
@@ -154,20 +202,20 @@
                                                 <!-- Month / Year Headers -->
                                                 <span class='tribe-events-list-separator-month'><span>June 2015</span></span>
                                                 <!-- Event  -->
-                                                <div id="post-2059" class="hentry vevent type-tribe_events post-2059 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2060 col-sm-6">
+                                                <div id="post-2059" class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056 col-sm-6">
 
 
                                                     <div class="even-list-wrapper">
                                                         <div class="event-list-wrapper-top">
                                                             <div class="tribe-events-event-image">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/" title="WordCamp Lyon">
-                                                                    <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2012/03/eventica-dummy-image-28-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 28" />
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
+                                                                    <img width="400" height="200" src="images/home/e-1.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
                                                                 </a>
                                                             </div>
 
                                                             <div class="tribe-events-event-date">
-                                                                <span class="dd">05</span>
-                                                                <span class="mm">June</span>
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
                                                                 <span class="yy">2015</span>
                                                             </div>
                                                         </div>
@@ -176,8 +224,8 @@
                                                             <div class="wraper-bottom-left">
                                                                 <!-- Event Title -->
                                                                 <h2 class="tribe-events-list-event-title entry-title summary">
-                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/" title="WordCamp Lyon" rel="bookmark">
-                                                                        WordCamp Lyon
+                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
+                                                                        Sushi TASTING
                                                                     </a>
                                                                 </h2>
 
@@ -187,11 +235,11 @@
 
                                                                         <!-- Venue Display Info -->
                                                                         <div class="tribe-events-venue-details">
-                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/lyon/">Lyon</a>
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
                                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                                         <div class="time-details">
-                                                                            8:00 am - 5:00 pm
+                                                                            8:00 AM- 5:00 PM
                                                                         </div>
 
                                                                     </div>
@@ -203,20 +251,20 @@
                                                 </div><!-- .hentry .vevent -->
                                                 <!-- Month / Year Headers -->
                                                 <!-- Event  -->
-                                                <div id="post-2061" class="hentry vevent type-tribe_events post-2061 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2062 tribe-events-organizer-2080 col-sm-6">
+                                                <div id="post-2060" class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056 col-sm-6">
 
 
                                                     <div class="even-list-wrapper">
                                                         <div class="event-list-wrapper-top">
                                                             <div class="tribe-events-event-image">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-cologne/" title="WordCamp Cologne">
-                                                                    <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2009/07/eventica-dummy-image-11-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 11" />
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
+                                                                    <img width="400" height="200" src="images/home/e-2.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
                                                                 </a>
                                                             </div>
 
                                                             <div class="tribe-events-event-date">
-                                                                <span class="dd">06</span>
-                                                                <span class="mm">June</span>
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
                                                                 <span class="yy">2015</span>
                                                             </div>
                                                         </div>
@@ -225,8 +273,8 @@
                                                             <div class="wraper-bottom-left">
                                                                 <!-- Event Title -->
                                                                 <h2 class="tribe-events-list-event-title entry-title summary">
-                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-cologne/" title="WordCamp Cologne" rel="bookmark">
-                                                                        WordCamp Cologne
+                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
+                                                                        Sushi TASTING
                                                                     </a>
                                                                 </h2>
 
@@ -236,11 +284,11 @@
 
                                                                         <!-- Venue Display Info -->
                                                                         <div class="tribe-events-venue-details">
-                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/cologne/">Cologne</a>
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
                                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                                         <div class="time-details">
-                                                                            1 day
+                                                                            8:00 AM- 5:00 PM
                                                                         </div>
 
                                                                     </div>
@@ -252,20 +300,20 @@
                                                 </div><!-- .hentry .vevent -->
                                                 <!-- Month / Year Headers -->
                                                 <!-- Event  -->
-                                                <div id="post-2063" class="hentry vevent type-tribe_events post-2063 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2064 tribe-events-last col-sm-6">
+                                                <div id="post-2065" class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056 col-sm-6">
 
 
                                                     <div class="even-list-wrapper">
                                                         <div class="event-list-wrapper-top">
                                                             <div class="tribe-events-event-image">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-orange-county/" title="WordCamp Orange County">
-                                                                    <img width="400" height="200" src="http://demo.toko.press/eventica-tecpro/wp-content/uploads/2015/01/eventica-dummy-image-04-400x200.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 04" />
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
+                                                                    <img width="400" height="200" src="images/home/e-1.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
                                                                 </a>
                                                             </div>
 
                                                             <div class="tribe-events-event-date">
-                                                                <span class="dd">06</span>
-                                                                <span class="mm">June</span>
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
                                                                 <span class="yy">2015</span>
                                                             </div>
                                                         </div>
@@ -274,8 +322,8 @@
                                                             <div class="wraper-bottom-left">
                                                                 <!-- Event Title -->
                                                                 <h2 class="tribe-events-list-event-title entry-title summary">
-                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-orange-county/" title="WordCamp Orange County" rel="bookmark">
-                                                                        WordCamp Orange County
+                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
+                                                                        Sushi TASTING
                                                                     </a>
                                                                 </h2>
 
@@ -285,11 +333,11 @@
 
                                                                         <!-- Venue Display Info -->
                                                                         <div class="tribe-events-venue-details">
-                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/orange-county/">Orange County</a>
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
                                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                                         <div class="time-details">
-                                                                            1 day
+                                                                            8:00 AM- 5:00 PM
                                                                         </div>
 
                                                                     </div>
@@ -299,7 +347,53 @@
                                                         </div>
                                                     </div>
                                                 </div><!-- .hentry .vevent -->
+												<div id="post-2067" class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056 col-sm-6">
 
+
+                                                    <div class="even-list-wrapper">
+                                                        <div class="event-list-wrapper-top">
+                                                            <div class="tribe-events-event-image">
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade">
+                                                                    <img width="400" height="200" src="images/home/e-2.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 29" />
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="tribe-events-event-date">
+                                                                <span class="dd">20</span>
+                                                                <span class="mm">maart</span>
+                                                                <span class="yy">2015</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="event-list-wrapper-bottom">
+                                                            <div class="wraper-bottom-left">
+                                                                <!-- Event Title -->
+                                                                <h2 class="tribe-events-list-event-title entry-title summary">
+                                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
+                                                                        Sushi TASTING
+                                                                    </a>
+                                                                </h2>
+
+                                                                <!-- Event Meta -->
+                                                                <div class="tribe-events-event-meta vcard">
+                                                                    <div class="author  location">
+
+                                                                        <!-- Venue Display Info -->
+                                                                        <div class="tribe-events-venue-details">
+                                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
+                                                                        </div> <!-- .tribe-events-venue-details -->
+
+                                                                        <div class="time-details">
+                                                                            8:00 AM- 5:00 PM
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div><!-- .tribe-events-event-meta -->
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .hentry .vevent -->
 
 
                                             </div>

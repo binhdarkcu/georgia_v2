@@ -315,7 +315,28 @@
                                         	</div>
                                         </div>
                                         <div class="ledenOrg" style="margin-top: 12px;">
-                                        	<img src="images/leden-bottom.jpg" width="100%"/>
+                                        	<div class="home-featured-event">
+                                        		<div class="featured-event-title">
+			                                        <h2>FIRMA’S/ORGANISATIES</h2>
+			                                    </div>
+                                        	</div>
+                                        	<div class="leden-logo">
+                                        		<ul>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-1.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-2.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-3.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-4.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-5.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-6.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-6.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-5.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-4.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-3.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-2.jpg"/></a></li>
+                                        			<li><a href="#" target="_blank"><img src="images/leden/l-1.jpg"/></a></li>
+                                        		</ul>
+                                        		<div class="clear"></div>
+                                        	</div>
                                         </div>
                                     </div><!-- #tribe-events-content -->
 
@@ -343,3 +364,4 @@
         </div>
 
 <?php get_footer();?>
+<script type='text/javascript' src='js/donout.chart.js'></script>

@@ -538,11 +538,11 @@
 
                 <ul class="tribe-events-sub-nav">
                     <li class="prev page-numbers tribe-events-nav-previous">
-                        <a data-month="2015-03" href="http://demo.toko.press/eventica-tecpro/events/2015-03/" rel="prev"><span>&laquo;</span> March </a>
+                        <a data-month="2015-03" href="http://demo.toko.press/eventica-tecpro/events/2015-03/" rel="prev"><span>&laquo;</span> FEBRUARI </a>
                     </li>
                     <!-- .tribe-events-nav-previous -->
                     <li class="next page-numbers tribe-events-nav-next">
-                        <a data-month="2015-05" href="http://demo.toko.press/eventica-tecpro/events/2015-05/" rel="next">May <span>&raquo;</span></a>
+                        <a data-month="2015-05" href="http://demo.toko.press/eventica-tecpro/events/2015-05/" rel="next">APRIL <span>&raquo;</span></a>
                     </li>
                     <!-- .tribe-events-nav-next -->
                 </ul><!-- .tribe-events-sub-nav -->

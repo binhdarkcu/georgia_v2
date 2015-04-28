@@ -8,12 +8,18 @@
     @include RalewayBold(48px);
   }
 }
+.tribe-events-calendar thead th{
+  @include NotoSansBold(14px);
+}
 .tribe-events-page-title-wrap{
   background: #000;
   h2.tribe-events-page-title{
     color: #fff;
     @include NotoSansBold(24px);
   }
+}
+#sidebar .list-info h2.entry-title{
+  color: #887554;
 }
 .tribe-events-list .tribe-events-loop .tribe-events-list-separator-month, .tribe-events-list .tribe-events-loop .tribe-events-day-time-slot h5{
   background: #887554;

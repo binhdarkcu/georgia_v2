@@ -1,7 +1,7 @@
 <div class="home-upcoming-events clearfix">
                 <div class="container">
 
-                    <a class="upcoming-event-nav" href="http://demo.toko.press/eventica-tecpro/events/">
+                    <a class="upcoming-event-nav" href="<?php echo bloginfo('home')?>/events">
                         ALLE EVENTS
                         <i class="fa fa-chevron-right"></i>
                     </a>
@@ -28,7 +28,7 @@
                                             </div>
 
                                             <div class="tribe-events-event-date">
-                                                <span class="dd">18</span>
+                                                <span class="dd">20</span>
                                                 <span class="mm">maart</span>
                                                 <span class="yy">2015</span>
                                             </div>
@@ -77,7 +77,7 @@
                                             </div>
 
                                             <div class="tribe-events-event-date">
-                                                <span class="dd">18</span>
+                                                <span class="dd">22</span>
                                                 <span class="mm">maart</span>
                                                 <span class="yy">2015</span>
                                             </div>
@@ -88,7 +88,7 @@
                                                 <!-- Event Title -->
                                                 <h2 class="tribe-events-list-event-title entry-title summary">
                                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" title="WordCamp Belgrade" rel="bookmark">
-                                                        WordCamp Belgrade
+                                                        BEER TASTING SOCIAL EVENT
                                                     </a>
                                                 </h2>
 
@@ -98,11 +98,11 @@
 
                                                         <!-- Venue Display Info -->
                                                         <div class="tribe-events-venue-details">
-                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Belgrade</a>
+                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/belgrade/">Lange wapper, antwerpen 2000</a>
                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                         <div class="time-details">
-                                                            1 day
+                                                            8:00 AM- 5:00 PM
                                                         </div>
 
                                                     </div>
@@ -126,7 +126,7 @@
                                             </div>
 
                                             <div class="tribe-events-event-date">
-                                                <span class="dd">25</span>
+                                                <span class="dd">26</span>
                                                 <span class="mm">maart</span>
                                                 <span class="yy">2015</span>
                                             </div>
@@ -137,7 +137,7 @@
                                                 <!-- Event Title -->
                                                 <h2 class="tribe-events-list-event-title entry-title summary">
                                                     <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" title="WordCamp Minneapolis" rel="bookmark">
-                                                        WordCamp Minneapolis
+                                                        DINEREN
                                                     </a>
                                                 </h2>
 
@@ -147,11 +147,11 @@
 
                                                         <!-- Venue Display Info -->
                                                         <div class="tribe-events-venue-details">
-                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/minneapolis/">Minneapolis</a>
+                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/minneapolis/">Lange wapper, antwerpen 2000</a>
                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                         <div class="time-details">
-                                                            1 day
+                                                            8:00 AM- 5:00 PM
                                                         </div>
 
                                                     </div>

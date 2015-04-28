@@ -373,24 +373,24 @@
 
 
                                                 <!-- Event  -->
-                                                <div class="hentry vevent type-tribe_events post-2053 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2054 tribe-events-first">
+                                                <div class="hentry vevent type-tribe_events post-2055 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2056">
 
-                                                    <div class="tribe-mini-calendar-event event-0">
+                                                    <div class="tribe-mini-calendar-event event-1 first ">
                                                         <div class="list-date">
-                                                            <span class="list-dayname">Sat</span>
-                                                            <span class="list-daynumber">18</span>
+                                                            <span class="list-dayname">FRI</span>
+                                                            <span class="list-daynumber">20</span>
                                                         </div>
 
                                                         <div class="list-info">
 
                                                             <h2 class="entry-title summary">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-bratislava/" rel="bookmark">WordCamp Bratislava</a>
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" rel="bookmark">Event name here</a>
                                                             </h2>
 
 
 
                                                             <div class="duration">
-                                                                <span class="date-start dtstart">April 18 @ 8:00 am<span class="value-title" title="2015-04-18UTC08:00"></span></span> - <span class="end-time dtend">5:00 pm<span class="value-title" title="2015-04-18UTC05:00"></span></span>
+                                                                <span class="date-start dtstart">Maart 20 @ 8:00 am<span class="value-title" title="2015-04-18UTC08:00"></span></span> - <span class="date-end dtend">Maart 20 @ 5:00 pm<span class="value-title" title="2015-04-19UTC05:00"></span></span>
                                                             </div>
 
 
@@ -415,20 +415,20 @@
 
                                                     <div class="tribe-mini-calendar-event event-1 first ">
                                                         <div class="list-date">
-                                                            <span class="list-dayname">Sat</span>
-                                                            <span class="list-daynumber">18</span>
+                                                            <span class="list-dayname">FRI</span>
+                                                            <span class="list-daynumber">20</span>
                                                         </div>
 
                                                         <div class="list-info">
 
                                                             <h2 class="entry-title summary">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" rel="bookmark">WordCamp Belgrade</a>
+                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-belgrade/" rel="bookmark">Event name here</a>
                                                             </h2>
 
 
 
                                                             <div class="duration">
-                                                                <span class="date-start dtstart">April 18 @ 8:00 am<span class="value-title" title="2015-04-18UTC08:00"></span></span> - <span class="date-end dtend">April 19 @ 5:00 pm<span class="value-title" title="2015-04-19UTC05:00"></span></span>
+                                                                <span class="date-start dtstart">Maart 20 @ 8:00 am<span class="value-title" title="2015-04-18UTC08:00"></span></span> - <span class="date-end dtend">Maart 20 @ 5:00 pm<span class="value-title" title="2015-04-19UTC05:00"></span></span>
                                                             </div>
 
 
@@ -448,44 +448,7 @@
                                                         </div> <!-- .list-info -->
                                                     </div>
                                                 </div><!-- .hentry .vevent -->
-                                                <!-- Event  -->
-                                                <div class="hentry vevent type-tribe_events post-2057 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2058 tribe-events-last">
-
-                                                    <div class="tribe-mini-calendar-event event-2 last ">
-                                                        <div class="list-date">
-                                                            <span class="list-dayname">Sat</span>
-                                                            <span class="list-daynumber">25</span>
-                                                        </div>
-
-                                                        <div class="list-info">
-
-                                                            <h2 class="entry-title summary">
-                                                                <a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" rel="bookmark">WordCamp Minneapolis</a>
-                                                            </h2>
-
-
-
-                                                            <div class="duration">
-                                                                <span class="date-start dtstart">April 25 @ 8:00 am<span class="value-title" title="2015-04-25UTC08:00"></span></span> - <span class="date-end dtend">April 26 @ 5:00 pm<span class="value-title" title="2015-04-26UTC05:00"></span></span>
-                                                            </div>
-
-
-                                                            <div class="vcard adr location">
-
-
-
-
-
-
-
-
-
-                                                            </div> <!-- .vcard.adr.location -->
-
-
-                                                        </div> <!-- .list-info -->
-                                                    </div>
-                                                </div><!-- .hentry .vevent -->
+                                               
 
 
                                             </div><!-- .tribe-events-loop -->

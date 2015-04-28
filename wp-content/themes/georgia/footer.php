@@ -19,7 +19,7 @@
     <script type='text/javascript' src='js/mcustomscrollbar/jquery.mCustomScrollbar.js'></script>
     <link type="text/css" rel='stylesheet' href="js/mcustomscrollbar/jquery.mCustomScrollbar.css"/>
     <script type='text/javascript' src='js/Chart.js'></script>
-    <script type='text/javascript' src='js/donout.chart.js'></script>
+    
     <script type='text/javascript' src='js/class.SiteMain.js'></script>
     <?php get_template_part('tpl','login')?>
 </body>

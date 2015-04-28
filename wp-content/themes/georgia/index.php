@@ -3,7 +3,7 @@
     <div id="site-container" class="site-container sb-site-container">
         <?php get_template_part('tpl','menu');?>
         <?php get_template_part('tpl','slider');?>
-
+		<?php $isLogin = ($_GET['islogin'] == 1)? "1":"0";?>
         <div id="main-content" class="home-plus-events">
 
             <?php get_template_part('tpl','comming-events')?>
@@ -53,11 +53,13 @@
                                                     <span class="dd">05</span>
                                                     <span class="yy">2015</span>
                                                 </div>
+                                                <?php if($isLogin == 1){ ?>
                                                 <div class="tribe-events-cta-btn">
                                                     <a class="btn" href="http://lyon.wordcamp.org/2015">
                                                         IK KOM
                                                     </a>
                                                 </div>
+                                                <?php }?>
                                             </div>
 
 
@@ -81,6 +83,7 @@
 
 											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
                                                 <h4>62 <span>leden komen</span></h4>
+                                                <?php if($isLogin == 1){ ?>
                                                 <div class="scrollbar">
                                                 	<ul>
 	                                                	<li>
@@ -134,6 +137,7 @@
 	                                                </ul>
 	                                                <div class="clear"></div>
                                                 </div>
+                                                <?php }?>
                                             </div>
                                             <div class="tribe-events-meta-group tribe-events-meta-group-venue events-location">
                                                 <h3 class="tribe-events-single-section-title"> LOKATIE </h3>
@@ -160,7 +164,7 @@
 
                                             <div class="tribe-events-meta-group tribe-events-meta-group-schedule">
                                                 <h3 class="tribe-events-single-section-title">
-                                                    DAG INDELING
+                                                    DAGINDELING
                                                 </h3>
                                                 <ul>
                                                     <li class="item">
@@ -191,7 +195,8 @@
                         </div>
 
                         <div class="col-md-4 col-md-pull-8">
-
+                        	
+							<?php if($isLogin != 1){ ?> 
                             <div class="home-recent-posts ourgeorgia">
 
                                 <div class="recent-post-wrap">
@@ -236,6 +241,82 @@
                                 </div>
 
                             </div>
+                            <?php } else{ ?>
+                            	<div class="lastestPhoto">
+                            		<div class="home-featured-event">
+                            			<div class="featured-event-title">
+	                                        <h2>LAATSTE FOTO’S</h2>
+	                                    </div>
+                            		</div>
+                            		<div class="lastestList">
+                            			<ul>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-1.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-2.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-3.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-4.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-5.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-6.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-7.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-8.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-9.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-1.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-2.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-3.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-4.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-5.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-6.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-7.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-8.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-9.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-7.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-8.jpg"/></a>
+                            				</li>
+                            				<li>
+                            					<a href="#"><img src="images/home/photo-9.jpg"/></a>
+                            				</li>
+                            			</ul>
+                            		</div>
+                            	</div>
+                            <?php }?>
                         </div>
 
                     </div>

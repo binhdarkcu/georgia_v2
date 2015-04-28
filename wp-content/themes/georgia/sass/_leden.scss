@@ -104,6 +104,14 @@
         a{
           color: #887554;
           text-decoration: underline;
+          &.fa-linkedin{
+            background: url(../images/likedin.png) no-repeat;
+            width: 20px;
+            height: 20px;
+            &:before{
+              content: "";
+            }
+          }
         }
         .col1{
           
@@ -150,6 +158,27 @@
       }
       .col6{
         width: 140px; 
+      }
+    }
+  }
+  .ledenOrg{
+    .home-featured-event{
+      margin-bottom: 0;
+    }
+    .leden-logo{
+      padding-top: 30px;
+      padding-left: 18px;
+      background: #000;
+      padding-bottom: 19px;
+      ul{
+          display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        li{
+          display: inline-block;
+          margin-right: 9px;
+          margin-bottom: 11px;
+        }
       }
     }
   }

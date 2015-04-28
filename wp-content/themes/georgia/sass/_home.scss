@@ -55,7 +55,7 @@
   a.btn{
     color: #887554;
     @include RalewayBold(12px);
-    border: 1px solid #887554;
+    border: 2px solid #887554;
     padding: 10px 12px;
     display: table;
     margin: 28px auto;
@@ -84,7 +84,7 @@
 #tribe-events-content.tribe-events-single .tribe-events-cta .btn{
   @include NotoSansBold(14px);
   color: #887554;
-  border: 1px solid #887554;
+  border: 2px solid #887554;
   &:hover{
     background: transparent;
     color: #887554;
@@ -215,5 +215,29 @@
     @include NotoSansRegular(12px);
     color: #887554;
     line-height: 1.2; 
+  }
+}
+
+.lastestPhoto{
+  .home-featured-event{
+    margin-bottom: 0;
+    .featured-event-title{
+      padding-bottom: 23px; 
+    }
+  }
+  .lastestList{
+    background: #000;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    ul{
+        display: table-cell;
+        margin: 0 auto;
+        text-align: center;
+      li{
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
   }
 }

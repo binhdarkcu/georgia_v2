@@ -10,12 +10,17 @@
 .header-menu.sf-menu li{
   &.current-menu-item > a, &.current_page_item > a{
      color: #887554;
-  background: transparent;
+  }
+  a.sf-with-ul{
+    background: transparent;
   }
 }
 .header-menu.sf-menu li:hover > a{
   color: #887554;
   background: transparent;
+}
+.sf-menu li.clslogout{
+  display: none;
 }
 .header-menu.sf-menu li .sub-menu li a:hover{
   background: #887554;
@@ -23,6 +28,17 @@
 }
 .header-menu.sf-menu li li a{
   background: #1b1a18; 
+}
+.primary-menu .user-logined{
+  display: none;
+}
+.primary-menu.loggedin {
+  .user-logined, .clslogout{
+    display: block;
+  }
+  .clslogin, .wordt-lid{
+    display: none;
+  }
 }
 .site-branding{
  background: #000; 
@@ -37,9 +53,12 @@
 }
 
 .sf-menu li.wordt-lid a{
-  border: 1px solid #fff;
+  border: 2px solid #827b5e;
+  color: #827b5e;
+    line-height: 36px;
   &:hover{
-    border-color: #827b5e;
+    border-color: #fff;
+    color: #fff;
   }
 }
 .header-menu.sf-menu > li.wordt-lid a{
