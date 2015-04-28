@@ -15,6 +15,7 @@
     padding-top: 35px;
     padding-bottom: 85px;
      background: #000;
+     margin-top: 11px;
      h3{
        @include RalewayLight(16px);
        color: #fff;
@@ -37,6 +38,119 @@
       position: relative;
       top: 20px;
         left: 35px;
+    }
+  }
+  #tribe-events-content{
+    .ledenList{
+      margin-top: 12px;
+      background: #fff;
+      .pad{
+        padding: 40px 36px 40px 55px;
+      }
+      .divtitle{
+        float: left;
+        width: 100%;
+        .col{
+          color: #887554;
+          @include RalewayBold(14px);
+          text-transform: uppercase;
+          &.col1{
+            
+          }
+          &.col2{
+            
+          }
+          &.col3{
+            
+          }
+          &.col4{
+            
+          }
+          &.col5{
+            
+          }
+          &.col6{
+            
+          }
+        }
+      }
+      .scrollbar{
+        padding-top: 38px;
+        float: left;
+        width: 100%;
+        position: relative;
+        height: 925px;
+        .mCSB_scrollTools .mCSB_draggerRail{
+          width: 9px;
+          background: #d9d9d9;
+          border-radius: 4px; 
+        }
+        .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+          background: #828282;
+          width: 9px;
+        }
+        .mCSB_scrollTools{
+          right: 0;  
+        }
+      }
+      .divrow{
+        @include RalewayRegular(12px);
+        color: #333;
+        float: left;
+        width: 726px;
+        border-bottom: 1px solid #e9eaed;
+        padding-bottom: 7px;
+        margin-bottom: 7px;
+        a{
+          color: #887554;
+          text-decoration: underline;
+        }
+        .col1{
+          
+        }
+        .col2{
+          @include RalewayBold(12px);
+        }
+        .col3{
+          
+        }
+        .col4{
+          
+        }
+        .col5{
+          
+        }
+        .col6{
+          
+        }
+      }
+      .col{
+        float: left;
+      }
+      div.middle{
+         height: 45px;
+        vertical-align: middle;
+        float: none;
+        display: table-cell;
+      }
+      .col1{
+         width: 80px;
+      }
+      .col2{
+         width: 165px;
+      }
+      .col3{
+        width: 55px;
+      }
+      .col4{
+        width: 142px;  
+      }
+      .col5{
+        width: 142px; 
+      }
+      .col6{
+        width: 140px; 
+      }
     }
   }
 }

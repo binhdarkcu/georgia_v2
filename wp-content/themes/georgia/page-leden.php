@@ -59,7 +59,264 @@
                                         	</div>
                                         	<div class="clear"></div>
                                         </div>
-                                        
+                                        <div class="ledenList">
+                                        	<div class="pad">
+                                        		<div class="divtitle">
+                                        			<div class="col col1">&nbsp;</div>
+	                                        		<div class="col col2">NAAM</div>
+	                                        		<div class="col col3">&nbsp;</div>
+	                                        		<div class="col col4">BEROEP</div>
+	                                        		<div class="col col5">BEDRIJF</div>
+	                                        		<div class="col col6">REGIO</div>
+	                                        	</div>
+	                                        	<div class="scrollbar">
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-1.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        		<div class="divrow">
+	                                        			<div class="col col1">
+	                                        				<img src="images/home/p-2.jpg"/>
+	                                        			</div>
+	                                        			<div class="col col2"><div class="middle">Jurgen Van Grieken</div></div>
+	                                        			<div class="col col3"><div class="middle"><a href="#" class="fa fa-linkedin"></a></div></div>
+	                                        			<div class="col col4"><div class="middle">Aannemer</div></div>
+	                                        			<div class="col col5"><div class="middle"><a href="#">Comacon</a></div></div>
+	                                        			<div class="col col6"><div class="middle">Antwerpen</div></div>
+	                                        		</div>
+	                                        	</div>
+	                                        	<div class="clear"></div>
+                                        	</div>
+                                        </div>
+                                        <div class="ledenOrg" style="margin-top: 12px;">
+                                        	<img src="images/leden-bottom.jpg" width="100%"/>
+                                        </div>
                                     </div><!-- #tribe-events-content -->
 
                                     <div class="tribe-clear"></div>
