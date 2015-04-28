@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 28, 2015 at 04:40 PM
+-- Generation Time: Apr 28, 2015 at 04:53 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -591,7 +591,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (306, 58, '_menu_item_object_id', '58'),
 (307, 58, '_menu_item_object', 'custom'),
 (308, 58, '_menu_item_target', ''),
-(309, 58, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(309, 58, '_menu_item_classes', 'a:1:{i:0;s:8:"clslogin";}'),
 (310, 58, '_menu_item_xfn', ''),
 (311, 58, '_menu_item_url', '#'),
 (313, 59, '_edit_last', '1'),
@@ -696,7 +696,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (31, 1, '2015-04-26 09:34:23', '2015-04-26 09:34:23', '', 'profile', '', 'inherit', 'open', 'open', '', '30-revision-v1', '', '', '2015-04-26 09:34:23', '2015-04-26 09:34:23', '', 30, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/30-revision-v1/', 0, 'revision', '', 0),
 (32, 1, '2015-04-26 12:01:34', '2015-04-26 12:01:34', '', 'Profile professional', '', 'publish', 'open', 'open', '', 'profile-professional', '', '', '2015-04-26 12:01:34', '2015-04-26 12:01:34', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?page_id=32', 0, 'page', '', 0),
 (33, 1, '2015-04-26 12:01:34', '2015-04-26 12:01:34', '', 'Profile professional', '', 'inherit', 'open', 'open', '', '32-revision-v1', '', '', '2015-04-26 12:01:34', '2015-04-26 12:01:34', '', 32, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/32-revision-v1/', 0, 'revision', '', 0),
-(34, 1, '2015-04-27 09:27:02', '2015-04-27 09:27:02', '', 'Home', '', 'publish', 'open', 'open', '', 'home', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=34', 1, 'nav_menu_item', '', 0),
+(34, 1, '2015-04-27 09:27:02', '2015-04-27 09:27:02', '', 'Home', '', 'publish', 'open', 'open', '', 'home', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=34', 1, 'nav_menu_item', '', 0),
 (35, 1, '2015-04-27 09:27:56', '2015-04-27 09:27:56', '', 'Over ons', '', 'inherit', 'open', 'open', '', '24-revision-v1', '', '', '2015-04-27 09:27:56', '2015-04-27 09:27:56', '', 24, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/24-revision-v1/', 0, 'revision', '', 0),
 (36, 1, '2015-04-27 09:28:08', '2015-04-27 09:28:08', '', 'Events', '', 'inherit', 'open', 'open', '', '20-revision-v1', '', '', '2015-04-27 09:28:08', '2015-04-27 09:28:08', '', 20, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/20-revision-v1/', 0, 'revision', '', 0),
 (37, 1, '2015-04-27 09:29:15', '2015-04-27 09:29:15', '', 'Events calendar', '', 'inherit', 'open', 'open', '', '22-autosave-v1', '', '', '2015-04-27 09:29:15', '2015-04-27 09:29:15', '', 22, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/22-autosave-v1/', 0, 'revision', '', 0),
@@ -712,20 +712,20 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (47, 1, '2015-04-27 09:37:16', '2015-04-27 09:37:16', '', 'LOKATIES', '', 'inherit', 'open', 'open', '', '26-revision-v1', '', '', '2015-04-27 09:37:16', '2015-04-27 09:37:16', '', 26, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/26-revision-v1/', 0, 'revision', '', 0),
 (48, 1, '2015-04-27 09:38:06', '2015-04-27 09:38:06', '', 'CONTACT', '', 'inherit', 'open', 'open', '', '28-revision-v1', '', '', '2015-04-27 09:38:06', '2015-04-27 09:38:06', '', 28, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/28-revision-v1/', 0, 'revision', '', 0),
 (49, 1, '2015-04-27 09:38:11', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2015-04-27 09:38:11', '0000-00-00 00:00:00', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?page_id=49', 0, 'page', '', 0),
-(50, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '50', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=50', 2, 'nav_menu_item', '', 0),
-(51, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '51', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=51', 3, 'nav_menu_item', '', 0),
-(52, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '52', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=52', 4, 'nav_menu_item', '', 0),
-(55, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '55', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=55', 7, 'nav_menu_item', '', 0),
-(56, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '56', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=56', 8, 'nav_menu_item', '', 0),
-(57, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '57', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=57', 9, 'nav_menu_item', '', 0),
-(58, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', '', 'LOGIN', '', 'publish', 'open', 'open', '', 'login', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=58', 10, 'nav_menu_item', '', 0),
+(50, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '50', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=50', 2, 'nav_menu_item', '', 0),
+(51, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '51', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=51', 3, 'nav_menu_item', '', 0),
+(52, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '52', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=52', 4, 'nav_menu_item', '', 0),
+(55, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '55', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=55', 7, 'nav_menu_item', '', 0),
+(56, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '56', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=56', 8, 'nav_menu_item', '', 0),
+(57, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', ' ', '', '', 'publish', 'open', 'open', '', '57', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=57', 9, 'nav_menu_item', '', 0),
+(58, 1, '2015-04-27 09:39:54', '2015-04-27 09:39:54', '', 'LOGIN', '', 'publish', 'open', 'open', '', 'login', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=58', 10, 'nav_menu_item', '', 0),
 (59, 1, '2015-04-27 09:41:12', '2015-04-27 09:41:12', '', 'WORDT LID', '', 'publish', 'open', 'open', '', 'wordt-lid', '', '', '2015-04-27 09:41:12', '2015-04-27 09:41:12', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?page_id=59', 0, 'page', '', 0),
 (60, 1, '2015-04-27 09:41:12', '2015-04-27 09:41:12', '', 'WORDT LID', '', 'inherit', 'open', 'open', '', '59-revision-v1', '', '', '2015-04-27 09:41:12', '2015-04-27 09:41:12', '', 59, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/59-revision-v1/', 0, 'revision', '', 0),
-(61, 1, '2015-04-27 09:41:45', '2015-04-27 09:41:45', ' ', '', '', 'publish', 'open', 'open', '', '61', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=61', 11, 'nav_menu_item', '', 0),
+(61, 1, '2015-04-27 09:41:45', '2015-04-27 09:41:45', ' ', '', '', 'publish', 'open', 'open', '', '61', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=61', 11, 'nav_menu_item', '', 0),
 (62, 1, '2015-04-28 07:03:04', '2015-04-28 07:03:04', '', 'OP DE KALENDER', '', 'inherit', 'open', 'open', '', '39-autosave-v1', '', '', '2015-04-28 07:03:04', '2015-04-28 07:03:04', '', 39, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/39-autosave-v1/', 0, 'revision', '', 0),
 (63, 1, '2015-04-28 07:05:35', '0000-00-00 00:00:00', '', 'OP DE KALENDER', '', 'draft', 'open', 'open', '', '', '', '', '2015-04-28 07:05:35', '0000-00-00 00:00:00', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=63', 1, 'nav_menu_item', '', 0),
-(64, 1, '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 'EERSTVOLGENDE EVENTS', '', 'publish', 'open', 'open', '', 'eerstvolgende-events', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=64', 5, 'nav_menu_item', '', 0),
-(65, 1, '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 'VOORBIJE EVENTS', '', 'publish', 'open', 'open', '', 'voorbije-events', '', '', '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=65', 6, 'nav_menu_item', '', 0);
+(64, 1, '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 'EERSTVOLGENDE EVENTS', '', 'publish', 'open', 'open', '', 'eerstvolgende-events', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=64', 5, 'nav_menu_item', '', 0),
+(65, 1, '2015-04-28 07:08:45', '2015-04-28 07:08:45', '', 'VOORBIJE EVENTS', '', 'publish', 'open', 'open', '', 'voorbije-events', '', '', '2015-04-28 08:44:06', '2015-04-28 08:44:06', '', 0, 'http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/?p=65', 6, 'nav_menu_item', '', 0);
 
 -- --------------------------------------------------------
 
