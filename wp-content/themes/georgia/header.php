@@ -18,7 +18,7 @@
     <title>Eventica | Event Calendar &amp; eCommerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?php echo get_bloginfo('template_url')?>/"></base>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png?v=3" />
     <link rel='stylesheet' id='tribe-events-full-pro-calendar-style-css' href='assets/css/tribe-events-pro-full.min.css' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-calendar-pro-style-css' href='assets/css/tribe-events-pro-theme.min.css?ver=3.9.1' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe-events-calendar-full-pro-mobile-style-css' href='assets/css/tribe-events-pro-full-mobile.min.css?ver=3.9.1' type='text/css' media='only screen and (max-width: 768px)' />
