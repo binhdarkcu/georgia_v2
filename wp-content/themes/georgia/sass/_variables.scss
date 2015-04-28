@@ -1,4 +1,11 @@
 $fontArial12: normal 11px/1.2 Arial, Helvetica, sans-serif;
+@mixin RalewayLight( $value ) {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size:$value;
+  line-height:1.1;
+}
 
 @mixin RalewayRegular( $value ) {
   font-family: 'Raleway', sans-serif;

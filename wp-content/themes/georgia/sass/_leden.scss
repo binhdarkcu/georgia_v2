@@ -1,0 +1,42 @@
+.no-pad{
+  margin-bottom: 0!important;
+}
+.ledenPage{
+  .tribe-events-page-title-wrap {
+    h2.tribe-events-page-title{
+      @include RalewayRegular(24px);
+      b{
+        @include RalewayBold(24px);
+      }
+    }
+  }
+  .ledenChart{
+    padding-top: 35px;
+    padding-bottom: 85px;
+     background: #000;
+     h3{
+       @include RalewayLight(16px);
+       color: #fff;
+       padding-left: 37px;
+     }
+    .chart-left{
+      float: left;
+      position: relative;
+      width: 425px;
+    }
+    .chart-right{
+      float: left;
+      width: 415px;
+      position: relative;
+    }
+    .doughnut-legend{
+      
+    }
+    .clschart{
+      position: relative;
+      top: 20px;
+        left: 35px;
+    }
+  }
+}
+

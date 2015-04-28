@@ -21,8 +21,21 @@
             <div class="col-sm-6 col-md-7 col-lg-8 hidden-xs hidden-sm">
                 <div id="primary-menu" class="primary-menu">
                 	<div class="user-logined">ingelogd als <a href="#">jurgen van grieken</a></div>
-                	
-                    <ul id="header-menu" class="header-menu sf-menu">
+                	<?php
+						$nav = array(
+							'theme_location'  => 'menu_top',
+							'menu'            => '',
+							'container'       => '',
+							'container_class' => '',
+							'container_id'    => '',
+							'menu_class'      => 'header-menu sf-menu',
+							'menu_id'         => 'header-menu',
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						);
+						
+						wp_nav_menu( $nav );
+					?>
+                    <!--ul id="header-menu" class="header-menu sf-menu">
                         <li id="menu-item-1703" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1703"><a href="#">Home</a></li>
                         <li id="menu-item-1703" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1703"><a href="#">Over ons</a></li>
                         <li id="menu-item-1836" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1836">
@@ -48,7 +61,7 @@
                         <li>
                         	<a class="wordt-lid" href="#">WORDT LID</a>
                         </li>
-                    </ul>
+                    </ul-->
                 </div>
             </div>
 

@@ -30,13 +30,13 @@
   margin-left: 38px;
 }
 
-.sf-menu li a.wordt-lid{
+.sf-menu li.wordt-lid a{
   border: 1px solid #fff;
   &:hover{
     border-color: #827b5e;
   }
 }
-.header-menu.sf-menu > li:last-child a.wordt-lid{
+.header-menu.sf-menu > li.wordt-lid a{
   padding-right: 15px;
 }
 .header-menu.sf-menu li a{
