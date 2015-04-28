@@ -7,6 +7,12 @@
     color: #827b5e;
   }
 }
+.header-menu.sf-menu li{
+  &.current-menu-item > a, &.current_page_item > a{
+     color: #887554;
+  background: transparent;
+  }
+}
 .header-menu.sf-menu li:hover > a{
   color: #887554;
   background: transparent;
