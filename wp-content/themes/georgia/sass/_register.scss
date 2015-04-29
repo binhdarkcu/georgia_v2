@@ -1,0 +1,234 @@
+.registerPage{
+  .container{
+    width: 970px;
+  }
+  .registerBox{
+    h3{
+      @include RalewayBold(20px);
+      color: #887554;
+      text-transform: uppercase;
+      padding-bottom: 20px; 
+    }
+    label{
+      @include NotoSansRegular(12px);
+      color: #999;
+      padding-bottom: 5px;
+      display: block;
+    }
+    input[type="text"]{
+      width: 200px;
+      height: 26px;
+      border: 1px solid #fff;
+      border-radius: 3px;
+      &.error{
+        border-color: #ff0000;
+      }
+    }
+    select{
+      width: 418px;
+      height: 26px;
+      border: 1px solid #fff;
+      border-radius: 3px;
+      &.error{
+        border-color: #ff0000;
+      }
+    }
+    span.red{
+      color: #ff0000;
+    }
+    .intro{
+      padding-top: 53px;
+      padding-bottom: 45px;
+      text-align: center;
+      @include NotoSansRegular(12px);
+      color: #fff;
+      span{
+        display: block;
+        a{
+          text-decoration: underline;
+          @include NotoSansRegular(12px);
+        }
+      }
+    }
+  }
+  .informationBox{
+    .pictureUpload{
+      padding-top: 4px;
+    }
+    .reg-left{
+      float: left;
+      width: 520px;
+    }
+    .reg-right{
+      float: left;
+      width: 420px;
+    }
+    .reg-row{
+      float: left;
+      width: 100%;
+      padding-bottom: 22px;
+      .col1{
+        float: left;
+        width: 217px;
+      }
+      .col2{
+        float: left;
+        width: 203px;
+      }
+      .colfull{
+        input[type="text"]{
+          width: 418px;
+        }
+      }
+    }
+  }
+  
+  .referenceBox{
+    border-top: 1px solid #fff;
+    padding-top: 40px;
+    margin-top: 18px;
+    h3{
+      padding-bottom: 2px;
+    }
+    .reg-now{
+      float: left;
+      width: 100%;
+      .col{
+        padding-top: 24px;
+        float: left;
+        width: 215px;
+      }
+    }
+    .note{
+      color:#887554;
+      @include RalewayRegular(12px);
+    }
+  }
+  .dt_memberBox{
+    clear: both;
+     border-top: 1px solid #fff;
+    padding-top: 60px;
+    margin-top: 50px;
+    h3{
+      
+    }
+    .reg-now{
+      float: left;
+      width: 100%;
+        padding-bottom: 22px;
+    }
+    h4{
+      @include RalewayBold(20px);
+      color: #fff;
+      padding-bottom: 22px;
+    }
+    .colfull{
+      input[type="text"] {
+        width: 418px;
+      }
+    }
+    .col1{
+        float: left;
+        width: 217px;
+    }
+     .col2{
+        float: left;
+        width: 203px;
+    }
+  }
+  .interestBox, .factureBox{
+    padding-top: 30px;
+    clear: both;
+    h4{
+      @include RalewayBold(20px);
+      color: #fff;
+      padding-bottom: 22px;
+    }
+    .note{
+      @include NotoSansRegular(12px);
+      color: #999;
+      padding-bottom: 5px;
+    }
+    .radioGroup{
+      padding-top: 3px;
+      .radiocol{
+        float: left;
+        margin-top: 8px;
+        width: 235px;
+        &.rdother{
+          width: 430px;
+        }
+      }
+      input[type="checkbox"]{
+        position: relative;
+        top: 2px;
+      }
+      label{
+        display: inline-block;
+        color: #ccc;
+        @include NotoSansRegular(12px);
+          padding-left: 5px;
+        
+      }
+      .otherip{
+        margin-left: 10px;
+      }
+    }
+  }
+  .factureBox{
+    clear: both;
+    .note{
+          padding-bottom: 5px;
+      display: block;
+    }
+    input[type="checkbox"]{
+        position: relative;
+        top: 2px;
+      }
+    label{
+      display: inline-block;
+        color: #ccc;
+        @include NotoSansRegular(12px);
+         padding-left: 5px;
+    }
+    textarea{
+      width: 385px;
+      padding: 10px;
+      border-radius: 3px;
+        margin-left: 21px;
+      resize: none;
+      height: 75px;
+    }
+    .colfull{
+      margin-top: 8px;
+    }
+  }
+  .acceptBox{
+    clear: both;
+     border-top: 1px solid #fff;
+    padding-top: 40px;
+    margin-top: 55px;
+    .chkaccept{
+      display: table;
+      margin: 0 auto;
+      input[type="checkbox"]{
+        position: relative;
+        top: 2px;
+      }
+      label{
+        display: inline-block;
+        color: #ccc;
+        @include NotoSansRegular(12px);
+         padding-left: 5px;
+      }
+    }
+    a.btn{
+      @include NotoSansBold(12px);
+      color: #887554;
+      border: 2px solid #887554;
+      padding: 10px 18px;
+      display: table;
+      margin: 37px auto; 
+    }
+  }
+}
