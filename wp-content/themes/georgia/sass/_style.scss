@@ -54,3 +54,58 @@ a{text-decoration: none;}
   height: 100%;
   border-radius: 5px;
 }
+
+
+/*-------------------------
+CHECKBOX FOR GRID
+-------------------------*/
+.checkboxStyle label {
+  margin-bottom: 0px;
+  background-image:url(../images/checkbox.png);
+  user-select: none;
+}
+.checkboxStyle input[type=checkbox] + label {
+  padding-left:30px;
+  height:18px; 
+  display:inline-block;
+  line-height:18px;
+  background-repeat:no-repeat;
+  background-position: 0 0;
+  vertical-align:middle;
+  cursor:pointer;
+}
+.checkboxStyle input[type=checkbox]:checked + label {
+  background-position: 0 -18px;
+}
+.checkboxStyle input[type=checkbox] {
+  margin-top: 0px;
+  position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+.checkboxStyle.error label{
+  background: url(../images/checkbox-error.png) no-repeat;
+}
+
+/*UPLOAD BUTTON*/
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    padding: 13px 10px;
+    border: 2px solid #fff;
+    display: inline-block;
+    span{
+      @include RalewayBold(12px);
+    color: #fff;
+    }
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

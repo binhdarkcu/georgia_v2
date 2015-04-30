@@ -23,8 +23,8 @@
                     	<div class="registerBox">
                     		<div class="intro">
                     			<span>Vul hieronder je gegevens in, wij contacteren jou zo snel mogelijk en valideren uw aanzoek.</span>
-                    			<span>Indien uw aanzoek werd goedgekeurd ontvangt u van ons een log in en paswoord waarmee u toegang krijgt en kan deelnemen aan </span>
-                    			<span>de evenementen.</span>	
+                    			<span class="s-2">Indien uw aanzoek werd goedgekeurd ontvangt u van ons een log in en paswoord waarmee u toegang krijgt en kan deelnemen aan </span>
+                    			<span class="s-3">de evenementen.</span>	
                     			<span><a href="#">Lees eerste de voorwaarden en reglementen</a></span>
                     		</div>
                     		<form action="" method="" id="registerForm">
@@ -112,7 +112,10 @@
 												<label>Profielfoto</label>
 												<div class="pictureUpload">
 													<img src="images/pic.png" />
-													<input type="file" />
+													<div class="fileUpload ">
+														<span>UPLOAD FOTO</span>
+														<input type="file" class="upload" />
+													</div>
 												</div>
 											</div>
 										</div>
@@ -290,63 +293,63 @@
 										<h4>INTERESSEGEBIEDEN</h4>
 										<span class="note">Wat zijn uw belangrijkste interessegebieden</span>
 										<div class="radioGroup">
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest01"/>
 												<label for="interest01">bedrijven  en bedrijfssectoren</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest02"/>
 												<label for="interest02">economie</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest03"/>
 												<label for="interest03">bridge</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest04"/>
 												<label for="interest04">media</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest05"/>
 												<label for="interest05">management</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest06"/>
 												<label for="interest06">golf</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest07"/>
 												<label for="interest07">cultuur</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest08"/>
 												<label for="interest08">diplomatieke  ontmoetingen</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest09"/>
 												<label for="interest09">reizen</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest10"/>
 												<label for="interest10">filosofie</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest11"/>
 												<label for="interest11">politiek</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest12"/>
 												<label for="interest12">culinair</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest13"/>
 												<label for="interest13">maatschappelijke thema’s</label>
 											</div>
-											<div class="radiocol">
+											<div class="radiocol checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest14"/>
 												<label for="interest14">wetenschap</label>
 											</div>
-											<div class="radiocol rdother">
+											<div class="radiocol rdother checkboxStyle">
 												<input type="checkbox" name="interest" value="" id="interest15"/>
 												<label for="interest15">andere, specifieer</label>
 												
@@ -360,15 +363,15 @@
 									<div class="factureBox">
 										<h4>FACTURATIEGEGEVENS<span class="red"></span></h4>
 										<span class="note">Factureringsadres voor de activiteiten van Georgia</span>
-										<div class="colfull">
+										<div class="colfull checkboxStyle">
 											<input type="checkbox" name="f_addresspayment" value="" id="facture_address"/>
 											<label for="facture_address">privé-adres</label>
 										</div>
-										<div class="colfull">
+										<div class="colfull checkboxStyle">
 											<input type="checkbox" name="f_addresspayment" value="" id="facture_kanaddress"/>
 											<label for="facture_kanaddress">kantooradres</label>
 										</div>
-										<div class="colfull">
+										<div class="colfull checkboxStyle">
 											<input type="checkbox" name="f_addresspayment" value="" id="facture_anderaddress"/>
 											<label for="facture_anderaddress">ander adres: volledig adres van BTW-nummer opgeven aub</label>
 										</div>

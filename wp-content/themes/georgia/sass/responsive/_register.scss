@@ -1,0 +1,43 @@
+@media only screen and (min-width: 0) and (max-width: 970px) {
+  .registerPage{
+     .container{
+       width: 100%;
+     }
+      .registerBox .intro span{
+        &.s-2, &.s-3{
+          display: inline;
+        }
+      }
+    .informationBox{
+      .reg-left, .reg-right{
+        width: 422px;
+        display: table;
+        margin: 0 auto;
+        float: none;
+      }
+      .reg-right{
+        padding-top: 20px;
+      }
+    }
+   .referenceBox, .dt_memberBox {
+       width: 418px;
+      margin: 0 auto;
+      .reg-now{
+        .col{
+         width: 100%; 
+         input[type="text"]{
+           width: 100%;
+         }
+        }  
+      }
+   } 
+   .dt_memberBox {
+     margin-top: 50px;
+      width: 422px;
+   }
+   .interestBox, .factureBox{
+      width: 422px;
+       margin: 0 auto;
+   }
+  }
+}
