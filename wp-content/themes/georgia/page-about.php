@@ -19,8 +19,8 @@
                             <p class="pad-bot-25">torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. </p>
                             <p>Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci eni.</p>
                             <p>Bent u geinteresseerd om lid te worden?</p>
-                            <a class="btn" href="http://lyon.wordcamp.org/2015">
-                                WORD LID
+                            <a class="btn" href="<?php echo bloginfo('home')?>/wordt-lid">
+                                WORDT LID
                             </a>
                         </div>
                     </div>

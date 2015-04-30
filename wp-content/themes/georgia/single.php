@@ -1,5 +1,17 @@
 <?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
+    <?php
+    	date_default_timezone_set( 'Europe/Amsterdam' );
+		setlocale(LC_ALL, 'nl_NL');
+		$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
+		while ( have_posts() ) : the_post();
+		$datetime = get_field('datetime', get_the_ID());
+		$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+		$time = get_field('time', get_the_ID());
+		$loc = get_field('place', get_the_ID());
+		$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
+	?>
+    
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
@@ -9,7 +21,7 @@
                     <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
                     <span class="sep">&#047;</span> <span class="trail-end"><a href="http://demo.toko.press/eventica-tecpro/events/" title="Events">Events</a></span>
                 </div>					
-                <h1>EVENT TITLE</h1>
+                <h1><?php echo get_the_title(get_the_ID());?></h1>
             </div>
         </section>
 
@@ -25,10 +37,7 @@
 
 
                                 <div class="featured-event-wrap ">
-                                    <div class="featured-event-title">
-                                        <h2>Event in de kijker</h2>
-                                    </div>
-
+                                    
                                     <div id="tribe-events-content" class="tribe-events-single vevent clearfix">
 
 
@@ -36,16 +45,12 @@
                                         <div class="events-single-right col-sm-7 col-sm-push-5">
 
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
-                                                <h2 class="entry-title">
-                                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lyon/" title="WordCamp Lyon" rel="bookmark">
-                                                        Event in Brussel
-                                                    </a>
-                                                </h2>
+                                                
                                                 <div class="tribe-events-event-image">
-                                                    <img width="929" height="646" src="images/home/e-4.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
+                                                    <img width="929" height="646" src="<?php echo $bigImg;?>" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
-                                                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+                                                    <?php echo get_the_content(get_the_ID());?>
                                                 </div>
                                             </div>
 
@@ -55,9 +60,9 @@
 
                                             <div class="tribe-events-cta">
                                                 <div class="tribe-events-cta-date">
-                                                    <span class="mm">juni</span>
-                                                    <span class="dd">05</span>
-                                                    <span class="yy">2015</span>
+                                                    <span class="mm"><?php echo $months[ $date->format( 'n' ) ];?></span>
+                                                    <span class="dd"><?php echo $date->format('j');?></span>
+                                                    <span class="yy"><?php echo $date->format('Y');?></span>
                                                 </div>
                                                <div class="tribe-events-cta-btn">
                                                     <a class="btn" href="http://lyon.wordcamp.org/2015">
@@ -72,14 +77,14 @@
                                                     <tr>
                                                         <th> Datum: </th>
                                                         <td>
-                                                            <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05">June 5</abbr>
+                                                            <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05"><?php echo $months[ $date->format( 'n' ) ]." ".$date->format('j');?></abbr>
                                                         </td>
                                                     </tr>
 
                                                     <tr class="last">
                                                         <th> van-tot: </th>
                                                         <td>
-                                                            <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05">8:00 am - 5:00 pm</abbr>
+                                                            <abbr class="tribe-events-abbr updated published dtstart"><?php echo $time;?></abbr>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -147,17 +152,11 @@
                                                 <div class="meta-inner">
 
                                                     <p class="author fn org">
-                                                        Brussel 2000
+                                                        <?php echo $loc['address'];?>
                                                     </p>
 
-
-                                                    <address class="tribe-events-address">
-
-
-                                                        Brussel,  Belgie
-                                                    </address>
                                                     <p class="location">
-                                                        <a href="http://maps.google.com/maps?f=q&#038;source=s_q&#038;hl=en&#038;geocode=&#038;q=Lyon+France" title="Click to view a Google Map">+ Google Map</a>
+                                                        <a href="http://maps.google.com/maps?f=q&#038;source=s_q&#038;hl=en&#038;geocode=&#038;q=<?php echo $loc['address'];?>" target="_blank" title="Click to view a Google Map">+ Google Map</a>
                                                     </p>
 
 
@@ -169,19 +168,21 @@
                                                 <h3 class="tribe-events-single-section-title">
                                                     DAGINDELING
                                                 </h3>
+                                                
                                                 <ul>
+                                                	<?php
+		                                            	if( have_rows('shedule') ): while ( have_rows('shedule') ) : the_row(); 
+														$start = get_sub_field('start');
+														$finish = get_sub_field('finish');
+														$action = get_sub_field('action');
+		                                            ?>
                                                     <li class="item">
-                                                        08:00 - 09:00 Opening
+                                                        <?php echo $start.' - '.$finish.' '.$action?>
                                                     </li>
-                                                    <li class="item">
-                                                        09:00 - 12:00 Session 1
-                                                    </li>
-                                                    <li class="item">
-                                                        12:00 - 13:00 Break
-                                                    </li>
-                                                    <li class="item">13:00 - 17:00 Session 2</li>
+                                                     <?php endwhile; endif;?>
                                                     <li class="timeline">&nbsp;</li>
                                                 </ul>
+                                               
                                             </div>
 
 
@@ -205,5 +206,7 @@
 
         </div>
         </div>
-
+<?php 	
+	endwhile; 
+?>
 <?php get_footer();?>
