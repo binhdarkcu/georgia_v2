@@ -61,3 +61,9 @@
   color: #868686;
   @include NotoSansRegular(13px);
 }
+
+.singlePage{
+  .left-featured-events{
+      margin-top: 32px;
+  }
+}
