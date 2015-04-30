@@ -1,9 +1,9 @@
 <?php
     //add theme support
-    add_theme_support('post-thumbnails',array('post','page','sliders','testimonials','promotion','homeland'));
+    add_theme_support('post-thumbnails',array('post','page','slider','testimonials','promotion','homeland'));
 
     //register post type
-    //include TEMPLATEPATH.'/post-type/registry-post-type.php';
+    include TEMPLATEPATH.'/post-type/registry-post-type.php';
 	
 	//register post type
     //include TEMPLATEPATH.'/taxonomy-custom/taxonomy-custom.php';

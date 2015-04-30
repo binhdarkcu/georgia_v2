@@ -85,6 +85,7 @@
   }
   .yy{
     @include NotoSansBold(16px);
+      margin-left: 5px;
   }
 }
 .home-slider-events .slide-event-cta .btn{
@@ -93,6 +94,8 @@
 .home-slider-events{
    .slide-event-venue-name, .slide-event-venue-address{
      @include NotoSansBold(12px); 
+     line-height: 17px;
      padding-bottom: 5px;
+     width: 130px;
    }
 }

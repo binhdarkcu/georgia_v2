@@ -1,109 +1,54 @@
 <div class="home-slider-events clearfix home-slider-events-active">
-            <div class="slide-event item" style="background-image:url(images/s-1.jpg)">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-5 col-lg-4">
-                            <div class="slide-event-detail">
-                                <h2 class="slide-event-title">
-                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-seattle/" title="WordCamp Seattle" rel="bookmark">
-                                        SNACK EVENT
-                                    </a>
-                                </h2>
-                                <div class="slide-event-cta">
-                                    <div class="slide-event-cta-date">
-                                        <span class="mm">maart</span>
-                                        <span class="dd">28</span>
-                                        <span class="yy">2015</span>
-                                    </div>
-                                    <a class="btn" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-seattle/">
-                                        MEER INFO
-                                    </a>
-                                </div>
-                                <div class="slide-event-venue">
-                                    <div class="slide-event-venue-name">
-                                        Lange wapper
-                                    </div>
-                                    <div class="slide-event-venue-address">
-                                        <span class="adr">
-                                            <span class="locality">Antwerpen 2000</span>
-                                        </span>
-                                    </div>
-                                </div>
+     <?php
+        $i = 0;
+        $args_slider = array(
+            'post_type' 	 => 'slider',
+            'posts_per_page' => 5,
+            'order'			 => 'asc'
+        );
+        $querySlider = get_posts($args_slider);
+		date_default_timezone_set( 'Europe/Amsterdam' );
+		setlocale(LC_ALL, 'nl_NL');
+		$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
+        foreach ($querySlider as $slider) {
+            $i++;
+            $url = wp_get_attachment_url(get_post_thumbnail_id($slider->ID));
+			$datetime = get_field('datetime', $slider->ID);
+			$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+			$loc = get_field('place', $slider->ID);
+    ?>
+    <div class="slide-event item" style="background-image:url(<?php echo $url;?>)">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <div class="slide-event-detail">
+                        <h2 class="slide-event-title">
+                            <a class="url" href="<?php echo get_the_permalink($slider->ID);?>" title="<?php echo get_the_title($slider->ID);?>" rel="bookmark">
+                                <?php echo get_the_title($slider->ID);?>
+                            </a>
+                        </h2>
+                        <div class="slide-event-cta">
+                            <div class="slide-event-cta-date">
+                                <span class="mm"><?php echo $months[ $date->format( 'n' ) ];?></span>
+                                <span class="dd"><?php echo $date->format('j');?></span>
+                                <span class="yy center"><?php echo $date->format('Y');?></span>
                             </div>
+                            <a class="btn" href="<?php echo get_the_permalink($slider->ID);?>">
+                                MEER INFO
+                            </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-event item" style="background-image:url(images/s-2.jpg)">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-5 col-lg-4">
-                            <div class="slide-event-detail">
-                                <h2 class="slide-event-title">
-                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lancaster/" title="WordCamp Lancaster" rel="bookmark">
-                                        WordCamp EVENT
-                                    </a>
-                                </h2>
-                                <div class="slide-event-cta">
-                                    <div class="slide-event-cta-date">
-                                        <span class="mm">maart</span>
-                                        <span class="dd">28</span>
-                                        <span class="yy">2015</span>
-                                    </div>
-                                    <a class="btn" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-lancaster/">
-                                        MEER INFO
-                                    </a>
-                                </div>
-                                <div class="slide-event-venue">
-                                    <div class="slide-event-venue-name">
-                                        Lancaster
-                                    </div>
-                                    <div class="slide-event-venue-address">
-                                        <span class="adr">
-
-                                            <span class="locality">Lancaster</span><span class="delimiter">,</span>  <abbr class="region tribe-events-abbr" title="Pennsylvania">PA</abbr> <span class="country-name">United States</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-event item" style="background-image:url(images/s-3.jpg)">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-5 col-lg-4">
-                            <div class="slide-event-detail">
-                                <h2 class="slide-event-title">
-                                    <a class="url" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-maui/" title="WordCamp Maui" rel="bookmark">
-                                        WordCamp Maui
-                                    </a>
-                                </h2>
-                                <div class="slide-event-cta">
-                                    <div class="slide-event-cta-date">
-                                        <span class="mm">maart</span>
-                                        <span class="dd">13</span>
-                                        <span class="yy">2015</span>
-                                    </div>
-                                    <a class="btn" href="http://demo.toko.press/eventica-tecpro/event/wordcamp-maui/">
-                                        MEER INFO
-                                    </a>
-                                </div>
-                                <div class="slide-event-venue">
-                                    <div class="slide-event-venue-name">
-                                        Maui
-                                    </div>
-                                    <div class="slide-event-venue-address">
-                                        <span class="adr">
-
-                                            <span class="locality">Maui</span><span class="delimiter">,</span>  <abbr class="region tribe-events-abbr" title="Hawaii">HI</abbr> <span class="country-name">United States</span>
-                                        </span>
-                                    </div>
-                                </div>
+                        <div class="slide-event-venue">
+                            <div class="slide-event-venue-name">
+                                <?php echo $loc['address'];?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <?php
+        }//end for
+    ?>
+    
+</div>
