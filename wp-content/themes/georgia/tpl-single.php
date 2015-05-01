@@ -77,7 +77,7 @@
                                                     <tr>
                                                         <th> Datum: </th>
                                                         <td>
-                                                            <abbr class="tribe-events-abbr updated published dtstart" title="2015-06-05"><?php echo $months[ $date->format( 'n' ) ]." ".$date->format('j');?></abbr>
+                                                            <abbr class="tribe-events-abbr updated published dtstart"><?php echo $months[ $date->format( 'n' ) ]." ".$date->format('j');?></abbr>
                                                         </td>
                                                     </tr>
 

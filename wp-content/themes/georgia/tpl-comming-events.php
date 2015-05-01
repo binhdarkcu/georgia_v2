@@ -34,7 +34,7 @@
 										$loc = get_field('place', $coming->ID);
 										$time = get_field('time', $coming->ID);
 							    ?>
-                                <div id="post-2053" class="hentry vevent type-tribe_events post-2053 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2054 col-sm-6 col-md-4">
+                                <div id="post-<?php echo $coming->ID;?>" class="hentry vevent type-tribe_events post-2053 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2054 col-sm-6 col-md-4">
 
 
                                     <div class="even-list-wrapper">
