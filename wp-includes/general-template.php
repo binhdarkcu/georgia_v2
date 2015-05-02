@@ -2670,7 +2670,7 @@ function paginate_links( $args = '' ) {
 		 *
 		 * @param string $link The paginated link URL.
 		 */
-		$page_links[] = '<a class="prev page-numbers" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['prev_text'] . '</a>';
+		$page_links[] = '<li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past"><a rel="prev" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['prev_text'] . '</a></li>';
 	endif;
 	for ( $n = 1; $n <= $total; $n++ ) :
 		if ( $n == $current ) :
@@ -2701,15 +2701,15 @@ function paginate_links( $args = '' ) {
 		$link .= $args['add_fragment'];
 
 		/** This filter is documented in wp-includes/general-template.php */
-		$page_links[] = '<a class="next page-numbers" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['next_text'] . '</a>';
+		$page_links[] = '<li class="next page-numbers tribe-events-nav-next tribe-events-nav-right"><a rel="next" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['next_text'] . '</a></li>';
 	endif;
 	switch ( $args['type'] ) {
 		case 'array' :
 			return $page_links;
 
 		case 'list' :
-			$r .= "<ul class='page-numbers'>\n\t<li>";
-			$r .= join("</li>\n\t<li>", $page_links);
+			$r .= "<ul class='tribe-events-sub-nav'>\n\t<li class='pagenum'>";
+			$r .= join("</li>\n\t<li class='pagenum'>", $page_links);
 			$r .= "</li>\n</ul>\n";
 			break;
 

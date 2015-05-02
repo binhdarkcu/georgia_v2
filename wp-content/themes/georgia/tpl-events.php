@@ -3,24 +3,31 @@
     <div class="row">
 
 		<?php
+			$added = array();
 			global $paged;
+			
+			
 	        $args_event = array(
 	            'post_type' 	 => 'post',
-	            'posts_per_page' => 2,
-			  	'paged'		=> $paged,
-	            'order'			 => 'asc'
+	            'posts_per_page' => 5,
+			  	'paged'		=> $paged,		
+	            'order'			 => 'asc',
+	            'meta_key' => 'datetime'
 	        );
-	        $queryEvents = get_posts($args_event);
+	        $queryEvents = new WP_Query($args_event);
+			
 			date_default_timezone_set( 'Europe/Amsterdam' );
 			setlocale(LC_ALL, 'nl_NL');
 			$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
-	        foreach ($queryEvents as $event) {
+	        if ( $queryEvents->have_posts() ) : while ( $queryEvents->have_posts() ) : $queryEvents->the_post();
+	        	
+	        //foreach ($queryEvents as $event) {
 	            $url = wp_get_attachment_url(get_post_thumbnail_id($event->ID));
 				$datetime = get_field('datetime', $event->ID);
 				$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 				$year = $date->format('Y');
 				$month = $months[ $date->format( 'n' ) ];
-			 
+				
 	    ?>
         <!-- Month / Year Headers -->
         <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
@@ -107,7 +114,8 @@
         <!-- Event  -->
         
        <?php
-	        }//end for
+endwhile; endif;//}//end for
+	        
 	    ?>
     </div>
 
@@ -117,21 +125,13 @@
 
     <!-- Footer Navigation -->
 
-    <div class="tribe-events-pagination pagination clearfix">
+    <div class="tribe-events-pagination pagination clearfix" style="display: block!important;">
         <h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
-        <ul class="tribe-events-sub-nav">
-            <!-- Left Navigation -->
-
-            <li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
-                <?php previous_posts_link( __( 'VOORBIJE EVENTS', 'georgia' ) ); ?>
-               
-            </li><!-- .tribe-events-nav-left -->
-            <!-- Right Navigation -->
-            <li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
-            	<?php next_posts_link( __( 'eerstvolgende EVENTS', 'georgia' ) ); ?>
-            	
-            </li><!-- .tribe-events-nav-right -->
-        </ul>
+        <?php global $totalPage;
+		 	$totalPage = distinctPost($datetime);
+		 ?>
+        <?php echo bt_paginate($totalPage);?>
+        
     </div>
 </div>
 <!-- #tribe-events-footer -->

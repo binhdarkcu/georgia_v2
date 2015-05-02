@@ -14,6 +14,24 @@
     //change label post
     include 'inc/change_label_post.php';
 	
+	//change label post
+    include 'inc/page_nav.php';
+	
+	//count total item when distinct
+	function distinctPost($meta_value){
+		global $wpdb;
+		$wp_query = "SELECT count(DISTINCT pm.post_id)
+		FROM $wpdb->postmeta pm
+		JOIN $wpdb->posts p ON (p.ID = pm.post_id)
+		WHERE pm.meta_key = 'datetime'
+		AND pm.meta_value = $meta_value
+		AND p.post_type = 'post'
+		AND p.post_status = 'publish'
+		";
+		$count = $wpdb->get_var($wp_query);
+		return $count;
+	}
+	
 	//add type columns
     //include 'inc/type_column.php';
 	
