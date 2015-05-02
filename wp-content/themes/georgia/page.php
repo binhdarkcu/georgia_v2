@@ -7,7 +7,7 @@
 
                 <div class="breadcrumb-trail breadcrumb breadcrumbs">
                     <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="http://demo.toko.press/eventica-tecpro/events/" title="Events"><?php the_title();?></a></span>
+                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home').'/'.the_slug();?>" title="Events"><?php the_title();?></a></span>
                 </div>					
                 <h1><?php the_title();?></h1>
             </div>
