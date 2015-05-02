@@ -100,6 +100,9 @@ CHECKBOX FOR GRID
       @include RalewayBold(12px);
     color: #fff;
     }
+    &.error{
+      border-color: #ff0000;
+    }
 }
 .fileUpload input.upload {
     position: absolute;

@@ -20,6 +20,11 @@
     <link type="text/css" rel='stylesheet' href="js/mcustomscrollbar/jquery.mCustomScrollbar.css"/>
     <script type='text/javascript' src='js/Chart.js'></script>
     
+    <!--Validate form-->
+    <script type='text/javascript' src='js/validate.form.js'></script>
+    <script type='text/javascript' src='js/jquery.validate.js'></script>
+    
+    
     <script type='text/javascript' src='js/class.SiteMain.js'></script>
     <?php get_template_part('tpl','login')?>
 </body>

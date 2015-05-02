@@ -29,6 +29,8 @@
       height: 26px;
       border: 1px solid #fff;
       border-radius: 3px;
+        padding-top: 6px;
+      padding-bottom: 5px;
       &.error{
         border-color: #ff0000;
       }
@@ -210,6 +212,10 @@
         resize: none;
         height: 75px;
         margin-top: -5px;
+        border: 1px solid #fff;
+        &.error{
+        border-color: #ff0000;
+      }
     }
     .colfull{
       margin-top: 18px;
