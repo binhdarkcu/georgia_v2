@@ -6,10 +6,10 @@
             <div class="container">
 
                 <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="http://demo.toko.press/eventica-tecpro/events/" title="Events">Events</a></span>
+                    <span class="trail-begin"><a href="<?php echo bloginfo('home')?>/profile/" title="PROFIEL">PROFIEL</a></span>
+                    
                 </div>					
-                <h1>Events</h1>
+                <h1>JURGEN VAN GRIEKEN</h1>
             </div>
         </section>
 

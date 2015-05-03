@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="ie6 oldie" lang="en-US">

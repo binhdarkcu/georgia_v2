@@ -101,7 +101,7 @@
 
 											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
                                                 <h4>62 <span>leden komen</span></h4>
-                                                <?php if($isLogin == 1){ ?>
+                                                <?php if(isset($_SESSION['user'])){ ?>
                                                 <div class="scrollbar">
                                                 	<ul>
 	                                                	<li>
@@ -211,7 +211,7 @@
 
                         <div class="col-md-4 col-md-pull-8">
                         	
-							<?php if($isLogin != 1){ ?> 
+							<?php if(!isset($_SESSION['user'])){ ?> 
                             <div class="home-recent-posts ourgeorgia">
 
                                 <div class="recent-post-wrap">

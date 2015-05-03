@@ -179,6 +179,9 @@ jQuery(document).ready(function() {
             },
             'f_notepayment': {
                 required: true
+            },
+            'accept' :{
+            	required: true
             }
         },
 

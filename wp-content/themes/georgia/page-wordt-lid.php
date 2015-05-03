@@ -1,4 +1,103 @@
-<?php get_header();?>
+<?php 
+	get_header();
+?>
+<?php
+    //VALIDATE EMAIL
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
+    {
+        $p_email = $_POST['p_email'];
+        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$p_email'");
+        if(!empty($results)){
+            echo 'false';
+            exit;
+        }
+        else{
+            echo 'true';
+            exit;
+        }
+    }
+
+    
+    if(isset($_SESSION['user'])){
+        $link = get_site_url().'/profile';
+        echo "<script>window.location.href = '$link';</script>";
+    }
+    $logged = false;
+    $message = "";
+    if(isset($_POST['b_email']))
+    {
+        global $wpdb;
+        $data['p_naam'] = $_POST['p_naam'];
+        $data['p_voornaam'] = $_POST['p_voornaam'];
+        $data['p_geboortedatum'] = $_POST['p_geboortedatum'];
+        $data['p_geboorteplaats'] = $_POST['p_geboorteplaats'];
+        $data['p_straat'] = $_POST['p_straat'];
+        $data['p_nr'] = $_POST['p_nr'];
+        $data['p_postcode'] = $_POST['p_postcode'];
+        $data['p_plaats'] = $_POST['p_plaats'];
+        $data['p_land'] = $_POST['p_land'];
+        $data['p_telefoon'] = $_POST['p_telefoon'];
+        $data['p_fax'] = $_POST['p_fax'];
+        $data['p_gsm'] = $_POST['p_gsm'];
+        $data['p_email'] = $_POST['p_email'];
+        $data['p_likedin'] = $_POST['p_likedin'];
+        $data['p_picture'] = $_POST['p_picture'];
+		
+		
+        $data['b_naam'] = $_POST['p_naam'];
+		$data['b_hoofd'] = $_POST['b_hoofd'];
+        $data['b_firma'] = $_POST['b_firma'];
+        $data['b_straat'] = $_POST['b_straat'];
+        $data['b_nr'] = $_POST['b_nr'];
+        $data['b_postcode'] = $_POST['b_postcode'];
+        $data['b_plaats'] = $_POST['b_plaats'];
+        $data['b_land'] = $_POST['b_land'];
+        $data['b_telefoon'] = $_POST['b_telefoon'];
+        $data['b_fax'] = $_POST['b_fax'];
+        $data['b_gsm'] = $_POST['b_gsm'];
+        $data['b_email'] = $_POST['b_email'];
+        $data['b_organisatie'] = $_POST['b_organisatie'];
+        $data['b_functies'] = $_POST['b_functies'];
+		
+		
+		$data['r_naam'] = $_POST['r_naam'];
+		$data['r_voornaam'] = $_POST['r_voornaam'];
+        $data['r_telefoon'] = $_POST['r_telefoon'];
+        $data['r_email'] = $_POST['r_email'];
+        $data['r_naam_2'] = $_POST['r_naam_2'];
+		$data['r_voornaam_2'] = $_POST['r_voornaam_2'];
+        $data['r_telefoon_2'] = $_POST['r_telefoon_2'];
+        $data['r_email_2'] = $_POST['r_email_2'];
+		
+		
+		$data['f_personname'] = $_POST['f_personname'];
+		$data['f_telefoon'] = $_POST['f_telefoon'];
+        $data['f_fax'] = $_POST['f_fax'];
+        $data['f_email'] = $_POST['f_email'];
+        $data['f_btw'] = $_POST['f_btw'];
+		$data['f_interest'] = $_POST['f_interest'];
+		$data['f_addresspayment'] = $_POST['f_addresspayment'];
+		$data['f_notepayment'] = $_POST['f_notepayment'];
+		
+		$data['created'] = date('Y-m-d h:i:s');
+        $data['modified'] = date('Y-m-d h:i:s');
+        
+        $results = $wpdb->insert('wp_members', $data);
+        if($results){
+            $logged = true;
+            $message = "Register success";
+            unset($data['password']);
+            $_SESSION['user'] = $data;
+            $link = get_site_url().'/success';
+            echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
+        }
+        else{
+            $message = "Register failed";
+        }
+    }
+?>
+
+
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
@@ -27,7 +126,15 @@
                     			<span class="s-3">de evenementen.</span>	
                     			<span><a href="#">Lees eerste de voorwaarden en reglementen</a></span>
                     		</div>
-                    		<form action="" method="" id="registerForm">
+                    		<form action="" method="post" id="registerForm">
+                    			<?php
+		                            if($message != "")
+		                            {
+		                                $alert = $logged == true ? "alert-success" : "alert-danger";
+		                                echo '<div class="alert '.$alert.'">'.$message.'</div>';
+		                            }
+		                                
+		                        ?>  
 								<div class="informationBox">
 									<div class="reg-left">
 										<h3>PRIVEGEGEVENS</h3>
@@ -83,7 +190,7 @@
 										</div>
 										<div class="reg-row">
 											<div class="col1">
-												<label>Telefoon></label>
+												<label>Telefoon</label>
 												<input type="text" name="p_telefoon" value="" />
 											</div>
 											<div class="col2">
@@ -291,66 +398,66 @@
 										<span class="note">Wat zijn uw belangrijkste interessegebieden</span>
 										<div class="radioGroup">
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest01" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest01" class="ipinterests"/>
 												<label for="interest01">bedrijven  en bedrijfssectoren</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest02" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest02" class="ipinterests"/>
 												<label for="interest02">economie</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest03" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest03" class="ipinterests"/>
 												<label for="interest03">bridge</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest04" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest04" class="ipinterests"/>
 												<label for="interest04">media</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest05" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest05" class="ipinterests"/>
 												<label for="interest05">management</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest06" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest06" class="ipinterests"/>
 												<label for="interest06">golf</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest07" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest07" class="ipinterests"/>
 												<label for="interest07">cultuur</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest08" class="ipinterests"/>
-												<label for="interest08">diplomatieke  ontmoetingen</label>
+												<input type="checkbox" name="f_interest[]" id="interest08" class="ipinterests"/>
+												<label for="interest08">diplomatieke ontmoetingen</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest09" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest09" class="ipinterests"/>
 												<label for="interest09">reizen</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest10" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest10" class="ipinterests"/>
 												<label for="interest10">filosofie</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest11" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest11" class="ipinterests"/>
 												<label for="interest11">politiek</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest12" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest12" class="ipinterests"/>
 												<label for="interest12">culinair</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest13" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest13" class="ipinterests"/>
 												<label for="interest13">maatschappelijke thema’s</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest14" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest14" class="ipinterests"/>
 												<label for="interest14">wetenschap</label>
 											</div>
 											<div class="radiocol rdother checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest15" class="ipinterests"/>
+												<input type="checkbox" name="f_interest[]" id="interest15" class="ipinterests"/>
 												<label for="interest15">andere, specifieer</label>
 												
-												<input type="text" name="otherinterest" class="otherip"/>
+												<input type="text" name="f_interest" class="otherip"/>
 												
 											</div>
 											
@@ -378,7 +485,7 @@
 									</div>
 									<!--end factureBox-->
 									<div class="acceptBox">
-										<div class="chkaccept">
+										<div class="chkaccept checkboxStyle">
 											<input type="checkbox" name="accept" id="acceptform"/>
 											<label for="acceptform">
 												Ik verklaar hierbij de <a href="#" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord

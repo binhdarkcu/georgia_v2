@@ -1,4 +1,5 @@
 <?php
+session_start();
     //add theme support
     add_theme_support('post-thumbnails',array('post','page','slider','testimonials','promotion','homeland'));
 

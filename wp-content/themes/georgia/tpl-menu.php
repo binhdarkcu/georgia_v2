@@ -19,8 +19,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-md-7 col-lg-8 hidden-xs hidden-sm">
-            	<?php $isLogin = ($_GET['islogin'] == 1)? "1":"0";?>
-                <div id="primary-menu" class="primary-menu <?php if($isLogin == 1) echo 'loggedin';?>">
+                <div id="primary-menu" class="primary-menu <?php if(isset($_SESSION['user'])) echo 'loggedin';?>">
                 	<div class="user-logined">ingelogd als <a href="#">jurgen van grieken</a></div>
                 	<?php
 						$nav = array(
