@@ -1,7 +1,6 @@
 <?php 
 function bt_paginate($totalPage){ 
 	
-	
 	global $wp_query, $wp_rewrite;
 	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
 	$pagination = array(
