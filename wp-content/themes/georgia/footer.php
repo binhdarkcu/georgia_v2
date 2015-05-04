@@ -26,6 +26,13 @@
     
     
     <script type='text/javascript' src='js/class.SiteMain.js'></script>
+
+
+    <!--calendar-->
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/responsive-calendar.js'></script>
+    <script type='text/javascript' src='js/class.calendar.js'></script>
+
     <?php get_template_part('tpl','login')?>
 </body>
 </html>

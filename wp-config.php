@@ -16,13 +16,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'georgia');
+define('DB_NAME', 'georgia_v2');
 
 /** MySQL database username */
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'admin');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -77,8 +77,8 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 
-define('WP_HOME','http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/');
-define('WP_SITEURL','http://localhost/PHP/BLISS/www/YVES/georgia/sourcecode/version2/');
+define('WP_HOME','http://localhost/PHP/BLISS/www/YVES/GEORGIA/sourcecode/v2/');
+define('WP_SITEURL','http://localhost/PHP/BLISS/www/YVES/GEORGIA/sourcecode/v2/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
