@@ -8,6 +8,10 @@ var calendar_events = (function() {
         setting.url = url;
         initEvents();
         build (objEvents);
+        setTimeout(function(){
+            gotofirstdate();
+        },200)
+
     }
 
     function initEvents(){
@@ -28,8 +32,14 @@ var calendar_events = (function() {
             return false;
         });
     }
-    //BUILD
 
+    function gotofirstdate(){
+        $('.day.future.active').each(function(){
+            $(this).children().click();
+            return false;
+        });
+    }
+    //BUILD
     function build (objEvents){
         var todaydate=new Date()
         var curmonth=todaydate.getMonth()+1 //get current month (1-12)

@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05f9715-e926-46a1-8ae8-5d9dc71b7115" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TEMP - GEORGIA.iml" afterPath="$PROJECT_DIR$/.idea/TEMP - GEORGIA.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sass/all.scss" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sass/all.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/footer.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/header.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/js/jquery.js" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/js/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-config.php" afterPath="$PROJECT_DIR$/wp-config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js" />
     </list>
     <ignored path="v2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +30,7 @@
       <file leaf-file-name="tpl-comming-events.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-comming-events.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.965517" vertical-offset="180" max-vertical-offset="1980">
+            <state vertical-scroll-proportion="-15.172414" vertical-offset="0" max-vertical-offset="1980">
               <caret line="22" column="65" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="65" />
               <folding />
             </state>
@@ -51,27 +40,27 @@
       <file leaf-file-name="tpl-events.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.034483" vertical-offset="704" max-vertical-offset="3100">
+            <state vertical-scroll-proportion="-35.724136" vertical-offset="104" max-vertical-offset="3100">
               <caret line="57" column="19" selection-start-line="50" selection-start-column="18" selection-end-line="57" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class.calendar.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="class.calendar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1160">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.6106195" vertical-offset="335" max-vertical-offset="1360">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax_events_sidebar.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajax_events_sidebar.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5479452" vertical-offset="480" max-vertical-offset="1040">
+            <state vertical-scroll-proportion="-5.185185" vertical-offset="480" max-vertical-offset="1040">
               <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
               <folding />
             </state>
@@ -102,8 +91,8 @@
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js" />
       </list>
     </option>
   </component>
@@ -555,17 +544,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1160">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-comming-events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.965517" vertical-offset="180" max-vertical-offset="1980">
+        <state vertical-scroll-proportion="-15.172414" vertical-offset="0" max-vertical-offset="1980">
           <caret line="22" column="65" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="65" />
           <folding />
         </state>
@@ -573,7 +554,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.034483" vertical-offset="704" max-vertical-offset="3100">
+        <state vertical-scroll-proportion="-35.724136" vertical-offset="104" max-vertical-offset="3100">
           <caret line="57" column="19" selection-start-line="50" selection-start-column="18" selection-end-line="57" selection-end-column="19" />
           <folding />
         </state>
@@ -581,8 +562,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5479452" vertical-offset="480" max-vertical-offset="1040">
+        <state vertical-scroll-proportion="-5.185185" vertical-offset="480" max-vertical-offset="1040">
           <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6106195" vertical-offset="335" max-vertical-offset="1360">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
