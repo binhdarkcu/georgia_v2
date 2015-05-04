@@ -64,12 +64,7 @@ jQuery(document).ready(function() {
             'p_land':{
             	selectcheck: true
             },
-            'p_telefoon':{
-            	required: true
-            },
-            'p_fax':{
-            	required: true
-            },
+            
             'p_gsm':{
             	required: true
             },
@@ -77,7 +72,7 @@ jQuery(document).ready(function() {
             	required: true,
             	email: true
             },
-            'p_likedin':{
+            'p_password':{
             	required: true
             },
             'p_picture':{
@@ -107,25 +102,6 @@ jQuery(document).ready(function() {
             },
             'b_land': {
                 selectcheck: true
-            },
-            'b_telefoon': {
-                required: true
-            },
-            'b_fax': {
-                required: true
-            },
-            'b_gsm':{
-            	required: true
-            },
-            'b_email':{
-            	required: true,
-            	email: true
-            },
-            'b_organisatie': {
-                required: true
-            },
-            'b_functies': {
-                required: true
             },
             
             'r_naam': {
