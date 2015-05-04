@@ -52,7 +52,7 @@
 			$target_file = $upload_dir.basename($data['p_picture']);
 			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
 		}
-		
+		$data['p_picture'] = $data['p_voornaam'].'/'.$data['p_picture']; 
         $data['b_naam'] = $_POST['p_naam'];
 		$data['b_hoofd'] = $_POST['b_hoofd'];
         $data['b_firma'] = $_POST['b_firma'];
@@ -97,8 +97,8 @@
             $message = "Register success";
             unset($data['password']);
             $_SESSION['user'] = $data;
-           // $link = get_site_url().'/success';
-            //echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
+            $link = get_site_url().'/success';
+            echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
         }
         else{
             $message = "Register failed";
