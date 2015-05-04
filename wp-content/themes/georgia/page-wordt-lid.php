@@ -53,7 +53,7 @@
 			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
 		}
 		
-		$data['p_password'] = $_POST['p_password'];
+		$data['p_password'] = sha1($_POST['p_password']);
 		
 		$data['p_picture'] = $data['p_voornaam'].'/'.$data['p_picture']; 
         $data['b_naam'] = $_POST['p_naam'];

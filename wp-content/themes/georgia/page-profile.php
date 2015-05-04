@@ -1,9 +1,13 @@
-<?php get_header();?>
 <?php
 	if(isset($_SESSION['user'])){
         $user = $_SESSION['user'];
+    }else{
+    	//$home_url = get_bloginfo('home');
+		wp_redirect(home_url() ); //to redirect back to "index.php" after logging out
+		exit();
     }
 ?>
+<?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
@@ -14,7 +18,7 @@
                     <span class="trail-begin"><a href="<?php echo bloginfo('home')?>/profile/" title="PROFIEL">PROFIEL</a></span>
                     
                 </div>					
-                <h1><?php echo strtoupper($user['p_naam']); ?></h1>
+                <h1><?php echo strtoupper($user['p_voornaam']); ?></h1>
             </div>
         </section>
 
@@ -25,9 +29,9 @@
                 <div class="col-md-8">
 					<div class="profileDetail">
 						<div class="avatar-member">
-							<img src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>"/>
+							<img src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>" style="width: 199px"/>
 							<div class="profile-name">
-								 <span><?php echo $user['p_naam']; ?></span>
+								 <span><?php echo $user['p_voornaam']; ?></span>
 								 <a href="#" class="fa fedit"><span>edit photo</span></a>
 							</div>
 						</div>

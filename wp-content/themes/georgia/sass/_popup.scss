@@ -54,6 +54,9 @@
         height: 26px;
         border: 1px solid #a6a6a6;
         @include RalewayRegular(12px);
+        &.error{
+          border-color: #ff0000;
+        }
       }
       .l-left{
         width: 252px;

@@ -28,6 +28,25 @@
     <script type='text/javascript' src='js/class.SiteMain.js'></script>
 
 
+	<script type="text/javascript">
+	    jQuery(document).ready(function() {
+	        jQuery("#loginForm").validate({
+	    		rules: {
+	                'p_email': { 
+	                    required: true, 
+	                    email: true,
+	                },
+	                'p_password': { 
+	                    required: true, 
+	                    minlength: 6, 
+	                }
+	    		},
+	    		submitHandler: function(form) {
+	                form.submit();
+	    		},
+	    	});
+	    });
+	</script>
     <!--calendar-->
     <script type='text/javascript' src='js/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/responsive-calendar.js'></script>
