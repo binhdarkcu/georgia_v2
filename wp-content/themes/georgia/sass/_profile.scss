@@ -23,9 +23,21 @@
     padding-left: 17px;
     .avatar-member{
       padding-bottom: 52px;
-      img{
+      .img-box{
         float: left;
-        padding-right: 51px;
+        margin-right: 51px;
+        min-height: 148px;
+        width: 148px;
+        height: 148px;
+        overflow: hidden;
+        position: relative;
+      }
+      img{
+        overflow: auto;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        
       }
       .profile-name{
         padding-top: 103px;

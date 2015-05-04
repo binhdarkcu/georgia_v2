@@ -11,18 +11,7 @@
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
-		 <section id="page-title" class="page-title events-title">
-            <div class="container">
-
-                <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">PROFIEL</a></span>
-                    
-                </div>					
-                <h1><?php echo strtoupper($user['p_naam']); ?></h1>
-            </div>
-        </section>
-
-
+		<?php get_template_part('tpl','profile-title');?>
         <div id="main-content" class="profilePage">
 			<div class="row">
 				<?php get_template_part('sidebar', 'profile'); ?>
@@ -85,7 +74,7 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Emailadres</div>
-							<div class="col2"><a href="#"><?php echo $user['b_email']; ?></a></div>
+							<div class="col2"><a href="mailto:<?php echo $user['b_email']; ?>"><?php echo $user['b_email']; ?></a></div>
 							<div class="col3"><a href="#" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
