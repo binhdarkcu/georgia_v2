@@ -20,7 +20,13 @@
             </div>
             <div class="col-sm-6 col-md-7 col-lg-8 hidden-xs hidden-sm">
                 <div id="primary-menu" class="primary-menu <?php if(isset($_SESSION['user'])) echo 'loggedin';?>">
-                	<div class="user-logined">ingelogd als <a href="#">jurgen van grieken</a></div>
+                	<div class="user-logined">ingelogd als <a href="#">
+                		<?php
+                			if(isset($_SESSION['user'])){
+                				echo $_SESSION['user']['p_voornaam'];
+                			}
+                		?>
+                	</a></div>
                 	<?php
 						$nav = array(
 							'theme_location'  => 'menu_top',
