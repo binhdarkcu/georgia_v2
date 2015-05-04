@@ -41,8 +41,17 @@
         $data['p_gsm'] = $_POST['p_gsm'];
         $data['p_email'] = $_POST['p_email'];
         $data['p_likedin'] = $_POST['p_likedin'];
-        $data['p_picture'] = $_POST['p_picture'];
+        $data['p_picture'] = $_FILES['p_picture']['name'];
 		
+		if (!empty($data['p_picture'])) {
+			$root = getcwd();
+			$upload_dir = $root.'/wp-content/uploads/'.$data['p_voornaam'].'/';
+			if (!file_exists($upload_dir)) {
+				mkdir($upload_dir);
+			}
+			$target_file = $upload_dir.basename($data['p_picture']);
+			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
+		}
 		
         $data['b_naam'] = $_POST['p_naam'];
 		$data['b_hoofd'] = $_POST['b_hoofd'];
@@ -88,8 +97,8 @@
             $message = "Register success";
             unset($data['password']);
             $_SESSION['user'] = $data;
-            $link = get_site_url().'/success';
-            echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
+           // $link = get_site_url().'/success';
+            //echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
         }
         else{
             $message = "Register failed";
@@ -126,7 +135,7 @@
                     			<span class="s-3">de evenementen.</span>	
                     			<span><a href="#">Lees eerste de voorwaarden en reglementen</a></span>
                     		</div>
-                    		<form action="" method="post" id="registerForm">
+                    		<form action="" method="post" id="registerForm" enctype="multipart/form-data">
                     			<?php
 		                            if($message != "")
 		                            {
