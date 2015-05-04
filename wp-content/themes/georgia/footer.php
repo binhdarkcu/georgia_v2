@@ -24,7 +24,7 @@
     <script type='text/javascript' src='js/validate.form.js'></script>
     <script type='text/javascript' src='js/jquery.validate.js'></script>
     
-    
+    <script type='text/javascript' src='js/update_profile.js'></script>
     <script type='text/javascript' src='js/class.SiteMain.js'></script>
 
 

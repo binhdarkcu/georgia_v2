@@ -18,12 +18,14 @@
                 <div class="col-md-8">
 					<div class="profileDetail">
 						<div class="avatar-member">
-							<div class="img-box">
-								<img src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>" />
+							<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+							<div class="img-box pictureUpload">
+								<input type="file" id="filePicture" style="display:none">
+								<img data-dir = "<?php echo content_url().'/uploads/'.$user['p_voornaam']?>/" src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>"  class="imgPreview"/>
 							</div>
 							<div class="profile-name">
 								 <span><?php echo $user['p_voornaam']; ?></span>
-								 <a href="#" class="fa fedit"><span>edit photo</span></a>
+								 <a href="javascript: void(0)" id="editPhoto" class="fa fedit"><span>edit photo</span></a>
 							</div>
 						</div>
 						<div class="row-f">
