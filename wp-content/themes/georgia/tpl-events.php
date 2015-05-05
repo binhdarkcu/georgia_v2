@@ -38,9 +38,9 @@
 
         foreach ($queryEvents as $event) {
             $datetime = $event->DATEEVENT;
-            $date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-            $year = $date->format('Y');
-            $month = $months[ $date->format( 'n' ) ];
+            //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+            $year = substr($datetime, -4);
+            $month = substr($datetime, 0, 2);
             ?>
             <!-- Month / Year Headers -->
             <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
@@ -124,7 +124,7 @@
 
 </div><!-- .tribe-events-loop -->
 <!-- List Footer -->
-<div id="tribe-events-footer">
+<div id="tribe-events-footer" style="display: none;">
 
     <!-- Footer Navigation -->
 

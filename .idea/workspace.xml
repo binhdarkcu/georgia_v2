@@ -30,11 +30,12 @@
       <file leaf-file-name="tpl-events.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9217221" vertical-offset="2569" max-vertical-offset="3160">
-              <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.23483366" vertical-offset="2400" max-vertical-offset="3160">
+              <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
               <folding>
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <marker date="1430848216445" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
+                <marker date="1430848349182" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
               </folding>
             </state>
           </provider>
@@ -609,11 +610,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9217221" vertical-offset="2569" max-vertical-offset="3160">
-          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.23483366" vertical-offset="2400" max-vertical-offset="3160">
+          <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
           <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <marker date="1430848216445" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
+            <marker date="1430848349182" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
           </folding>
         </state>
       </provider>
