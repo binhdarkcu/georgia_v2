@@ -1,4 +1,4 @@
-var calendar_events = (function() {
+var calendar_sidebar = (function() {
     // PARAMATERS
     var setting = {
         url : ''
@@ -15,7 +15,7 @@ var calendar_events = (function() {
     }
 
     function initEvents(){
-        $(document).on('click','.day.active a',function(){
+        $(document).on('click','#calendar-sidebar .day.active a',function(){
             $data_day = $(this).attr('data-day');
             $data_month = $(this).attr('data-month');
             $data_year = $(this).attr('data-year');
@@ -45,7 +45,7 @@ var calendar_events = (function() {
         var curmonth=todaydate.getMonth()+1 //get current month (1-12)
         var curyear=todaydate.getFullYear() //get current year
 
-        $(".responsive-calendar").responsiveCalendar({
+        $("#calendar-sidebar").responsiveCalendar({
             time: curyear + '-' + curmonth,
             events: objEvents
         });

@@ -11,7 +11,7 @@
                                         <!-- Grid -->
 
                                         <div class="tribe-mini-calendar-grid-wrapper" >
-                                        <div class="responsive-calendar">
+                                        <div class="responsive-calendar" id="calendar-sidebar">
                                             <div class="controls">
                                                 <a class="pull-left" data-go="prev"><div class="btn btn-primary">«</div></a>
                                                 <h4><span data-head-year></span> <span data-head-month></span></h4>
@@ -33,28 +33,7 @@
 
                                         <script type="text/javascript">
                                             $(document).ready(function () {
-                                                var events = {
-                                                    <?PHP
-                                                        $argevent = array(
-                                                            'post_type'      => 'post',
-                                                            'posts_per_page' => -1
-                                                        );
-                                                    $event_query = query_posts( $argevent );
-                                                    if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
-                                                    $datetime = get_field('datetime', get_the_ID());
-                                                    $date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-                                                    $day = $date->format('j');
-                                                    $year = $date->format('Y');
-                                                    $month = $date->format( 'm' );
-
-                                                    ?>
-                                                    "<?php echo $year.'-'.$month.'-'.$day ?>":{},
-                                                    <?php endwhile; endif;?>
-
-                                                }
-                                                var url = '<?php echo get_bloginfo('url')?>';
-                                                calendar_events.init(events,url);
-
+                                                calendar_sidebar.init(calendar_events,pageurl);
                                             });
                                         </script>
 

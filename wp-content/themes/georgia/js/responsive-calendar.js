@@ -159,19 +159,32 @@
         return null;
       },
       addOthers: function(day, dayEvents) {
-        var badge;
-        if (typeof dayEvents === "object") {
-          if (dayEvents.number != null) {
-            badge = $("<span></span>").html(dayEvents.number).addClass("badge");
-            if (dayEvents.badgeClass != null) {
-              badge.addClass(dayEvents.badgeClass);
+        if (this.$element.attr('id') == 'calendar-page') {
+            if (typeof dayEvents === "object") {
+                //console.log(dayEvents.title);
+                var d = dayEvents.date;
+
+                //search array event with date
+
+
+                $.each(array_calendar_events, function( index, value ) {
+                    if (typeof value[d] === "object") {
+                        var badge = $("<div></div>").addClass("event-child");
+                        var link = $("<a href='" +value[d].url+ "'>" +value[d].title+ "</a>");
+
+                        badge.append(link);
+                        day.append(badge);
+                    }
+                });
+
+
             }
-            day.append(badge);
-          }
-          if (dayEvents.url) {
-            day.find("a").attr("href", dayEvents.url);
-          }
         }
+        else {
+            var badge = $("<span></span>").addClass("badge");
+            day.append(badge);
+        }
+
         return day;
       },
       makeActive: function(day, dayEvents) {
@@ -194,6 +207,7 @@
         return new Date(year, month + 1, 0).getDate();
       },
       drawDay: function(lastDayOfMonth, yearNum, monthNum, dayNum, i) {
+        var numrow = ( parseInt((i-1)/7) ) + 1;
         var calcDate, dateNow, dateString, day, dayDate, pastFutureClass;
         day = $("<div></div>").addClass("day");
         dateNow = new Date();
@@ -219,11 +233,12 @@
             dateString = yearNum + "-" + this.addLeadingZero(monthNum) + "-" + this.addLeadingZero(dayNum);
           }
         }
-        day.append($("<a>" + dayNum + "</a>").attr("data-day", dayNum).attr("data-month", monthNum).attr("data-year", yearNum));
+        day.attr("data-numrow", numrow).append($("<a>" + dayNum + "</a>").attr("data-day", dayNum).attr("data-month", monthNum).attr("data-year", yearNum));
         if (this.options.monthChangeAnimation) {
           this.applyTransform(day, 'rotateY(180deg)');
           this.applyBackfaceVisibility(day);
         }
+
         day = this.makeActive(day, this.options.events[dateString]);
         return this.$element.find('[data-group="days"]').append(day);
       },
@@ -296,6 +311,8 @@
                 return thisRef.options.onActiveDayHover.call(this, thisRef.options.events);
               });
             }
+
+              calendar_page.calHeight();
           };
           return setTimeout(setEvents, 0);
         };
