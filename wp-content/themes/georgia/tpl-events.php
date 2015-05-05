@@ -10,13 +10,16 @@
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			print_r($paged);
+			//print_r($paged);
 			$post_per_page = intval(get_query_var('posts_per_page'));
 			
 			$offset = ($paged - 1)*$post_per_page;
+			$offset = ($paged - 1)*$paged;
 			date_default_timezone_set( 'Europe/Amsterdam' );
 			setlocale(LC_ALL, 'nl_NL');
 			$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
 			
+			print_r($paged);
 			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT,RIGHT( pm.meta_value, 6 ) AS DATEEVENT	
 						FROM wp_postmeta pm
 						JOIN wp_posts p ON p.ID = pm.post_id
@@ -30,19 +33,26 @@
 						)
 						GROUP BY pm.post_id, RIGHT( pm.meta_value, 6 )
 						ORDER BY p.post_date ASC 
-						LIMIT ".$offset.",2".$post_per_page;
+						LIMIT ".$offset.",".$post_per_page;
+						LIMIT ".$offset.",".$paged;
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
 			$totalPage = $totalEvents[0]->TOTALEVENT;
 
-            //echo 'aaaaaa:'.$wp_query;
+			
+
 			foreach ($queryEvents as $event) {
 				$datetime = $event->DATEEVENT;
 				//$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 
+                $day = substr($datetime, 0, 2); // 13052015
                 $year = substr($datetime, -4);
-                $month = substr($datetime, 0, 2);
+                $month = substr($datetime, 2, 2);
+				$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+				$year = $date->format('Y');
+				$month = $months[ $date->format( 'n' ) ];
+
 			?>
 				 <!-- Month / Year Headers -->
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
