@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d05f9715-e926-46a1-8ae8-5d9dc71b7115" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="v2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,12 +31,10 @@
       <file leaf-file-name="tpl-events.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23483366" vertical-offset="2400" max-vertical-offset="3160">
-              <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.36567163" vertical-offset="644" max-vertical-offset="3160">
+              <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <marker date="1430848349182" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
+                <marker date="1430848983451" expanded="true" signature="559:991" placeholder="SELECT SQL_C..." />
               </folding>
             </state>
           </provider>
@@ -610,12 +609,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23483366" vertical-offset="2400" max-vertical-offset="3160">
-          <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.36567163" vertical-offset="644" max-vertical-offset="3160">
+          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <marker date="1430848349182" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
+            <marker date="1430848983451" expanded="true" signature="559:991" placeholder="SELECT SQL_C..." />
           </folding>
         </state>
       </provider>
