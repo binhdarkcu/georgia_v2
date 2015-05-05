@@ -30,18 +30,19 @@
 						)
 						GROUP BY pm.post_id, RIGHT( pm.meta_value, 6 )
 						ORDER BY p.post_date ASC 
-						LIMIT ".$offset.",".$post_per_page;
+						LIMIT ".$offset.",2".$post_per_page;
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
 			$totalPage = $totalEvents[0]->TOTALEVENT;
+
+            //echo 'aaaaaa:'.$wp_query;
 			foreach ($queryEvents as $event) {
 				$datetime = $event->DATEEVENT;
 				//$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 
-                $day = substr($datetime, 0, 2); // 13052015
                 $year = substr($datetime, -4);
-                $month = substr($datetime, 2, 2);
+                $month = substr($datetime, 0, 2);
 			?>
 				 <!-- Month / Year Headers -->
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
