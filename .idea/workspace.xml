@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05f9715-e926-46a1-8ae8-5d9dc71b7115" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_footer.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_footer.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_others.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_others.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_footer.scss" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_footer.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="v2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,12 +30,11 @@
       <file leaf-file-name="tpl-events.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46966732" vertical-offset="520" max-vertical-offset="3200">
-              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.9217221" vertical-offset="2569" max-vertical-offset="3160">
+              <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
               <folding>
-                <marker date="1430847701441" expanded="true" signature="565:996" placeholder="SELECT SQL_C..." />
-                <marker date="1430847701441" expanded="true" signature="565:996" placeholder="SELECT SQL_C..." />
-                <marker date="1430847701441" expanded="true" signature="565:997" placeholder="SELECT SQL_C..." />
+                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <marker date="1430848216445" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
               </folding>
             </state>
           </provider>
@@ -618,12 +609,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46966732" vertical-offset="520" max-vertical-offset="3200">
-          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.9217221" vertical-offset="2569" max-vertical-offset="3160">
+          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
           <folding>
-            <marker date="1430847701441" expanded="true" signature="565:996" placeholder="SELECT SQL_C..." />
-            <marker date="1430847701441" expanded="true" signature="565:996" placeholder="SELECT SQL_C..." />
-            <marker date="1430847701441" expanded="true" signature="565:997" placeholder="SELECT SQL_C..." />
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1430848216445" expanded="true" signature="635:1065" placeholder="SELECT SQL_C..." />
           </folding>
         </state>
       </provider>
