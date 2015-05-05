@@ -16,7 +16,7 @@
 			date_default_timezone_set( 'Europe/Amsterdam' );
 			setlocale(LC_ALL, 'nl_NL');
 			$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
-			print_r($paged);
+			
 			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT,RIGHT( pm.meta_value, 6 ) AS DATEEVENT	
 						FROM wp_postmeta pm
 						JOIN wp_posts p ON p.ID = pm.post_id
@@ -46,7 +46,6 @@
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
 		        <!-- Event  -->
 			<?php 
-			print_r($datetime);	
 				$argevent = array(
 				  'post_type'      => 'post',
 				  'posts_per_page' => -1,
