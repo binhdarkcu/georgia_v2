@@ -22,8 +22,9 @@
     // AJAX
     include 'inc/ajax_events_sidebar.php';
 	
-	include 'inc/profile.php';
-
+	//include 'inc/profile.php';
+	include 'inc/participate_event.php';
+	
 	//count total item when distinct
 	function distinctPost($meta_value){
 		global $wpdb;

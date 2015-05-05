@@ -35,4 +35,23 @@ jQuery(document).ready(function(){
 	$('#editPhoto').click(function(){
 		$('#filePicture').click();
 	});
+	
+	$('#addEvent').click(function(){
+		$id_event = $(this).attr('data-event-id');
+        $id_member = $(this).attr('data-user-id');
+		$.ajax({
+            type : "GET",
+            url : $('.ajaxurl').val(),
+            data : {action: "addEvent", 'id_event':$id_event, 'id_member':$id_member},
+            contentType: "application/json; charset=utf-8",
+            success:function(data) {
+	            // This outputs the result of the ajax request
+	            console.log(data);
+	        },
+	        error: function(errorThrown){
+	            console.log(errorThrown);
+	        }
+
+       });
+	});
 });

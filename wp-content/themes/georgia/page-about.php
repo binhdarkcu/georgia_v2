@@ -15,10 +15,11 @@
                     <div class="col-md-12">
                         <div class="about-content">
                         	<h3>OVER GEORGIA</h3>
-                        	<p>Georgiaquat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora </p>
-                            <p class="pad-bot-25">torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. </p>
-                            <p>Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci eni.</p>
-                            <p>Bent u geinteresseerd om lid te worden?</p>
+                        	<p>Georgia is opgericht door <a href="https://be.linkedin.com/pub/patrick-leclair/13/6a6/2a6" target="_blank">Patrick Leclair</a> in 2007, samen met een aantal personen uit de vastgoedsector. Georgia Business Club wenst een platform te bieden voor actieve ondernemers en vrije beroepsbeoefenaars binnen de vastgoedwereld. </p>
+                            <p class="pad-bot-25">Doelstelling is om elkaars ambassadeur te zijn en op deze manier de businessactiviteiten te dynamiseren. Uiteraard met 1 doel voor ogen: meer omzet te genereren.</p>
+                            <p>De leden komen periodiek samen om met en voor elkaar zaken te doen. Dit biedt een unieke kans om te netwerken/benchmarken.
+                            Deze samenkomsten worden steeds opgeluisterd met een interessante spreker over allerlei thema’s. </p>
+                            
                             <a class="btn" href="<?php echo bloginfo('home')?>/wordt-lid">
                                 WORDT LID
                             </a>
