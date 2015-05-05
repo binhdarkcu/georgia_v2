@@ -61,4 +61,35 @@
 		right: 1px;
 	}
 	</style>
+
+    <script type="text/javascript">
+
+            <?PHP
+                $argevent = array(
+                    'post_type'      => 'post',
+                    'posts_per_page' => -1
+                );
+                $str1Array = '';
+                $str2Array = '';
+            $event_query = query_posts( $argevent );
+            if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
+            $datetime = get_field('datetime', get_the_ID());
+            $date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+            $day = $date->format('j');
+            $year = $date->format('Y');
+            $month = $date->format( 'm' );
+
+            $title = get_the_title(get_the_ID());
+            $urlevent = get_the_permalink(get_the_ID());
+
+            $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
+            $str2Array .= "'".get_the_ID()."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
+
+            endwhile; endif;
+            ?>
+
+        var calendar_events = {<?php echo $str1Array;?>};
+
+        var pageurl = '<?php echo get_bloginfo('url')?>';
+    </script>
 </head>
