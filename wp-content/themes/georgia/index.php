@@ -188,15 +188,19 @@
                                                 </h3>
                                                 <ul>
                                                     <?php
-		                                            	if( have_rows('shedule') ): while ( have_rows('shedule') ) : the_row(); 
-														$start = get_sub_field('start');
-														$finish = get_sub_field('finish');
-														$action = get_sub_field('action');
+                                                    	$shedule = get_field('shedule', $featured->ID); 
+														//print_r($shedule);
+		                                            	//if( have_rows('shedule') ): while ( have_rows('shedule') ) : the_row(); 
+														foreach( $shedule as $s ){
+															print_r($s['start']);
+															$start = get_sub_field('start');
+															$finish = get_sub_field('finish');
+															$action = get_sub_field('action');
 		                                            ?>
                                                     <li class="item">
-                                                        <?php echo $start.' - '.$finish.' '.$action?>
+                                                        <?php echo $s['start'].' - '.$s['finish'].' '.$s['action']?>
                                                     </li>
-                                                     <?php endwhile; endif;?>
+                                                     <?php }?>
                                                     <li class="timeline">&nbsp;</li>
                                                 </ul>
                                             </div>
