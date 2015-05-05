@@ -30,7 +30,7 @@
 						)
 						GROUP BY pm.post_id, RIGHT( pm.meta_value, 6 )
 						ORDER BY p.post_date ASC 
-						LIMIT ".$offset.",".$paged;
+						LIMIT ".$offset.",2";
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
@@ -46,6 +46,7 @@
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
 		        <!-- Event  -->
 			<?php 
+			print_r($datetime);	
 				$argevent = array(
 				  'post_type'      => 'post',
 				  'posts_per_page' => -1,
@@ -128,7 +129,7 @@
 
     <!-- Footer Navigation -->
 
-    <div class="tribe-events-pagination pagination clearfix" style="display: block!important;">
+    <div class="tribe-events-pagination pagination clearfix" style="display: none!important;">
         <h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
       <ul class="tribe-events-sub-nav">
         <!-- Left Navigation -->
