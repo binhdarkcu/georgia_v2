@@ -64,28 +64,36 @@
 
     <script type="text/javascript">
 
-            <?PHP
-                $argevent = array(
-                    'post_type'      => 'post',
-                    'posts_per_page' => -1
-                );
-                $str1Array = '';
-                $str2Array = '';
+            <?php
+            $argevent = array(
+                'post_type'      => 'post',
+                'posts_per_page' => -1
+            );
+            $str1Array = '';
+            $str2Array = '';
+
             $event_query = query_posts( $argevent );
-            if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
-            $datetime = get_field('datetime', get_the_ID());
-            $date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-            $day = $date->format('j');
-            $year = $date->format('Y');
-            $month = $date->format( 'm' );
 
-            $title = get_the_title(get_the_ID());
-            $urlevent = get_the_permalink(get_the_ID());
+            if ( have_posts($event_query->$post) ) {
+                while ( have_posts($event_query->$post) ) {
+                    the_post($event_query->$post);
 
-            $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
-            $str2Array .= "'".get_the_ID()."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
+                    $datetime = get_field('datetime', get_the_ID()); //dmY
+                    //$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 
-            endwhile; endif;
+                    $day = substr($datetime, 0, 2); // 13052015
+                    $year = substr($datetime, -4);
+                    $month = substr($datetime, 2, 2);
+
+                    $title = get_the_title(get_the_ID());
+                    $urlevent = get_the_permalink(get_the_ID());
+
+                    $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
+                    $str2Array .= "'".get_the_ID()."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
+                } // end while
+            } // end if
+
+
             ?>
 
         var calendar_events = {<?php echo $str1Array;?>};

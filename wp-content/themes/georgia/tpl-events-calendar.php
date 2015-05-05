@@ -46,10 +46,10 @@
             $event_query = query_posts( $argevent );
             if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
             $datetime = get_field('datetime', get_the_ID());
-            $date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-            $day = $date->format('j');
-            $year = $date->format('Y');
-            $month = $date->format( 'm' );
+            //$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+            $day = substr($datetime, 0, 2); // 13052015
+            $year = substr($datetime, -4);
+            $month = substr($datetime, 2, 2);
 
             $title = get_the_title(get_the_ID());
             $urlevent = get_the_permalink(get_the_ID());

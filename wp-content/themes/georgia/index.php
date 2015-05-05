@@ -28,7 +28,11 @@
 						        
 						        foreach ($queryFeatured as $featured) {
 								$datetime = get_field('datetime', $featured->ID);
-								$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+								//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+                                $day = substr($datetime, 0, 2); // 13052015
+                                $year = substr($datetime, -4);
+                                $month = substr($datetime, 2, 2);
+
 								$time = get_field('time', $featured->ID);
 								$loc = get_field('place', $featured->ID);
 								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($featured->ID) );
@@ -67,9 +71,9 @@
 
                                             <div class="tribe-events-cta">
                                                 <div class="tribe-events-cta-date">
-                                                    <span class="mm"><?php echo $months[ $date->format( 'n' ) ];?></span>
-					                                <span class="dd"><?php echo $date->format('j');?></span>
-					                                <span class="yy center"><?php echo $date->format('Y');?></span>
+                                                    <span class="mm"><?php echo $month;?></span>
+					                                <span class="dd"><?php echo $day ;?></span>
+					                                <span class="yy center"><?php echo $year;?></span>
                                                 </div>
                                                 <?php if($isLogin == 1){ ?>
                                                 <div class="tribe-events-cta-btn">
@@ -86,7 +90,7 @@
                                                     <tr>
                                                         <th> Datum: </th>
                                                         <td>
-                                                            <abbr class="tribe-events-abbr updated published dtstart"><?php echo $months[ $date->format( 'n' ) ]." ".$date->format('j');?></abbr>
+                                                            <abbr class="tribe-events-abbr updated published dtstart"><?php echo $month." ".$year;?></abbr>
                                                         </td>
                                                     </tr>
 

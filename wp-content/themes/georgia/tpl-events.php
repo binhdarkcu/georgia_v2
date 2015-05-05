@@ -37,9 +37,11 @@
 			$totalPage = $totalEvents[0]->TOTALEVENT;
 			foreach ($queryEvents as $event) {
 				$datetime = $event->DATEEVENT;
-				$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-				$year = $date->format('Y');
-				$month = $months[ $date->format( 'n' ) ];
+				//$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+
+                $day = substr($datetime, 0, 2); // 13052015
+                $year = substr($datetime, -4);
+                $month = substr($datetime, 2, 2);
 			?>
 				 <!-- Month / Year Headers -->
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
@@ -61,12 +63,14 @@
 				$event_query = query_posts( $argevent );
 				if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
 					$datetime = get_field('datetime', get_the_ID());
-					$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+					//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 					$loc = get_field('place', get_the_ID());
 					$time = get_field('time', get_the_ID());
-					$day = $date->format('j');
-					$year = $date->format('Y');
-					$month = $months[ $date->format( 'n' ) ];
+
+                    $day = substr($datetime, 0, 2); // 13052015
+                    $year = substr($datetime, -4);
+                    $month = substr($datetime, 2, 2);
+
 					$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
 				?>
 				<div id="post-2053" class="hentry vevent type-tribe_events post-2053 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2054 tribe-events-first col-sm-6">

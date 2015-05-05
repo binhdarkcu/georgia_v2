@@ -30,7 +30,11 @@
 							            $i++;
 							            $url = wp_get_attachment_url(get_post_thumbnail_id($coming->ID));
 										$datetime = get_field('datetime', $coming->ID);
-										$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+										//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+                                        $day = substr($datetime, 0, 2); // 13052015
+                                        $year = substr($datetime, -4);
+                                        $month = substr($datetime, 2, 2);
+
 										$loc = get_field('place', $coming->ID);
 										$time = get_field('time', $coming->ID);
 							    ?>
@@ -46,9 +50,9 @@
                                             </div>
 
                                             <div class="tribe-events-event-date">
-                                                <span class="dd"><?php echo $date->format('j');?></span>
-                                                <span class="mm"><?php echo $months[ $date->format( 'n' ) ];?></span>
-                                                <span class="yy"><?php echo $date->format('Y');?></span>
+                                                <span class="dd"><?php echo $day;?></span>
+                                                <span class="mm"><?php echo $month;?></span>
+                                                <span class="yy"><?php echo $year;?></span>
                                             </div>
                                         </div>
 

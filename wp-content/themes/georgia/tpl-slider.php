@@ -14,7 +14,11 @@
             $i++;
             $url = wp_get_attachment_url(get_post_thumbnail_id($slider->ID));
 			$datetime = get_field('datetime', $slider->ID);
-			$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+			//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
+            $day = substr($datetime, 0, 2); // 13052015
+            $year = substr($datetime, -4);
+            $month = substr($datetime, 2, 2);
+
 			$loc = get_field('place', $slider->ID);
     ?>
     <div class="slide-event item" style="background-image:url(<?php echo $url;?>)">
@@ -29,9 +33,9 @@
                         </h2>
                         <div class="slide-event-cta">
                             <div class="slide-event-cta-date">
-                                <span class="mm"><?php echo $months[ $date->format( 'n' ) ];?></span>
-                                <span class="dd"><?php echo $date->format('j');?></span>
-                                <span class="yy center"><?php echo $date->format('Y');?></span>
+                                <span class="mm"><?php echo $month;?></span>
+                                <span class="dd"><?php echo $day ;?></span>
+                                <span class="yy center"><?php echo $year ;?></span>
                             </div>
                             <a class="btn" href="<?php echo get_the_permalink($slider->ID);?>">
                                 MEER INFO
