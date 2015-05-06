@@ -192,7 +192,6 @@
 														//print_r($shedule);
 		                                            	//if( have_rows('shedule') ): while ( have_rows('shedule') ) : the_row(); 
 														foreach( $shedule as $s ){
-															print_r($s['start']);
 															$start = get_sub_field('start');
 															$finish = get_sub_field('finish');
 															$action = get_sub_field('action');
@@ -228,7 +227,7 @@
 
                                 <div class="recent-post-wrap">
 
-                                    <a class="recent-post-nav" href="#">
+                                    <a class="recent-post-nav" href="<?php echo bloginfo('home')?>/about">
                                         LEES MEER
                                         <i class="fa fa-chevron-right"></i>
                                     </a>
