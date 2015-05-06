@@ -71,7 +71,7 @@
 
                                                         <!-- Venue Display Info -->
                                                         <div class="tribe-events-venue-details">
-                                                            <a href="http://demo.toko.press/eventica-tecpro/venue/bratislava/"><?php echo $loc['address'];?></a>
+                                                            <a href="<?php echo get_the_permalink($coming->ID);?>"><?php echo $loc['address'];?></a>
                                                         </div> <!-- .tribe-events-venue-details -->
 
                                                         <div class="time-details">
