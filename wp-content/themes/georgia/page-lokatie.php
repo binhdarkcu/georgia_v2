@@ -7,9 +7,9 @@
 
                 <div class="breadcrumb-trail breadcrumb breadcrumbs">
                     <span class="trail-begin"><a href="<?php echo bloginfo('home')?>" title="Home">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home')?>/location/" title="LOCATIES">LOCATIES</a></span>
+                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home')?>/location/" title="LOKATIES">LOKATIES</a></span>
                 </div>							
-                <h1>LOCATIES</h1>
+                <h1>LOKATIES</h1>
             </div>
         </section>
 
@@ -22,7 +22,7 @@
                     <div class="col-md-9">
 						<div class="location-box">
 							<div class="loc-title">
-								<h3>LOCATIE ANTWERPEN</h3>
+								<h3>LOKATIE ANTWERPEN</h3>
 								<p>
 									Suikerui 5<br/>
 									2000 Antwerpen
