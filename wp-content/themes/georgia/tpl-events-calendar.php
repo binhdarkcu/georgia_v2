@@ -1,13 +1,13 @@
 <div class="responsive-calendar" id="calendar-page">
 
     <div class="day-headers">
-        <div class="day header">MONDAY</div>
-        <div class="day header">TUESDAY</div>
-        <div class="day header">WEDNESDAY</div>
-        <div class="day header">THURSDAY</div>
-        <div class="day header">FRIDAY</div>
-        <div class="day header">SATURDAY</div>
-        <div class="day header">SUNDAY</div>
+        <div class="day header">maandag</div>
+        <div class="day header">dinsdag</div>
+        <div class="day header">woensdag</div>
+        <div class="day header">donderdag</div>
+        <div class="day header">vrijdag</div>
+        <div class="day header">zaterdag</div>
+        <div class="day header">zondag</div>
     </div>
     <div class="days" data-group="days">
 

@@ -1,4 +1,6 @@
-// JavaScript Document
+$arrayMonths_Long = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+$arrayMonths_short = ['jan','feb','maa','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+
 var SiteMain = (function() {
 	function init(){
 		initEvent();

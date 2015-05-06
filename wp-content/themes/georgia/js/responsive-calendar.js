@@ -121,6 +121,7 @@
       setMonth: function(dateString) {
         var time;
         time = this.splitDateString(dateString);
+
         return this.currentMonth = this.drawDays(time.year, time.month);
       },
       prev: function() {
@@ -243,6 +244,8 @@
         return this.$element.find('[data-group="days"]').append(day);
       },
       drawDays: function(year, month) {
+        //console.log(year , month);
+          calendar_page.setvalues(year , month)
         var currentMonth, day, dayBase, days, delay, draw, firstDayOfMonth, i, lastDayOfMonth, loopBase, monthNum, multiplier, thisRef, time, timeout, yearNum, _i, _len;
         thisRef = this;
         time = new Date(year, month);

@@ -25,7 +25,6 @@
 							        $queryComing = get_posts($args_coming);
 									date_default_timezone_set( 'Europe/Amsterdam' );
 									setlocale(LC_ALL, 'nl_NL');
-									$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
 							        foreach ($queryComing as $coming) {
 							            $i++;
 							            $url = wp_get_attachment_url(get_post_thumbnail_id($coming->ID));
@@ -51,7 +50,7 @@
 
                                             <div class="tribe-events-event-date">
                                                 <span class="dd"><?php echo $day;?></span>
-                                                <span class="mm"><?php echo $month;?></span>
+                                                <span class="mm"><?php echo convertMonths_String( (int) $month,true);?></span>
                                                 <span class="yy"><?php echo $year;?></span>
                                             </div>
                                         </div>
