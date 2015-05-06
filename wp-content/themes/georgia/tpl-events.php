@@ -13,11 +13,6 @@
 			
 			$offset = ($paged - 1)*$post_per_page;
 			
-			
-			date_default_timezone_set( 'Europe/Amsterdam' );
-			setlocale(LC_ALL, 'nl_NL');
-			$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
-			
 			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT,RIGHT( pm.meta_value, 6 ) AS DATEEVENT	
 						FROM wp_postmeta pm
 						JOIN wp_posts p ON p.ID = pm.post_id
@@ -41,7 +36,9 @@
 				$datetime = $event->DATEEVENT;
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, -4);
-                $month = substr($datetime, 0, 2);
+				$month = substr($datetime, 0, 2);
+                $month = convertMonths_String((int)$month,true);
+				
 			?>
 				 <!-- Month / Year Headers -->
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
@@ -70,6 +67,7 @@
                     $day = substr($datetime, 0, 2); // 13052015
                     $year = substr($datetime, -4);
                     $month = substr($datetime, 2, 2);
+                	$month = convertMonths_String((int)$month,true);
 
 					$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
 				?>

@@ -124,7 +124,7 @@
     function convertMonths_String($month, $flag){
         $arrayMonths_Long = array('','januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december');
         $arrayMonths_short = array('','jan','feb','maa','apr','mei','jun','jul','aug','sep','okt','nov','dec');
-
+		
         return $flag ? $arrayMonths_Long[$month] : $arrayMonths_short[$month];
     }
 
