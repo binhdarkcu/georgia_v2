@@ -228,7 +228,7 @@
 
                                 <div class="recent-post-wrap">
 
-                                    <a class="recent-post-nav" href="http://demo.toko.press/eventica-tecpro/blog/">
+                                    <a class="recent-post-nav" href="#">
                                         LEES MEER
                                         <i class="fa fa-chevron-right"></i>
                                     </a>
@@ -244,7 +244,7 @@
 
                                             <div class="inner-loop">
                                                 <div class="post-thumbnail">
-                                                    <a href="http://demo.toko.press/eventica-tecpro/how-to-live-life-free-of-stress-an-interview-with-joe-dimaggio/" title="How To Live Life Free Of Stress An Interview With Joe Dimaggio">
+                                                    <a href="#" title="How To Live Life Free Of Stress An Interview With Joe Dimaggio">
                                                         <img width="400" height="200" src="images/home/our-georgia.jpg" class="attachment-blog-thumbnail wp-post-image" alt="Eventica Dummy Image 33" />
                                                     </a>
                                                 </div>
