@@ -10,9 +10,10 @@
         $day = substr($datetime, 0, 2); // 13052015
         $year = substr($datetime, -4);
         $month = substr($datetime, 2, 2);
+		$month = convertMonths_String((int)$month,true);
 
 		$time = get_field('time', get_the_ID());
-		$loc = get_field('place', get_the_ID());
+		$loc = get_field('place_event', get_the_ID());
 		$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
 	?>
     
@@ -65,13 +66,15 @@
                                             <div class="tribe-events-cta">
                                                 <div class="tribe-events-cta-date">
                                                     <span class="mm"><?php echo $month;?></span>
-                                                    <span class="dd"><?php echo $daty;?></span>
+                                                    <span class="dd"><?php echo $day;?></span>
                                                     <span class="yy"><?php echo $year;?></span>
                                                 </div>
                                                <div class="tribe-events-cta-btn">
-                                                    <a class="btn" href="http://lyon.wordcamp.org/2015">
+                                                    <?php if(isset($_SESSION['user'])){ ?>
+                                                    <a class="btn" href="<?php echo bloginfo('home')?>/word-lid">
                                                         IK KOM
                                                     </a>
+                                                    <?php }?>
                                                 </div>
                                             </div>
 
