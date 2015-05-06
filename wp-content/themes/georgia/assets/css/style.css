@@ -6834,14 +6834,24 @@ article.page-none .search-form {
   position: relative;
   padding: 10px 0;
 }
-#tribe-events-content.tribe-events-single .tribe-events-meta-group-schedule ul .item:before {
+#tribe-events-content.tribe-events-single .tribe-events-meta-group-schedule ul .item i {
   font-family: 'FontAwesome';
   font-weight: normal;
   content: '\f111';
-  color: #c8dcde;
+  background: #c8dcde;
   font-size: 13px;
-  padding-right: 20px;
   line-height: 1em;
+  float: left;
+  width: 13px;
+  height: 13px;
+  -webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+}
+#tribe-events-content.tribe-events-single .tribe-events-meta-group-schedule ul .item span{
+	  padding-left: 15px;
+  display: inline-block;
+  width: 85%;
 }
 #tribe-events-content.tribe-events-single .tribe-events-meta-group-schedule ul .timeline {
   position: absolute;

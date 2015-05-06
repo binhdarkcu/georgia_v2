@@ -197,7 +197,8 @@
 															$action = get_sub_field('action');
 		                                            ?>
                                                     <li class="item">
-                                                        <?php echo $s['start'].' - '.$s['finish'].' '.$s['action']?>
+                                                    	<i></i>
+                                                        <span><?php echo $s['start'].' - '.$s['finish'].' '.$s['action']?></span>
                                                     </li>
                                                      <?php }?>
                                                     <li class="timeline">&nbsp;</li>

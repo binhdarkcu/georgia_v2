@@ -189,7 +189,8 @@
 														$action = get_sub_field('action');
 		                                            ?>
                                                     <li class="item">
-                                                        <?php echo $start.' - '.$finish.' '.$action?>
+                                                    	<i></i>
+                                                        <span><?php echo $start.' - '.$finish.' '.$action?></span>
                                                     </li>
                                                      <?php endwhile; endif;?>
                                                     <li class="timeline">&nbsp;</li>
