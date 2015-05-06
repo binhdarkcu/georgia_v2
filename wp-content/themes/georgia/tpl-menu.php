@@ -4,9 +4,6 @@
             <div class="col-sm-6 col-md-5 col-lg-4">
                 <div class="site-branding">
                     <a href="<?php echo bloginfo('home')?>/">
-                        <div class="site-icon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
                         <div class="logo">
                             <img src="images/logo.png"/>
                         </div>

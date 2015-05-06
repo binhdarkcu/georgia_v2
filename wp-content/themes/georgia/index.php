@@ -251,13 +251,15 @@
 
                                                 <div class="post-inner">
                                                     <div class="post-summary">
-                                                        <p>Georgiaquat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora </p>
-                                                        <p class="pad-bot-25">torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. </p>
-                                                        <p>Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci eni.</p>
-                                                        <p>Bent u geinteresseerd om lid te worden?</p>
-                                                        <a class="btn" href="http://lyon.wordcamp.org/2015">
-	                                                        WORD LID
-	                                                    </a>
+                                                        <?php
+															$aboutid = get_page_id_by_slug('about');
+															$about = get_post($aboutid);
+															$aboutContent = $about->post_content;
+														?>
+														<?php echo apply_filters('the_content', $aboutContent);?>
+                                                        <a class="btn" href="<?php echo bloginfo('home')?>/wordt-lid">
+							                                WORD LID
+							                            </a>
                                                     </div>
                                                 </div>
                                             </div>
