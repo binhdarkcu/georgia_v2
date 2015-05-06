@@ -33,7 +33,7 @@
                         </h2>
                         <div class="slide-event-cta">
                             <div class="slide-event-cta-date">
-                                <span class="mm"><?php echo $month;?></span>
+                                <span class="mm"><?php echo convertMonths_String( (int) $month,true);?></span>
                                 <span class="dd"><?php echo $day ;?></span>
                                 <span class="yy center"><?php echo $year ;?></span>
                             </div>

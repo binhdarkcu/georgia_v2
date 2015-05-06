@@ -71,7 +71,7 @@
 
                                             <div class="tribe-events-cta">
                                                 <div class="tribe-events-cta-date">
-                                                    <span class="mm"><?php echo $month;?></span>
+                                                    <span class="mm"><?php echo convertMonths_String( (int) $month,true); ?></span>
 					                                <span class="dd"><?php echo $day ;?></span>
 					                                <span class="yy center"><?php echo $year;?></span>
                                                 </div>
@@ -94,7 +94,7 @@
                                                     <tr>
                                                         <th> Datum: </th>
                                                         <td>
-                                                            <abbr class="tribe-events-abbr updated published dtstart"><?php echo $month." ".$year;?></abbr>
+                                                            <abbr class="tribe-events-abbr updated published dtstart"><?php echo convertMonths_String( (int) $month,true)." ".$day;?></abbr>
                                                         </td>
                                                     </tr>
 

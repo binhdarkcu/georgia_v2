@@ -45,10 +45,15 @@ var calendar_page = (function() {
         }
     }
 
+    function setvalues(year , month){
+        $('#calendar-page-title').html( $arrayMonths_Long[month]  + ' ' + year);
+    }
+
     //RETURN
     return {
         init:init,
-        calHeight:calHeight
+        calHeight:calHeight,
+        setvalues:setvalues
     };
 
 })();

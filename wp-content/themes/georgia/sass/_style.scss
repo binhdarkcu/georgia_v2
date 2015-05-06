@@ -4,6 +4,10 @@ html, body{width:100%; min-width:640px; }
 body {
 	font: $fontArial12;
 	background: #1b1a18;
+
+  &.bgBlack {
+    background: #000;
+  }
 }
 a{text-decoration: none;}
 .clear{clear:both;}
