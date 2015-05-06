@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05f9715-e926-46a1-8ae8-5d9dc71b7115" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/page-about.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/page-about.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
     </list>
     <ignored path="v2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,52 +27,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5172415" vertical-offset="40" max-vertical-offset="7280">
-              <caret line="10" column="35" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tpl-slider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.137932" vertical-offset="0" max-vertical-offset="1260">
-              <caret line="35" column="100" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-about.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-about.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6896552" vertical-offset="0" max-vertical-offset="820">
-              <caret line="1" column="205" selection-start-line="1" selection-start-column="205" selection-end-line="1" selection-end-column="212" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_style.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28880867" vertical-offset="0" max-vertical-offset="2520">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.137931" vertical-offset="2137" max-vertical-offset="2720">
-              <caret line="123" column="33" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="33" />
-              <folding />
+            <state vertical-scroll-proportion="0.65523463" vertical-offset="2137" max-vertical-offset="2720">
+              <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+              <folding>
+                <marker date="1430921215436" expanded="true" signature="712:942" placeholder="SELECT count.._wpdb_postmeta pm..." />
+                <marker date="1430921215436" expanded="true" signature="2717:2796" placeholder="SELECT ID FR.._wpdb_posts WHERE..." />
+                <marker date="1430921215436" expanded="true" signature="2906:2985" placeholder="SELECT ID FR.._wpdb_posts WHERE..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,7 +68,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_footer.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-page.js" />
@@ -117,6 +78,8 @@
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-about.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-lokatie.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
       </list>
     </option>
   </component>
@@ -651,14 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.137931" vertical-offset="2137" max-vertical-offset="2720">
-          <caret line="123" column="33" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1696751" vertical-offset="1606" max-vertical-offset="2160">
@@ -693,9 +648,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28880867" vertical-offset="0" max-vertical-offset="2520">
+        <state vertical-scroll-proportion="-5.5172415" vertical-offset="0" max-vertical-offset="2520">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-lokatie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54151624" vertical-offset="180" max-vertical-offset="1040">
+          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65523463" vertical-offset="2137" max-vertical-offset="2720">
+          <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+          <folding>
+            <marker date="1430921215436" expanded="true" signature="712:942" placeholder="SELECT count.._wpdb_postmeta pm..." />
+            <marker date="1430921215436" expanded="true" signature="2717:2796" placeholder="SELECT ID FR.._wpdb_posts WHERE..." />
+            <marker date="1430921215436" expanded="true" signature="2906:2985" placeholder="SELECT ID FR.._wpdb_posts WHERE..." />
+          </folding>
         </state>
       </provider>
     </entry>
