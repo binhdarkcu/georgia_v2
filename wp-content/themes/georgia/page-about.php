@@ -1,5 +1,5 @@
 <?php get_header();?>
-<body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
+<body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template bgBlack">
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title about-title">
