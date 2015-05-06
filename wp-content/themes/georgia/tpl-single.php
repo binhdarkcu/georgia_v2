@@ -71,9 +71,12 @@
                                                 </div>
                                                <div class="tribe-events-cta-btn">
                                                     <?php if(isset($_SESSION['user'])){ ?>
-                                                    <a class="btn" href="<?php echo bloginfo('home')?>/word-lid">
-                                                        IK KOM
-                                                    </a>
+                                                    	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+	                                                	<input name="action" type="hidden" class="action" value="add_event"/>
+	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
+	                                                        IK KOM
+	                                                    </a>
+	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
                                                     <?php }?>
                                                 </div>
                                             </div>

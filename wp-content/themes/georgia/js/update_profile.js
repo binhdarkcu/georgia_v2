@@ -36,20 +36,26 @@ jQuery(document).ready(function(){
 		$('#filePicture').click();
 	});
 	
-	$('#addEvent').click(function(){
+	//ADD EVENT
+	$(document).on('click','#addEvent',function(){
 		$id_event = $(this).attr('data-event-id');
         $id_member = $(this).attr('data-user-id');
 		$.ajax({
-            type : "GET",
+            type : "POST",
             url : $('.ajaxurl').val(),
-            data : {action: "addEvent", 'id_event':$id_event, 'id_member':$id_member},
-            contentType: "application/json; charset=utf-8",
+            data : {action: "add_event", 'id_event':$id_event, 'id_member':$id_member},
+            dataType:'json',
             success:function(data) {
-	            // This outputs the result of the ajax request
-	            console.log(data);
+            	console.log(data);
+            	if(data){
+            		alert('Thank you participated this event.');
+            	}else{
+            		alert('You only participate once.');
+            	}
+	            
 	        },
 	        error: function(errorThrown){
-	            console.log(errorThrown);
+	            alert('Participate fail.');
 	        }
 
        });

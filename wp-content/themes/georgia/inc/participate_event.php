@@ -1,18 +1,19 @@
 <?php
-
-wp_enqueue_script('jquery');
+add_action("wp_ajax_add_event", "addEvent");
+add_action("wp_ajax_nopriv_add_event", "addEvent");
 function addEvent(){
 	global $wpdb;	
 	$data['id_event'] = $_REQUEST['id_event'];
 	$data['id_member'] = $_REQUEST['id_member'];
-	$results = $wpdb->insert('wp_participate', $data);
-	if($results){
-        $link = get_site_url();
-        echo "<script>alert('Thank you participated this event.');setTimeout(function(){window.location.href = '$link';},1000);</script>";
+	$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
+	if(!empty($event)){
+        echo 'false';
+		exit();
     }
     else{
-       echo "<script>alert('Participate fail.');setTimeout(function(){window.location.href = '$link';},1000);</script>";
+    	echo 'true';
+        $wpdb->insert('wp_participate', $data);
+		exit();
     }
+	
 }
-add_action("wp_ajax_add_event", "addEvent");
-add_action("wp_ajax_nopriv_add_event", "addEvent");

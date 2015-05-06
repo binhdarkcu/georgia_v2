@@ -20,14 +20,14 @@
 	            unset($data['p_password']);
 	            $_SESSION['user'] = $data;
 	            $link = get_site_url().'/profile';
-	            echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
+	            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
 	        }
 	        else{
 	            echo '<script language="javascript">';
 				echo 'alert("Login fail")';
 				echo '</script>';
 				$link = get_site_url().'/wordt-lid';
-				echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
+				echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
 	        }
 	    }
 	
