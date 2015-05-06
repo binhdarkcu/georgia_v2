@@ -5,14 +5,15 @@
 
 		<?php
 			$added = array();
-			global $paged;
-			
+		
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			//print_r($paged);
-			$post_per_page = intval(get_query_var('posts_per_page'));
+			$post_per_page = 2;
 			
-			$offset = ($paged - 1)*$paged;
+			$offset = ($paged - 1)*$post_per_page;
+			
+			
 			date_default_timezone_set( 'Europe/Amsterdam' );
 			setlocale(LC_ALL, 'nl_NL');
 			$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
@@ -30,7 +31,7 @@
 						)
 						GROUP BY pm.post_id, RIGHT( pm.meta_value, 6 )
 						ORDER BY p.post_date ASC 
-						LIMIT ".$offset.",2";
+						LIMIT ".$offset.",".$post_per_page;
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
@@ -127,8 +128,8 @@
 <div id="tribe-events-footer">
 
     <!-- Footer Navigation -->
-
-    <div class="tribe-events-pagination pagination clearfix" style="display: none!important;">
+	
+    <div class="tribe-events-pagination pagination clearfix" style="display: <?php if($totalPage > 2) echo 'block';?>!important;">
         <h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
       <ul class="tribe-events-sub-nav">
         <!-- Left Navigation -->
