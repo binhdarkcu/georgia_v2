@@ -36,30 +36,6 @@
 </div>
 
 <script type="text/javascript">
-    <?PHP
-                $argevent = array(
-                    'post_type'      => 'post',
-                    'posts_per_page' => -1
-                );
-                $str1Array = '';
-                $str2Array = '';
-            $event_query = query_posts( $argevent );
-            if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
-            $datetime = get_field('datetime', get_the_ID());
-            //$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-            $day = substr($datetime, 0, 2); // 13052015
-            $year = substr($datetime, -4);
-            $month = substr($datetime, 2, 2);
-
-            $title = get_the_title(get_the_ID());
-            $urlevent = get_the_permalink(get_the_ID());
-
-            $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',postID:'".get_the_ID()."',url:'".$urlevent."'},";
-            $str2Array .= "'".get_the_ID()."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
-
-            endwhile; endif;
-            ?>
-    var array_calendar_events = {<?php echo $str2Array;?>};
     $(document).ready(function () {
         calendar_page.init(calendar_events,pageurl);
     });

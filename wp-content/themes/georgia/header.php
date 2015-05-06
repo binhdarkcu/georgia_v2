@@ -71,53 +71,5 @@
 	}
 	</style>
 
-    <script type="text/javascript">
 
-            <?php
-            $argevent = array(
-                'post_type'      => 'post',
-                'posts_per_page' => -1
-            );
-            $str1Array = '';
-            $str2Array = '';
-
-            $event_query = query_posts( $argevent );
-
-            /*if ( have_posts($event_query->$post) ) {
-                while ( have_posts($event_query->$post) ) {
-                    the_post($event_query->$post);
-
-                    $datetime = get_field('datetime', get_the_ID()); //dmY
-                    //$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-
-                    $day = substr($datetime, 0, 2); // 13052015
-                    $year = substr($datetime, -4);
-                    $month = substr($datetime, 2, 2);
-
-                    $title = get_the_title(get_the_ID());
-
-                    $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
-                    $str2Array .= "'".get_the_ID()."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
-                } // end while
-                wp_reset_postdata();
-            } // end if*/
-            foreach ($event_query as $event) {
-                $i++;
-                $url = wp_get_attachment_url(get_post_thumbnail_id($event->ID));
-                $datetime = get_field('datetime', $event->ID);
-                $day = substr($datetime, 0, 2); // 13052015
-                $year = substr($datetime, -4);
-                $month = substr($datetime, 2, 2);
-
-                $title = get_the_title($event->ID);
-
-                $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
-                $str2Array .= "'".$event->ID."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
-			}
-
-            ?>
-
-        var calendar_events = {<?php echo $str1Array;?>};
-        var pageurl = '<?php echo get_bloginfo('url')?>';
-    </script>
 </head>
