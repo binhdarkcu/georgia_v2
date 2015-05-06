@@ -1,7 +1,7 @@
 <?php
     //session_start();
     //echo session_id();
-    function 	contact_form($firstname, $surname, $email, $phone, $ipinterests, $displayvillage, $contactyou){
+    function 	contact_form($firstname, $email, $message){
                 include_once	'xtemplate.class.php';
                 $header   	= 'Content-type: text/html; charset=utf-8\r\n';				
                 $title 		= 'User Contact';
