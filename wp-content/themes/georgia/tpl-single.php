@@ -1,10 +1,8 @@
 <?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <?php
-    	date_default_timezone_set( 'Europe/Amsterdam' );
-		setlocale(LC_ALL, 'nl_NL');
-		$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
 		while ( have_posts() ) : the_post();
+		$post = get_post(get_the_ID());
 		$datetime = get_field('datetime', get_the_ID());
 		//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
         $day = substr($datetime, 0, 2); // 13052015

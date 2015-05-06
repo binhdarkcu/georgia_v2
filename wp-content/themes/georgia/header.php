@@ -100,6 +100,7 @@
                     $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
                     $str2Array .= "'".get_the_ID()."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
                 } // end while
+                wp_reset_postdata();
             } // end if
 
 

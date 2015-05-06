@@ -1,3 +1,4 @@
+
 <div id="sidebar">
 
                             <section id="tribe-mini-calendar-3" class="widget tribe_mini_calendar_widget">

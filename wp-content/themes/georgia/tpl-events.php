@@ -44,6 +44,7 @@
 		        <span class='tribe-events-list-separator-month'><span><?php echo $month." ".$year;?></span></span>
 		        <!-- Event  -->
 			<?php 
+				global $post;
 				$argevent = array(
 				  'post_type'      => 'post',
 				  'posts_per_page' => -1,
