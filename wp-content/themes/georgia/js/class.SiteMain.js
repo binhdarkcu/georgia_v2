@@ -2,8 +2,10 @@ $arrayMonths_Long = ['januari','februari','maart','april','mei','juni','juli','a
 $arrayMonths_short = ['jan','feb','maa','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
 
 var SiteMain = (function() {
+    //INIT
 	function init(){
 		initEvent();
+        initCSS();
 	}
 	
 	function initEvent(){
@@ -15,6 +17,13 @@ var SiteMain = (function() {
 			closePopup();
 		});
 	}
+
+    function initCSS(){
+        //set menu top last have border
+        $('#menu-item-61').addClass('special');
+    }
+
+    //FUNCTIONS
 	function createScrollbar(){
 		jQuery('.scrollbar').mCustomScrollbar({
 			theme:"light",

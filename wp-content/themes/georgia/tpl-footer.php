@@ -53,5 +53,12 @@
     ?>
 
     var calendar_events = {<?php echo $str1Array;?>};
+    var array_calendar_events = {<?php echo $str2Array;?>};
     var pageurl = '<?php echo get_bloginfo('url')?>';
+
+
+    $(document).ready(function () {
+        calendar_page.init(calendar_events,pageurl);
+        calendar_sidebar.init(calendar_events,pageurl);
+    });
 </script>

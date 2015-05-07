@@ -32,11 +32,6 @@
                                             </div>
                                         </div>
 
-                                        <script type="text/javascript">
-                                            $(document).ready(function () {
-                                                calendar_sidebar.init(calendar_events,pageurl);
-                                            });
-                                        </script>
 
                                         </div> <!-- .tribe-mini-calendar-grid-wrapper -->
                                         <!-- List -->

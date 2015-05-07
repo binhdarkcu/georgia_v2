@@ -18,8 +18,8 @@
             $day = substr($datetime, 0, 2); // 13052015
             $year = substr($datetime, -4);
             $month = substr($datetime, 2, 2);
-
 			$loc = get_field('place_event', $slider->ID);
+
     ?>
     <div class="slide-event item" style="background-image:url(<?php echo $url;?>)">
         <div class="container">

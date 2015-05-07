@@ -35,8 +35,3 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        calendar_page.init(calendar_events,pageurl);
-    });
-</script>
