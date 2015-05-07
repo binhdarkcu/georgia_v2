@@ -30,7 +30,8 @@ Tags: one-column, two-columns, right-sidebar, responsive-layout, custom-backgrou
 10.0 Home
 --------------------------------------------------------------*/
 /* 1.0 NORMALIZE
--------------------------------------------------------------- */
+-------------------------------------------------------------- */\
+
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
   display: block;
 }
@@ -7754,4 +7755,25 @@ table.tribe-events-tickets td.woocommerce .quantity {
 .vc_row.vc_row-no-padding .wpb_column {
   padding-left: 0;
   padding-right: 0;
+}
+/*
+	css profile
+*/
+.profilePage .profileDetail .row-f .col2 input[type="text"]{
+  font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #fff;
+  float: left;
+    background: transparent;
+	  padding: 0;
+	  width: 75%;
+	  outline: none;
+	  border: 1px solid transparent;
+	  position: relative;
+	  top: -2px;
+	  padding-left: 4px;
+	  margin-left: -4px;
 }

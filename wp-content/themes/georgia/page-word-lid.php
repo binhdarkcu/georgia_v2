@@ -6,7 +6,7 @@
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
     {
         $p_email = $_POST['p_email'];
-        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$p_email'");
+        $results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '$p_email'");
         if(!empty($results)){
             echo 'false';
             exit;

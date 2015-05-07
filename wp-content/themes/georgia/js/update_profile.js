@@ -40,20 +40,33 @@ jQuery(document).ready(function(){
 	
 	
 	//EDIT PROFILE
+	
 	$('.fedit').click(function(e){
 		e.preventDefault();
-	   
+		$status = $(this).find('span').text();
 		$fieldname = $(this).attr('data-fieldname');
-		$setfield = $('input[name=' + $fieldname + ']').val();
-		$id = $(this).attr('data-userid');
-	    jQuery.ajax({
-            type : "post",
-            url : $('.ajaxurl').val(),
-            data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
-            success: function(data) {
-            	alert(data);
-            }
-        });
+		var self = this;
+		if($status == 'save'){
+			$setfield = $('input[name=' + $fieldname + ']').val();
+			$id = $(this).attr('data-userid');
+			jQuery.ajax({
+				type : "post",
+				url : $('.ajaxurl').val(),
+				data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
+				success: function(data) {
+					if(data){
+						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
+						$(self).find('span').text('edit');
+						alert('Profile updated.');
+					}else{
+						alert('Profile not updated.');
+					}
+				}
+			});
+		}else{
+			$('input[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
+			$status = $(this).find('span').text('save');
+		}
 	});
 	//ADD EVENT
 	$(document).on('click','#addEvent',function(){
