@@ -40,9 +40,9 @@
         $i++;
         $url = wp_get_attachment_url(get_post_thumbnail_id($event->ID));
         $datetime = get_field('datetime', $event->ID);
-        $day = substr($datetime, 0, 2); // 13052015
-        $year = substr($datetime, -4);
-        $month = substr($datetime, 2, 2);
+        $day = substr($datetime, -2); // 13052015
+        $year = substr($datetime, 0, 4);
+        $month = substr($datetime, 5, 2);
 
         $title = get_the_title($event->ID);
 

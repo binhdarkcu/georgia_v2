@@ -36,7 +36,7 @@
 
                                         <!-- Notices -->
                                         <!-- List Header -->
-                                        <div id="tribe-events-header" data-title="Upcoming Events | Eventica" data-startofweek="1" data-view="list" data-baseurl="http://demo.toko.press/eventica-tecpro/events/list/">
+                                        <div id="tribe-events-header" data-title="Upcoming Events | Eventica" data-startofweek="1" data-view="list" data-baseurl="http://georgia.taichinh-24h.com/lange-wapper/">
                                             <!-- Header Navigation -->
                                         </div>
                                         <!-- #tribe-events-header -->
@@ -223,7 +223,7 @@
 
 
                                                 <div id="tribe-events-event-2057-25" class="hentry vevent tribe-events-category-wordcamp post-2057 type-tribe_events status-publish has-post-thumbnail hentry tag-wordpress tribe_events_cat-wordcamp cat_wordcamp tribe-events-venue-2058 tribe-events-last" data-tribejson="{&quot;eventId&quot;:2057,&quot;title&quot;:&quot;WordCamp Minneapolis&quot;,&quot;permalink&quot;:&quot;http:\/\/demo.toko.press\/eventica-tecpro\/event\/wordcamp-minneapolis\/&quot;,&quot;imageSrc&quot;:&quot;http:\/\/demo.toko.press\/eventica-tecpro\/wp-content\/uploads\/2013\/01\/eventica-dummy-image-31-300x199.jpg&quot;,&quot;startTime&quot;:&quot;April 25, 2015 @ 8:00 am&quot;,&quot;endTime&quot;:&quot;April 26, 2015 @ 5:00 pm&quot;,&quot;imageTooltipSrc&quot;:&quot;http:\/\/demo.toko.press\/eventica-tecpro\/wp-content\/uploads\/2013\/01\/eventica-dummy-image-31-300x199.jpg&quot;,&quot;excerpt&quot;:&quot;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the&amp;hellip;&quot;,&quot;categoryClasses&quot;:&quot;hentry vevent tribe-events-category-wordcamp post-2057 type-tribe_events status-publish has-post-thumbnail hentry tag-wordpress tribe_events_cat-wordcamp cat_wordcamp tribe-events-venue-2058 tribe-events-last&quot;}">
-                                                    <h3 class="tribe-events-month-event-title entry-title summary"><a href="http://demo.toko.press/eventica-tecpro/event/wordcamp-minneapolis/" class="url">WordCamp Minneapolis</a></h3>
+                                                    <h3 class="tribe-events-month-event-title entry-title summary"><a href="http://georgia.taichinh-24h.com/lange-wapper/" class="url">WordCamp Minneapolis</a></h3>
                                                     <div id="tribe-events-tooltip-2057" class="tribe-events-tooltip" style="bottom: 49px; display: none;">
                                                         <h4 class="entry-title summary">Lange Wapper</h4>
 
