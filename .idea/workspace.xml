@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05f9715-e926-46a1-8ae8-5d9dc71b7115" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\My Data\SOURCES\PHP\BLISS\www\YVES\GEORGIA\sourcecode\v2\wp-content\themes\georgia\page-op-de-kalender2.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_header.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_header.scssc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/js/class.SiteMain.js" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/js/class.SiteMain.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-footer.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="v2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="class.SiteMain.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.SiteMain.js">
+      <file leaf-file-name="tpl-single.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1760">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state vertical-scroll-proportion="-2.9629629" vertical-offset="0" max-vertical-offset="4680">
+              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_header.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss">
+      <file leaf-file-name="tpl-slider.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8589065" vertical-offset="1633" max-vertical-offset="2280">
-              <caret line="106" column="31" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.72202164" vertical-offset="0" max-vertical-offset="1260">
+              <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -96,9 +88,9 @@
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.SiteMain.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php" />
       </list>
     </option>
   </component>
@@ -611,34 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.068966" vertical-offset="4126" max-vertical-offset="4680">
-          <caret line="218" column="46" selection-start-line="218" selection-start-column="24" selection-end-line="218" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.75308645" vertical-offset="293" max-vertical-offset="860">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20577617" vertical-offset="546" max-vertical-offset="1120">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -697,26 +665,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36101082" vertical-offset="240" max-vertical-offset="1280">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.75308645" vertical-offset="1713" max-vertical-offset="2300">
+          <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.SiteMain.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1760">
+        <state vertical-scroll-proportion="0.13722126" vertical-offset="60" max-vertical-offset="1760">
           <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/single.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8589065" vertical-offset="1633" max-vertical-offset="2280">
-          <caret line="106" column="31" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1696751" vertical-offset="566" max-vertical-offset="1120">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9629629" vertical-offset="0" max-vertical-offset="4680">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72202164" vertical-offset="0" max-vertical-offset="1260">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
           <folding />
         </state>
       </provider>
