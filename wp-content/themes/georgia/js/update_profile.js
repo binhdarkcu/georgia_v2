@@ -21,6 +21,8 @@ jQuery(document).ready(function(){
             	console.log(data);
             }
        });
+	   
+	
 	    /*
 	    jQuery.ajax({
             type : "post",
@@ -36,6 +38,23 @@ jQuery(document).ready(function(){
 		$('#filePicture').click();
 	});
 	
+	
+	//EDIT PROFILE
+	$('.fedit').click(function(e){
+		e.preventDefault();
+	   
+		$fieldname = $(this).attr('data-fieldname');
+		$setfield = $('input[name=' + $fieldname + ']').val();
+		$id = $(this).attr('data-userid');
+	    jQuery.ajax({
+            type : "post",
+            url : $('.ajaxurl').val(),
+            data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
+            success: function(data) {
+            	alert(data);
+            }
+        });
+	});
 	//ADD EVENT
 	$(document).on('click','#addEvent',function(){
 		$id_event = $(this).attr('data-event-id');

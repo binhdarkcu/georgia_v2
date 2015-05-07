@@ -1,17 +1,24 @@
 <?php
-function updateProfile($tablename, $setfield, $fieldname, $id){
+add_action("wp_ajax_user_update_profile", "updateProfile");
+add_action("wp_ajax_nopriv_user_update_profile", "updateProfile");
+
+function updateProfile(){
+	$setfield = $_REQUEST['setfield'];
+	$fieldname = $_REQUEST['fieldname'];
+	$id = $_REQUEST['id'];
 	global $wpdb;	
 	$execute = $wpdb->update( 
-		$tablename, 
+		'wp_members', 
 		array( 
-			$setfield => $fieldname
+			$fieldname => $setfield
 		), 
-		array( 'ID' => $id ), 
+		array( 'id' => $id ), 
 		array( 
 			'%s'
-		)
+		),
+		array( '%d' ) 
 	);
-	return $execute;
+	
 }
 
 function saveFile($filename){

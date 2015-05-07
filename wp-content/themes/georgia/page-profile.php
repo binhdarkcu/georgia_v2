@@ -1,6 +1,6 @@
 <?php
 	if(isset($_SESSION['user'])){
-        $user = $_SESSION['user'];
+        $user = $wpdb->get_row("SELECT * FROM wp_members WHERE id = '".$_SESSION['user']['id']."'", ARRAY_A);
     }else{
     	//$home_url = get_bloginfo('home');
 		wp_redirect(home_url() ); //to redirect back to "index.php" after logging out
@@ -12,6 +12,7 @@
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
 		<?php get_template_part('tpl','profile-title');?>
+		<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
         <div id="main-content" class="profilePage">
 			<div class="row">
 				<?php get_template_part('sidebar', 'profile'); ?>
@@ -19,6 +20,7 @@
 					<div class="profileDetail">
 						<div class="avatar-member">
 							<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+							<input name="action" type="hidden" class="action" value="user_update_profile"/>
 							<div class="img-box pictureUpload">
 								<input type="file" id="filePicture" style="display:none">
 								<img data-dir = "<?php echo content_url().'/uploads/'.$user['p_voornaam']?>/" src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>"  class="imgPreview"/>
@@ -30,8 +32,8 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Geboortedatum</div>
-							<div class="col2"><?php echo $user['p_geboortedatum']; ?></div>
-							<div class="col3"><a href="#" class="fa fedit"><span>edit</span></a></div>
+							<div class="col2"><?php echo $user['p_geboortedatum']; ?><input name="p_geboortedatum" value="<?php echo $user['p_geboortedatum']; ?>" /></div>
+							<div class="col3"><a href="#" data-fieldname="p_geboortedatum" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">Geboorteplaats</div>
