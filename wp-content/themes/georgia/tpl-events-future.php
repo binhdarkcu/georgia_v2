@@ -129,26 +129,17 @@
 
     <!-- Footer Navigation -->
 	
-    <div class="tribe-events-pagination pagination clearfix" style="display:none!important;">
-        <h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
-      <ul class="tribe-events-sub-nav">
-        <!-- Left Navigation -->
-		<?php 
-			if($paged > 1){
-				$prevPage = $paged-1;
-		?>
-        <li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
-            <a href="<?php echo get_bloginfo('home')?>/events/<?php echo ($paged == 1) ? '' : 'page/'.$prevPage; ?>" rel="prev">VOORBIJE EVENTS</a>
-        </li><!-- .tribe-events-nav-left -->
-        <?php }?>
-        <?php 
-			if($paged < $totalPage - 1){
-		?>
-        <li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
-            <a href="<?php echo get_bloginfo('home')?>/events/page/<?php echo $paged + 1;?>" rel="next">eerstvolgende EVENTS</a>
-        </li><!-- .tribe-events-nav-right -->
-        <?php }?>
-    </ul>
-    </div>
+    <div class="tribe-events-pagination pagination clearfix" style="display: block!important;">
+			<h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
+		  <ul class="tribe-events-sub-nav">
+			
+			<li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
+				<a href="<?php echo get_bloginfo('home')?>/eerstvolgende-events" rel="prev">VOORBIJE EVENTS</a>
+			</li><!-- .tribe-events-nav-left -->
+			<li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
+				<a href="<?php echo get_bloginfo('home')?>/voorbije-events" rel="next">eerstvolgende EVENTS</a>
+			</li><!-- .tribe-events-nav-right -->
+		</ul>
+		</div>
 </div>
 <!-- #tribe-events-footer -->
