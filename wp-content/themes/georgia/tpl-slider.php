@@ -20,6 +20,7 @@
             $month = substr($datetime, 2, 2);
 
 			$loc = get_field('place', $slider->ID);
+
     ?>
     <div class="slide-event item" style="background-image:url(<?php echo $url;?>)">
         <div class="container">
