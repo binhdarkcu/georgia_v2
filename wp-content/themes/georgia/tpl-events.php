@@ -6,7 +6,9 @@
 		<?php
 			
 			$added = array();
-		
+			if(is_page('eerstvolgende-events')){
+				$datetime = date("dmY");
+			}
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			//print_r($paged);
@@ -35,7 +37,6 @@
 			
 			foreach ($queryEvents as $event) {
 				$datetime = $event->DATEEVENT;
-				//print_r($datetime);
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, 0, 4);
 				$month = substr($datetime, 5, 2);
@@ -55,7 +56,7 @@
 				      'key'     => 'datetime',
 				      'value'   => $year.'/'.substr($datetime, 5, 2),
 				      'compare' => 'LIKE'
-				    ) 
+					  ) 
 				  )
 				);
 				$event_query = query_posts( $argevent );
