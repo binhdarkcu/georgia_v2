@@ -4,6 +4,7 @@
     <div class="row">
 
 		<?php
+			
 			$added = array();
 		
 			global $wpdb;
@@ -34,6 +35,9 @@
 			
 			foreach ($queryEvents as $event) {
 				$datetime = $event->DATEEVENT;
+				if(is_page('eerstvolgende-events')){
+					$datetime = date("dmY")
+				}
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, -4);
 				$month = substr($datetime, 0, 2);
@@ -51,8 +55,8 @@
 				  'meta_query'     => array(
 				    array(
 				      'key'     => 'datetime',
-				      'value'   => $datetime,
-				      'compare' => 'RLIKE',
+				      'value'   => 
+				      'compare' => '>',
 				      'type'    => 'NUMBERRIC'
 				    ) 
 				  )
