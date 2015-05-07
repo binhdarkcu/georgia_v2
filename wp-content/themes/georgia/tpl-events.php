@@ -134,10 +134,10 @@
       <ul class="tribe-events-sub-nav">
         
         <li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
-            <a href="<?php echo get_bloginfo('home')?>/voorbije-events" rel="prev">VOORBIJE EVENTS</a>
+            <a href="<?php echo get_bloginfo('home')?>/eerstvolgende-events" rel="prev">VOORBIJE EVENTS</a>
         </li><!-- .tribe-events-nav-left -->
         <li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
-            <a href="<?php echo get_bloginfo('home')?>/eerstvolgende-events" rel="next">eerstvolgende EVENTS</a>
+            <a href="<?php echo get_bloginfo('home')?>/voorbije-events" rel="next">eerstvolgende EVENTS</a>
         </li><!-- .tribe-events-nav-right -->
     </ul>
     </div>
