@@ -5,9 +5,9 @@
 		$post = get_post(get_the_ID());
 		$datetime = get_field('datetime', get_the_ID());
 		//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-        $day = substr($datetime, 0, 2); // 13052015
-        $year = substr($datetime, -4);
-        $month = substr($datetime, 2, 2);
+        $day = substr($datetime, -2); // 13052015
+        $year = substr($datetime, 0, 4);
+        $month = substr($datetime, 5, 2);
 		$month = convertMonths_String((int)$month,true);
 
 		$time = get_field('time', get_the_ID());

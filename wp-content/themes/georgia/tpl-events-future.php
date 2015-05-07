@@ -10,8 +10,8 @@
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			//print_r($paged);
-			$post_per_page = 2;
-			
+			$post_per_page = 1;
+			$today = date('Y/m/d');
 			$offset = ($paged - 1)*$post_per_page;
 			
 			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT, pm.meta_value AS DATEEVENT	
@@ -35,7 +35,7 @@
 			
 			foreach ($queryEvents as $event) {
 				$datetime = $event->DATEEVENT;
-				//print_r($datetime);
+				
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, 0, 4);
 				$month = substr($datetime, 5, 2);
@@ -53,11 +53,12 @@
 				  'meta_query'     => array(
 				    array(
 				      'key'     => 'datetime',
-				      'value'   => $year.'/'.substr($datetime, 5, 2),
-				      'compare' => 'LIKE'
+				      'value'   => $today,
+				      'compare' => '>'
 				    ) 
 				  )
 				);
+
 				$event_query = query_posts( $argevent );
 				if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
 					$datetime = get_field('datetime', get_the_ID());
@@ -65,7 +66,7 @@
 					$loc = get_field('place', get_the_ID());
 					$time = get_field('time', get_the_ID());
 
-                    $day = substr($datetime, -2); // 13052015
+                    $day = substr($datetime, 0, 2); // 13052015
                     $year = substr($datetime, 0, 4);
                     $month = substr($datetime, 5, 2);
                 	$month = convertMonths_String((int)$month,true);
@@ -128,16 +129,25 @@
 
     <!-- Footer Navigation -->
 	
-    <div class="tribe-events-pagination pagination clearfix" style="display: block!important;">
+    <div class="tribe-events-pagination pagination clearfix" style="display:none!important;">
         <h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
       <ul class="tribe-events-sub-nav">
-        
+        <!-- Left Navigation -->
+		<?php 
+			if($paged > 1){
+				$prevPage = $paged-1;
+		?>
         <li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
-            <a href="<?php echo get_bloginfo('home')?>/voorbije-events" rel="prev">VOORBIJE EVENTS</a>
+            <a href="<?php echo get_bloginfo('home')?>/events/<?php echo ($paged == 1) ? '' : 'page/'.$prevPage; ?>" rel="prev">VOORBIJE EVENTS</a>
         </li><!-- .tribe-events-nav-left -->
+        <?php }?>
+        <?php 
+			if($paged < $totalPage - 1){
+		?>
         <li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
-            <a href="<?php echo get_bloginfo('home')?>/eerstvolgende-events" rel="next">eerstvolgende EVENTS</a>
+            <a href="<?php echo get_bloginfo('home')?>/events/page/<?php echo $paged + 1;?>" rel="next">eerstvolgende EVENTS</a>
         </li><!-- .tribe-events-nav-right -->
+        <?php }?>
     </ul>
     </div>
 </div>

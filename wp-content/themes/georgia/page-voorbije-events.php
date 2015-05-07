@@ -31,7 +31,7 @@
 
                                         <!-- List Title -->
                                         <div class="tribe-events-page-title-wrap">
-                                            <h2 class="tribe-events-page-title">EERSTVOLGENDE EVENTS</h2>
+                                            <h2 class="tribe-events-page-title">VOORBIJE EVENTS</h2>
                                         </div>
 
                                         <!-- Notices -->
@@ -42,7 +42,7 @@
                                         <!-- #tribe-events-header -->
                                         <!-- Events Loop -->
 
-                                        <?php get_template_part('tpl','events-future');?>
+                                        <?php get_template_part('tpl','events-past');?>
                                         
                                     </div><!-- #tribe-events-content -->
 

@@ -15,9 +15,9 @@
             $url = wp_get_attachment_url(get_post_thumbnail_id($slider->ID));
 			$datetime = get_field('datetime', $slider->ID);
 			//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-            $day = substr($datetime, 0, 2); // 13052015
-            $year = substr($datetime, -4);
-            $month = substr($datetime, 2, 2);
+            $day = substr($datetime, -2); // 13052015
+            $year = substr($datetime, 0, 4);
+            $month = substr($datetime, 5, 2);
 			$loc = get_field('place_event', $slider->ID);
 
     ?>

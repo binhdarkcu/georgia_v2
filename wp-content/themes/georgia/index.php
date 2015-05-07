@@ -29,9 +29,9 @@
 						        foreach ($queryFeatured as $featured) {
 								$datetime = get_field('datetime', $featured->ID);
 								//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-                                $day = substr($datetime, 0, 2); // 13052015
-                                $year = substr($datetime, -4);
-                                $month = substr($datetime, 2, 2);
+                                $day = substr($datetime, -2); // 13052015
+                                $year = substr($datetime, 0, 4);
+                                $month = substr($datetime, 5, 2);
 
 								$time = get_field('time', $featured->ID);
 								$loc = get_field('place', $featured->ID);
