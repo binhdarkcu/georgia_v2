@@ -1,6 +1,17 @@
 
 jQuery(document).ready(function() {
-	
+	/*$('#registerForm').submit(function (ev) {
+        $.ajax({
+            type : "POST",
+            url : $('.ajaxurl').val(),
+            data: $(this).serialize(),
+            success: function (data) {
+                alert(data);
+            }
+        });
+
+        ev.preventDefault();
+    });*/
 	jQuery(".fileUpload input[type=file]").change(function (e) {
 	    if(this.disabled) return alert('File upload not supported!');
 	    var F = this.files;

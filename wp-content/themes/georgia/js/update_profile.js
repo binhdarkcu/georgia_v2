@@ -65,6 +65,7 @@ jQuery(document).ready(function(){
 			});
 		}else{
 			$('input[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
+			$('.empty').hide();
 			$status = $(this).find('span').text('save');
 		}
 	});
@@ -78,7 +79,6 @@ jQuery(document).ready(function(){
             data : {action: "add_event", 'id_event':$id_event, 'id_member':$id_member},
             dataType:'json',
             success:function(data) {
-            	console.log(data);
             	if(data){
             		alert('Thank you participated this event.');
             	}else{

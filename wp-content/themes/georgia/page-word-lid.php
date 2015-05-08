@@ -3,20 +3,6 @@
 ?>
 <?php
     //VALIDATE EMAIL
-    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
-    {
-        $p_email = $_POST['p_email'];
-        $results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '$p_email'");
-        if(!empty($results)){
-            echo 'false';
-            exit;
-        }
-        else{
-            echo 'true';
-            exit;
-        }
-    }
-
     
     if(isset($_SESSION['user'])){
         $link = get_site_url().'/profile';
@@ -521,6 +507,8 @@
 												Ik verklaar hierbij de <a href="#" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
 											</label>
 										</div>
+										<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+	                                    <input name="action" type="hidden" class="action" value="register_action"/>
 										<a href="javascript:void(0)" onclick="jQuery('#registerForm').submit();" class="btn">VERSTUUR MIJN AANVRAAG</a>
 									</div>
 								</div>

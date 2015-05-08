@@ -12,11 +12,11 @@
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			//print_r($paged);
-			$post_per_page = 2;
+			$post_per_page = intval(get_query_var('posts_per_page'));;
 			
 			$offset = ($paged - 1)*$post_per_page;
 			
-			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT, pm.meta_value AS DATEEVENT	
+			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT, LEFT(pm.meta_value,7) AS DATEEVENT	
 						FROM wp_postmeta pm
 						JOIN wp_posts p ON p.ID = pm.post_id
 						WHERE 1 =1
@@ -27,10 +27,11 @@
 						AND (
 						pm.meta_key =  'datetime'
 						)
-						GROUP BY pm.post_id, RIGHT( pm.meta_value, 6 )
+						GROUP BY pm.post_id, pm.meta_value
 						ORDER BY p.post_date ASC 
 						LIMIT ".$offset.",".$post_per_page;
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
+			
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
 			$totalPage = $totalEvents[0]->TOTALEVENT;
@@ -39,7 +40,7 @@
 				$datetime = $event->DATEEVENT;
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, 0, 4);
-				$month = substr($datetime, 5, 2);
+				$month = substr($datetime, -2);
                 $month = convertMonths_String((int)$month,true);
 				
 			?>
@@ -59,6 +60,7 @@
 					  ) 
 				  )
 				);
+				
 				$event_query = query_posts( $argevent );
 				if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
 					$datetime = get_field('datetime', get_the_ID());

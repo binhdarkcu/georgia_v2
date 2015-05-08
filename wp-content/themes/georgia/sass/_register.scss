@@ -86,6 +86,7 @@
       .col2{
         float: left;
         width: 203px;
+        position: relative;
       }
       .colfull{
         input[type="text"],input[type="password"]{
@@ -262,4 +263,9 @@
       }
     }
   }
+}
+.empty{
+  position: absolute;
+  left: 0;
+  top: 0;
 }
