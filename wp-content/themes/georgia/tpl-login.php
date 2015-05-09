@@ -61,7 +61,7 @@
 					<h4>NOG GEEN LID?</h4>
 					<p class="txt">
 						Wenst u zich aan te sluiten?<br/>
-	 					<a href="<?php echo bloginfo('home')?>/wordt-lid">klik dan hier</a>
+	 					<a href="<?php echo bloginfo('home')?>/word-lid">klik dan hier</a>
 					</p>
 				</div>
 				<div class="clear"></div>
