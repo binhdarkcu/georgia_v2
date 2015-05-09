@@ -4,10 +4,10 @@ $(document).ready(function(){
     }, "");
 	 jQuery("#contactform").validate({
         rules: {
-            'name': {
+            'cname': {
                 required: true
             },
-            'email':{
+            'cemail':{
             	required: true,
             	email: true,
             },

@@ -13,11 +13,11 @@
             </div>
         </section>
 		<?php
-			if(!empty($_POST['email']))
+			if(!empty($_POST['cemail']))
 			{
-			    $data['name'] = $_POST['name'];
-			    $data['email'] = $_POST['email'];
-			    $data['message'] = $_POST['message'];
+			    $data['name'] = $_POST['cname'];
+			    $data['email'] = $_POST['cemail'];
+			    $data['message'] = $_POST['cmessage'];
 			    $sendmail = contact_form($data['name'], $data['email'],$data['message']);
 			    if($sendmail){
 			        $message = "Send message successful";
@@ -58,13 +58,13 @@
 									<div class="contact-box">
 										<h3>STUUR ONS EEN BERICHT</h3>
 										<p>
-											<input type="text" value="" name="name" placeholder="Naam" />
+											<input type="text" value="" name="cname" placeholder="Naam" />
 										</p>
 										<p>
-											<input type="text" value="" name="email" placeholder="E-mailadres" />
+											<input type="text" value="" name="cemail" placeholder="E-mailadres" />
 										</p>
 										<p>
-											<textarea name="message" placeholder ="Bericht"></textarea>
+											<textarea name="cmessage" placeholder ="Bericht"></textarea>
 										</p>
 										<p class="checkboxStyle">
 											<input type="checkbox" name="ckaccept" value="0" id="accept"/>
