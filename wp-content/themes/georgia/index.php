@@ -112,7 +112,7 @@
                                             			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
 																	FROM wp_participate pt
 																	JOIN wp_members mb ON mb.id = pt.id_member
-																	WHERE pt.id_event =87
+																	WHERE pt.id_event = ".$featured->ID."
 																	GROUP BY pt.id_member, pt.id
 																	LIMIT 0 , 30";
 														$joinEvents = $wpdb->get_results($p_query);

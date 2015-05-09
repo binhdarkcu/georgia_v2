@@ -99,58 +99,34 @@
                                             </div>
 
 											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
-                                                <h4>62 <span>leden komen</span></h4>
+                                                
+                                                <?php
+		                                            			global $wpdb;
+		                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
+																			FROM wp_participate pt
+																			JOIN wp_members mb ON mb.id = pt.id_member
+																			WHERE pt.id_event = ".get_the_ID()."
+																			GROUP BY pt.id_member, pt.id
+																			LIMIT 0 , 30";
+																$joinEvents = $wpdb->get_results($p_query);
+																$total_query = "SELECT FOUND_ROWS() AS TOTALUSER;";
+																$totalUser = $wpdb->get_results($total_query);
+												?>
+                                                <h4><?php echo $totalUser[0]->TOTALUSER;?>  <span>leden komen</span></h4>
                                                 
                                                 <div class="scrollbar">
                                                 	<ul>
 	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
+	                                                		<?php
+																foreach ($joinEvents as $join) {			
+	                                                		?>
+		                                                	<li>
+		                                                		<img src="<?php echo content_url().'/uploads/'.$join->p_picture; ?>" width="45"/>
+		                                                		<p><?php echo $join->p_voornaam;?></p>
+		                                                	</li>
+		                                                	<?php }?>
 	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
+	                                                	
 	                                                </ul>
 	                                                <div class="clear"></div>
                                                 </div>
