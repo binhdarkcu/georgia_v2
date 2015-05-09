@@ -17,3 +17,8 @@ function addEvent(){
     }
 	
 }
+
+
+function person_participate(){
+	
+}

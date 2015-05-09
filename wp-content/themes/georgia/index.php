@@ -107,58 +107,30 @@
                                             </div>
 
 											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
-                                                <h4>62 <span>leden komen</span></h4>
+                                                <?php
+                                            			global $wpdb;
+                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
+																	FROM wp_participate pt
+																	JOIN wp_members mb ON mb.id = pt.id_member
+																	WHERE pt.id_event =87
+																	GROUP BY pt.id_member, pt.id
+																	LIMIT 0 , 30";
+														$joinEvents = $wpdb->get_results($p_query);
+														$total_query = "SELECT FOUND_ROWS() AS TOTALUSER;";
+														$totalUser = $wpdb->get_results($total_query);
+                                                ?>
+                                                <h4><?php echo $totalUser[0]->TOTALUSER;?> <span>leden komen</span></h4>
                                                 <?php if(isset($_SESSION['user'])){ ?>
                                                 <div class="scrollbar">
                                                 	<ul>
+                                                		<?php
+															foreach ($joinEvents as $join) {			
+                                                		?>
 	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
+	                                                		<img src="<?php echo content_url().'/uploads/'.$join->p_picture; ?>" width="45"/>
+	                                                		<p><?php echo $join->p_voornaam;?></p>
 	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-1.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
-	                                                	<li>
-	                                                		<a href="#">
-	                                                			<img src="images/home/p-2.jpg"/>
-	                                                			<p>Bastien Guggisberg</p>
-	                                                		</a>
-	                                                	</li>
+	                                                	<?php }?>
 	                                                </ul>
 	                                                <div class="clear"></div>
                                                 </div>
@@ -288,7 +260,7 @@
                             					$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID(),'medium') );
                             				?>
                             				<li>
-                            					<a href="#"><img src="<?php echo $bigImg;?>" width="97"/></a>
+                            					<a href="<?php echo get_permalink(get_the_ID())?>"><img src="<?php echo $bigImg;?>"/></a>
                             				</li>
                             				<?php endwhile; endif;?>
                             			</ul>
