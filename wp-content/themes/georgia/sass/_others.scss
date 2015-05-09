@@ -132,6 +132,11 @@
      }
   }
 }
+.alert.alert-danger{
+  padding-top: 20px;
+  color: #ff0000;
+  @include NotoSansRegular(12px);
+}
 .pagination{
   background: #000;
 }
