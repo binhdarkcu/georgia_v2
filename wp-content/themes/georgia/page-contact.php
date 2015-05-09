@@ -12,7 +12,21 @@
                 <h1>CONTACT</h1>
             </div>
         </section>
-
+		<?php
+			if(!empty($_POST['email']))
+			{
+			    $data['name'] = $_POST['name'];
+			    $data['email'] = $_POST['email'];
+			    $data['message'] = $_POST['message'];
+			    $sendmail = contact_form($data['name'], $data['email'],$data['message']);
+			    if($sendmail){
+			        $message = "Send message successful";
+			    }
+			    else
+			        $message = 'Current can not send message. Please try again.';
+			}
+			
+		?>
 
         <div id="main-content" class="contact-page">
 
@@ -32,23 +46,33 @@
 									Fax. 012-345678<br/><br/>
 									email: <a href="mailto:info@georgia.be">info@georgia.be</a>
 								</p>
-								<div class="contact-box">
-									<h3>STUUR ONS EEN BERICHT</h3>
-									<p>
-										<input type="text" value="" name="" placeholder="Naam" />
-									</p>
-									<p>
-										<input type="text" value="" name="" placeholder="E-mailadres" />
-									</p>
-									<p>
-										<textarea name="" placeholder ="Bericht"></textarea>
-									</p>
-									<p>
-										<input type="checkbox" name="" value="0" id="accept"/>
-										<label for="accept">Stuur mij een copy van dit bericht</label>
-									</p>
-									<a href="#" class="btn">VERSTUUR BERICHT</a>
-								</div>
+								<?php
+							    if($message != "")
+							    {
+							        $alert = $logged == true ? "alert-success" : "alert-danger";
+							        echo '<div class="alert '.$alert.'">'.$message.'</div>';
+							    }
+							
+							    ?>
+								<form action="" method="post" id="contactform"> 
+									<div class="contact-box">
+										<h3>STUUR ONS EEN BERICHT</h3>
+										<p>
+											<input type="text" value="" name="name" placeholder="Naam" />
+										</p>
+										<p>
+											<input type="text" value="" name="email" placeholder="E-mailadres" />
+										</p>
+										<p>
+											<textarea name="message" placeholder ="Bericht"></textarea>
+										</p>
+										<p class="checkboxStyle">
+											<input type="checkbox" name="ckaccept" value="0" id="accept"/>
+											<label for="accept">Stuur mij een copy van dit bericht</label>
+										</p>
+										<a href="javascript:void(0)" class="btn" onclick="jQuery('#contactform').submit();">VERSTUUR BERICHT</a>
+									</div>
+								</form>
 							</div>
 						</div>
 						
@@ -64,3 +88,4 @@
         </div>
 
 <?php get_footer();?>
+<script src="js/validate.contact.js" type="text/javascript"></script>

@@ -28,17 +28,26 @@
     height: 29px;
     border-radius: 4px;
     @include RalewayRegular(12px);
+    border: 1px solid transparent;
+    &.error{
+       border: 1px solid #ff0000;
+     }
   }
   textarea{
     @include RalewayRegular(12px);
     border-radius: 4px;
     padding: 6px 10px;
     height: 110px;
+    border: 1px solid transparent;
     resize: none;
+    &.error{
+       border: 1px solid #ff0000;
+     }
   }
   input[type="checkbox"]{
      position: relative;
      top: 3px;
+     
   }
   label{
     color: #999;
@@ -118,6 +127,9 @@
      @include NotoSansRegular(12px);
      color: #fff;
      line-height: 1.2;
+     &.checkboxStyle{
+       padding-top: 8px;
+     }
   }
 }
 .pagination{

@@ -46,8 +46,8 @@
     //include 'inc/filter_home.php';
 	
 	//contact form
-	//include TEMPLATEPATH . '/email/smtp.php';
-	//include TEMPLATEPATH . '/email/xtemplate.contact.php';
+	include TEMPLATEPATH . '/email/smtp.php';
+	include TEMPLATEPATH . '/email/xtemplate.contact.php';
 	
 	//contact form
 	//include TEMPLATEPATH . '/email/xtemplate.jimform.php';
