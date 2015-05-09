@@ -1,17 +1,6 @@
 
 jQuery(document).ready(function() {
-	/*$('#registerForm').submit(function (ev) {
-        $.ajax({
-            type : "POST",
-            url : $('.ajaxurl').val(),
-            data: $(this).serialize(),
-            success: function (data) {
-                alert(data);
-            }
-        });
-
-        ev.preventDefault();
-    });*/
+	
 	jQuery(".fileUpload input[type=file]").change(function (e) {
 	    if(this.disabled) return alert('File upload not supported!');
 	    var F = this.files;
@@ -59,10 +48,26 @@ jQuery(document).ready(function() {
             },
             'p_email':{
             	required: true,
-            	email: true
+            	email: true,
+                remote: {
+                        url: $('.ajaxurl').val(),
+                        type: "post",
+                        data: {
+                            'p_email': function() {
+			                    return $( "#p_email" ).val();
+			                },
+			               'action': 'check_user_email'
+                        },
+                        complete: function(data){
+	                        if( data.responseText == "false" ) {
+	                            alert("Email address already in use. Please use other email.");
+	                        }
+	                    }
+                    }
             },
             'p_password':{
-            	required: true
+            	required: true,
+            	minlength: 6
             },
             'p_picture':{
             	required: true
@@ -149,7 +154,6 @@ jQuery(document).ready(function() {
             	required: true
             }
         },
-
         errorPlacement: function(error, element){},
         highlight: function(element) {
             //console.log(element);

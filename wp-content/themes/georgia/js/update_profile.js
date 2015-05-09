@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
 	    jQuery.ajax({
             type : "post",
             url : $('.ajaxurl').val(),
-            data : {action: "saveFile", fieldname:$fieldname},
+            data : {action: "save_file", fieldname:$fieldname},
             success: function(response) {
             	console.log(data);
             }

@@ -3,7 +3,18 @@
 ?>
 <?php
     //VALIDATE EMAIL
-    
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
+    {
+    	
+        $p_email = $_POST['p_email'];
+        $results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '$p_email'");
+        if(!empty($results)){
+            echo 'false';
+        }
+        else{
+            echo 'true';
+        }
+    }
     if(isset($_SESSION['user'])){
         $link = get_site_url().'/profile';
         echo "<script>window.location.href = '$link';</script>";
@@ -217,7 +228,11 @@
 										<div class="reg-row">
 											<div class="colfull">
 												<label>Privé emailadres<span class="red">*</span></label>
-												<input type="text" name="p_email" value="" />
+												
+												<input type="text" name="p_email" value="" id="p_email"/>
+												<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+												<input type="hidden" value="<?php echo get_site_url();?>" class="siteurl"/>
+												<input name="action" type="hidden" class="action" value="check_user_email"/>
 											</div>
 										</div>
 										<div class="reg-row">
