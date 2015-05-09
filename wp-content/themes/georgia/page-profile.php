@@ -19,11 +19,10 @@
                 <div class="col-md-8">
 					<div class="profileDetail">
 						<div class="avatar-member">
-							<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
-							<input name="action" type="hidden" class="action" value="user_update_profile"/>
+							<input name="action" type="hidden" class="action" value="user_update_avatar"/>
 							<div class="img-box pictureUpload">
-								<input type="file" id="filePicture" style="display:none">
-								<img data-dir = "<?php echo content_url().'/uploads/'.$user['p_voornaam']?>/" src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>"  class="imgPreview"/>
+								<input data-picture = "<?php echo $_FILES['p_picture']['tmp_name'];?>" name="p_picture" type="file" id="filePicture" style="display:none">
+								<img data-dir = "<?php echo $user['p_voornaam']?>" src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>"  class="imgPreview"/>
 							</div>
 							<div class="profile-name">
 								 <span><?php echo $user['p_voornaam']; ?></span>

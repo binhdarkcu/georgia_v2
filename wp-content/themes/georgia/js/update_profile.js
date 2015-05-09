@@ -11,14 +11,13 @@ jQuery(document).ready(function(){
         $file = $(this)[0].files[0];
 	    $fileName = $file.name;
 	    $fileExt = '.' + $fileName.split('.').pop();
-        
-        $fieldname = $fileName;
+       // alert($file);
 	    jQuery.ajax({
             type : "post",
             url : $('.ajaxurl').val(),
-            data : {action: "save_file", fieldname:$fieldname},
+            data : {action: "user_update_avatar", filename:$fileName, dir: $dir},
             success: function(response) {
-            	console.log(data);
+            	//console.log(response);
             }
        });
 	   

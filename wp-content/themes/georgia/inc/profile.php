@@ -19,11 +19,15 @@ function updateProfile(){
 		array( '%d' ) 
 	);
 }
-
-function saveFile($filename){
+add_action("wp_ajax_user_user_update_avatar", "saveFile");
+add_action("wp_ajax_nopriv_user_update_avatar", "saveFile");
+function saveFile(){
+	$filename = $_REQUEST['filename'];
+	$dir = $_REQUEST['dir'];
 	$root = getcwd();
-	$upload_dir = $root.'/wp-content/uploads/'.$data['p_voornaam'].'/';
+	$upload_dir = $root.'/wp-content/uploads/'.$dir.'/';
 	$target_file = $upload_dir.basename($filename);
+	echo $target_file;
 	move_uploaded_file($filename, $target_file);
 }
 
