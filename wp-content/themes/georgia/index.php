@@ -278,69 +278,19 @@
                             		</div>
                             		<div class="lastestList">
                             			<ul>
+                            				<?php
+												$argevent = array(
+												  'post_type'      => 'post',
+												  'posts_per_page' => 40
+												);
+												$event_query = query_posts( $argevent );
+												if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
+                            					$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID(),'medium') );
+                            				?>
                             				<li>
-                            					<a href="#"><img src="images/home/photo-1.jpg"/></a>
+                            					<a href="#"><img src="<?php echo $bigImg;?>" width="97"/></a>
                             				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-2.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-3.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-4.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-5.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-6.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-7.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-8.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-9.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-1.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-2.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-3.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-4.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-5.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-6.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-7.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-8.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-9.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-7.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-8.jpg"/></a>
-                            				</li>
-                            				<li>
-                            					<a href="#"><img src="images/home/photo-9.jpg"/></a>
-                            				</li>
+                            				<?php endwhile; endif;?>
                             			</ul>
                             		</div>
                             	</div>
