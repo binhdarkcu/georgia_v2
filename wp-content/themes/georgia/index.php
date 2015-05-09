@@ -256,7 +256,7 @@
 															$aboutContent = $about->post_content;
 														?>
 														<?php echo apply_filters('the_content', $aboutContent);?>
-                                                        <a class="btn" href="<?php echo bloginfo('home')?>/wordt-lid">
+                                                        <a class="btn" href="<?php echo bloginfo('home')?>/word-lid">
 							                                WORD LID
 							                            </a>
                                                     </div>
