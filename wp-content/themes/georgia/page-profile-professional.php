@@ -1,4 +1,6 @@
+<?php get_header();?>
 <?php
+
 	if(isset($_SESSION['user'])){
         $user = $wpdb->get_row("SELECT * FROM wp_members WHERE id = '".$_SESSION['user']['id']."'", ARRAY_A);
     }else{
@@ -7,7 +9,6 @@
 		exit();
     }
 ?>
-<?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
@@ -15,7 +16,7 @@
 		<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
         <div id="main-content" class="profilePage">
 			<div class="row">
-				<?php get_template_part('sidebar', 'profile'); ?>
+				<?php  get_template_part('sidebar', 'profile'); ?>
                 <div class="col-md-8">
 					<div class="profileDetail">
 						<div class="row-f">
@@ -86,7 +87,10 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Emailadres</div>
-							<div class="col2"><a href="mailto:<?php echo $user['b_email']; ?>"><?php echo $user['b_email']; ?></a></div>
+							<div class="col2"><?php if(empty($user['b_email'])){echo '-';} else {?>
+								<a href="mailto:<?php echo $user['b_email']; ?>"><?php echo $user['b_email']; ?></a>
+								<?php }?>
+							</div>
 							<div class="col3"><a href="#" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">

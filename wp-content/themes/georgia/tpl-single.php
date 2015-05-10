@@ -121,7 +121,7 @@
 																foreach ($joinEvents as $join) {			
 	                                                		?>
 		                                                	<li>
-		                                                		<img src="<?php echo content_url().'/uploads/'.$join->p_picture; ?>" width="45"/>
+		                                                		<img src="<?php echo content_url().'/uploads/avatar'.$join->p_picture; ?>" width="45"/>
 		                                                		<p><?php echo $join->p_voornaam;?></p>
 		                                                	</li>
 		                                                	<?php }?>

@@ -1,35 +1,35 @@
 <div class="popup" id="login-user" style="display: none;">
 	<?php
 	    
-	    $logged = false;
-	    $message = "";
-	    if(isset($_POST['p_email']))
-	    {
-	        global $wpdb;
-	        $email = $_POST['p_email'];
-	        $password = sha1($_POST['p_password']);
-	        
-	        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$email' and p_password = '$password'");
-	        if($results){
-	            $data = array();
-	            foreach ($results as $key => $value) {
-	                $data[$key] = $value;
-	            }
-	            $logged = true;
-	            $message = "Login success";
-	            unset($data['p_password']);
-	            $_SESSION['user'] = $data;
-	            $link = get_site_url().'/profile';
-	            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
-	        }
-	        else{
-	            echo '<script language="javascript">';
-				echo 'alert("Login fail")';
-				echo '</script>';
-				$link = get_site_url().'/wordt-lid';
-				echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
-	        }
-	    }
+		$logged = false;
+	    	$message = "";
+		    if(isset($_POST['p_email']))
+		    {
+		        global $wpdb;
+		        $email = $_POST['p_email'];
+		        $password = sha1($_POST['p_password']);
+		        
+		        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$email' and p_password = '$password'");
+		        if($results){
+		            $data = array();
+		            foreach ($results as $key => $value) {
+		                $data[$key] = $value;
+		            }
+		            $logged = true;
+		            $message = "Login success";
+		            unset($data['p_password']);
+		            $_SESSION['user'] = $data;
+		            $link = get_site_url().'/profile';
+		            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+		        }
+		        else{
+		            echo '<script language="javascript">';
+					echo 'alert("Login fail")';
+					echo '</script>';
+					$link = get_site_url().'/wordt-lid';
+					echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+		        }
+		     }
 	
 	?>
 	<div class="overlays"></div>

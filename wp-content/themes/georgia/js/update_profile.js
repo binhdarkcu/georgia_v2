@@ -4,24 +4,6 @@ jQuery(document).ready(function(){
 	    var F = this.files;
 	    if(F && F[0]) for(var i=0; i<F.length; i++) SiteMain.readImage( F[i] );
 	   
-	    $dir = jQuery('.pictureUpload img.imgPreview').attr('data-dir');
-		$tablename = 'wp_members';
-        $setfield = 'p_picture';
-        
-        $file = $(this)[0].files[0];
-	    $fileName = $file.name;
-	    $fileExt = '.' + $fileName.split('.').pop();
-       // alert($file);
-	    jQuery.ajax({
-            type : "post",
-            url : $('.ajaxurl').val(),
-            data : {action: "user_update_avatar", filename:$fileName, dir: $dir},
-            success: function(response) {
-            	//console.log(response);
-            }
-       });
-	   
-	
 	    /*
 	    jQuery.ajax({
             type : "post",
@@ -33,6 +15,21 @@ jQuery(document).ready(function(){
        });*/
 	});
 	
+	$('#submit-btn').click(function(){
+		$dir = jQuery('.pictureUpload img.imgPreview').attr('data-dir');
+		$file = $('#filePicture').prop('files');
+	    $fileName = $file[0].name;
+	    $.ajax({ 
+	         type: 'post',
+	         url : $('.ajaxurl').val(),
+	         data: {action: 'user_update_avatar', dir:$dir, filename:$fileName},
+	         success: function(data) {
+	              console.log(data); //should print out the name since you sent it along
+	
+	        }
+	    });
+	    
+	});
 	$('#editPhoto').click(function(){
 		$('#filePicture').click();
 	});

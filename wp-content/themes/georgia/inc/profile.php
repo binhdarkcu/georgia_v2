@@ -25,10 +25,16 @@ function saveFile(){
 	$filename = $_REQUEST['filename'];
 	$dir = $_REQUEST['dir'];
 	$root = getcwd();
-	$upload_dir = $root.'/wp-content/uploads/'.$dir.'/';
-	$target_file = $upload_dir.basename($filename);
-	echo $target_file;
-	move_uploaded_file($filename, $target_file);
+	$upload_dir = $root.'/wp-content/uploads/avatar/';
+	$Random_Number      = rand(0, 9999999999); //Random number to be added to name.
+	$target_file = $upload_dir.basename($Random_Number.$filename);
+	echo $_FILES['p_picture']['tmp_name'];
+	if(move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file )){
+		die('Success! File Uploaded.');
+	}else{
+		die('error uploading File!');
+	}
+	//move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
 }
 
 add_action("wp_ajax_check_user_email", "checkEmail");

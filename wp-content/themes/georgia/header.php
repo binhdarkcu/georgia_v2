@@ -38,14 +38,7 @@
     <script type='text/javascript' src='js/jquery-migrate.min.js?ver=1.2.1'></script>
    
 	<script type="text/javascript" src="js/map_location.js"></script> 
-	<style type="text/css">
 	
-	.acf-map {
-		width: 100%;
-		height: 400px;
-	}
-	
-	</style>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script type='text/javascript'>
         /* <![CDATA[ */

@@ -15,13 +15,10 @@
             echo 'true';
         }
     }
-    if(isset($_SESSION['user'])){
-        $link = get_site_url().'/profile';
-        echo "<script>window.location.href = '$link';</script>";
-    }
+    
     $logged = false;
     $message = "";
-    if(isset($_POST['b_email']))
+    if(!empty($_POST['p_email']))
     {
         global $wpdb;
         $data['p_naam'] = $_POST['p_naam'];
@@ -39,20 +36,22 @@
         $data['p_email'] = $_POST['p_email'];
         $data['p_likedin'] = $_POST['p_likedin'];
         $data['p_picture'] = $_FILES['p_picture']['name'];
-		
 		if (!empty($data['p_picture'])) {
 			$root = getcwd();
-			$upload_dir = $root.'/wp-content/uploads/'.$data['p_voornaam'].'/';
+			$upload_dir = $root.'/wp-content/uploads/avatar/';
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir);
 			}
-			$target_file = $upload_dir.basename($data['p_picture']);
-			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
+			$fileName = strtolower($_FILES['p_picture']['name']);
+			$Random_Number      = rand(0, 9999999999); //Random number to be added to name.
+			$target_file = $upload_dir.basename($Random_Number.$data['p_picture']);
+			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
+			$data['p_picture'] = $Random_Number.$data['p_picture'];
 		}
 		
 		$data['p_password'] = sha1($_POST['p_password']);
 		
-		$data['p_picture'] = $data['p_voornaam'].'/'.$data['p_picture']; 
+		$data['p_picture'] = $data['p_picture']; 
         $data['b_naam'] = $_POST['p_naam'];
 		$data['b_hoofd'] = $_POST['b_hoofd'];
         $data['b_firma'] = $_POST['b_firma'];
@@ -84,19 +83,22 @@
         $data['f_fax'] = $_POST['f_fax'];
         $data['f_email'] = $_POST['f_email'];
         $data['f_btw'] = $_POST['f_btw'];
-		$interests = $_POST['f_interest'];
-		$inter = array();
-		foreach ($interests as $interest) {
-			array_push($inter,$interest);
-		}
-		$data['f_interest'] = $inter.join(',');
 		
-		$pay = array();
-		$payments = $_POST['f_addresspayment'];
-		foreach ($payments as $payment) {
-			array_push($pay,$payment);
+		$newinter = '';
+		if(!empty($_POST['f_interest'])) {
+		    foreach($_POST['f_interest'] as $f_inter) {
+		        $newinter .= empty($newinter) ? $f_inter : ', '.$f_inter;
+		    }
 		}
-		$data['f_addresspayment'] = $pay.join(',');
+		$data['f_interest'] = $newinter;
+		
+		$newpay = '';
+		if(!empty($_POST['f_addresspayment'])) {
+		    foreach($_POST['f_addresspayment'] as $f_pay) {
+		        $newpay .= empty($newpay) ? $f_pay : ', '.$f_pay;
+		    }
+		}
+		$data['f_addresspayment'] = $newpay;
 		
 		$data['f_notepayment'] = $_POST['f_notepayment'];
 		
@@ -109,12 +111,16 @@
             $message = "Register success";
             unset($data['password']);
             $_SESSION['user'] = $data;
+			$_SESSION['user_id'] = $data['id'];
             $link = get_site_url().'/success';
             echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
         }
         else{
+        	
             $message = "Register failed";
         }
+    }else{
+    	//$message = "Please type the field.";
     }
 ?>
 
@@ -152,7 +158,7 @@
 		                            if($message != "")
 		                            {
 		                                $alert = $logged == true ? "alert-success" : "alert-danger";
-		                                echo '<div class="alert '.$alert.'">'.$message.'</div>';
+		                                echo '<div class="alert '.$alert.'" style="padding-bottom: 20px;">'.$message.'</div>';
 		                            }
 		                                
 		                        ?>  
@@ -429,66 +435,66 @@
 										<span class="note">Wat zijn uw belangrijkste interessegebieden</span>
 										<div class="radioGroup">
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest01" class="ipinterests" value="bedrijven en bedrijfssectoren"/>
+												<input type="checkbox" name="f_interest[]" id="interest01" class="ipinterests" value="bedrijven en bedrijfssectoren"/>
 												<label for="interest01">bedrijven en bedrijfssectoren</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest02" class="ipinterests" value="economie"/>
+												<input type="checkbox" name="f_interest[]" id="interest02" class="ipinterests" value="economie"/>
 												<label for="interest02">economie</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest03" class="ipinterests" value="bridge"/>
+												<input type="checkbox" name="f_interest[]" id="interest03" class="ipinterests" value="bridge"/>
 												<label for="interest03">bridge</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest04" class="ipinterests" value="media"/>
+												<input type="checkbox" name="f_interest[]" id="interest04" class="ipinterests" value="media"/>
 												<label for="interest04">media</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest05" class="ipinterests" value="management"/>
+												<input type="checkbox" name="f_interest[]" id="interest05" class="ipinterests" value="management"/>
 												<label for="interest05">management</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest06" class="ipinterests" value="golf"/>
+												<input type="checkbox" name="f_interest[]" id="interest06" class="ipinterests" value="golf"/>
 												<label for="interest06">golf</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest07" class="ipinterests" value="cultuur"/>
+												<input type="checkbox" name="f_interest[]" id="interest07" class="ipinterests" value="cultuur"/>
 												<label for="interest07">cultuur</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest08" class="ipinterests" value="diplomatieke ontmoetingen"/>
+												<input type="checkbox" name="f_interest[]" id="interest08" class="ipinterests" value="diplomatieke ontmoetingen"/>
 												<label for="interest08">diplomatieke ontmoetingen</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest09" class="ipinterests" value="reizen"/>
+												<input type="checkbox" name="f_interest[]" id="interest09" class="ipinterests" value="reizen"/>
 												<label for="interest09">reizen</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest10" class="ipinterests" value="filosofie"/>
+												<input type="checkbox" name="f_interest[]" id="interest10" class="ipinterests" value="filosofie"/>
 												<label for="interest10">filosofie</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest11" class="ipinterests" value="politiek"/>
+												<input type="checkbox" name="f_interest[]" id="interest11" class="ipinterests" value="politiek"/>
 												<label for="interest11">politiek</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest12" class="ipinterests" value="culinair"/>
+												<input type="checkbox" name="f_interest[]" id="interest12" class="ipinterests" value="culinair"/>
 												<label for="interest12">culinair</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest13" class="ipinterests" value="maatschappelijke thema\’s"/>
+												<input type="checkbox" name="f_interest[]" id="interest13" class="ipinterests" value="maatschappelijke thema\’s"/>
 												<label for="interest13">maatschappelijke thema’s</label>
 											</div>
 											<div class="radiocol checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest14" class="ipinterests" value="wetenschap"/>
+												<input type="checkbox" name="f_interest[]" id="interest14" class="ipinterests" value="wetenschap"/>
 												<label for="interest14">wetenschap</label>
 											</div>
 											<div class="radiocol rdother checkboxStyle">
-												<input type="checkbox" name="f_interest" id="interest15" class="ipinterests" value="andere, specifieer"/>
+												<input type="checkbox" name="f_interest[]" id="interest15" class="ipinterests" value="andere, specifieer"/>
 												<label for="interest15">andere, specifieer</label>
 												
-												<input type="text" name="f_interest" class="otherip"/>
+												<input type="text" name="f_interest[]" class="otherip"/>
 												
 											</div>
 											
@@ -499,15 +505,15 @@
 										<h4>FACTURATIEGEGEVENS<span class="red"></span></h4>
 										<span class="note">Factureringsadres voor de activiteiten van Georgia</span>
 										<div class="colfull checkboxStyle">
-											<input type="checkbox" name="f_addresspayment" id="facture_address" value="privé-adres"/>
+											<input type="checkbox" name="f_addresspayment[]" id="facture_address" value="privé-adres"/>
 											<label for="facture_address">privé-adres</label>
 										</div>
 										<div class="colfull checkboxStyle">
-											<input type="checkbox" name="f_addresspayment" id="facture_kanaddress" value="kantooradres"/>
+											<input type="checkbox" name="f_addresspayment[]" id="facture_kanaddress" value="kantooradres"/>
 											<label for="facture_kanaddress">kantooradres</label>
 										</div>
 										<div class="colfull checkboxStyle">
-											<input type="checkbox" name="f_addresspayment" id="facture_anderaddress" value="ander adres: volledig adres van BTW-nummer opgeven aub"/>
+											<input type="checkbox" name="f_addresspayment[]" id="facture_anderaddress" value="ander adres: volledig adres van BTW-nummer opgeven aub"/>
 											<label for="facture_anderaddress">ander adres: volledig adres van BTW-nummer opgeven aub</label>
 										</div>
 										<div class="other colfull">

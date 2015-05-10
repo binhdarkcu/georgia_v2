@@ -3,7 +3,6 @@
     <div id="site-container" class="site-container sb-site-container">
         <?php get_template_part('tpl','menu');?>
         <?php get_template_part('tpl','slider');?>
-		<?php $isLogin = ($_GET['islogin'] == 1)? "1":"0";?>
         <div id="main-content" class="home-plus-events">
 
             <?php get_template_part('tpl','comming-events')?>
@@ -127,7 +126,7 @@
 															foreach ($joinEvents as $join) {			
                                                 		?>
 	                                                	<li>
-	                                                		<img src="<?php echo content_url().'/uploads/'.$join->p_picture; ?>" width="45"/>
+	                                                		<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>" width="45"/>
 	                                                		<p><?php echo $join->p_voornaam;?></p>
 	                                                	</li>
 	                                                	<?php }?>

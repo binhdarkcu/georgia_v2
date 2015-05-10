@@ -1,4 +1,5 @@
 <?php
+
 	if(isset($_SESSION['user'])){
         $user = $wpdb->get_row("SELECT * FROM wp_members WHERE id = '".$_SESSION['user']['id']."'", ARRAY_A);
     }else{
@@ -8,6 +9,7 @@
     }
 ?>
 <?php get_header();?>
+
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
@@ -20,14 +22,19 @@
 					<div class="profileDetail">
 						<div class="avatar-member">
 							<input name="action" type="hidden" class="action" value="user_update_avatar"/>
-							<div class="img-box pictureUpload">
-								<input data-picture = "<?php echo $_FILES['p_picture']['tmp_name'];?>" name="p_picture" type="file" id="filePicture" style="display:none">
-								<img data-dir = "<?php echo $user['p_voornaam']?>" src="<?php echo content_url().'/uploads/'.$user['p_picture']; ?>"  class="imgPreview"/>
-							</div>
+							<form action="" method="post" id="MyUploadForm">
+								<div class="img-box pictureUpload">
+									<input data-picture = "<?php echo $_FILES['p_picture']['tmp_name'];?>" name="p_picture" type="file" id="filePicture" style="display:none">
+									<img data-dir = "<?php echo $user['p_voornaam']?>" src="<?php echo content_url().'/uploads/avatar/'.$user['p_picture']; ?>"  class="imgPreview"/>
+									
+								</div>
+							
 							<div class="profile-name">
 								 <span><?php echo $user['p_voornaam']; ?></span>
-								 <a href="javascript: void(0)" id="editPhoto" class="fa fedit"><span>edit photo</span></a>
+								 <!--input type="button"  id="submit-btn" value="Upload" /-->
+								 <a href="javascript: void(0)" id="editPhoto" class="fa editPhoto"><span>edit photo</span></a>
 							</div>
+							</form>
 						</div>
 						<div class="row-f">
 							<div class="col1">Geboortedatum</div>
