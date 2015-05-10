@@ -7,8 +7,9 @@
     {
     	
         $p_email = $_POST['p_email'];
-        $results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '$p_email'");
-        if(!empty($results)){
+		
+        $results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '".$p_email."'");
+        if($results == 'true'){
             echo 'false';
         }
         else{
@@ -113,7 +114,7 @@
             $_SESSION['user'] = $data;
 			$_SESSION['user_id'] = $data['id'];
             $link = get_site_url().'/success';
-            echo "<script>setTimeout(function(){window.location.href = '$link';},1000);</script>";
+            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
         }
         else{
         	
