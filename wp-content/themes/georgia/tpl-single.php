@@ -69,12 +69,24 @@
                                                 </div>
                                                <div class="tribe-events-cta-btn">
                                                     <?php if(isset($_SESSION['user'])){ ?>
+                                                    	<?php
+		                                                	global $wpdb;
+															$join_query = "SELECT * 
+																		FROM  wp_participate 
+																		WHERE id_member = ".$_SESSION['user']['id']."
+																		AND id_event = ".get_the_ID()."
+																		LIMIT 0 , 30";
+		                                                	$isjoin = $wpdb->get_row($join_query);
+															//print_r($join_query);
+															if(empty($isjoin)){
+		                                                ?>
                                                     	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 	                                                	<input name="action" type="hidden" class="action" value="add_event"/>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
 	                                                        IK KOM
 	                                                    </a>
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
+                                                    <?php }?>
                                                     <?php }?>
                                                 </div>
                                             </div>

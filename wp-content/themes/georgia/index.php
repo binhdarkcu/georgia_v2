@@ -75,6 +75,18 @@
 					                                <span class="yy center"><?php echo $year;?></span>
                                                 </div>
                                                 <?php if(isset($_SESSION['user'])){ ?>
+                                                <?php
+                                                	global $wpdb;
+													$join_query = "SELECT * 
+																FROM  wp_participate 
+																WHERE id_member = ".$_SESSION['user']['id']."
+																AND id_event = ".$featured->ID."
+																LIMIT 0 , 30";
+                                                	$isjoin = $wpdb->get_row($join_query);
+													//print_r($join_query);
+													if(empty($isjoin)){
+                                                ?>
+                                                
 	                                                <div class="tribe-events-cta-btn">
 	                                                	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 	                                                	<input name="action" type="hidden" class="action" value="add_event"/>
@@ -84,6 +96,7 @@
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
 	                                                </div>
                                                 <?php }?>
+                                               	<?php }?>
                                             </div>
 
 

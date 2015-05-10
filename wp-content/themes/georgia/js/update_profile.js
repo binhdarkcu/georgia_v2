@@ -16,9 +16,11 @@ jQuery(document).ready(function(){
 	});
 	
 	$('#submit-btn').click(function(){
+		
 		$dir = jQuery('.pictureUpload img.imgPreview').attr('data-dir');
 		$file = $('#filePicture').prop('files');
 	    $fileName = $file[0].name;
+	    
 	    $.ajax({ 
 	         type: 'post',
 	         url : $('.ajaxurl').val(),
@@ -77,6 +79,7 @@ jQuery(document).ready(function(){
             success:function(data) {
             	if(data){
             		alert('Thank you participated this event.');
+            		window.location.reload();
             	}else{
             		alert('You only participate once.');
             	}
@@ -84,6 +87,7 @@ jQuery(document).ready(function(){
 	        },
 	        error: function(errorThrown){
 	            alert('Participate fail.');
+	            $('#addEvent').hide();
 	        }
 
        });
