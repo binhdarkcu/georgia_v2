@@ -1,5 +1,9 @@
 <?php
-    session_start();
+    function ses_init() {
+      if (!session_id())
+	      session_start();
+	}
+	add_action('init','ses_init');
     //add theme support
     add_theme_support('post-thumbnails',array('post','page','slider','testimonials','promotion','homeland'));
 

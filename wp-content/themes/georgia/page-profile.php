@@ -31,7 +31,7 @@
 							
 							<div class="profile-name">
 								 <span><?php echo $user['p_voornaam']; ?></span>
-								 <!--input type="button"  id="submit-btn" value="Upload" /-->
+								 <input type="button"  id="submit-btn" value="Upload" />
 								 <a href="javascript: void(0)" id="editPhoto" class="fa editPhoto"><span>edit photo</span></a>
 							</div>
 							</form>
