@@ -5,7 +5,7 @@
 	}
 	add_action('init','ses_init');
     //add theme support
-    add_theme_support('post-thumbnails',array('post','page','slider','testimonials','promotion','homeland'));
+    add_theme_support('post-thumbnails',array('post','page','slider','organisaties','promotion','homeland'));
 
     //register post type
     include TEMPLATEPATH.'/post-type/registry-post-type.php';

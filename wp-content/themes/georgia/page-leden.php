@@ -68,6 +68,7 @@
                                         	</div>
                                         	<div class="clear"></div>
                                         </div>
+                                        <?php if(isset($_SESSION['user'])){ ?>
                                         <div class="ledenList">
                                         	<div class="pad">
                                         		<div class="divtitle">
@@ -98,6 +99,7 @@
 	                                        	<div class="clear"></div>
                                         	</div>
                                         </div>
+                                        <?php }?>
                                         <div class="ledenOrg" style="margin-top: 12px;">
                                         	<div class="home-featured-event">
                                         		<div class="featured-event-title">
@@ -106,18 +108,19 @@
                                         	</div>
                                         	<div class="leden-logo">
                                         		<ul>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-1.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-2.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-3.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-4.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-5.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-6.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-6.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-5.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-4.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-3.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-2.jpg"/></a></li>
-                                        			<li><a href="#" target="_blank"><img src="images/leden/l-1.jpg"/></a></li>
+                                        			<?php
+                                        				$orevent = array(
+														  'post_type'      => 'organisaties',
+														  'posts_per_page' => -1
+														);
+														
+														$organisaties = query_posts( $orevent );
+														if(have_posts($organisaties->$post)): while(have_posts($organisaties->$post)): the_post($organisaties->$post);
+															$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
+															$link = get_field('url_link', get_the_ID());
+                                        			?>
+                                        			<li><a href="<?php echo $link;?>" target="_blank"><img src="<?php echo $bigImg;?>"/></a></li>
+                                        			<?php endwhile; endif;?>
                                         		</ul>
                                         		<div class="clear"></div>
                                         	</div>
