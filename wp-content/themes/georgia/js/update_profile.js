@@ -72,14 +72,20 @@ jQuery(document).ready(function(){
 	$(document).on('click','#addEvent',function(){
 		$id_event = $(this).attr('data-event-id');
         $id_member = $(this).attr('data-user-id');
+		$action = $(this).parent().find('input[name=action]').val();
 		$.ajax({
             type : "POST",
             url : $('.ajaxurl').val(),
-            data : {action: "add_event", 'id_event':$id_event, 'id_member':$id_member},
+            data : {action: $action, 'id_event':$id_event, 'id_member':$id_member},
             dataType:'json',
             success:function(data) {
             	if(data){
-            		alert('Thank you participated this event.');
+					if ($action == 'add_event') {
+						alert('Thank you participated this event.');
+					}
+            		else if ($action == 'cancel_event') {
+						alert('Cancel successful.');
+					}
             		window.location.reload();
             	}else{
             		alert('You only participate once.');

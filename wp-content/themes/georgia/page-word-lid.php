@@ -43,10 +43,10 @@
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir);
 			}
-			$fileName = strtolower($_FILES['p_picture']['name']);
-			$target_file = $upload_dir.basename(time().$data['p_picture']);
+			$fileName = time().$data['p_picture'];
+			$target_file = $upload_dir.basename($fileName);
 			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
-			$data['p_picture'] = $Random_Number.$data['p_picture'];
+			$data['p_picture'] = $fileName;
 		}
 		
 		$data['p_password'] = sha1($_POST['p_password']);

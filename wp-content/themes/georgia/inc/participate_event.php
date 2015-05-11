@@ -5,9 +5,23 @@ function addEvent(){
 	global $wpdb;	
 	$data['id_event'] = $_REQUEST['id_event'];
 	$data['id_member'] = $_REQUEST['id_member'];
+	$data['status'] = 'invoice';
+	$data['datejoin'] = date('Y-m-d');
 	$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
 	if(!empty($event)){
-        echo 'false';
+        $execute = $wpdb->update( 
+			'wp_participate', 
+			array( 
+				'status' => 'invoice',
+				'datejoin' => $data['datejoin']
+			), 
+			array( 'id' => $event->{'id'} ), 
+			array( 
+				'%s'
+			),
+			array( '%d' ) 
+		);
+		echo 'true';
 		exit();
     }
     else{
@@ -16,6 +30,32 @@ function addEvent(){
 		exit();
     }
 	
+}
+
+add_action("wp_ajax_cancel_event", "cancelEvent");
+add_action("wp_ajax_nopriv_cancel_event", "cancelEvent");
+function cancelEvent(){
+	global $wpdb;	
+	$data['id_event'] = $_REQUEST['id_event'];
+	$data['id_member'] = $_REQUEST['id_member'];
+	$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
+	if(!empty($event)){
+		$execute = $wpdb->update( 
+			'wp_participate', 
+			array( 
+				'status' => 'uninvoice'
+			), 
+			array(
+				'id' => $event->{'id'}
+			), 
+			array( 
+				'%s'
+			),
+			array( '%d' ) 
+		);
+		echo 'true';
+		exit();
+	}
 }
 
 
