@@ -44,8 +44,7 @@
 				mkdir($upload_dir);
 			}
 			$fileName = strtolower($_FILES['p_picture']['name']);
-			$Random_Number      = rand(0, 9999999999); //Random number to be added to name.
-			$target_file = $upload_dir.basename($Random_Number.$data['p_picture']);
+			$target_file = $upload_dir.basename(time().$data['p_picture']);
 			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
 			$data['p_picture'] = $Random_Number.$data['p_picture'];
 		}

@@ -19,18 +19,31 @@ function updateProfile(){
 		array( '%d' ) 
 	);
 }
-add_action("wp_ajax_user_user_update_avatar", "saveFile");
+add_action("wp_ajax_user_update_avatar", "saveFile");
 add_action("wp_ajax_nopriv_user_update_avatar", "saveFile");
 function saveFile(){
-	$filename = $_REQUEST['filename'];
-	$dir = $_REQUEST['dir'];
-	$root = getcwd();
+	$user_id = $_POST['user_id'];
+	//$dir = $_REQUEST['dir'];
+	$root = get_home_path();
 	$upload_dir = $root.'/wp-content/uploads/avatar/';
-	$Random_Number      = rand(0, 9999999999); //Random number to be added to name.
-	$target_file = $upload_dir.basename($Random_Number.$filename);
-	echo $_FILES['p_picture']['tmp_name'];
+	if (!file_exists($upload_dir)) {
+		mkdir($upload_dir);
+	}
+	$filename = time().$_FILES['p_picture']['name'];
+	$target_file = $upload_dir.basename($filename);
 	if(move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file )){
-		die('Success! File Uploaded.');
+		global $wpdb;	
+		$execute = $wpdb->update( 
+			'wp_members', 
+			array( 
+				'p_picture' => $filename
+			), 
+			array( 'id' => $user_id ), 
+			array( 
+				'%s'
+			),
+			array( '%d' ) 
+		);
 	}else{
 		die('error uploading File!');
 	}

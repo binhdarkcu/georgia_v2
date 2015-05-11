@@ -15,23 +15,21 @@ jQuery(document).ready(function(){
        });*/
 	});
 	
-	$('#submit-btn').click(function(){
-		
-		$dir = jQuery('.pictureUpload img.imgPreview').attr('data-dir');
-		$file = $('#filePicture').prop('files');
-	    $fileName = $file[0].name;
-	    
-	    $.ajax({ 
-	         type: 'post',
-	         url : $('.ajaxurl').val(),
-	         data: {action: 'user_update_avatar', dir:$dir, filename:$fileName},
-	         success: function(data) {
-	              console.log(data); //should print out the name since you sent it along
-	
-	        }
-	    });
-	    
-	});
+	$("#MyUploadForm").on('submit',(function(e){
+		e.preventDefault();
+		$.ajax({
+			url: $('.ajaxurl').val(),
+			type: "POST",
+			data:  new FormData(this),
+			contentType: false,
+			cache: false,
+			processData:false,
+			success: function(){
+				alert('Avatar is updated.');
+			},
+			error: function(){} 	        
+		});
+	}));
 	$('#editPhoto').click(function(){
 		$('#filePicture').click();
 	});

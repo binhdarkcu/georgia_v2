@@ -21,19 +21,19 @@
                 <div class="col-md-8">
 					<div class="profileDetail">
 						<div class="avatar-member">
-							<input name="action" type="hidden" class="action" value="user_update_avatar"/>
-							<form action="" method="post" id="MyUploadForm">
+							<form method="post" id="MyUploadForm" enctype="multipart/form-data">
+								<input name="action" type="hidden" class="action" value="user_update_avatar"/>
 								<div class="img-box pictureUpload">
 									<input data-picture = "<?php echo $_FILES['p_picture']['tmp_name'];?>" name="p_picture" type="file" id="filePicture" style="display:none">
 									<img data-dir = "<?php echo $user['p_voornaam']?>" src="<?php echo content_url().'/uploads/avatar/'.$user['p_picture']; ?>"  class="imgPreview"/>
-									
+									<input name="user_id" type="hidden" value="<?php echo $user['id']; ?>"/>
 								</div>
 							
-							<div class="profile-name">
-								 <span><?php echo $user['p_voornaam']; ?></span>
-								 <input type="button"  id="submit-btn" value="Upload" />
-								 <a href="javascript: void(0)" id="editPhoto" class="fa editPhoto"><span>edit photo</span></a>
-							</div>
+								<div class="profile-name">
+									 <span><?php echo $user['p_voornaam']; ?></span>
+									 <input type="submit" id="submit-btn" value="Upload" />
+									 <a href="javascript: void(0)" id="editPhoto" class="fa editPhoto"><span>edit photo</span></a>
+								</div>
 							</form>
 						</div>
 						<div class="row-f">
