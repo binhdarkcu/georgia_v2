@@ -48,6 +48,8 @@ var SiteMain = (function() {
 	                n = file.name,
 	                s = ~~(file.size/1024) +'KB';
 	            jQuery('.pictureUpload img.imgPreview').attr('src', this.src);
+	            $('#editPhoto').hide();
+	    $('#submit-btn').show();
 	        };
 	        image.onerror= function() {
 	            alert('Invalid file type: '+ file.type);
