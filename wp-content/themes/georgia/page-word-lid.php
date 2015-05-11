@@ -178,11 +178,11 @@
 										<div class="reg-row">
 											<div class="col1">
 												<label>Geboortedatum<span class="red">*</span></label>
-												<input type="date" name="p_geboortedatum" value="" />
+												<input id="date_geboortedatum" type="text" name="p_geboortedatum" value="" />
 											</div>
 											<div class="col2">
 												<label>Geboorteplaats<span class="red">*</span></label>
-												<input type="text" name="p_geboorteplaats" value="" />
+												<input id="date_geboorteplaats" type="text" name="p_geboorteplaats" value=""  />
 											</div>
 										</div>
 										<div class="reg-row">

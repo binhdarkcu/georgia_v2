@@ -26,8 +26,22 @@
     
     <script type='text/javascript' src='js/update_profile.js'></script>
     <script type='text/javascript' src='js/class.SiteMain.js'></script>
-
-
+    
+    
+	<script type='text/javascript' src='js/jquery-ui-1.10.1.min.js'></script>
+	<link href="assets/css/jquery-ui-1.10.1.css" rel="stylesheet">
+	<link type="text/css" rel='stylesheet' href="assets/css/latoja.datepicker.css"/>
+	<script type="text/javascript">
+		  $(function() {
+		    $( "#date_geboortedatum, #date_geboorteplaats" ).datepicker({
+				inline: true,
+				changeMonth: true,
+    			changeYear: true,
+				showOtherMonths: true
+			})
+			.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
+		  });
+	</script>
 	<script type="text/javascript">
 	    jQuery(document).ready(function() {
 	        jQuery("#loginForm").validate({

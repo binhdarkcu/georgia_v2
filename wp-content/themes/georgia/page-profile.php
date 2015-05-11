@@ -38,12 +38,12 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Geboortedatum</div>
-							<div class="col2"><input type="text" name="p_geboortedatum" value="<?php echo $user['p_geboortedatum']; ?>" disabled=""/></div>
+							<div class="col2"><input id="date_geboortedatum" type="text" name="p_geboortedatum" value="<?php echo $user['p_geboortedatum']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="p_geboortedatum" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">Geboorteplaats</div>
-							<div class="col2"><input type="text" name="p_geboorteplaats" value="<?php echo $user['p_geboorteplaats']; ?>" disabled=""/></div>
+							<div class="col2"><input id="date_geboorteplaats" type="text" name="p_geboorteplaats" value="<?php echo $user['p_geboorteplaats']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="p_geboorteplaats" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
