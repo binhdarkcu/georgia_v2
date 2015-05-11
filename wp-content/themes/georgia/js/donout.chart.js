@@ -9,9 +9,10 @@
 		},
 		random = function(max){ return Math.round(Math.random()*100)},
 		helpers = Chart.helpers;
+		chart1();
 
-
-		//char1
+		function chart1(){
+			//char1
 		var canvas = $id('modular-doughnut'),
 			colours = {
 				"Aannemer": "#e22b2b",
@@ -25,97 +26,98 @@
 				"Politiek":"#b37976",
 				"Andere":"#7abf94"
 			};
-
-		var moduleData = [
-		
-			{
-				value: 6.57,
-				color: colours["Aannemer"],
-				highlight: Colour(colours["Aannemer"], 10),
-				label: "Aannemer"
-			},
-		
-			{
-				value: 1.63,
-				color: colours["Architect"],
-				highlight: Colour(colours["Architect"], 10),
-				label: "Architect"
-			},
-		
-			{
-				value: 1.09,
-				color: colours["Bank & Verzekering"],
-				highlight: Colour(colours["Bank & Verzekering"], 10),
-				label: "Bank & Verzekering"
-			},
-		
-			{
-				value: 1.71,
-				color: colours["Energie"],
-				highlight: Colour(colours["Energie"], 10),
-				label: "Energie"
-			},
-		
-			{
-				value: 1.64,
-				color: colours["Advocaat"],
-				highlight: Colour(colours["Advocaat"], 10),
-				label: "Advocaat"
-			},
-		
-			{
-				value: 1.37,
-				color: colours["Ontwikkelaar"],
-				highlight: Colour(colours["Ontwikkelaar"], 10),
-				label: "Ontwikkelaar"
-			},
-			{
-				value: 1.71,
-				color: colours["Ingenieur"],
-				highlight: Colour(colours["Ingenieur"], 10),
-				label: "Ingenieur"
-			},
-			{
-				value: 1.64,
-				color: colours["Makelaar"],
-				highlight: Colour(colours["Makelaar"], 10),
-				label: "Makelaar"
-			},
-			{
-				value: 1.37,
-				color: colours["Politiek"],
-				highlight: Colour(colours["Politiek"], 10),
-				label: "Politiek"
-			},
-			{
-				value: 1.37,
-				color: colours["Andere"],
-				highlight: Colour(colours["Andere"], 10),
-				label: "Andere"
-			}
-		];
-		// 
-		var moduleDoughnut = new Chart(canvas.getContext('2d')).Doughnut(moduleData, { 
-			segmentStrokeColor : "#000",
-			tooltipTemplate : "<%if (label){%><%=label%>: <%}%><%= value %>kb", animation: false }
-		);
-		// 
-		var legendHolder = document.createElement('div');
-		legendHolder.innerHTML = moduleDoughnut.generateLegend();
-		// Include a html legend template after the module doughnut itself
-		helpers.each(legendHolder.firstChild.childNodes, function(legendNode, index){
-			helpers.addEvent(legendNode, 'mouseover', function(){
-				var activeSegment = moduleDoughnut.segments[index];
-				activeSegment.save();
-				activeSegment.fillColor = activeSegment.highlightColor;
-				moduleDoughnut.showTooltip([activeSegment]);
-				activeSegment.restore();
+	
+			var moduleData = [
+			
+				{
+					value: 6.57,
+					color: colours["Aannemer"],
+					highlight: Colour(colours["Aannemer"], 10),
+					label: "Aannemer"
+				},
+			
+				{
+					value: 1.63,
+					color: colours["Architect"],
+					highlight: Colour(colours["Architect"], 10),
+					label: "Architect"
+				},
+			
+				{
+					value: 1.09,
+					color: colours["Bank & Verzekering"],
+					highlight: Colour(colours["Bank & Verzekering"], 10),
+					label: "Bank & Verzekering"
+				},
+			
+				{
+					value: 1.71,
+					color: colours["Energie"],
+					highlight: Colour(colours["Energie"], 10),
+					label: "Energie"
+				},
+			
+				{
+					value: 1.64,
+					color: colours["Advocaat"],
+					highlight: Colour(colours["Advocaat"], 10),
+					label: "Advocaat"
+				},
+			
+				{
+					value: 1.37,
+					color: colours["Ontwikkelaar"],
+					highlight: Colour(colours["Ontwikkelaar"], 10),
+					label: "Ontwikkelaar"
+				},
+				{
+					value: 1.71,
+					color: colours["Ingenieur"],
+					highlight: Colour(colours["Ingenieur"], 10),
+					label: "Ingenieur"
+				},
+				{
+					value: 1.64,
+					color: colours["Makelaar"],
+					highlight: Colour(colours["Makelaar"], 10),
+					label: "Makelaar"
+				},
+				{
+					value: 1.37,
+					color: colours["Politiek"],
+					highlight: Colour(colours["Politiek"], 10),
+					label: "Politiek"
+				},
+				{
+					value: 1.37,
+					color: colours["Andere"],
+					highlight: Colour(colours["Andere"], 10),
+					label: "Andere"
+				}
+			];
+			// 
+			var moduleDoughnut = new Chart(canvas.getContext('2d')).Doughnut(moduleData, { 
+				segmentStrokeColor : "#000",
+				tooltipTemplate : "<%if (label){%><%=label%>: <%}%><%= value %>", animation: false }
+			);
+			// 
+			var legendHolder = document.createElement('div');
+			legendHolder.innerHTML = moduleDoughnut.generateLegend();
+			// Include a html legend template after the module doughnut itself
+			helpers.each(legendHolder.firstChild.childNodes, function(legendNode, index){
+				helpers.addEvent(legendNode, 'mouseover', function(){
+					var activeSegment = moduleDoughnut.segments[index];
+					activeSegment.save();
+					activeSegment.fillColor = activeSegment.highlightColor;
+					moduleDoughnut.showTooltip([activeSegment]);
+					activeSegment.restore();
+				});
 			});
-		});
-		helpers.addEvent(legendHolder.firstChild, 'mouseout', function(){
-			moduleDoughnut.draw();
-		});
-		canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
+			helpers.addEvent(legendHolder.firstChild, 'mouseout', function(){
+				moduleDoughnut.draw();
+			});
+			canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
+		}
 		
 		//chart 2
 		var canvas_2 = $id('modular-doughnut-2'),
