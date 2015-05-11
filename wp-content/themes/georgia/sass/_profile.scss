@@ -47,7 +47,7 @@
           @include RalewayBold(20px);
           padding-bottom: 10px;
         }
-        a.fedit{
+        a.fedit,a.editPhoto, .savebtn{
           span{
              @include NotoSansRegular(12px);
              padding-bottom: 0;
@@ -61,7 +61,7 @@
         }
       }
     }
-    a.fedit{
+    a.fedit, a.editPhoto{
       background: url(../images/fedit.png) no-repeat left center;
       padding-left: 18px;
       span{
@@ -107,6 +107,19 @@
       }
     }
   }
+}
+.profilePage .savebtn{
+    background: url(../images/fedit.png) no-repeat left center;
+  padding-left: 18px;
+    font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.1;
+  padding-bottom: 0;
+  text-decoration: underline;
+  color: #887554;
+  display: none;
 }
 .profilePage .profileDetail .row-f .col2 input[type="text"].pemail{
   color: #887554;

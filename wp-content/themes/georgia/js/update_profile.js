@@ -3,7 +3,8 @@ jQuery(document).ready(function(){
 		if(this.disabled) return alert('File upload not supported!');
 	    var F = this.files;
 	    if(F && F[0]) for(var i=0; i<F.length; i++) SiteMain.readImage( F[i] );
-	   
+	    $('#editPhoto').hide();
+	    $('#submit-btn').show();
 	    /*
 	    jQuery.ajax({
             type : "post",
@@ -26,6 +27,8 @@ jQuery(document).ready(function(){
 			processData:false,
 			success: function(){
 				alert('Avatar is updated.');
+				$('#editPhoto').show();
+	    		$('#submit-btn').hide();
 			},
 			error: function(){} 	        
 		});
