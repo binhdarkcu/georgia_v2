@@ -118,6 +118,10 @@
         }
         .col2{
           @include RalewayBold(12px);
+		  a{
+			text-decoration: none;
+			color: #333;
+		  }
         }
         .col3{
           

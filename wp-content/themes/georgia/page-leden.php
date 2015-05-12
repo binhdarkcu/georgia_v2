@@ -88,7 +88,7 @@
 														<div class="col col1">
 	                                        				<img src="<?php echo content_url().'/uploads/avatar/'.$member->{'p_picture'}; ?>" style="width: 45px; height: 45px;"/>
 	                                        			</div>
-	                                        			<div class="col col2"><div class="middle"><?php echo $member->{'p_voornaam'} ?></div></div>
+	                                        			<div class="col col2"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>"><?php echo $member->{'p_voornaam'} ?></a></div></div>
 	                                        			<div class="col col3"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>" class="fa fa-linkedin"></a></div></div>
 	                                        			<div class="col col4"><div class="middle"><?php echo $member->{'b_firma'} ?></div></div>
 	                                        			<div class="col col5"><div class="middle"><a href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
