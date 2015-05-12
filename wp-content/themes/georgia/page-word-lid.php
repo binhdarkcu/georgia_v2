@@ -151,7 +151,7 @@
                     			<span>Vul hieronder je gegevens in, wij contacteren jou zo snel mogelijk en valideren uw aanzoek.</span>
                     			<span class="s-2">Indien uw aanzoek werd goedgekeurd ontvangt u van ons een log in en paswoord waarmee u toegang krijgt en kan deelnemen aan </span>
                     			<span class="s-3">de evenementen.</span>	
-                    			<span><a href="#">Lees eerste de voorwaarden en reglementen</a></span>
+                    			<span><a href="<?php echo bloginfo('home')?>/privacy-policy" target="_blank">Lees eerste de voorwaarden en reglementen</a></span>
                     		</div>
                     		<form action="" method="post" id="registerForm" enctype="multipart/form-data">
                     			<?php
@@ -210,8 +210,14 @@
 												<label>Land<span class="red">*</span></label>
 												<select name="p_land">
 													<option value="0">Please select...</option>
-													<option value="Corporation">Corporation</option>
-													<option value="Partnership">Partnership</option>
+													<option value="Vlaams-Brabant">Vlaams-Brabant</option>
+													<option value="Henegouwen">Henegouwen</option>
+													<option value="Luik">Luik</option>
+													<option value="Namen">Namen</option>
+													<option value="West-Vlaanderen">West-Vlaanderen</option>
+													<option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+													<option value="Limburg">Limburg</option>
+													<option value="Antwerpen">Antwerpen</option>
 												</select>
 											</div>
 										</div>
@@ -283,8 +289,16 @@
 												<label>Aard van de firma/organisatie<span class="red">*</span></label>
 												<select name="b_firma">
 													<option value="0">Please select...</option>
-													<option value="Corporation">Corporation</option>
-													<option value="Partnership">Partnership</option>
+													<option value="Aannemer">Aannemer</option>
+													<option value="Architect">Architect</option>
+													<option value="Bank & Verzekering">Bank & Verzekering</option>
+													<option value="Energie">Energie</option>
+													<option value="Advocaat">Advocaat</option>
+													<option value="Ontwikkelaar">Ontwikkelaar</option>
+													<option value="Ingenieur">Ingenieur</option>
+													<option value="Makelaar">Makelaar</option>
+													<option value="Politiek">Politiek</option>
+													<option value="Andere">Andere</option>
 												</select>
 											</div>
 										</div>
@@ -314,8 +328,14 @@
 												<label>Land<span class="red">*</span></label>
 												<select name="b_land">
 													<option value="0">Please select...</option>
-													<option value="Corporation">Corporation</option>
-													<option value="Partnership">Partnership</option>
+													<option value="Vlaams-Brabant">Vlaams-Brabant</option>
+													<option value="Henegouwen">Henegouwen</option>
+													<option value="Luik">Luik</option>
+													<option value="Namen">Namen</option>
+													<option value="West-Vlaanderen">West-Vlaanderen</option>
+													<option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+													<option value="Limburg">Limburg</option>
+													<option value="Antwerpen">Antwerpen</option>
 												</select>
 											</div>
 										</div>
@@ -525,7 +545,7 @@
 										<div class="chkaccept checkboxStyle">
 											<input type="checkbox" name="accept" id="acceptform"/>
 											<label for="acceptform">
-												Ik verklaar hierbij de <a href="#" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
+												Ik verklaar hierbij de <a href="<?php echo bloginfo('home')?>/privacy-policy" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
 											</label>
 										</div>
 										<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
