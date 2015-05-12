@@ -4,12 +4,12 @@
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
             <div class="container">
-
+				<?php $query_object = get_queried_object();?>
                 <div class="breadcrumb-trail breadcrumb breadcrumbs">
                     <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home').'/'.the_slug();?>" title="Events"><?php the_title();?></a></span>
+                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home').'/'.$query_object->post_name;?>" title="Events"><?php echo get_the_title($query_object->ID);?></a></span>
                 </div>					
-                <h1><?php the_title();?></h1>
+                <h1><?php $query_object->post_title;?></h1>
             </div>
         </section>
 

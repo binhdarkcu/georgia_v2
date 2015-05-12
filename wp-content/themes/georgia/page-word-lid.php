@@ -151,7 +151,7 @@
                     			<span>Vul hieronder je gegevens in, wij contacteren jou zo snel mogelijk en valideren uw aanzoek.</span>
                     			<span class="s-2">Indien uw aanzoek werd goedgekeurd ontvangt u van ons een log in en paswoord waarmee u toegang krijgt en kan deelnemen aan </span>
                     			<span class="s-3">de evenementen.</span>	
-                    			<span><a href="#">Lees eerste de voorwaarden en reglementen</a></span>
+                    			<span><a href="<?php echo bloginfo('home')?>/privacy-policy" target="_blank">Lees eerste de voorwaarden en reglementen</a></span>
                     		</div>
                     		<form action="" method="post" id="registerForm" enctype="multipart/form-data">
                     			<?php
