@@ -78,14 +78,15 @@
                                                 <?php
                                                 	global $wpdb;
 													$join_query = "SELECT * 
-																FROM  wp_participate 
+																FROM  wp_participate
 																WHERE id_member = ".$_SESSION['user']['id']."
 																AND id_event = ".$featured->ID."
 																AND status = 'invoice'"."
 																LIMIT 0 , 30";
                                                 	$isjoin = $wpdb->get_row($join_query);
+													$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
 													//print_r($join_query);
-													//if(empty($isjoin)){
+													if($canjoin){
                                                 ?>
                                                 
 	                                                <div class="tribe-events-cta-btn">
@@ -96,7 +97,7 @@
 	                                                    </a>
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
 	                                                </div>
-                                                
+                                                <?php }?>
                                                	<?php }?>
                                             </div>
 

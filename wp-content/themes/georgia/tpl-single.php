@@ -75,15 +75,16 @@
 																		FROM  wp_participate 
 																		WHERE id_member = ".$_SESSION['user']['id']."
 																		AND id_event = ".get_the_ID()."
+																		AND status = 'invoice'"."
 																		LIMIT 0 , 30";
 		                                                	$isjoin = $wpdb->get_row($join_query);
-															//print_r($join_query);
-															if(empty($isjoin)){
+															$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
+															if($canjoin){
 		                                                ?>
                                                     	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
-	                                                	<input name="action" type="hidden" class="action" value="add_event"/>
+	                                                	<input name="action" type="hidden" class="action" value="<?php echo empty($isjoin) ? 'add' : 'cancel'; ?>_event"/>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
-	                                                        IK KOM
+	                                                        <?php echo empty($isjoin) ? 'IK KOM' : 'CANCEL'; ?>
 	                                                    </a>
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
                                                     <?php }?>
@@ -117,7 +118,7 @@
 		                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
 																			FROM wp_participate pt
 																			JOIN wp_members mb ON mb.id = pt.id_member
-																			WHERE pt.id_event = ".get_the_ID()."
+																			WHERE pt.id_event = ".get_the_ID()." AND pt.status = 'invoice'"."
 																			GROUP BY pt.id_member, pt.id
 																			LIMIT 0 , 30";
 																$joinEvents = $wpdb->get_results($p_query);
