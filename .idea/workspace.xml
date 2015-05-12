@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05f9715-e926-46a1-8ae8-5d9dc71b7115" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\My Data\SOURCES\PHP\BLISS\www\YVES\GEORGIA\sourcecode\v2\wp-content\themes\georgia\page-op-de-kalender-bk.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_events.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_events.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_font.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_font.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_footer.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_footer.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_header.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_header.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_home.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_home.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/4332b3fdee097f95d6b8ff357d45c25dc40b9bb0/_leden.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/4332b3fdee097f95d6b8ff357d45c25dc40b9bb0/_leden.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_leden.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_leden.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_others.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_others.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_popup.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_popup.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_profile.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_profile.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/4332b3fdee097f95d6b8ff357d45c25dc40b9bb0/_register.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/4332b3fdee097f95d6b8ff357d45c25dc40b9bb0/_register.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_register.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_register.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_reset.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_reset.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_responsive-calendar.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_responsive-calendar.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_skeleton.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_skeleton.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_style.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_style.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_variables.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/_variables.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/all.scssc" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/.sass-cache/72b417fb13fe2215325ce1f5c2c294562e9fb672/all.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/css/all.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-sidebar.js" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-sidebar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php" afterPath="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="v2.iws" />
@@ -44,31 +68,31 @@
         <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/jquery.calendar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/all.scss" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender2.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-sidebar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_responsive-calendar.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_footer.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-page.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-comming-events.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/index.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-about.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-lokatie.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/functions.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/header.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.SiteMain.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_header.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-sidebar.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss" />
       </list>
     </option>
   </component>
@@ -199,7 +223,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEMP - GEORGIA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="georgia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TEMP - GEORGIA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="georgia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -299,20 +375,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14872">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-slider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="418" max-vertical-offset="1386">
-          <caret line="19" column="45" selection-start-line="17" selection-start-column="12" selection-end-line="19" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="4680">
@@ -411,20 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60634327" vertical-offset="295" max-vertical-offset="1040">
-          <caret line="31" column="52" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1360">
-          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_responsive-calendar.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6721311" vertical-offset="3451" max-vertical-offset="4000">
@@ -481,20 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4734" max-vertical-offset="8380">
-          <caret line="247" column="24" selection-start-line="247" selection-start-column="24" selection-end-line="247" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1360">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-comming-events.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.831758" vertical-offset="600" max-vertical-offset="2040">
@@ -509,24 +543,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5172415" vertical-offset="0" max-vertical-offset="2520">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-lokatie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54151624" vertical-offset="180" max-vertical-offset="1040">
           <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1540">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -593,31 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1696751" vertical-offset="566" max-vertical-offset="1120">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="4680">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18050541" vertical-offset="700" max-vertical-offset="3000">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -632,20 +631,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="946" max-vertical-offset="1518">
           <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="44" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="616" max-vertical-offset="946">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="14872">
-          <caret line="225" column="169" selection-start-line="225" selection-start-column="169" selection-end-line="225" selection-end-column="169" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -653,6 +639,117 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1276102" vertical-offset="0" max-vertical-offset="1694">
           <caret line="18" column="29" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/inc/type_column.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14514285" vertical-offset="555" max-vertical-offset="1430">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/inc/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79885715" vertical-offset="687" max-vertical-offset="1562">
+          <caret line="63" column="10" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="10" />
+          <folding>
+            <marker date="1431324831829" expanded="true" signature="-1:-1" placeholder="SELECT p_ema..wp_members..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9651972" vertical-offset="832" max-vertical-offset="1694">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15313224" vertical-offset="0" max-vertical-offset="4906">
+          <caret line="6" column="105" selection-start-line="6" selection-start-column="105" selection-end-line="6" selection-end-column="105" />
+          <folding>
+            <marker date="1431441490985" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..wp_participate..." />
+            <marker date="1431441490985" expanded="true" signature="-1:-1" placeholder="SELECT pt.id..wp_participate..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="132">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events-calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.064516" vertical-offset="467" max-vertical-offset="1496">
+          <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/sass/_style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.516129" vertical-offset="2466" max-vertical-offset="3388">
+          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/page-op-de-kalender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.161291" vertical-offset="436" max-vertical-offset="1694">
+          <caret line="44" column="81" selection-start-line="44" selection-start-column="81" selection-end-line="44" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1496">
+          <caret line="48" column="57" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/responsive-calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3337" max-vertical-offset="9240">
+          <caret line="177" column="40" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/inc/ajax_events_sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.32258" vertical-offset="44" max-vertical-offset="1144">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/tpl-events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63805103" vertical-offset="0" max-vertical-offset="3344">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/georgia/js/class.calendar-sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0441501" vertical-offset="0" max-vertical-offset="1628">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
           <folding />
         </state>
       </provider>

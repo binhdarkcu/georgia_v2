@@ -172,9 +172,10 @@
                     if (typeof value[d] === "object") {
                         var badge = $("<div></div>").addClass("event-child");
                         var link = $("<a href='" +value[d].url+ "'>" +value[d].title+ "</a>");
-
+                        var popup = $('.aaaaaaaaaaa').html();
                         badge.append(link);
                         day.append(badge);
+                        day.append(popup);
                     }
                 });
 

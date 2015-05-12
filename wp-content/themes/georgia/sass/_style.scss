@@ -119,3 +119,30 @@ CHECKBOX FOR GRID
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+
+.tribe-events-tooltip {
+  border: 1px solid #666;
+  position: absolute;
+  z-index: 1001;
+  bottom: 30px;
+  right: 3px;
+  width: 320px;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.4;
+  border: 0;
+  background-color: #fff;
+  color: #606060;
+  padding: .75em 1em 1.15em;
+  -webkit-box-shadow: 3px 4px 21px rgba(0,0,0,.38);
+  -moz-box-shadow: 3px 4px 21px rgba(0,0,0,.38);
+  box-shadow: 3px 4px 21px rgba(0,0,0,.38);
+
+  text-align: left;
+
+  .tribe-events-arrow {
+    left: auto;
+    right: 30px;
+  }
+}
