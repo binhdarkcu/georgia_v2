@@ -210,8 +210,14 @@
 												<label>Land<span class="red">*</span></label>
 												<select name="p_land">
 													<option value="0">Please select...</option>
-													<option value="Corporation">Corporation</option>
-													<option value="Partnership">Partnership</option>
+													<option value="Vlaams-Brabant">Vlaams-Brabant</option>
+													<option value="Henegouwen">Henegouwen</option>
+													<option value="Luik">Luik</option>
+													<option value="Namen">Namen</option>
+													<option value="West-Vlaanderen">West-Vlaanderen</option>
+													<option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+													<option value="Limburg">Limburg</option>
+													<option value="Antwerpen">Antwerpen</option>
 												</select>
 											</div>
 										</div>
@@ -283,8 +289,16 @@
 												<label>Aard van de firma/organisatie<span class="red">*</span></label>
 												<select name="b_firma">
 													<option value="0">Please select...</option>
-													<option value="Corporation">Corporation</option>
-													<option value="Partnership">Partnership</option>
+													<option value="Aannemer">Aannemer</option>
+													<option value="Architect">Architect</option>
+													<option value="Bank & Verzekering">Bank & Verzekering</option>
+													<option value="Energie">Energie</option>
+													<option value="Advocaat">Advocaat</option>
+													<option value="Ontwikkelaar">Ontwikkelaar</option>
+													<option value="Ingenieur">Ingenieur</option>
+													<option value="Makelaar">Makelaar</option>
+													<option value="Politiek">Politiek</option>
+													<option value="Andere">Andere</option>
 												</select>
 											</div>
 										</div>
@@ -314,8 +328,14 @@
 												<label>Land<span class="red">*</span></label>
 												<select name="b_land">
 													<option value="0">Please select...</option>
-													<option value="Corporation">Corporation</option>
-													<option value="Partnership">Partnership</option>
+													<option value="Vlaams-Brabant">Vlaams-Brabant</option>
+													<option value="Henegouwen">Henegouwen</option>
+													<option value="Luik">Luik</option>
+													<option value="Namen">Namen</option>
+													<option value="West-Vlaanderen">West-Vlaanderen</option>
+													<option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+													<option value="Limburg">Limburg</option>
+													<option value="Antwerpen">Antwerpen</option>
 												</select>
 											</div>
 										</div>
