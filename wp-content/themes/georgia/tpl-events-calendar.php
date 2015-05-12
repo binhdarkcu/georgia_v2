@@ -20,36 +20,32 @@
             <div class="tribe-events-pagination pagination clearfix">
                 <ul class="tribe-events-sub-nav">
                     <li class="prev page-numbers tribe-events-nav-previous">
-                        <a data-month="2015-03" data-go="prev" rel="prev"><span>«</span> FEBRUARI </a>
+                        <a data-month="2015-03" data-go="prev" rel="prev" id="btnPrevMonth"> </a>
                     </li>
                     <!-- .tribe-events-nav-previous -->
                     <li class="next page-numbers tribe-events-nav-next">
-                        <a data-month="2015-05" data-go="next" rel="next">APRIL <span>»</span></a>
+                        <a data-month="2015-05" data-go="next" rel="next" id="btnNextMonth"> <span>»</span></a>
                     </li>
                     <!-- .tribe-events-nav-next -->
                 </ul><!-- .tribe-events-sub-nav -->
 
 
             </div>
-            <div class="aaaaaaaaaaa" style="display: none;">
-                <div class="tribe-events-tooltip" style="bottom: 52px; display: block; z-index: 10;">
-                    <h4 class="entry-title summary">Lange Wapper</h4>
+            <div class="popuptemp" style="display: none;">
+                <div class="tribe-events-tooltip" style="bottom: 60px; display: none; z-index: 10;">
+                    <h4 class="entry-title summary popup-title"></h4>
 
                     <div class="tribe-events-event-body">
                         <div class="duration">
-                            <abbr class="tribe-events-abbr updated published dtstart">Mei 8, 2015 @ 8:00 am </abbr>
-
-                            -<abbr class="tribe-events-abbr dtend"> Mei 8, 2015 @ 5:00 pm</abbr>
-
+                            <abbr class="tribe-events-abbr updated published dtstart popup-time"></abbr>
                         </div>
 
                         <div class="tribe-events-event-thumb">
-                            <img src="http://georgia.taichinh-24h.com/wp-content/uploads/2015/05/e-41.jpg" alt="WordCamp Minneapolis">
+                            <img class="popup-image" src="">
                         </div>
 
 
-                        <p class="entry-summary description">Hoe kun je snel en optimaal verkopen/verhuren gebruik makend van goedkope, eenvoudige Marketing Tools voor Residentieel Vastgoed en de Kantorenmarkt
-                            for the events just keep the images we have now</p>
+                        <p class="entry-summary description popup-description"></p>
 
                         <span class="tribe-events-arrow"></span>
                     </div>

@@ -38,16 +38,22 @@
 
     foreach ($event_query as $event) {
         $i++;
-        $url = wp_get_attachment_url(get_post_thumbnail_id($event->ID));
+        $urlevent = get_the_permalink($event->ID);
         $datetime = get_field('datetime', $event->ID);
+        $time = get_field('time', $event->ID);
+        $loc = get_field('place_event', $event->ID);
+        $address = $loc['address'] ;
+
         $day = substr($datetime, -2); // 13052015
         $year = substr($datetime, 0, 4);
         $month = substr($datetime, 5, 2);
 
+
         $title = get_the_title($event->ID);
+        $bigImg = wp_get_attachment_url( get_post_thumbnail_id($event->ID) );
 
         $str1Array .= "'".$year.'-'.$month.'-'.$day."':{title:'".$title."',date:'".$year.'-'.$month.'-'.$day."',url:'".$urlevent."'},";
-        $str2Array .= "'".$event->ID."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."'},},";
+        $str2Array .= "'".$event->ID."':{'".$year.'-'.$month.'-'.$day."':{title:'".$title."',url:'".$urlevent."',time:'".$time."',src:'".$bigImg."',address:'".$address."'},},";
     }
 
     ?>

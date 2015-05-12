@@ -172,13 +172,22 @@
                     if (typeof value[d] === "object") {
                         var badge = $("<div></div>").addClass("event-child");
                         var link = $("<a href='" +value[d].url+ "'>" +value[d].title+ "</a>");
-                        var popup = $('.aaaaaaaaaaa').html();
-                        badge.append(link);
+                        var popup = $('.popuptemp').html();
+
+                        badge.append(link).append(popup);
+
+                        //set value for popup
+                        badge.find('.popup-title').html(value[d].title);
+                        badge.find('.popup-time').html(value[d].time);
+                        badge.find('.popup-image').attr('src',value[d].src);
+                        badge.find('.popup-description').html(value[d].address);
+
+
+
+
                         day.append(badge);
-                        day.append(popup);
                     }
                 });
-
 
             }
         }
@@ -246,7 +255,7 @@
       },
       drawDays: function(year, month) {
         //console.log(year , month);
-          calendar_page.setvalues(year , month)
+        calendar_page.setvalues(year , month)
         var currentMonth, day, dayBase, days, delay, draw, firstDayOfMonth, i, lastDayOfMonth, loopBase, monthNum, multiplier, thisRef, time, timeout, yearNum, _i, _len;
         thisRef = this;
         time = new Date(year, month);

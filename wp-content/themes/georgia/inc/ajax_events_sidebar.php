@@ -32,9 +32,9 @@ function user_events_sidebar_callback() {
         $title = get_the_title(get_the_ID());
         $urlevent = get_the_permalink(get_the_ID());
 
-        $d = substr($datetime, 0, 2);
-        $m = substr($datetime, 2, 2);
-        $y = substr($datetime, 4, 4);
+        $d = substr($datetime, -2);
+        $m = substr($datetime, 5, 2);
+        $y = substr($datetime, 0, 4);
         $timeunix = strtotime("{$d}-{$m}-{$y}");
         $strdate = date('D', $timeunix);
         //echo '<br>'.$datetime;

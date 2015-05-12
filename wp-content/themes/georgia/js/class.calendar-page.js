@@ -15,6 +15,23 @@ var calendar_page = (function() {
         $(window).resize(function(e) {
             calendar_page.calHeight()
         });
+
+        $(".event-child").hover(function () {
+
+            },
+            function () {
+
+            });
+
+        $(document).on({
+            mouseenter: function () {
+                $(this).find('.tribe-events-tooltip').css('display','block');
+            },
+            mouseleave: function () {
+                $(this).find('.tribe-events-tooltip').css('display','none');
+            }
+        }, ".event-child"); //pass the element as an argument to .on
+
     }
 
     //BUILD
@@ -46,7 +63,15 @@ var calendar_page = (function() {
     }
 
     function setvalues(year , month){
+        //change header
         $('#calendar-page-title').html( $arrayMonths_Long[month]  + ' ' + year);
+
+        //change footer
+        $prevmonth = month == 0 ? 11:month-1;
+        $('#btnPrevMonth').html('<span>«</span> ' + $arrayMonths_Long[$prevmonth]);
+
+        $nextmonth = month == 11 ? 0:month+1;
+        $('#btnNextMonth').html('<span>«</span> ' + $arrayMonths_Long[$nextmonth]);
     }
 
     //RETURN
