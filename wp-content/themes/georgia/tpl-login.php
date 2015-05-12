@@ -19,15 +19,15 @@
 		            $message = "Login success";
 		            unset($data['p_password']);
 		            $_SESSION['user'] = $data;
-		            $link = get_site_url().'/profile';
-		            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+		            $link = get_site_url().'/leden';
+		            echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";
 		        }
 		        else{
 		            echo '<script language="javascript">';
 					echo 'alert("Login fail")';
 					echo '</script>';
-					$link = get_site_url().'/wordt-lid';
-					echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+					$link = get_site_url().'/word-lid';
+					echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";
 		        }
 		     }
 	

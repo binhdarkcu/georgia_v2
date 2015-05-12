@@ -92,7 +92,7 @@
 	                                        			<div class="col col3"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>" class="fa fa-linkedin"></a></div></div>
 	                                        			<div class="col col4"><div class="middle"><?php echo $member->{'b_firma'} ?></div></div>
 	                                        			<div class="col col5"><div class="middle"><a href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
-	                                        			<div class="col col6"><div class="middle"><?php echo $member->{'p_plaats'} ?></div></div>
+	                                        			<div class="col col6"><div class="middle"><?php echo $member->{'b_land'} ?></div></div>
 														<?php } ?>
 	                                        		</div>
 	                                        	</div>
