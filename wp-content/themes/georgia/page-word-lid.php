@@ -545,7 +545,7 @@
 										<div class="chkaccept checkboxStyle">
 											<input type="checkbox" name="accept" id="acceptform"/>
 											<label for="acceptform">
-												Ik verklaar hierbij de <a href="#" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
+												Ik verklaar hierbij de <a href="<?php echo bloginfo('home')?>/privacy-policy" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
 											</label>
 										</div>
 										<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
