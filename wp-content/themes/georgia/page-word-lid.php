@@ -208,16 +208,20 @@
 										<div class="reg-row">
 											<div class="colfull">
 												<label>Land<span class="red">*</span></label>
+                                                <?php
+                                                $region_location_array = get_field('region_location', 'option');
+
+                                                $stroption_region_location = '';
+                                                foreach($region_location_array as $region_location)
+                                                {
+                                                    $no = $region_location['no'];
+                                                    $title = $region_location['title'];
+                                                    $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
+                                                }
+                                                ?>
 												<select name="p_land">
 													<option value="0">Please select...</option>
-													<option value="Vlaams-Brabant">Vlaams-Brabant</option>
-													<option value="Henegouwen">Henegouwen</option>
-													<option value="Luik">Luik</option>
-													<option value="Namen">Namen</option>
-													<option value="West-Vlaanderen">West-Vlaanderen</option>
-													<option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
-													<option value="Limburg">Limburg</option>
-													<option value="Antwerpen">Antwerpen</option>
+                                                    <?php echo $stroption_region_location;?>
 												</select>
 											</div>
 										</div>
@@ -287,18 +291,21 @@
 										<div class="reg-row">
 											<div class="colfull">
 												<label>Aard van de firma/organisatie<span class="red">*</span></label>
+                                                <?php
+                                                $business_sector_array = get_field('business_sector', 'option');
+
+                                                $stroption_business_sector = '';
+                                                foreach($business_sector_array as $business_sector)
+                                                {
+                                                    $no = $business_sector['no'];
+                                                    $title = $business_sector['title'];
+                                                    $stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
+                                                }
+                                                ?>
 												<select name="b_firma">
 													<option value="0">Please select...</option>
-													<option value="Aannemer">Aannemer</option>
-													<option value="Architect">Architect</option>
-													<option value="Bank & Verzekering">Bank & Verzekering</option>
-													<option value="Energie">Energie</option>
-													<option value="Advocaat">Advocaat</option>
-													<option value="Ontwikkelaar">Ontwikkelaar</option>
-													<option value="Ingenieur">Ingenieur</option>
-													<option value="Makelaar">Makelaar</option>
-													<option value="Politiek">Politiek</option>
-													<option value="Andere">Andere</option>
+
+													<?php echo $stroption_business_sector;?>
 												</select>
 											</div>
 										</div>
@@ -326,16 +333,9 @@
 										<div class="reg-row">
 											<div class="colfull">
 												<label>Land<span class="red">*</span></label>
+
 												<select name="b_land">
-													<option value="0">Please select...</option>
-													<option value="Vlaams-Brabant">Vlaams-Brabant</option>
-													<option value="Henegouwen">Henegouwen</option>
-													<option value="Luik">Luik</option>
-													<option value="Namen">Namen</option>
-													<option value="West-Vlaanderen">West-Vlaanderen</option>
-													<option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
-													<option value="Limburg">Limburg</option>
-													<option value="Antwerpen">Antwerpen</option>
+                                                    <?php echo $stroption_region_location;?>
 												</select>
 											</div>
 										</div>

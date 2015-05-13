@@ -112,3 +112,18 @@
         return $flag ? $arrayMonths_Long[$month] : $arrayMonths_short[$month];
     }
 
+
+if( function_exists('acf_add_options_sub_page') ) {
+
+    acf_add_options_sub_page(array(
+        'title' => 'Events Setting',
+        'menu' => 'Events Setting',
+        'slug' => 'events-setting',
+        'parent' => 'edit.php',
+        'capability' => 'edit_posts'
+
+    ));
+
+
+}
+
