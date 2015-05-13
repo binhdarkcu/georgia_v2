@@ -69,7 +69,7 @@
 				if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
 					$datetime = get_field('datetime', get_the_ID());
 					//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
-					$loc = get_field('place', get_the_ID());
+					$loc = get_field('place_event', get_the_ID());
 					$time = get_field('time', get_the_ID());
 					$day = substr($datetime, -2); // 13052015
                     $year = substr($datetime, 0, 4);

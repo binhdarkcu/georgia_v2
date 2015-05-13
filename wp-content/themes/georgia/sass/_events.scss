@@ -75,3 +75,12 @@
 .googlemaps{
   margin-top: 20px;
 }
+.tribe-events-list .tribe-events-event-image{
+    height: 207px;
+  position: relative;
+  overflow: hidden;
+}
+
+.upcoming-event-wrap.tribe-events-list .tribe-events-event-image{
+  height: auto;
+}

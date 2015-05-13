@@ -3,9 +3,7 @@
 	global $wpdb;
 	$join_query = "SELECT DISTINCT m.p_picture, m.p_voornaam, m.p_likedin, m.b_firma, m.b_organisatie, m.p_plaats
 				FROM wp_members m
-				JOIN wp_participate t ON m.id = t.id_member
-				JOIN wp_posts p on t.id_event = p.id
-				GROUP BY m.id";
+				";
 	$members = $wpdb->get_results($join_query);
 ?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
