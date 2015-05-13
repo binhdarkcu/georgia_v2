@@ -78,11 +78,12 @@
 	                                        		<div class="col col6">REGIO</div>
 	                                        	</div>
 	                                        	<div class="scrollbar">
-	                                        		<div class="divrow">
-	                                        			
-														<?php
+	                                        		<?php
 															foreach($members as $member){
 														?>
+	                                        		<div class="divrow">
+	                                        			
+														
 														<div class="col col1">
 	                                        				<img src="<?php echo content_url().'/uploads/avatar/'.$member->{'p_picture'}; ?>" style="width: 45px; height: 45px;"/>
 	                                        			</div>
@@ -91,8 +92,9 @@
 	                                        			<div class="col col4"><div class="middle"><?php echo $member->{'b_firma'} ?></div></div>
 	                                        			<div class="col col5"><div class="middle"><a href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
 	                                        			<div class="col col6"><div class="middle"><?php echo $member->{'b_land'} ?></div></div>
-														<?php } ?>
+														
 	                                        		</div>
+	                                        		<?php } ?>
 	                                        	</div>
 	                                        	<div class="clear"></div>
                                         	</div>
