@@ -28,6 +28,9 @@
 	include 'inc/profile.php';
 	include 'inc/participate_event.php';
 	
+	//
+	include 'members/page_member.php';
+	
 	//count total item when distinct
 	function distinctPost($meta_value){
 		global $wpdb;
