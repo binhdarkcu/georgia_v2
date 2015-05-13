@@ -14,19 +14,23 @@
 			$today = date('Y/m/d');
 			$offset = ($paged - 1)*$post_per_page;
 			
-			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT(*) AS TOTALEVENT, pm.meta_value AS DATEEVENT	
-						FROM wp_postmeta pm
-						JOIN wp_posts p ON p.ID = pm.post_id
-						WHERE 1 =1
-						AND p.post_type =  'post'
-						AND (
-						p.post_status =  'publish'
-						)
-						AND (
-						pm.meta_key =  'datetime'
-						)
-						GROUP BY pm.post_id, RIGHT( pm.meta_value, 6 )
-						ORDER BY p.post_date ASC 
+			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT( * ) AS TOTALEVENT, wp_postmeta.meta_value AS DATEEVENT
+							FROM wp_postmeta
+							JOIN wp_posts ON ( wp_postmeta.post_id = wp_posts.ID ) 
+							WHERE 1 =1
+							AND wp_posts.post_type =  'post'
+							AND (
+							wp_posts.post_status =  'publish'
+							OR wp_posts.post_status =  'private'
+							)
+							AND (
+							(
+							wp_postmeta.meta_key =  'datetime'
+							AND CAST( wp_postmeta.meta_value AS CHAR ) >=  '".$today."'
+							)
+							)
+							GROUP BY wp_posts.ID
+							ORDER BY wp_posts.post_date DESC
 						LIMIT ".$offset.",".$post_per_page;
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
