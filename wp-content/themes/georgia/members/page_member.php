@@ -32,10 +32,10 @@ function page_view_member()
 
 	?>
 	<div class="wrap">
-	    <fieldset style="border:2px solid #000;">
-			<legend ><h3>Members</h3></legend>
+	    <h3>All members</h3>
 			<table style="height:10px;overflow: auto;">
 				<tr>
+					<th></th>
 					<th style="text-align: center;width:200px;"><h3>Naam</h3></th>
 					<th style="text-align: center;width:200px;"><h3>Voornaam</h3></th>
 					<th style="text-align: center;width:200px;"><h3>Email</h3></th>
@@ -51,10 +51,13 @@ function page_view_member()
 				}
 				else 
 				{
+					$i = 0;
 					foreach ($members as $member) {
+						$i++;
 				?>
 				
 					<tr>
+						<td><?php echo $i;?></td>
 						<td style="text-align: center;width:200px;text-transform:uppercase;"><?php echo $member->{'p_naam'};?></td>
 						<td style="text-align: center;width:200px;text-transform:uppercase;"><?php echo $member->{'p_voornaam'};?></td>
 						<td style="text-align: center;width:200px;text-transform:uppercase;"><?php echo $member->{'p_email'};?></td>
@@ -68,7 +71,6 @@ function page_view_member()
 				?>
 			
 			</table>
-	    </fieldset>
 	</div>
 <style>
 .table th {

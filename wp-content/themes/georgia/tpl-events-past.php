@@ -34,7 +34,7 @@
 
 						LIMIT ".$offset.",".$post_per_page;
 						$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
-					
+			
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
 			$totalPage = $totalEvents[0]->TOTALEVENT;
@@ -44,7 +44,7 @@
 				
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, 0, 4);
-				$month = substr($datetime, 5, 2);
+				$month = substr($today, 5, 2);
                 $month = convertMonths_String((int)$month,true);
 				
 			?>
@@ -71,8 +71,7 @@
 					//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 					$loc = get_field('place', get_the_ID());
 					$time = get_field('time', get_the_ID());
-
-                    $day = substr($datetime, 0, 2); // 13052015
+					$day = substr($datetime, -2); // 13052015
                     $year = substr($datetime, 0, 4);
                     $month = substr($datetime, 5, 2);
                 	$month = convertMonths_String((int)$month,true);
@@ -139,11 +138,8 @@
 			<h3 class="tribe-events-visuallyhidden">Events List Navigation</h3>
 		  <ul class="tribe-events-sub-nav">
 			
-			<li class="prev page-numbers tribe-events-nav-previous tribe-events-nav-left tribe-events-past">
-				<a href="<?php echo get_bloginfo('home')?>/eerstvolgende-events" rel="prev">VOORBIJE EVENTS</a>
-			</li><!-- .tribe-events-nav-left -->
 			<li class="next page-numbers tribe-events-nav-next tribe-events-nav-right">
-				<a href="<?php echo get_bloginfo('home')?>/voorbije-events" rel="next">eerstvolgende EVENTS</a>
+				<a href="<?php echo get_bloginfo('home')?>/eerstvolgende-events" rel="next">eerstvolgende EVENTS</a>
 			</li><!-- .tribe-events-nav-right -->
 		</ul>
 		</div>
