@@ -3,7 +3,7 @@
 add_action('admin_menu','add_page_profile');
 function add_page_profile()
 {
-  add_menu_page('Profile', 'Profile','administrator','add-country','page_add_countries');
+  add_menu_page('Members', 'Members','administrator','add-country','page_add_countries');
 
 }
 
