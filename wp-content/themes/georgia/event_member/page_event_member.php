@@ -135,7 +135,7 @@ function process_edit_action() {
     if( 'edit'===$this->current_action() ) {?>
     	<div class="edit_member">
     		<form action="" method="">
-    			<h3>Edit member</h3>
+    			<h3>Update event for member</h3>
     		</form>
     	</div>
     <?php 
@@ -196,6 +196,8 @@ function prepare_items() {
   //delete compare
   $this->process_bulk_action();
   
+  //edit action
+  $this->process_edit_action();
 }
 
 } //class
