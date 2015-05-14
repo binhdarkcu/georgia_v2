@@ -14,7 +14,7 @@
 			$today = date('Y/m/d');
 			$offset = ($paged - 1)*$post_per_page;
 			
-			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT( * ) AS TOTALEVENT, wp_postmeta.meta_value AS DATEEVENT
+			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT( * ) AS TOTALEVENT, LEFT(wp_postmeta.meta_value,7) AS DATEEVENT
 							FROM wp_postmeta
 							JOIN wp_posts ON ( wp_postmeta.post_id = wp_posts.ID ) 
 							WHERE 1 =1
@@ -59,12 +59,17 @@
 				  'meta_query'     => array(
 				    array(
 				      'key'     => 'datetime',
-				      'value'   => $year.'/'.substr($datetime, 5, 2).'/'.substr($datetime, -2),
+				      'value'   => $year.'/'.substr($datetime, 5, 2),
 				      'compare' => 'LIKE'
+				    ),
+				    array(
+				      'key'     => 'datetime',
+				      'value'   => $today,
+				      'compare' => '<'
 				    ) 
 				  )
 				);
-
+				//print_r(new WP_Query($argevent));
 				$event_query = query_posts( $argevent );
 				if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
 					$datetime = get_field('datetime', get_the_ID());
