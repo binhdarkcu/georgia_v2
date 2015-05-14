@@ -230,7 +230,7 @@ function process_edit_action() {
 								<div class="colfull">
 									<label>Privé emailadres<span class="red">*</span></label>
 									
-									<input type="text" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
+									<input disabled="disabled" type="text" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
 									<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 									<input type="hidden" value="<?php echo get_site_url();?>" class="siteurl"/>
 									<input name="action" type="hidden" class="action" value="check_user_email"/>
@@ -242,12 +242,7 @@ function process_edit_action() {
 									<input type="text" name="p_likedin" value="<?php echo $member['p_likedin']; ?>" />
 								</div>
 							</div>
-							<div class="reg-row">
-								<div class="colfull">
-									<label>Password<span class="red">*</span></label>
-									<input type="password" name="p_password" value="<?php echo $member['p_password']; ?>" />
-								</div>
-							</div>
+							
 							<div class="reg-row">
 								<div class="colfull">
 									<label>Profielfoto</label>
@@ -439,9 +434,51 @@ function my_render_list_page(){
   
   /*EDIT MEMBER*/
   if(!empty($_POST) && wp_verify_nonce($_POST['act_update_member'],'update_member')){
-		echo "<script>alert('posted')</script>";
-		if(!empty($_REQUEST['p_email'])) {
-			$link = admin_url().'admin.php?page=view_member';
+		global $wpdb;
+        $data['p_naam'] = $_POST['p_naam'];
+        $data['p_voornaam'] = $_POST['p_voornaam'];
+        $data['p_geboortedatum'] = $_POST['p_geboortedatum'];
+        $data['p_geboorteplaats'] = $_POST['p_geboorteplaats'];
+        $data['p_straat'] = $_POST['p_straat'];
+        $data['p_nr'] = $_POST['p_nr'];
+        $data['p_postcode'] = $_POST['p_postcode'];
+        $data['p_plaats'] = $_POST['p_plaats'];
+        $data['p_land'] = $_POST['p_land'];
+        $data['p_telefoon'] = $_POST['p_telefoon'];
+        $data['p_fax'] = $_POST['p_fax'];
+        $data['p_gsm'] = $_POST['p_gsm'];
+        $data['p_likedin'] = $_POST['p_likedin'];
+        $data['p_picture'] = $_FILES['p_picture']['name'];
+		if (!empty($data['p_picture'])) {
+			$root = getcwd();
+			$upload_dir = $root.'/wp-content/uploads/avatar/';
+			if (!file_exists($upload_dir)) {
+				mkdir($upload_dir);
+			}
+			$fileName = time().$data['p_picture'];
+			$target_file = $upload_dir.basename($fileName);
+			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
+			$data['p_picture'] = $fileName;
+		}
+		
+		
+		$data['p_picture'] = $data['p_picture']; 
+        $data['b_naam'] = $_POST['p_naam'];
+		$data['b_hoofd'] = $_POST['b_hoofd'];
+        $data['b_firma'] = $_POST['b_firma'];
+        $data['b_straat'] = $_POST['b_straat'];
+        $data['b_nr'] = $_POST['b_nr'];
+        $data['b_postcode'] = $_POST['b_postcode'];
+        $data['b_plaats'] = $_POST['b_plaats'];
+        $data['b_land'] = $_POST['b_land'];
+        $data['b_telefoon'] = $_POST['b_telefoon'];
+        $data['b_fax'] = $_POST['b_fax'];
+        $data['b_gsm'] = $_POST['b_gsm'];
+        $data['b_email'] = $_POST['b_email'];
+        $data['b_organisatie'] = $_POST['b_organisatie'];
+        $data['b_functies'] = $_POST['b_functies'];
+		if(!empty($_POST['p_email'])) {
+			//$link = admin_url().'admin.php?page=view_member';
 			//echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		}
 		else {
