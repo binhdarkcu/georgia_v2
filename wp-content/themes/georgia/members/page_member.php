@@ -454,7 +454,8 @@ function my_render_list_page(){
         
 		if (!empty($_FILES['p_picture']['name'])) {
 			$data['p_picture'] = $_FILES['p_picture']['name'];
-			$root = wp_upload_dir()['basedir'];
+			$root = wp_upload_dir();
+			$root = $root['basedir'];
 			$upload_dir = $root.'/avatar/';
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir);
