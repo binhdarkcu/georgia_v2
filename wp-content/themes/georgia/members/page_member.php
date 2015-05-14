@@ -159,7 +159,11 @@ function process_edit_action() {
     		<div class="registerBox">
 	    		<form action="" method="post" enctype="multipart/form-data">
 	    			<h3>Edit member</h3>
-	    			<div class="informationBox">
+	    			<div style="float: left;">
+	    				<h4>Naam: <?php echo $member['p_naam']; ?></h4>
+	    				<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+	    			</div>
+	    			<div class="informationBox" style="float: right;">
 						<div class="reg-left">
 							<h3>PRIVEGEGEVENS</h3>
 							<div class="reg-row">
@@ -363,9 +367,10 @@ function process_edit_action() {
 							</div>	
 						</div>
 						<div class="clear"></div>
+						<input type="submit"  value="Update" class="btn" />
+						<?php wp_nonce_field('update_member','act_update_member');?>
 					</div>
-					<input type="submit"  value="Update!" />
-					<?php wp_nonce_field('update_member','act_update_member');?>
+					
 	    		</form>
 	    	</div>
     	</div>

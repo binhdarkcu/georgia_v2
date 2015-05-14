@@ -80,12 +80,12 @@
 
 .registerPage .informationBox .reg-left {
   float: left;
-  width: 520px;
+  width: 50%;
 }
 
 .registerPage .informationBox .reg-right {
   float: left;
-  width: 420px;
+  width: 50%;
 }
 
 .registerPage .informationBox .reg-row {
@@ -330,7 +330,7 @@ select {
   font-weight: 700;
   font-size: 12px;
   line-height: 1.1;
-  color: #333;
+  color: #887554;
 }
 .fileUpload input.upload {
   position: absolute;
@@ -347,6 +347,43 @@ select {
   position: relative;
   overflow: hidden;
   padding: 13px 10px;
-  border: 2px solid #333;
+  border: 2px solid #887554;
   display: inline-block;
+}
+.registerPage input.btn{
+	  font-family: 'Noto Sans', sans-serif;
+	  font-style: normal;
+	  font-weight: 700;
+	  font-size: 14px;
+	  line-height: 1.1;
+	  color: #887554;
+	  border: 2px solid #887554;
+	  background: transparent;
+	 padding: 16px 59px;
+	  cursor: pointer;
+	  margin-top: 25px;
+}
+.informationBox{
+	width: 80%;
+}
+
+@media only screen and (min-width: 0) and (max-width: 1270px) {
+	.registerPage .informationBox .reg-row .col2, .registerPage .informationBox .reg-row .col1{
+		width: 90%;
+		margin-bottom: 10px;
+	}
+	.registerPage .registerBox input[type="text"], .registerPage .registerBox input[type="password"], .registerPage .registerBox input[type="date"]{
+		width: 90%;
+	}
+	.registerPage .registerBox select{
+		width: 81%;
+	}
+	.registerPage .informationBox .reg-row .colfull input[type="text"], .registerPage .informationBox .reg-row .colfull input[type="password"]{
+		width: 81%;
+	}
+}
+@media only screen and (min-width: 0) and (max-width: 910px	) {
+	.registerPage .informationBox{
+		width: 100%;
+	}
 }
