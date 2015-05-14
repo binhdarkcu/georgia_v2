@@ -45,6 +45,7 @@ class My_Example_List_Table extends WP_List_Table {
     echo '.wp-list-table .column-id { width: 5%; }';
     echo '.wp-list-table .column-naam { width: 40%; }';
     echo '.wp-list-table .column-vornaam { width: 35%; }';
+	echo '.wp-list-table .column-email { width: 35%; }';
     echo '.wp-list-table .column-land { width: 20%;}';
     echo '</style>';
   }
@@ -57,6 +58,7 @@ class My_Example_List_Table extends WP_List_Table {
     switch( $column_name ) { 
         case 'p_naam':
         case 'p_voornaam':
+		case 'p_email':
         case 'p_land':
             return $item[ $column_name ];
         default:
@@ -68,6 +70,7 @@ function get_sortable_columns() {
   $sortable_columns = array(
     'p_naam'  => array('Naam',false),
     'p_voornaam' => array('Voornaam',false),
+    'p_email' => array('Email',false),
     'p_land'   => array('Land',false)
   );
   return $sortable_columns;
@@ -78,6 +81,7 @@ function get_columns(){
             'cb'        => '<input type="checkbox" />',
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
+            'p_email'    => __( 'Email', 'mylisttable' ),
             'p_land'      => __( 'Land', 'mylisttable' )
         );
          return $columns;

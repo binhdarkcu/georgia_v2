@@ -30,7 +30,7 @@
 	
 	//
 	include 'members/page_member.php';
-	
+	include 'event_member/page_event_member.php';
 	//count total item when distinct
 	function distinctPost($meta_value){
 		global $wpdb;
