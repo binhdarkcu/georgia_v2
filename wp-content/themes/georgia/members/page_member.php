@@ -501,7 +501,7 @@ function my_render_list_page(){
 			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		}
 		else {
-			echo "<script>alert('a')</script>";
+			echo "<script>alert('can\'t update')</script>";
 		}
 	}
 ?>

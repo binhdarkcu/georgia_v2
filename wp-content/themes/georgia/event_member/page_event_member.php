@@ -142,12 +142,12 @@ function process_edit_action() {
 		$member = $wpdb->get_row($query, ARRAY_A);
 		?>
 		<link href="<?php echo bloginfo('template_url')?>/event_member/css/jquery-ui-1.10.1.css" rel="stylesheet">
-    	<div class="registerPage ">
+    	<div class="registerPage update-status-event">
     		<div class="registerBox">
 				<form action="" method="post">
 					<div class="informationBox">
 						<div class="reg-left">
-							<h3>Update event for member</h3>
+							<h3>Update event for <?php echo $member['p_voornaam']; ?></h3>
 							<div class="reg-row">
 								<div class="col1">
 									<label>Naam<span class="red">*</span></label>
@@ -171,7 +171,10 @@ function process_edit_action() {
 							<div class="reg-row">
 								<div class="col1">
 									<label>Status<span class="red">*</span></label>
-									<input type="text" name="status" value="<?php echo $member['status']; ?>" />
+									<select name="status">
+										<option value="invoice" <?php echo ($member['status'] == 'invoice') ? 'selected':''; ?>>invoice</option>
+										<option value="uninvoice" <?php echo ($member['status'] == 'uninvoice') ? 'selected':''; ?>>uninvoice</option>
+									</select>
 								</div>
 								<div class="col2">
 									<label>Date Join<span class="red">*</span></label>
@@ -181,11 +184,47 @@ function process_edit_action() {
 						</div>
 						<div class="clear"></div>
 					</div>
-					<input type="submit"  value="Update!" />
+					<input type="submit"  value="Update" class="btn" />
+					<?php wp_nonce_field('update_event_member','act_event_update_member');?>
+					<input type="hidden" value="<?php echo $_GET['id_event'];?>" name="id_event" />
+					<input type="hidden" value="<?php echo $_GET['id'];?>" name="id_member" />
 				</form>
 			</div>
     	</div>
     <?php 
+	  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_update_member'],'update_event_member')){
+	  	
+	  	global $wpdb;	
+		$data['id_event'] = $_GET['id_event'];
+		$data['id_member'] = $_GET['id'];
+		print_r('aaaa'.$data['id_event'].'   '.$data['id_member']);
+		$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
+		
+		if(!empty($event)){
+			$execute = $wpdb->update( 
+				'wp_participate', 
+				array( 
+					'status' => $_POST['status']
+				), 
+				array(
+					'id' => $event->{'id'}
+				), 
+				array( 
+					'%s'
+				),
+				array( '%d' ) 
+			);
+			if($execute){
+				$link = admin_url().'admin.php?page=view_event_member';
+				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			}else{
+				echo "<script>alert('can\'t update')</script>";
+			}
+			
+		}
+	  }else{
+	  	
+	  }
 		exit();
 	}
     
@@ -275,6 +314,7 @@ function my_render_event_list_page(){
   global $myListTable;
   echo '</pre><div class="wrap"><h2>Event Members</h2>'; 
   $myListTable->prepare_items(); 
+  
 ?>
   <form method="post">
     <input type="hidden" name="page" value="ttest_list_table">

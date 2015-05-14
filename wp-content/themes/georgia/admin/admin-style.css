@@ -11,7 +11,7 @@
 
 .registerPage .registerBox label {
   font-size: 12px;
-  color: #999;
+  color: #333;
   padding-bottom: 5px;
   display: block;
 }
@@ -19,9 +19,10 @@
 .registerPage .registerBox input[type="text"], .registerPage .registerBox input[type="password"], .registerPage .registerBox input[type="date"] {
   width: 200px;
   height: 29px;
-  border: 1px solid #fff;
+  border: 1px solid #999;
   border-radius: 3px;
   font-size: 11px;
+  color: #333;
 }
 
 .registerPage .registerBox input[type="text"].error, .registerPage .registerBox input[type="password"].error, .registerPage .registerBox input[type="date"].error {
@@ -30,11 +31,12 @@
 
 .registerPage .registerBox select {
   width: 418px;
-  height: 26px;
-  border: 1px solid #fff;
+  height: 29px;
+  border: 1px solid #999;
   border-radius: 3px;
   padding-top: 6px;
   padding-bottom: 5px;
+  color: #333;
 }
 
 .registerPage .registerBox select.error {
@@ -365,6 +367,15 @@ select {
 }
 .informationBox{
 	width: 80%;
+}
+.update-status-event .informationBox .reg-left{
+	width: 100%;
+}
+.update-status-event .informationBox .reg-row .col1, .update-status-event .informationBox .reg-row .col2{
+	width: 50%;
+}
+.update-status-event .registerBox input[type="text"], .update-status-event .registerBox input[type="password"], .update-status-event .registerBox input[type="date"]{
+	width: 91%;
 }
 
 @media only screen and (min-width: 0) and (max-width: 1270px) {
