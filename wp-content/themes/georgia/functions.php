@@ -30,7 +30,7 @@
 	
 	//
 	include 'members/page_member.php';
-	
+	include 'event_member/page_event_member.php';
 	//count total item when distinct
 	function distinctPost($meta_value){
 		global $wpdb;
@@ -47,7 +47,7 @@
 	}
 	
 	//add type columns
-    //include 'inc/type_column.php';
+    include 'inc/type_column.php';
 	
 	//filter home
     //include 'inc/filter_home.php';
@@ -68,6 +68,15 @@
 		) );
 	}
 	add_action( 'init', 'register_menu' );
+	
+	
+	//add style admin
+	add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+      function load_admin_style() {
+        wp_register_style( 'admin_css', get_template_directory_uri() . '/admin/admin-style.css', false, '1.0.0' );
+        wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/admin/admin-style.css', false, '1.0.0' );
+       }
+	
 	
 	//rewrite view all category
 	function change_viewall_url_rewrite() {

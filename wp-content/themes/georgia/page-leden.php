@@ -3,9 +3,7 @@
 	global $wpdb;
 	$join_query = "SELECT DISTINCT m.p_picture, m.p_voornaam, m.p_likedin, m.b_firma, m.b_organisatie, m.p_plaats
 				FROM wp_members m
-				JOIN wp_participate t ON m.id = t.id_member
-				JOIN wp_posts p on t.id_event = p.id
-				GROUP BY m.id";
+				";
 	$members = $wpdb->get_results($join_query);
 ?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
@@ -80,11 +78,12 @@
 	                                        		<div class="col col6">REGIO</div>
 	                                        	</div>
 	                                        	<div class="scrollbar">
-	                                        		<div class="divrow">
-	                                        			
-														<?php
+	                                        		<?php
 															foreach($members as $member){
 														?>
+	                                        		<div class="divrow">
+	                                        			
+														
 														<div class="col col1">
 	                                        				<img src="<?php echo content_url().'/uploads/avatar/'.$member->{'p_picture'}; ?>" style="width: 45px; height: 45px;"/>
 	                                        			</div>
@@ -93,8 +92,9 @@
 	                                        			<div class="col col4"><div class="middle"><?php echo $member->{'b_firma'} ?></div></div>
 	                                        			<div class="col col5"><div class="middle"><a href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
 	                                        			<div class="col col6"><div class="middle"><?php echo $member->{'b_land'} ?></div></div>
-														<?php } ?>
+														
 	                                        		</div>
+	                                        		<?php } ?>
 	                                        	</div>
 	                                        	<div class="clear"></div>
                                         	</div>

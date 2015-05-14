@@ -3,16 +3,16 @@
 // GET FEATURED IMAGE
 function ST4_get_featured_post($post_ID) {
     //$post_thumbnail_id = get_post_thumbnail_id($post_ID);
-    $post_featured_id = get_post_meta($post_ID,'custom_featured_post_class_meta_box',true);
+    $post_featured_id = get_field('custom_featured_post_class_meta_box',$post_ID);
     if ($post_featured_id) {
-        $post_featured_id = get_post_meta($post_ID,'custom_featured_post_class_meta_box',true);
+        $post_featured_id = get_field('custom_featured_post_class_meta_box',$post_ID);
         return $post_featured_id;
     }
 }
 
 // ADD NEW COLUMN
 function ST4_columns_head($defaults) {
-    $defaults['types_post'] = 'Type design';
+    $defaults['types_post'] = 'Members joined';
     return $defaults;
 }
  
@@ -33,16 +33,19 @@ add_action('manage_posts_custom_column', 'ST4_columns_content', 10, 2);
 // GET FEATURED IMAGE
 function ST4_get_type_post($post_ID) {
     //$post_thumbnail_id = get_post_thumbnail_id($post_ID);
-    $type_post_id = get_post_meta($post_ID,'tt_types',true);
+    /*
+    $type_post_id = get_field('datetime',$post_ID);
     if ($type_post_id) {
-        $type_post_id = get_post_meta($post_ID,'tt_types',true);
+        $type_post_id = get_field('datetime',$post_ID);
         return $type_post_id;
-    }
+    }*/
+    $admin_url = admin_url();
+    echo '<a href="'.$admin_url.'/admin.php?page=view_member&action=edit&id='.$post_ID.'">View members</a>';
 }
 
 // ADD NEW COLUMN
 function ST4_columns_type_head($defaults) {
-    $defaults['types_post'] = 'Type';
+    $defaults['types_post'] = 'Members joined';
     return $defaults;
 }
  
