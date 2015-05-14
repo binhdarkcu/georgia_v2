@@ -60,6 +60,8 @@ class My_Example_List_Table extends WP_List_Table {
         case 'p_voornaam':
 		case 'p_email':
         case 'p_land':
+		case 'p_telefoon':
+		case 'p_plaats':
             return $item[ $column_name ];
         default:
             return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
@@ -71,7 +73,9 @@ function get_sortable_columns() {
     'p_naam'  => array('Naam',false),
     'p_voornaam' => array('Voornaam',false),
     'p_email' => array('Email',false),
-    'p_land'   => array('Land',false)
+    'p_land'   => array('Land',false),
+	'p_telefoon' => array('Telefoon',false),
+    'p_plaats'   => array('Plaats',false)
   );
   return $sortable_columns;
 }
@@ -82,7 +86,9 @@ function get_columns(){
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
             'p_email'    => __( 'Email', 'mylisttable' ),
-            'p_land'      => __( 'Land', 'mylisttable' )
+            'p_land'      => __( 'Land', 'mylisttable' ),
+			'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
+            'p_plaats'      => __( 'Plaats', 'mylisttable' )
         );
          return $columns;
     }
@@ -135,6 +141,7 @@ function process_edit_action() {
 	?>
     	<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
     	<script src="<?php echo bloginfo('template_url')?>/members/js/jquery-ui-1.10.1.min.js"></script>
+		<script src="<?php echo bloginfo('template_url')?>/members/js/update_member.js"></script>
     	<link href="<?php echo bloginfo('template_url')?>/members/css/jquery-ui-1.10.1.css" rel="stylesheet">
 		<link type="text/css" rel='stylesheet' href="<?php echo bloginfo('template_url')?>/members/css/latoja.datepicker.css"/>
 		<script type="text/javascript">
@@ -150,9 +157,13 @@ function process_edit_action() {
 		</script>
     	<div class="registerPage ">
     		<div class="registerBox">
-	    		<form action="" method="post">
+	    		<form action="" method="post" enctype="multipart/form-data">
 	    			<h3>Edit member</h3>
-	    			<div class="informationBox">
+	    			<div style="float: left;">
+	    				<h4>Naam: <?php echo $member['p_naam']; ?></h4>
+	    				<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+	    			</div>
+	    			<div class="informationBox" style="float: right;">
 						<div class="reg-left">
 							<h3>PRIVEGEGEVENS</h3>
 							<div class="reg-row">
@@ -210,7 +221,7 @@ function process_edit_action() {
 	                                }
 	                                ?>
 									<select name="p_land">
-	                                    <?php echo str_replace('>'.$member['p_land'].'<', 'selected>'.$member['p_land'].'<', $stroption_region_location);?>
+	                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
 									</select>
 								</div>
 							</div>
@@ -235,8 +246,7 @@ function process_edit_action() {
 									<label>Privé emailadres<span class="red">*</span></label>
 									
 									<input disabled="disabled" type="text" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
-									<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
-									<input type="hidden" value="<?php echo get_site_url();?>" class="siteurl"/>
+									<input type="hidden" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
 									<input name="action" type="hidden" class="action" value="check_user_email"/>
 								</div>
 							</div>
@@ -254,7 +264,7 @@ function process_edit_action() {
 										<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" class="imgPreview" style="width: 48px; height: 38px;"/>
 										<div class="fileUpload ">
 											<span>UPLOAD FOTO</span>
-											<input type="file" class="upload" name="p_picture"/>
+											<input type="file" class="upload" name="p_picture" id="filePicture"/>
 										</div>
 									</div>
 								</div>
@@ -287,7 +297,7 @@ function process_edit_action() {
 	                                }
 	                                ?>
 									<select name="b_firma">
-										<?php echo str_replace('>'.$member['b_firma'].'<', 'selected>'.$member['b_firma'].'<', $stroption_business_sector);?>
+										<?php echo str_replace('value="'.$member['b_firma'].'"', 'value="'.$member['b_firma'].'" selected', $stroption_business_sector);?>
 									</select>
 								</div>
 							</div>
@@ -317,7 +327,7 @@ function process_edit_action() {
 									<label>Land<span class="red">*</span></label>
 	
 									<select name="b_land">
-	                                    <?php echo str_replace('>'.$member['b_land'].'<', 'selected>'.$member['b_land'].'<', $stroption_region_location);?>
+	                                    <?php echo str_replace('value="'.$member['b_land'].'"', 'value="'.$member['b_land'].'" selected', $stroption_region_location);?>
 									</select>
 								</div>
 							</div>
@@ -357,9 +367,10 @@ function process_edit_action() {
 							</div>	
 						</div>
 						<div class="clear"></div>
+						<input type="submit"  value="Update" class="btn" />
+						<?php wp_nonce_field('update_member','act_update_member');?>
 					</div>
-					<input type="submit"  value="Update!" />
-					<?php wp_nonce_field('update_member','act_update_member');?>
+					
 	    		</form>
 	    	</div>
     	</div>
@@ -385,7 +396,7 @@ function prepare_items() {
   $per_page = 5;
   $current_page = $this->get_pagenum();
   global $wpdb;
-  $query = 'SELECT id, p_naam, p_voornaam, p_email, p_land FROM wp_members';
+  $query = 'SELECT id, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
   $members = $wpdb->get_results($query);
   $data = array();
   foreach ($members as $querydatum ) {
@@ -452,21 +463,20 @@ function my_render_list_page(){
         $data['p_fax'] = $_POST['p_fax'];
         $data['p_gsm'] = $_POST['p_gsm'];
         $data['p_likedin'] = $_POST['p_likedin'];
-        $data['p_picture'] = $_FILES['p_picture']['name'];
-		if (!empty($data['p_picture'])) {
-			$root = getcwd();
-			$upload_dir = $root.'/wp-content/uploads/avatar/';
+        
+		if (!empty($_FILES['p_picture']['name'])) {
+			$data['p_picture'] = $_FILES['p_picture']['name'];
+			$root = wp_upload_dir();
+			$root = $root['basedir'];
+			$upload_dir = $root.'/avatar/';
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir);
 			}
 			$fileName = time().$data['p_picture'];
 			$target_file = $upload_dir.basename($fileName);
-			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
-			$data['p_picture'] = $fileName;
+			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
+			$data['p_picture'] = basename($fileName);
 		}
-		
-		
-		$data['p_picture'] = $data['p_picture']; 
         $data['b_naam'] = $_POST['p_naam'];
 		$data['b_hoofd'] = $_POST['b_hoofd'];
         $data['b_firma'] = $_POST['b_firma'];
@@ -482,8 +492,13 @@ function my_render_list_page(){
         $data['b_organisatie'] = $_POST['b_organisatie'];
         $data['b_functies'] = $_POST['b_functies'];
 		if(!empty($_POST['p_email'])) {
-			//$link = admin_url().'admin.php?page=view_member';
-			//echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			$wpdb->update( 
+				'wp_members', 
+				$data,
+				array( 'Id' => $_GET['id'])
+			);
+			$link = admin_url().'admin.php?page=view_member';
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		}
 		else {
 			echo "<script>alert('a')</script>";

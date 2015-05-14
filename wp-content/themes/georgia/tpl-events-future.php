@@ -10,11 +10,11 @@
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			//print_r($paged);
-			$post_per_page = 1;
+			$post_per_page = intval(get_query_var('posts_per_page'));
 			$today = date('Y/m/d');
 			$offset = ($paged - 1)*$post_per_page;
 			
-			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT( * ) AS TOTALEVENT, wp_postmeta.meta_value AS DATEEVENT
+			$wp_query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT COUNT( * ) AS TOTALEVENT, LEFT(wp_postmeta.meta_value,7) AS DATEEVENT
 							FROM wp_postmeta
 							JOIN wp_posts ON ( wp_postmeta.post_id = wp_posts.ID ) 
 							WHERE 1 =1
@@ -32,6 +32,7 @@
 							GROUP BY wp_posts.ID
 							ORDER BY wp_posts.post_date DESC
 						LIMIT ".$offset.",".$post_per_page;
+						//print_r(new WP_Query($wp_query));
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
 			$totalEvents = $wpdb->get_results($total_query);
@@ -42,7 +43,7 @@
 				
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, 0, 4);
-				$month = substr($today, 5, 2);
+				$month = substr($datetime, 5, 2);
                 $month = convertMonths_String((int)$month,true);
 				
 			?>
@@ -57,12 +58,17 @@
 				  'meta_query'     => array(
 				    array(
 				      'key'     => 'datetime',
+				      'value'   => $year.'/'.substr($datetime, 5, 2),
+				      'compare' => 'LIKE'
+				    ),
+				    array(
+				      'key'     => 'datetime',
 				      'value'   => $today,
 				      'compare' => '>'
 				    ) 
 				  )
 				);
-
+				
 				$event_query = query_posts( $argevent );
 				if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
 					$datetime = get_field('datetime', get_the_ID());
