@@ -46,6 +46,15 @@
 		return $count;
 	}
 	
+	//compare between 2 days
+	function dateDiff($dateStart, $dateEnd) 
+	{
+	    $start = strtotime($dateStart);
+	    $end = strtotime($dateEnd);
+	    $days = $end - $start;
+	    $days = ceil($days/86400);
+	    return $days;
+	}
 	//add type columns
     include 'inc/type_column.php';
 	
