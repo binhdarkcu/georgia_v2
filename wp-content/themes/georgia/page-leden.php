@@ -233,7 +233,6 @@
         ?>
 
 
-<script type='text/javascript' src='js/donout.chart.js'></script>
     <script>
 
         // Modular doughnut
