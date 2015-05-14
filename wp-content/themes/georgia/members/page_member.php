@@ -123,14 +123,8 @@ function process_edit_action() {
     
     //Detect when a bulk action is being triggered...
     if( 'edit'===$this->current_action() ) {
-		if(!empty($_REQUEST['p_email'])) {
-			$link = admin_url().'admin.php?page=view_member';
-			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
-		}
-		else {
-			echo "<script>alert('a')</script>";
-		}
-		echo admin_url();
+    	
+		
 		global $wpdb;
 		$query = 'SELECT * FROM wp_members WHERE id = '.$_GET['id'];
 		$member = $wpdb->get_row($query, ARRAY_A);
@@ -365,15 +359,16 @@ function process_edit_action() {
 						</div>
 						<div class="clear"></div>
 					</div>
-					<input type="submit" value="Submit"/>
+					<input type="submit"  value="Update!" />
+					<?php wp_nonce_field('update_member','act_update_member');?>
 	    		</form>
 	    	</div>
     	</div>
     <?php 
 		exit();
 	}
-    
 }
+    
 
 function column_cb($item) {
         return sprintf(
@@ -416,10 +411,7 @@ function prepare_items() {
   $this->process_edit_action();
 }
 
-} //class
-
-
-
+}
 function my_add_menu_items(){
   $hook = add_menu_page( 'Members', 'Members', 'activate_plugins', 'view_member', 'my_render_list_page','',8 );
   add_action( "load-$hook", 'add_options' );
@@ -444,6 +436,18 @@ function my_render_list_page(){
   global $myListTable;
   echo '</pre><div class="wrap"><h2>Members</h2>'; 
   $myListTable->prepare_items(); 
+  
+  /*EDIT MEMBER*/
+  if(!empty($_POST) && wp_verify_nonce($_POST['act_update_member'],'update_member')){
+		echo "<script>alert('posted')</script>";
+		if(!empty($_REQUEST['p_email'])) {
+			$link = admin_url().'admin.php?page=view_member';
+			//echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+		}
+		else {
+			echo "<script>alert('a')</script>";
+		}
+	}
 ?>
   <form method="post">
     <input type="hidden" name="page" value="ttest_list_table">
