@@ -126,6 +126,220 @@ function process_edit_action() {
     	<div class="edit_member">
     		<form action="" method="">
     			<h3>Edit member</h3>
+    			<div class="informationBox">
+					<div class="reg-left">
+						<h3>PRIVEGEGEVENS</h3>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Naam<span class="red">*</span></label>
+								<input type="text" name="p_naam" value="" />
+							</div>
+							<div class="col2">
+								<label>Voornaam<span class="red">*</span></label>
+								<input type="text" name="p_voornaam" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Geboortedatum<span class="red">*</span></label>
+								<input id="date_geboortedatum" type="text" name="p_geboortedatum" value="" />
+							</div>
+							<div class="col2">
+								<label>Geboorteplaats<span class="red">*</span></label>
+								<input id="date_geboorteplaats" type="text" name="p_geboorteplaats" value=""  />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Straat<span class="red">*</span></label>
+								<input type="text" name="p_straat" value="" />
+							</div>
+							<div class="col2">
+								<label>Nr.<span class="red">*</span></label>
+								<input type="text" name="p_nr" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Postcode<span class="red">*</span></label>
+								<input type="text" name="p_postcode" value="" />
+							</div>
+							<div class="col2">
+								<label>Plaats<span class="red">*</span></label>
+								<input type="text" name="p_plaats" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Land<span class="red">*</span></label>
+                                <?php
+                                $region_location_array = get_field('region_location', 'option');
+
+                                $stroption_region_location = '';
+                                foreach($region_location_array as $region_location)
+                                {
+                                    $no = $region_location['no'];
+                                    $title = $region_location['title'];
+                                    $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
+                                }
+                                ?>
+								<select name="p_land">
+									<option value="0">Please select...</option>
+                                    <?php echo $stroption_region_location;?>
+								</select>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Telefoon</label>
+								<input type="text" name="p_telefoon" value="" />
+							</div>
+							<div class="col2">
+								<label>Fax</label>
+								<input type="text" name="p_fax" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>GSM<span class="red">*</span></label>
+								<input type="text" name="p_gsm" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Privé emailadres<span class="red">*</span></label>
+								
+								<input type="text" name="p_email" value="" id="p_email"/>
+								<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+								<input type="hidden" value="<?php echo get_site_url();?>" class="siteurl"/>
+								<input name="action" type="hidden" class="action" value="check_user_email"/>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Linkedin Profiel pagina</label>
+								<input type="text" name="p_likedin" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Password<span class="red">*</span></label>
+								<input type="password" name="p_password" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Profielfoto</label>
+								<div class="pictureUpload">
+									<img src="images/pic.png" class="imgPreview" style="width: 48px; height: 38px;"/>
+									<div class="fileUpload ">
+										<span>UPLOAD FOTO</span>
+										<input type="file" class="upload" name="p_picture"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="reg-right">
+						<h3>BEROEPSGEGEVENS</h3>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Naam van firma/organisatie<span class="red">*</span></label>
+								<input type="text" name="b_naam" value="" />
+							</div>
+							<div class="col2">
+								<label>(Hoofd) Functie<span class="red">*</span></label>
+								<input type="text" name="b_hoofd" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Aard van de firma/organisatie<span class="red">*</span></label>
+                                <?php
+                                $business_sector_array = get_field('business_sector', 'option');
+
+                                $stroption_business_sector = '';
+                                foreach($business_sector_array as $business_sector)
+                                {
+                                    $no = $business_sector['no'];
+                                    $title = $business_sector['title'];
+                                    $stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
+                                }
+                                ?>
+								<select name="b_firma">
+									<option value="0">Please select...</option>
+
+									<?php echo $stroption_business_sector;?>
+								</select>
+							</div>
+						</div>
+						
+						<div class="reg-row">
+							<div class="col1">
+								<label>Straat<span class="red">*</span></label>
+								<input type="text" name="b_straat" value="" />
+							</div>
+							<div class="col2">
+								<label>Nr.<span class="red">*</span></label>
+								<input type="text" name="b_nr" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Postcode<span class="red">*</span></label>
+								<input type="text" name="b_postcode" value="" />
+							</div>
+							<div class="col2">
+								<label>Plaats<span class="red">*</span></label>
+								<input type="text" name="b_plaats" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Land<span class="red">*</span></label>
+
+								<select name="b_land">
+                                    <?php echo $stroption_region_location;?>
+								</select>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label>Telefoon</label>
+								<input type="text" name="b_telefoon" value="" />
+							</div>
+							<div class="col2">
+								<label>Fax</label>
+								<input type="text" name="b_fax" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>GSM</label>
+								<input type="text" name="b_gsm" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Emailadres</label>
+								<input type="text" name="b_email" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Website bedrijf/organisatie</label>
+								<input type="text" name="b_organisatie" value="" />
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label>Andere functies en mandaten</label>
+								<input type="text" name="b_functies" value="" />
+							</div>
+						</div>	
+					</div>
+					<div class="clear"></div>
+				</div>
     		</form>
     	</div>
     <?php 
