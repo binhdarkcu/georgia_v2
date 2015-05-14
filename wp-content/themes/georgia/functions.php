@@ -69,6 +69,16 @@
 	}
 	add_action( 'init', 'register_menu' );
 	
+	
+	//add style admin
+	add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+      function load_admin_style() {
+        wp_register_style( 'admin_css', get_template_directory_uri() . '/admin/admin-style.css', false, '1.0.0' );
+//OR
+        wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/admin/admin-style.css', false, '1.0.0' );
+       }
+	
+	
 	//rewrite view all category
 	function change_viewall_url_rewrite() {
 		if ( is_category()) {

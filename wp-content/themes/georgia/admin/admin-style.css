@@ -1,0 +1,315 @@
+.registerPage .container {
+  width: 970px;
+}
+
+.registerPage .registerBox h3 {
+  font-size: 20px;
+  color: #887554;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.registerPage .registerBox label {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 5px;
+  display: block;
+}
+
+.registerPage .registerBox input[type="text"], .registerPage .registerBox input[type="password"], .registerPage .registerBox input[type="date"] {
+  width: 200px;
+  height: 29px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.registerPage .registerBox input[type="text"].error, .registerPage .registerBox input[type="password"].error, .registerPage .registerBox input[type="date"].error {
+  border-color: #ff0000;
+}
+
+.registerPage .registerBox select {
+  width: 418px;
+  height: 26px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+}
+
+.registerPage .registerBox select.error {
+  border-color: #ff0000;
+}
+
+.registerPage .registerBox span.red {
+  color: #ff0000;
+}
+
+.registerPage .registerBox .intro {
+  padding-top: 53px;
+  padding-bottom: 45px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+}
+
+.registerPage .registerBox .intro span {
+  display: block;
+}
+
+.registerPage .registerBox .intro span a {
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.registerPage .informationBox .pictureUpload {
+  padding-top: 12px;
+}
+
+.registerPage .informationBox .pictureUpload img {
+  margin-top: 3px;
+}
+
+.registerPage .informationBox .pictureUpload .fileUpload, .registerPage .informationBox .pictureUpload img {
+  float: left;
+}
+
+.registerPage .informationBox .pictureUpload .fileUpload {
+  margin-left: 14px;
+}
+
+.registerPage .informationBox .reg-left {
+  float: left;
+  width: 520px;
+}
+
+.registerPage .informationBox .reg-right {
+  float: left;
+  width: 420px;
+}
+
+.registerPage .informationBox .reg-row {
+  float: left;
+  width: 100%;
+  padding-bottom: 22px;
+}
+
+.registerPage .informationBox .reg-row .col1 {
+  float: left;
+  width: 217px;
+}
+
+.registerPage .informationBox .reg-row .col2 {
+  float: left;
+  width: 203px;
+  position: relative;
+}
+
+.registerPage .informationBox .reg-row .colfull input[type="text"], .registerPage .informationBox .reg-row .colfull input[type="password"] {
+  width: 418px;
+}
+
+.registerPage .referenceBox {
+  border-top: 1px solid #fff;
+  padding-top: 40px;
+  margin-top: 18px;
+}
+
+.registerPage .referenceBox h3 {
+  padding-bottom: 2px;
+}
+
+.registerPage .referenceBox .reg-now {
+  float: left;
+  width: 100%;
+}
+
+.registerPage .referenceBox .reg-now .col {
+  padding-top: 24px;
+  float: left;
+  width: 215px;
+}
+
+.registerPage .referenceBox .note {
+  color: #887554;
+  font-size: 12px;
+}
+
+.registerPage .dt_memberBox {
+  clear: both;
+  border-top: 1px solid #fff;
+  padding-top: 60px;
+  margin-top: 50px;
+}
+
+.registerPage .dt_memberBox .reg-now {
+  float: left;
+  width: 100%;
+  padding-bottom: 22px;
+}
+
+.registerPage .dt_memberBox h4 {
+  font-size: 12px;
+  color: #fff;
+  padding-bottom: 22px;
+}
+
+.registerPage .dt_memberBox .colfull input[type="text"] {
+  width: 418px;
+}
+
+.registerPage .dt_memberBox .col1 {
+  float: left;
+  width: 217px;
+}
+
+.registerPage .dt_memberBox .col2 {
+  float: left;
+  width: 203px;
+}
+
+.registerPage .interestBox, .registerPage .factureBox {
+  padding-top: 30px;
+  clear: both;
+}
+
+.registerPage .interestBox h4, .registerPage .factureBox h4 {
+  font-size: 12px;
+  color: #fff;
+  padding-bottom: 22px;
+}
+
+.registerPage .interestBox .note, .registerPage .factureBox .note {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 5px;
+}
+
+.registerPage .interestBox .radioGroup, .registerPage .factureBox .radioGroup {
+  padding-top: 3px;
+}
+
+.registerPage .interestBox .radioGroup .radiocol, .registerPage .factureBox .radioGroup .radiocol {
+  float: left;
+  margin-top: 18px;
+  width: 235px;
+}
+
+.registerPage .interestBox .radioGroup .radiocol.rdother, .registerPage .factureBox .radioGroup .radiocol.rdother {
+  width: 430px;
+}
+
+.registerPage .interestBox .radioGroup input[type="checkbox"], .registerPage .factureBox .radioGroup input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+}
+
+.registerPage .interestBox .radioGroup label, .registerPage .factureBox .radioGroup label {
+  display: inline-block;
+  color: #ccc;
+  font-size: 12px;
+  padding-left: 30px;
+  line-height: 18px;
+}
+
+.registerPage .interestBox .radioGroup .otherip, .registerPage .factureBox .radioGroup .otherip {
+  margin-left: 10px;
+}
+
+.registerPage .factureBox {
+  clear: both;
+}
+
+.registerPage .factureBox .note {
+  padding-bottom: 5px;
+  display: block;
+}
+
+.registerPage .factureBox input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+}
+
+.registerPage .factureBox label {
+  display: inline-block;
+  color: #ccc;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.registerPage .factureBox textarea {
+  width: 385px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-left: 30px;
+  resize: none;
+  height: 75px;
+  margin-top: -5px;
+  border: 1px solid #fff;
+}
+
+.registerPage .factureBox textarea.error {
+  border-color: #ff0000;
+}
+
+.registerPage .factureBox .colfull {
+  margin-top: 18px;
+}
+
+.registerPage .acceptBox {
+  clear: both;
+  border-top: 1px solid #fff;
+  padding-top: 40px;
+  margin-top: 55px;
+}
+
+.registerPage .acceptBox .chkaccept {
+  display: table;
+  margin: 0 auto;
+}
+
+.registerPage .acceptBox .chkaccept input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+}
+
+.registerPage .acceptBox .chkaccept label {
+  display: inline-block;
+  color: #ccc;
+  font-size: 12px;
+  white-space: nowrap;
+  padding-left: 30px;
+  padding-top: 3px;
+}
+
+.registerPage .acceptBox .chkaccept label a {
+  color: #887554;
+  text-decoration: underline;
+}
+
+.registerPage .acceptBox .chkaccept label a:hover {
+  color: #ccc;
+}
+
+.registerPage .acceptBox a.btn {
+  font-size: 12px;
+  color: #887554;
+  border: 2px solid #887554;
+  padding: 10px 18px;
+  display: table;
+  margin: 37px auto;
+}
+
+.registerPage .acceptBox a.btn:hover {
+  color: #ccc;
+  border-color: #ccc;
+}
+
+.relative {
+  position: relative;
+}
+
+.empty {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
