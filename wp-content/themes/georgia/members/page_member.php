@@ -109,6 +109,30 @@ function get_bulk_actions() {
   );
   return $actions;
 }
+function process_bulk_action() {
+        global $wpdb;
+        //Detect when a bulk action is being triggered...
+        if( 'delete'===$this->current_action() ) {
+        	$delete = $wpdb->delete('wp_members', array('id' => $_GET['id']));
+            //wp_die('Items deleted (or they would be if we had items to delete)!');
+        }
+        
+    }
+//edit member
+function process_edit_action() {
+    
+    //Detect when a bulk action is being triggered...
+    if( 'edit'===$this->current_action() ) {?>
+    	<div class="edit_member">
+    		<form action="" method="">
+    			<h3>Edit member</h3>
+    		</form>
+    	</div>
+    <?php 
+		exit();
+	}
+    
+}
 
 function column_cb($item) {
         return sprintf(
@@ -143,6 +167,12 @@ function prepare_items() {
     'per_page'    => $per_page                     //WE have to determine how many items to show on a page
   ) );
   $this->items = $this->found_data;
+  
+  //delete compare
+  $this->process_bulk_action();
+  
+  //edit compare
+  $this->process_edit_action();
 }
 
 } //class
@@ -150,7 +180,7 @@ function prepare_items() {
 
 
 function my_add_menu_items(){
-  $hook = add_menu_page( 'Members', 'Members', 'activate_plugins', 'view_member', 'my_render_list_page' );
+  $hook = add_menu_page( 'Members', 'Members', 'activate_plugins', 'view_member', 'my_render_list_page','',8 );
   add_action( "load-$hook", 'add_options' );
 }
 
@@ -182,4 +212,3 @@ function my_render_list_page(){
   $myListTable->display(); 
   echo '</form></div>'; 
 }
-
