@@ -58,7 +58,9 @@ class My_Event_List_Table extends WP_List_Table {
         case 'p_naam':
         case 'p_voornaam':
 		case 'p_email':
-        case 'p_land':
+		case 'p_telefoon':
+        case 'status':
+		case 'datejoin':
             return $item[ $column_name ];
         default:
             return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
@@ -70,7 +72,9 @@ function get_sortable_columns() {
     'p_naam'  => array('Naam',false),
     'p_voornaam' => array('Voornaam',false),
     'p_email' => array('Email',false),
-    'p_land'   => array('Land',false)
+    'p_telefoon' => array('Telefoon',false),
+    'status'   => array('Status',false),
+	'datejoin'   => array('Date join',false)
   );
   return $sortable_columns;
 }
@@ -81,7 +85,10 @@ function get_columns(){
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
             'p_email'    => __( 'Email', 'mylisttable' ),
-            'p_land'      => __( 'Land', 'mylisttable' )
+            'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
+            'status'      => __( 'Status', 'mylisttable' ),
+            'datejoin'      => __( 'Date Join', 'mylisttable' )
+			
         );
          return $columns;
     }
@@ -153,7 +160,22 @@ function prepare_items() {
   $per_page = 5;
   $current_page = $this->get_pagenum();
   global $wpdb;
-  $query = 'SELECT id, p_naam, p_voornaam, p_email, p_land FROM wp_members';
+  $id_event = $_GET['id_event'];
+  if(!empty($id_event)){
+  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status, t.datejoin
+				FROM wp_members m
+				JOIN wp_participate t ON m.id = t.id_member
+				JOIN wp_posts p on t.id_event = p.id
+				where t.id_event = '.$id_event.'
+				GROUP BY m.id';
+  }else{
+  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status, t.datejoin
+				FROM wp_members m
+				JOIN wp_participate t ON m.id = t.id_member
+				JOIN wp_posts p on t.id_event = p.id
+				GROUP BY m.id';
+  }
+  
   $members = $wpdb->get_results($query);
   $data = array();
   foreach ($members as $querydatum ) {
@@ -202,7 +224,7 @@ add_action( 'admin_menu', 'event_add_menu_items' );
 
 function my_render_event_list_page(){
   global $myListTable;
-  echo '</pre><div class="wrap"><h2>Members</h2>'; 
+  echo '</pre><div class="wrap"><h2>Event Members</h2>'; 
   $myListTable->prepare_items(); 
 ?>
   <form method="post">

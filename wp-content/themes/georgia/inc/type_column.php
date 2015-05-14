@@ -40,7 +40,7 @@ function ST4_get_type_post($post_ID) {
         return $type_post_id;
     }*/
     $admin_url = admin_url();
-    echo '<a href="'.$admin_url.'admin.php?page=view_event_member&id='.$post_ID.'">View members</a>';
+    echo '<a href="'.$admin_url.'admin.php?page=view_event_member&id_event='.$post_ID.'">View members</a>';
 }
 
 // ADD NEW COLUMN
