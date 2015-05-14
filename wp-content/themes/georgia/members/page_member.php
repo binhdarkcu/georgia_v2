@@ -60,6 +60,8 @@ class My_Example_List_Table extends WP_List_Table {
         case 'p_voornaam':
 		case 'p_email':
         case 'p_land':
+		case 'p_telefoon':
+		case 'p_plaats':
             return $item[ $column_name ];
         default:
             return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
@@ -71,7 +73,9 @@ function get_sortable_columns() {
     'p_naam'  => array('Naam',false),
     'p_voornaam' => array('Voornaam',false),
     'p_email' => array('Email',false),
-    'p_land'   => array('Land',false)
+    'p_land'   => array('Land',false),
+	'p_telefoon' => array('Telefoon',false),
+    'p_plaats'   => array('Plaats',false)
   );
   return $sortable_columns;
 }
@@ -82,7 +86,9 @@ function get_columns(){
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
             'p_email'    => __( 'Email', 'mylisttable' ),
-            'p_land'      => __( 'Land', 'mylisttable' )
+            'p_land'      => __( 'Land', 'mylisttable' ),
+			'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
+            'p_plaats'      => __( 'Plaats', 'mylisttable' )
         );
          return $columns;
     }
@@ -385,7 +391,7 @@ function prepare_items() {
   $per_page = 5;
   $current_page = $this->get_pagenum();
   global $wpdb;
-  $query = 'SELECT id, p_naam, p_voornaam, p_email, p_land FROM wp_members';
+  $query = 'SELECT id, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
   $members = $wpdb->get_results($query);
   $data = array();
   foreach ($members as $querydatum ) {
