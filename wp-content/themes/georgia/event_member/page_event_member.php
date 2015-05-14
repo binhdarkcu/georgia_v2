@@ -106,8 +106,7 @@ function usort_reorder( $a, $b ) {
 
 function column_p_naam($item){
   $actions = array(
-            'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id']),
-            'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
+            'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id'], $item['id_event'])
         );
 
   return sprintf('%1$s %2$s', $item['p_naam'], $this->row_actions($actions) );
@@ -132,11 +131,59 @@ function process_bulk_action() {
 function process_edit_action() {
     
     //Detect when a bulk action is being triggered...
-    if( 'edit'===$this->current_action() ) {?>
-    	<div class="edit_member">
-    		<form action="" method="">
-    			<h3>Update event for member</h3>
-    		</form>
+    if( 'edit'===$this->current_action() ) {
+		global $wpdb;
+		$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status, t.datejoin
+				FROM wp_members m
+				JOIN wp_participate t ON m.id = t.id_member
+				JOIN wp_posts p on t.id_event = p.id
+				where t.id_event = '.$_GET['id_event'].' AND t.id_member = '.$_GET['id'].'
+				GROUP BY m.id';
+		$member = $wpdb->get_row($query, ARRAY_A);
+		?>
+		<link href="<?php echo bloginfo('template_url')?>/event_member/css/jquery-ui-1.10.1.css" rel="stylesheet">
+    	<div class="registerPage ">
+    		<div class="registerBox">
+				<form action="" method="post">
+					<div class="informationBox">
+						<div class="reg-left">
+							<h3>Update event for member</h3>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Naam<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_naam" value="<?php echo $member['p_naam']; ?>" />
+								</div>
+								<div class="col2">
+									<label>Voornaam<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_voornaam" value="<?php echo $member['p_voornaam']; ?>" />
+								</div>
+							</div>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Email<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_email" value="<?php echo $member['p_email']; ?>" />
+								</div>
+								<div class="col2">
+									<label>Telefoon<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_telefoon" value="<?php echo $member['p_telefoon']; ?>"  />
+								</div>
+							</div>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Status<span class="red">*</span></label>
+									<input type="text" name="status" value="<?php echo $member['status']; ?>" />
+								</div>
+								<div class="col2">
+									<label>Date Join<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_nr" value="<?php echo $member['datejoin']; ?>" />
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<input type="submit"  value="Update!" />
+				</form>
+			</div>
     	</div>
     <?php 
 		exit();
@@ -162,14 +209,14 @@ function prepare_items() {
   global $wpdb;
   $id_event = $_GET['id_event'];
   if(!empty($id_event)){
-  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status, t.datejoin
+  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
 				where t.id_event = '.$id_event.'
 				GROUP BY m.id';
   }else{
-  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status, t.datejoin
+  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
