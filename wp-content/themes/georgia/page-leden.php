@@ -151,4 +151,7 @@
         </div>
 
 <?php get_footer();?>
+<?php
+    $strsql = 'select b_land, count(*) as count, sum(100) / total as percentage from wp_members cross join (select count(*) as total from wp_members) x group by 1';
+?>
 <script type='text/javascript' src='js/donout.chart.js'></script>
