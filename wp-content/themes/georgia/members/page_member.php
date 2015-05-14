@@ -123,6 +123,21 @@ function process_edit_action() {
     
     //Detect when a bulk action is being triggered...
     if( 'edit'===$this->current_action() ) {?>
+    	<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
+    	<script src="<?php echo bloginfo('template_url')?>/members/js/jquery-ui-1.10.1.min.js"></script>
+    	<link href="<?php echo bloginfo('template_url')?>/members/css/jquery-ui-1.10.1.css" rel="stylesheet">
+		<link type="text/css" rel='stylesheet' href="<?php echo bloginfo('template_url')?>/members/css/latoja.datepicker.css"/>
+		<script type="text/javascript">
+			  $(function() {
+			    $( "#date_geboortedatum, #date_geboorteplaats" ).datepicker({
+					inline: true,
+					changeMonth: true,
+	    			changeYear: true,
+					showOtherMonths: true
+				})
+				.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
+			  });
+		</script>
     	<div class="registerPage ">
     		<div class="registerBox">
 	    		<form action="" method="">
@@ -232,7 +247,7 @@ function process_edit_action() {
 								<div class="colfull">
 									<label>Profielfoto</label>
 									<div class="pictureUpload">
-										<img src="images/pic.png" class="imgPreview" style="width: 48px; height: 38px;"/>
+										<img src="<?php echo bloginfo('template_url')?>/images/pic.png" class="imgPreview" style="width: 48px; height: 38px;"/>
 										<div class="fileUpload ">
 											<span>UPLOAD FOTO</span>
 											<input type="file" class="upload" name="p_picture"/>

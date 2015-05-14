@@ -324,3 +324,29 @@ select {
   color: #6a7a7c;
     font-size: 11px;
 }
+.fileUpload span {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #333;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 10px;
+  border: 2px solid #333;
+  display: inline-block;
+}
