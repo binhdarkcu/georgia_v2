@@ -150,7 +150,7 @@ function process_edit_action() {
 		</script>
     	<div class="registerPage ">
     		<div class="registerBox">
-	    		<form action="" method="post">
+	    		<form action="" method="post" enctype="multipart/form-data">
 	    			<h3>Edit member</h3>
 	    			<div class="informationBox">
 						<div class="reg-left">
@@ -210,7 +210,7 @@ function process_edit_action() {
 	                                }
 	                                ?>
 									<select name="p_land">
-	                                    <?php echo str_replace('>'.$member['p_land'].'<', 'selected>'.$member['p_land'].'<', $stroption_region_location);?>
+	                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
 									</select>
 								</div>
 							</div>
@@ -235,8 +235,7 @@ function process_edit_action() {
 									<label>Privé emailadres<span class="red">*</span></label>
 									
 									<input disabled="disabled" type="text" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
-									<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
-									<input type="hidden" value="<?php echo get_site_url();?>" class="siteurl"/>
+									<input type="hidden" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
 									<input name="action" type="hidden" class="action" value="check_user_email"/>
 								</div>
 							</div>
@@ -287,7 +286,7 @@ function process_edit_action() {
 	                                }
 	                                ?>
 									<select name="b_firma">
-										<?php echo str_replace('>'.$member['b_firma'].'<', 'selected>'.$member['b_firma'].'<', $stroption_business_sector);?>
+										<?php echo str_replace('value="'.$member['b_firma'].'"', 'value="'.$member['b_firma'].'" selected', $stroption_business_sector);?>
 									</select>
 								</div>
 							</div>
@@ -317,7 +316,7 @@ function process_edit_action() {
 									<label>Land<span class="red">*</span></label>
 	
 									<select name="b_land">
-	                                    <?php echo str_replace('>'.$member['b_land'].'<', 'selected>'.$member['b_land'].'<', $stroption_region_location);?>
+	                                    <?php echo str_replace('value="'.$member['b_land'].'"', 'value="'.$member['b_land'].'" selected', $stroption_region_location);?>
 									</select>
 								</div>
 							</div>
@@ -452,21 +451,19 @@ function my_render_list_page(){
         $data['p_fax'] = $_POST['p_fax'];
         $data['p_gsm'] = $_POST['p_gsm'];
         $data['p_likedin'] = $_POST['p_likedin'];
-        $data['p_picture'] = $_FILES['p_picture']['name'];
-		if (!empty($data['p_picture'])) {
-			$root = getcwd();
-			$upload_dir = $root.'/wp-content/uploads/avatar/';
+        
+		if (!empty($_FILES['p_picture']['name'])) {
+			$data['p_picture'] = $_FILES['p_picture']['name'];
+			$root = wp_upload_dir()['basedir'];
+			$upload_dir = $root.'/avatar/';
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir);
 			}
 			$fileName = time().$data['p_picture'];
 			$target_file = $upload_dir.basename($fileName);
-			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
-			$data['p_picture'] = $fileName;
+			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
+			$data['p_picture'] = basename($fileName);
 		}
-		
-		
-		$data['p_picture'] = $data['p_picture']; 
         $data['b_naam'] = $_POST['p_naam'];
 		$data['b_hoofd'] = $_POST['b_hoofd'];
         $data['b_firma'] = $_POST['b_firma'];
@@ -482,8 +479,13 @@ function my_render_list_page(){
         $data['b_organisatie'] = $_POST['b_organisatie'];
         $data['b_functies'] = $_POST['b_functies'];
 		if(!empty($_POST['p_email'])) {
-			//$link = admin_url().'admin.php?page=view_member';
-			//echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			$wpdb->update( 
+				'wp_members', 
+				$data,
+				array( 'Id' => $_GET['id'])
+			);
+			$link = admin_url().'admin.php?page=view_member';
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		}
 		else {
 			echo "<script>alert('a')</script>";
