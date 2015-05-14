@@ -21,6 +21,7 @@
   height: 29px;
   border: 1px solid #fff;
   border-radius: 3px;
+  font-size: 11px;
 }
 
 .registerPage .registerBox input[type="text"].error, .registerPage .registerBox input[type="password"].error, .registerPage .registerBox input[type="date"].error {
@@ -155,6 +156,8 @@
 
 .registerPage .dt_memberBox .colfull input[type="text"] {
   width: 418px;
+  color: #6a7a7c;
+  font-size: 11px;
 }
 
 .registerPage .dt_memberBox .col1 {
@@ -312,4 +315,12 @@
   position: absolute;
   left: 0;
   top: 0;
+}
+select {
+  max-width: 100%;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  color: #6a7a7c;
+    font-size: 11px;
 }
