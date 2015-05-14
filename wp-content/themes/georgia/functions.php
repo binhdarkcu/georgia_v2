@@ -47,7 +47,7 @@
 	}
 	
 	//add type columns
-    //include 'inc/type_column.php';
+    include 'inc/type_column.php';
 	
 	//filter home
     //include 'inc/filter_home.php';
