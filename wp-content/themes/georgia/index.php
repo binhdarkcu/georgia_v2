@@ -85,16 +85,27 @@
 																LIMIT 0 , 30";
                                                 	$isjoin = $wpdb->get_row($join_query);
 													$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
-													//print_r($join_query);
+													$diff = abs(dateDiff($datetime,date('Y/m/d')));
 													if($canjoin){
                                                 ?>
                                                 
 	                                                <div class="tribe-events-cta-btn">
 	                                                	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 	                                                	<input name="action" type="hidden" class="action" value="<?php echo empty($isjoin) ? 'add' : 'cancel'; ?>_event"/>
+	                                                   
+	                                                    <?php
+	                                                    	if(empty($isjoin)){
+	                                                    ?>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
-	                                                        <?php echo empty($isjoin) ? 'IK KOM' : 'CANCEL'; ?>
+	                                                        IK KOM
 	                                                    </a>
+	                                                    <?php }else {
+	                                                    	if($diff >= 10)	{
+	                                                    ?>
+	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
+	                                                        CANCEL
+	                                                    </a>
+	                                                    <?php } }?>
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
 	                                                </div>
                                                 <?php }?>
