@@ -335,6 +335,7 @@
 												<label>Land<span class="red">*</span></label>
 
 												<select name="b_land">
+                                                    <option value="0">Please select...</option>
                                                     <?php echo $stroption_region_location;?>
 												</select>
 											</div>

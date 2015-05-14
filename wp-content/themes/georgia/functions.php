@@ -132,7 +132,5 @@ if( function_exists('acf_add_options_sub_page') ) {
         'capability' => 'edit_posts'
 
     ));
-
-
 }
 
