@@ -135,6 +135,7 @@ function process_edit_action() {
 	?>
     	<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
     	<script src="<?php echo bloginfo('template_url')?>/members/js/jquery-ui-1.10.1.min.js"></script>
+		<script src="<?php echo bloginfo('template_url')?>/members/js/update_member.js"></script>
     	<link href="<?php echo bloginfo('template_url')?>/members/css/jquery-ui-1.10.1.css" rel="stylesheet">
 		<link type="text/css" rel='stylesheet' href="<?php echo bloginfo('template_url')?>/members/css/latoja.datepicker.css"/>
 		<script type="text/javascript">
@@ -253,7 +254,7 @@ function process_edit_action() {
 										<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" class="imgPreview" style="width: 48px; height: 38px;"/>
 										<div class="fileUpload ">
 											<span>UPLOAD FOTO</span>
-											<input type="file" class="upload" name="p_picture"/>
+											<input type="file" class="upload" name="p_picture" id="filePicture"/>
 										</div>
 									</div>
 								</div>
