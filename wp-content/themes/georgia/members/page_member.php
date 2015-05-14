@@ -55,7 +55,10 @@ class My_Example_List_Table extends WP_List_Table {
   }
 
   function column_default( $item, $column_name ) {
-    switch( $column_name ) { 
+    switch( $column_name ) {
+    	case 'p_picture': 
+			echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
+			break;
         case 'p_naam':
         case 'p_voornaam':
 		case 'p_email':
@@ -70,6 +73,7 @@ class My_Example_List_Table extends WP_List_Table {
 
 function get_sortable_columns() {
   $sortable_columns = array(
+  	'p_picture' => array('Avatar',false),
     'p_naam'  => array('Naam',false),
     'p_voornaam' => array('Voornaam',false),
     'p_email' => array('Email',false),
@@ -83,6 +87,7 @@ function get_sortable_columns() {
 function get_columns(){
         $columns = array(
             'cb'        => '<input type="checkbox" />',
+            'p_picture' => __( 'Avatar', 'mylisttable' ),
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
             'p_email'    => __( 'Email', 'mylisttable' ),
@@ -396,7 +401,7 @@ function prepare_items() {
   $per_page = 5;
   $current_page = $this->get_pagenum();
   global $wpdb;
-  $query = 'SELECT id, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
+  $query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
   $members = $wpdb->get_results($query);
   $data = array();
   foreach ($members as $querydatum ) {
