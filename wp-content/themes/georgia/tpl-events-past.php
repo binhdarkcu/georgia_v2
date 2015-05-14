@@ -10,7 +10,7 @@
 			global $wpdb;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			//print_r($paged);
-			$post_per_page = 1;
+			$post_per_page = intval(get_query_var('posts_per_page'));
 			$today = date('Y/m/d');
 			$offset = ($paged - 1)*$post_per_page;
 			
@@ -44,7 +44,7 @@
 				
                 //$date = DateTime::createFromFormat( 'mY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                 $year = substr($datetime, 0, 4);
-				$month = substr($today, 5, 2);
+				$month = substr($datetime, 5, 2);
                 $month = convertMonths_String((int)$month,true);
 				
 			?>
@@ -59,8 +59,8 @@
 				  'meta_query'     => array(
 				    array(
 				      'key'     => 'datetime',
-				      'value'   => $today,
-				      'compare' => '<'
+				      'value'   => $year.'/'.substr($datetime, 5, 2).'/'.substr($datetime, -2),
+				      'compare' => 'LIKE'
 				    ) 
 				  )
 				);
