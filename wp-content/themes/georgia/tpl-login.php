@@ -8,7 +8,7 @@
 		        global $wpdb;
 		        $email = $_POST['p_email'];
 		        $password = sha1($_POST['p_password']);
-		        
+		        print_r($password);
 		        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$email' and p_password = '$password'");
 		        if($results){
 		            $data = array();
@@ -24,7 +24,7 @@
 		        }
 		        else{
 		            echo '<script language="javascript">';
-					echo 'alert("Login fail")';
+					echo 'alert("'.$password.'")';
 					echo '</script>';
 					$link = get_site_url().'/word-lid';
 					echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";

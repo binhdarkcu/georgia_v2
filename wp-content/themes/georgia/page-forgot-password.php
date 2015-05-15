@@ -44,16 +44,51 @@
 
                                         <div class="events-loop tribe-events-loop vcalendar forgotPassword">
                                         	<h4>Find Your Account</h4>
+                                        	<?php
+	                                        	
+												$message = "";
+                                        		if(!empty($_POST) && wp_verify_nonce($_POST['act_forgot_password'],'forgot_password')){
+	                                        		global $wpdb;
+													$p_email = $_POST['fp_email'];
+	                                        		$results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '".$p_email."'");
+													//print_r($results);
+											        if(!empty($results)){
+											        	$password =  substr(md5(uniqid(rand(),true)), 10,15); 
+											        	$data['p_password'] = sha1($password);
+														//print_r($password.'  '.$data['p_password']);
+											           	$update_query = $wpdb->update( 
+															'wp_members', 
+															$data,
+															array( 'p_email' => $p_email)
+														);
+														send_password($p_email,'Your password'.$password);
+											            $message = "Your password is send to your email.";
+														
+											        }
+											        else{
+											        	$message = "Email not exist. Please choose other email.";
+											            
+											        }
+												}
+                                        	?>
 											<form action="" method="post">
+												<?php
+						                            if($message != "")
+						                            {
+						                                echo '<div class="alert" style="padding-bottom: 20px;color: red;padding-top: 20px;font-family: Noto Sans; font-size: 12px;">'.$message.'</div>';
+						                            }
+						                                
+						                        ?>  
 												<div class="searchpass">
 													<div class="col1">
 														Your email
 													</div>
 													<div class="col2">
-														<input value="" type="text" autocomplete="off" name="p_email" placeholder=""/>
+														<input value="" type="text" autocomplete="off" name="fp_email" placeholder=""/>
 													</div>
 													<div class="clear"></div>
 													<input type="submit" value="Find" class="btn" />
+													<?php wp_nonce_field('forgot_password','act_forgot_password');?>
 												</div>
 											</form>
                                         </div>
