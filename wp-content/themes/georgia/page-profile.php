@@ -80,9 +80,9 @@
                                     $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
                                 }
                                 ?>
-									<select name="p_land" disabled="">
-	                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
-									</select>
+								<select name="p_land" disabled="">
+                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
+								</select>
 							</div>
 							<div class="col3"><a href="#" data-fieldname="p_land" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
