@@ -393,11 +393,180 @@ function process_edit_action() {
 }
     
 function process_detail_action(){
-	if( 'detail'===$this->current_action() ) {?>
-		<div class="member-detail">
-			<h3>Member detail</h3>
-			
-		</div>
+	if( 'detail'===$this->current_action() ) {
+		global $wpdb;
+		$query = 'SELECT * FROM wp_members WHERE id = '.$_GET['id'];
+		$member = $wpdb->get_row($query, ARRAY_A);
+	?>
+		<div class="registerPage ">
+    		<div class="registerBox">
+				<h3>Member detail</h3>
+				<div style="float: left;">
+					<h4>Naam: <?php echo $member['p_naam']; ?></h4>
+					<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+				</div>
+				<div class="informationBox" style="float: right;">
+					<div class="reg-left">
+						<h3>PRIVEGEGEVENS</h3>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Naam:</b></label>
+								<span><?php echo $member['p_naam']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Voornaam:</b></label>
+								<span><?php echo $member['p_voornaam']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Geboortedatum:</b></label>
+								<span><?php echo $member['p_geboortedatum']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Geboorteplaats:</b></label>
+								<span><?php echo $member['p_geboorteplaats']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Straat:</b></label>
+								<span><?php echo $member['p_straat']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Nr.:</b></label>
+								<span><?php echo $member['p_nr']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Postcode:</b></label>
+								<span><?php echo $member['p_postcode']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Plaats:</b></label>
+								<span><?php echo $member['p_plaats']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Land:</b></label>
+								<span><?php echo $member['p_land']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Telefoon:</b></label>
+								<span><?php echo $member['p_telefoon']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Fax:</b></label>
+								<span><?php echo $member['p_fax']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>GSM:</b></label>
+								<span><?php echo $member['p_gsm']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Privé emailadres:</b></label>
+								<span><?php echo $member['p_email']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Linkedin Profiel pagina:</b></label>
+								<span><?php echo $member['p_likedin']; ?></span>
+							</div>
+						</div>
+					</div>
+					<div class="reg-right">
+						<h3>BEROEPSGEGEVENS</h3>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Naam van firma/organisatie:</b></label>
+								<span><?php echo $member['b_naam']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>(Hoofd) Functie:</b></label>
+								<span><?php echo $member['b_hoofd']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Aard van de firma/organisatie:</b></label>
+								<span><?php echo $member['b_firma']; ?></span>
+							</div>
+						</div>
+						
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Straat:</b></label>
+								<span><?php echo $member['b_straat']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Nr.:</b></label>
+								<span><?php echo $member['b_nr']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Postcode:</b></label>
+								<span><?php echo $member['b_postcode']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Plaats:</b></label>
+								<span><?php echo $member['b_plaats']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Land:</b></label>
+								<span><?php echo $member['b_land']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="col1">
+								<label><b>Telefoon:</b></label>
+								<span><?php echo $member['b_telefoon']; ?></span>
+							</div>
+							<div class="col2">
+								<label><b>Fax:</b></label>
+								<span><?php echo $member['b_fax']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>GSM:</b></label>
+								<span><?php echo $member['b_gsm']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Emailadres:</b></label>
+								<span><?php echo $member['b_email']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Website bedrijf/organisatie:</b></label>
+								<span><?php echo $member['b_organisatie']; ?></span>
+							</div>
+						</div>
+						<div class="reg-row">
+							<div class="colfull">
+								<label><b>Andere functies en mandaten:</b></label>
+								<span><?php echo $member['b_functies']; ?></span>
+							</div>
+						</div>	
+					</div>
+					<div class="clear"></div>
+				</div>
+	    	</div>
+    	</div>
 	<?php	
 	exit();
 	}
