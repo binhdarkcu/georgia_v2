@@ -140,3 +140,44 @@
 .pagination{
   background: #000;
 }
+
+.forgotPassword{
+  h4{
+    color: #fff;
+    @include NotoSansRegular(16px);
+  }
+  .searchpass{
+    padding-top: 20px;
+    .col1{
+      @include NotoSansRegular(14px);
+      color: #fff;
+         margin-top: 7px;
+        float: left;
+        margin-right: 10px;
+    }
+    .col2{
+      float: left;
+    }
+    input[type="text"]{
+       width: 200px;
+        height: 29px;
+        border: 1px solid #fff;
+        border-radius: 3px;
+       
+        &.error{
+          border-color: #ff0000;
+        }
+    }
+    .btn{
+      @include NotoSansBold(12px);
+      color: #887554;
+      border: 2px solid #887554;
+      padding: 10px 18px;
+      margin: 37px 0; 
+      &:hover{
+        color: #ccc;
+        border-color: #ccc;
+      }
+    }
+  }
+}
