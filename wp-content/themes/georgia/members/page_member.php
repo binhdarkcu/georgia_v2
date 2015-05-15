@@ -55,6 +55,7 @@ class My_Example_List_Table extends WP_List_Table {
   }
 
   function column_default( $item, $column_name ) {
+  	
     switch( $column_name ) {
     	case 'p_picture': 
 			echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
@@ -63,6 +64,12 @@ class My_Example_List_Table extends WP_List_Table {
         case 'p_voornaam':
 		case 'p_email':
         case 'p_land':
+			$region_location_array = get_field('region_location', 'option');
+			foreach($region_location_array as $region_location){
+				if($region_location['no'] == $item[ $column_name ]){
+					return $region_location['title'];
+				}
+			}
 		case 'p_telefoon':
 		case 'p_plaats':
             return $item[ $column_name ];
@@ -113,6 +120,7 @@ function column_p_naam($item){
   $actions = array(
             'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id']),
             'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
+            'detail'    => sprintf('<a href="?page=%s&action=%s&id=%s">Detail</a>',$_REQUEST['page'],'detail',$item['id']),
         );
 
   return sprintf('%1$s %2$s', $item['p_naam'], $this->row_actions($actions) );
@@ -384,6 +392,16 @@ function process_edit_action() {
 	}
 }
     
+function process_detail_action(){
+	if( 'detail'===$this->current_action() ) {?>
+		<div class="member-detail">
+			<h3>Member detail</h3>
+			
+		</div>
+	<?php	
+	exit();
+	}
+}
 
 function column_cb($item) {
         return sprintf(
@@ -424,6 +442,9 @@ function prepare_items() {
   
   //edit compare
   $this->process_edit_action();
+  
+  //edit compare
+  $this->process_detail_action();
 }
 
 }
