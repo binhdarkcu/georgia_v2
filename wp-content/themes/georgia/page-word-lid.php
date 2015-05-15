@@ -19,109 +19,111 @@
     
     $logged = false;
     $message = "";
-    if(!empty($_POST['p_email']))
-    {
-        global $wpdb;
-        $data['p_naam'] = $_POST['p_naam'];
-        $data['p_voornaam'] = $_POST['p_voornaam'];
-        $data['p_geboortedatum'] = $_POST['p_geboortedatum'];
-        $data['p_geboorteplaats'] = $_POST['p_geboorteplaats'];
-        $data['p_straat'] = $_POST['p_straat'];
-        $data['p_nr'] = $_POST['p_nr'];
-        $data['p_postcode'] = $_POST['p_postcode'];
-        $data['p_plaats'] = $_POST['p_plaats'];
-        $data['p_land'] = $_POST['p_land'];
-        $data['p_telefoon'] = $_POST['p_telefoon'];
-        $data['p_fax'] = $_POST['p_fax'];
-        $data['p_gsm'] = $_POST['p_gsm'];
-        $data['p_email'] = $_POST['p_email'];
-        $data['p_likedin'] = $_POST['p_likedin'];
-        $data['p_picture'] = $_FILES['p_picture']['name'];
-		if (!empty($data['p_picture'])) {
-			$root = getcwd();
-			$upload_dir = $root.'/wp-content/uploads/avatar/';
-			if (!file_exists($upload_dir)) {
-				mkdir($upload_dir);
+	if(!empty($_POST) && wp_verify_nonce($_POST['act_register_member'],'register_member')){
+	    if(!empty($_POST['p_email']))
+	    {
+	        global $wpdb;
+	        $data['p_naam'] = $_POST['p_naam'];
+	        $data['p_voornaam'] = $_POST['p_voornaam'];
+	        $data['p_geboortedatum'] = $_POST['p_geboortedatum'];
+	        $data['p_geboorteplaats'] = $_POST['p_geboorteplaats'];
+	        $data['p_straat'] = $_POST['p_straat'];
+	        $data['p_nr'] = $_POST['p_nr'];
+	        $data['p_postcode'] = $_POST['p_postcode'];
+	        $data['p_plaats'] = $_POST['p_plaats'];
+	        $data['p_land'] = $_POST['p_land'];
+	        $data['p_telefoon'] = $_POST['p_telefoon'];
+	        $data['p_fax'] = $_POST['p_fax'];
+	        $data['p_gsm'] = $_POST['p_gsm'];
+	        $data['p_email'] = $_POST['p_email'];
+	        $data['p_likedin'] = $_POST['p_likedin'];
+	        $data['p_picture'] = $_FILES['p_picture']['name'];
+			if (!empty($data['p_picture'])) {
+				$root = getcwd();
+				$upload_dir = $root.'/wp-content/uploads/avatar/';
+				if (!file_exists($upload_dir)) {
+					mkdir($upload_dir);
+				}
+				$fileName = time().$data['p_picture'];
+				$target_file = $upload_dir.basename($fileName);
+				move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
+				$data['p_picture'] = $fileName;
 			}
-			$fileName = time().$data['p_picture'];
-			$target_file = $upload_dir.basename($fileName);
-			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
-			$data['p_picture'] = $fileName;
-		}
-		
-		$data['p_password'] = sha1($_POST['p_password']);
-		
-		$data['p_picture'] = $data['p_picture']; 
-        $data['b_naam'] = $_POST['p_naam'];
-		$data['b_hoofd'] = $_POST['b_hoofd'];
-        $data['b_firma'] = $_POST['b_firma'];
-        $data['b_straat'] = $_POST['b_straat'];
-        $data['b_nr'] = $_POST['b_nr'];
-        $data['b_postcode'] = $_POST['b_postcode'];
-        $data['b_plaats'] = $_POST['b_plaats'];
-        $data['b_land'] = $_POST['b_land'];
-        $data['b_telefoon'] = $_POST['b_telefoon'];
-        $data['b_fax'] = $_POST['b_fax'];
-        $data['b_gsm'] = $_POST['b_gsm'];
-        $data['b_email'] = $_POST['b_email'];
-        $data['b_organisatie'] = $_POST['b_organisatie'];
-        $data['b_functies'] = $_POST['b_functies'];
-		
-		
-		$data['r_naam'] = $_POST['r_naam'];
-		$data['r_voornaam'] = $_POST['r_voornaam'];
-        $data['r_telefoon'] = $_POST['r_telefoon'];
-        $data['r_email'] = $_POST['r_email'];
-        $data['r_naam_2'] = $_POST['r_naam_2'];
-		$data['r_voornaam_2'] = $_POST['r_voornaam_2'];
-        $data['r_telefoon_2'] = $_POST['r_telefoon_2'];
-        $data['r_email_2'] = $_POST['r_email_2'];
-		
-		
-		$data['f_personname'] = $_POST['f_personname'];
-		$data['f_telefoon'] = $_POST['f_telefoon'];
-        $data['f_fax'] = $_POST['f_fax'];
-        $data['f_email'] = $_POST['f_email'];
-        $data['f_btw'] = $_POST['f_btw'];
-		
-		$newinter = '';
-		if(!empty($_POST['f_interest'])) {
-		    foreach($_POST['f_interest'] as $f_inter) {
-		        $newinter .= empty($newinter) ? $f_inter : ', '.$f_inter;
-		    }
-		}
-		$data['f_interest'] = $newinter;
-		
-		$newpay = '';
-		if(!empty($_POST['f_addresspayment'])) {
-		    foreach($_POST['f_addresspayment'] as $f_pay) {
-		        $newpay .= empty($newpay) ? $f_pay : ', '.$f_pay;
-		    }
-		}
-		$data['f_addresspayment'] = $newpay;
-		
-		$data['f_notepayment'] = $_POST['f_notepayment'];
-		
-		$data['created'] = date('Y-m-d h:i:s');
-        $data['modified'] = date('Y-m-d h:i:s');
-        
-        $results = $wpdb->insert('wp_members', $data);
-        if($results){
-            $logged = true;
-            $message = "Register success";
-            unset($data['password']);
-            $_SESSION['user'] = $data;
-			$_SESSION['user_id'] = $data['id'];
-            $link = get_site_url().'/success';
-            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
-        }
-        else{
-        	
-            $message = "Register failed";
-        }
-    }else{
-    	//$message = "Please type the field.";
-    }
+			
+			$data['p_password'] = sha1($_POST['p_password']);
+			
+			$data['p_picture'] = $data['p_picture']; 
+	        $data['b_naam'] = $_POST['p_naam'];
+			$data['b_hoofd'] = $_POST['b_hoofd'];
+	        $data['b_firma'] = $_POST['b_firma'];
+	        $data['b_straat'] = $_POST['b_straat'];
+	        $data['b_nr'] = $_POST['b_nr'];
+	        $data['b_postcode'] = $_POST['b_postcode'];
+	        $data['b_plaats'] = $_POST['b_plaats'];
+	        $data['b_land'] = $_POST['b_land'];
+	        $data['b_telefoon'] = $_POST['b_telefoon'];
+	        $data['b_fax'] = $_POST['b_fax'];
+	        $data['b_gsm'] = $_POST['b_gsm'];
+	        $data['b_email'] = $_POST['b_email'];
+	        $data['b_organisatie'] = $_POST['b_organisatie'];
+	        $data['b_functies'] = $_POST['b_functies'];
+			
+			
+			$data['r_naam'] = $_POST['r_naam'];
+			$data['r_voornaam'] = $_POST['r_voornaam'];
+	        $data['r_telefoon'] = $_POST['r_telefoon'];
+	        $data['r_email'] = $_POST['r_email'];
+	        $data['r_naam_2'] = $_POST['r_naam_2'];
+			$data['r_voornaam_2'] = $_POST['r_voornaam_2'];
+	        $data['r_telefoon_2'] = $_POST['r_telefoon_2'];
+	        $data['r_email_2'] = $_POST['r_email_2'];
+			
+			
+			$data['f_personname'] = $_POST['f_personname'];
+			$data['f_telefoon'] = $_POST['f_telefoon'];
+	        $data['f_fax'] = $_POST['f_fax'];
+	        $data['f_email'] = $_POST['f_email'];
+	        $data['f_btw'] = $_POST['f_btw'];
+			
+			$newinter = '';
+			if(!empty($_POST['f_interest'])) {
+			    foreach($_POST['f_interest'] as $f_inter) {
+			        $newinter .= empty($newinter) ? $f_inter : ', '.$f_inter;
+			    }
+			}
+			$data['f_interest'] = $newinter;
+			
+			$newpay = '';
+			if(!empty($_POST['f_addresspayment'])) {
+			    foreach($_POST['f_addresspayment'] as $f_pay) {
+			        $newpay .= empty($newpay) ? $f_pay : ', '.$f_pay;
+			    }
+			}
+			$data['f_addresspayment'] = $newpay;
+			
+			$data['f_notepayment'] = $_POST['f_notepayment'];
+			
+			$data['created'] = date('Y-m-d h:i:s');
+	        $data['modified'] = date('Y-m-d h:i:s');
+	        
+	        $results = $wpdb->insert('wp_members', $data);
+	        if($results){
+	            $logged = true;
+	            $message = "Register success";
+	            unset($data['password']);
+	            $_SESSION['user'] = $data;
+				$_SESSION['user_id'] = $data['id'];
+	            $link = get_site_url().'/success';
+	            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+	        }
+	        else{
+	        	
+	            $message = "Register failed";
+	        }
+	    }else{
+	    	//$message = "Please type the field.";
+	    }
+	 }
 ?>
 
 
@@ -552,6 +554,7 @@
 										<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 	                                    <input name="action" type="hidden" class="action" value="register_action"/>
 										<a href="javascript:void(0)" onclick="jQuery('#registerForm').submit();" class="btn">VERSTUUR MIJN AANVRAAG</a>
+										<?php wp_nonce_field('register_member','act_register_member');?>
 									</div>
 								</div>
 							</form>
