@@ -233,11 +233,13 @@
         display: table;
         margin: 0 auto;
         text-align: center;
+        width: 324px;
       li{
         display: inline-block;
         margin-left: 5px;
         margin-bottom: 14px;
         margin-right: 5px;
+          float: left;
         height: 97px;
         width: 97px;
         position: relative;

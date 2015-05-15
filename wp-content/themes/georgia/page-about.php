@@ -21,9 +21,13 @@
 								$aboutContent = $about->post_content;
 							?>
 							<?php echo apply_filters('the_content', $aboutContent);?>
+                            <?php if(!isset($_SESSION['user'])){ ?> 
                             <a class="btn" href="<?php echo bloginfo('home')?>/word-lid">
                                 WORD LID
                             </a>
+                            <?php } else {?>
+                            	<div style="padding-top: 15px;"></div>
+                            <?php }?>
                         </div>
                     </div>
 

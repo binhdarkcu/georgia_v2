@@ -63,7 +63,22 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Land/Regio</div>
-							<div class="col2"><input type="text" name="b_land" value="<?php echo $user['b_land']; ?>" disabled=""/></div>
+							<div class="col2">
+								<?php
+                                $region_location_array = get_field('region_location', 'option');
+
+                                $stroption_region_location = '';
+                                foreach($region_location_array as $region_location)
+                                {
+                                    $no = $region_location['no'];
+                                    $title = $region_location['title'];
+                                    $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
+                                }
+                                ?>
+								<select name="b_land" disabled="">
+                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
+								</select>
+							</div>
 							<div class="col3"><a href="#" data-fieldname="b_land" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>

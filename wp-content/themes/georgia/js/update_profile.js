@@ -45,7 +45,7 @@ jQuery(document).ready(function(){
 		$fieldname = $(this).attr('data-fieldname');
 		var self = this;
 		if($status == 'save'){
-			$setfield = $('input[name=' + $fieldname + ']').val();
+			$setfield = $('input[name=' + $fieldname + ']').val() || $('select[name=' + $fieldname + ']').val();
 			$id = $(this).attr('data-userid');
 			jQuery.ajax({
 				type : "post",
@@ -54,6 +54,7 @@ jQuery(document).ready(function(){
 				success: function(data) {
 					if(data){
 						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
+						$('select[name=' + $fieldname + ']').removeAttr('style');
 						$(self).find('span').text('edit');
 						alert('Profile updated.');
 					}else{
@@ -62,8 +63,9 @@ jQuery(document).ready(function(){
 				}
 			});
 		}else{
-			$('input[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
-			$('.empty').hide();
+			$('input[name=' + $fieldname + '], select[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
+			$('select[name=' + $fieldname + ']').css({'background':'#fff','color':'#333'});
+			$(this).parent().parent().find('.empty').hide();
 			$status = $(this).find('span').text('save');
 		}
 	});
