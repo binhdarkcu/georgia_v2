@@ -74,7 +74,7 @@
 	                                        	<div class="scrollbar">
                                                     <?php
                                                         global $wpdb;
-                                                        $join_query = "SELECT m.p_picture, m.p_voornaam, m.p_likedin, m.b_firma, m.b_organisatie, m.p_plaats FROM wp_members m";
+                                                        $join_query = "SELECT m.p_picture, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m";
                                                         $members = $wpdb->get_results($join_query);
                                                         foreach($members as $member){
                                                             $srcimage = content_url().'/uploads/avatar/'.$member->{'p_picture'};
@@ -91,9 +91,32 @@
 	                                        			</div>
 	                                        			<div class="col col2"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>"><?php echo $member->{'p_voornaam'} ?></a></div></div>
 	                                        			<div class="col col3"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>" class="fa fa-linkedin"></a></div></div>
-	                                        			<div class="col col4"><div class="middle"><?php echo $member->{'b_firma'} ?></div></div>
-	                                        			<div class="col col5"><div class="middle"><a href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
-	                                        			<div class="col col6"><div class="middle"><?php echo $member->{'b_land'} ?></div></div>
+	                                        			<div class="col col4">
+	                                        				<div class="middle">
+	                                        					<?php
+								                                $bussiness_location_array = get_field('business_sector', 'option');
+																foreach($bussiness_location_array as $bussiness_location){
+																	if($bussiness_location['no'] == $member->{'b_firma'}){
+																		echo $bussiness_location['title'];
+																	}
+																}
+								                                ?>
+	                                        					
+	                                        				</div>
+	                                        			</div>
+	                                        			<div class="col col5"><div class="middle"><a target="_blank" href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
+	                                        			<div class="col col6">
+	                                        				<div class="middle">
+	                                        					<?php
+								                                $region_location_array = get_field('region_location', 'option');
+																foreach($region_location_array as $region_location){
+																	if($region_location['no'] == $member->{'b_land'}){
+																		echo $region_location['title'];
+																	}
+																}
+								                                ?>
+	                                        				</div>
+	                                        			</div>
 														
 	                                        		</div>
 	                                        		<?php }//end foreach ?>
