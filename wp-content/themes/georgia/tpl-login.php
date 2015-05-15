@@ -24,7 +24,7 @@
 		        }
 		        else{
 		            echo '<script language="javascript">';
-					echo 'alert("'.$password.'")';
+					echo 'alert("Login fail.")';
 					echo '</script>';
 					$link = get_site_url().'/word-lid';
 					echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";
