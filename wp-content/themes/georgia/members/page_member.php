@@ -690,11 +690,39 @@ class TT_Member_List_Table extends WP_List_Table {
         
         //$data = $this->example_data;
           global $wpdb;
-		  $query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
-		  $members = $wpdb->get_results($query);
-		  $data = array();
-		  foreach ($members as $querydatum ) {
-		   			array_push($data, (array)$querydatum);}      
+		  
+		  
+		  $search = $_POST['s'];
+		  //echo "<script>alert('$search')</script>";
+		  if( $search != NULL ){
+		       
+		        // Trim Search Term
+		        $search = trim($search);
+		       
+		        /* Notice how you can search multiple columns for your search term easily, and return one data set */
+		        $s_query = "SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members where p_plaats LIKE '%$search%'
+		        	OR p_plaats LIKE '%$search%'
+		        	OR p_picture LIKE '%$search%'
+		        	OR p_naam LIKE '%$search%'
+		        	OR p_email LIKE '%$search%'
+		        	OR p_land LIKE '%$search%'
+		        	OR p_telefoon LIKE '%$search%'
+		        	OR p_plaats LIKE '%$search%'
+		        ";
+				echo "<script>alert('$s_query')</script>";
+		  		$members = $wpdb->get_results($s_query);
+				$data = array();
+		  		foreach ($members as $querydatum ) {
+		   			array_push($data, (array)$querydatum);}
+		 
+		  }else{
+		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
+		  	$members = $wpdb->get_results($query);
+			$data = array();
+		  	foreach ($members as $querydatum ) {
+		   			array_push($data, (array)$querydatum);}
+		  }
+		        
         
         function usort_reorder($a,$b){
             $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'title'; //If no sort, default to title
@@ -750,7 +778,13 @@ function tt_render_member_list_page(){
     //Create an instance of our package class...
     $testListTable = new TT_Member_List_Table();
     //Fetch, prepare, sort, and filter our data...
-    $testListTable->prepare_items();
+    $search = $_POST['s'];
+    if( isset($search) ){
+            $testListTable->prepare_items($search);
+    } else {
+            $testListTable->prepare_items();
+    }
+    //$testListTable->prepare_items();
     /*EDIT MEMBER*/
   	if(!empty($_POST) && wp_verify_nonce($_POST['act_update_member'],'update_member')){
 		global $wpdb;
@@ -810,7 +844,10 @@ function tt_render_member_list_page(){
 	}
     ?>
     <div class="wrap">
-        
+        <form method="post">
+		  <input type="hidden" name="page" value="tt_member" />
+		  <?php $testListTable->search_box('search', 'search_id'); ?>
+		</form>
         <!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
         <form id="movies-filter" method="get">
             <!-- For plugins, we also need to ensure that the form posts back to our current page -->
