@@ -21,8 +21,9 @@
     $message = "";
 	if(!empty($_POST) && wp_verify_nonce($_POST['act_register_member'],'register_member')){
 	    if(!empty($_POST['p_email']))
-	    {
+	    {	
 	        global $wpdb;
+			
 	        $data['p_naam'] = $_POST['p_naam'];
 	        $data['p_voornaam'] = $_POST['p_voornaam'];
 	        $data['p_geboortedatum'] = $_POST['p_geboortedatum'];
@@ -94,13 +95,17 @@
 			$data['f_interest'] = $newinter;
 			
 			$newpay = '';
-			if(!empty($_POST['f_addresspayment'])) {
-			    foreach($_POST['f_addresspayment'] as $f_pay) {
-			        $newpay .= empty($newpay) ? $f_pay : ', '.$f_pay;
-			    }
+			$w_pay = $_POST['f_addresspayment'];
+			if(count($w_pay)>1){
+				if(!empty($_POST['f_addresspayment'])) {
+				    foreach($_POST['f_addresspayment'] as $f_pay) {
+				        $newpay .= empty($newpay) ? $f_pay : ', '.$f_pay;
+				    }
+				}
+				$data['f_addresspayment'] = $newpay;
+			}else{
+				$data['f_addresspayment'] = $w_pay;	
 			}
-			$data['f_addresspayment'] = $newpay;
-			
 			$data['f_notepayment'] = $_POST['f_notepayment'];
 			
 			$data['created'] = date('Y-m-d h:i:s');

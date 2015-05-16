@@ -37,7 +37,8 @@
 				inline: true,
 				changeMonth: true,
     			changeYear: true,
-				showOtherMonths: true
+				showOtherMonths: true,
+				yearRange: '1900:c',
 			})
 			.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
 		  });

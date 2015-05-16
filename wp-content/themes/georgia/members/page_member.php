@@ -1,285 +1,580 @@
 <?php
-/*
-Plugin Name: Test List Table Example
-*/
-
 if( ! class_exists( 'WP_List_Table' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
-
-class My_Example_List_Table extends WP_List_Table {
-
+class TT_Member_List_Table extends WP_List_Table {
+    
+    /** ************************************************************************
+     * Normally we would be querying data from a database and manipulating that
+     * for use in your list table. For this example, we're going to simplify it
+     * slightly and create a pre-built array. Think of this as the data that might
+     * be returned by $wpdb->query().
+     * 
+     * @var array 
+     **************************************************************************/
     var $example_data = array(
-            array( 'ID' => 1,'booktitle' => 'Quarter Share', 'author' => 'Nathan Lowell', 
-                   'isbn' => '978-0982514542' ),
-            array( 'ID' => 2, 'booktitle' => '7th Son: Descent','author' => 'J. C. Hutchins',
-                   'isbn' => '0312384378' ),
-            array( 'ID' => 3, 'booktitle' => 'Shadowmagic', 'author' => 'John Lenahan',
-                   'isbn' => '978-1905548927' ),
-            array( 'ID' => 4, 'booktitle' => 'The Crown Conspiracy', 'author' => 'Michael J. Sullivan',
-                   'isbn' => '978-0979621130' ),
-            array( 'ID' => 5, 'booktitle'     => 'Max Quick: The Pocket and the Pendant', 'author'    => 'Mark Jeffrey',
-                   'isbn' => '978-0061988929' ),
-            array('ID' => 6, 'booktitle' => 'Jack Wakes Up: A Novel', 'author' => 'Seth Harwood',
-                  'isbn' => '978-0307454355' )
+            array(
+                'ID'        => 1,
+                'title'     => '300',
+                'rating'    => 'R',
+                'director'  => 'Zach Snyder'
+            ),
+            array(
+                'ID'        => 2,
+                'title'     => 'Eyes Wide Shut',
+                'rating'    => 'R',
+                'director'  => 'Stanley Kubrick'
+            ),
+            array(
+                'ID'        => 3,
+                'title'     => 'Moulin Rouge!',
+                'rating'    => 'PG-13',
+                'director'  => 'Baz Luhrman'
+            ),
+            array(
+                'ID'        => 4,
+                'title'     => 'Snow White',
+                'rating'    => 'G',
+                'director'  => 'Walt Disney'
+            ),
+            array(
+                'ID'        => 5,
+                'title'     => 'Super 8',
+                'rating'    => 'PG-13',
+                'director'  => 'JJ Abrams'
+            ),
+            array(
+                'ID'        => 6,
+                'title'     => 'The Fountain',
+                'rating'    => 'PG-13',
+                'director'  => 'Darren Aronofsky'
+            ),
+            array(
+                'ID'        => 7,
+                'title'     => 'Watchmen',
+                'rating'    => 'R',
+                'director'  => 'Zach Snyder'
+            )
         );
+
+
     function __construct(){
-    global $status, $page;
-
+        global $status, $page;
+                
+        //Set parent defaults
         parent::__construct( array(
-            'singular'  => __( 'book', 'mylisttable' ),     //singular name of the listed records
-            'plural'    => __( 'books', 'mylisttable' ),   //plural name of the listed records
+            'singular'  => 'member',     //singular name of the listed records
+            'plural'    => 'members',    //plural name of the listed records
             'ajax'      => false        //does this table support ajax?
-
-    ) );
-
-    add_action( 'admin_head', array( &$this, 'admin_header' ) );            
-
+        ) );
+        
     }
 
-  function admin_header() {
-    $page = ( isset($_GET['page'] ) ) ? esc_attr( $_GET['page'] ) : false;
-    if( 'my_list_test' != $page )
-    return;
-    echo '<style type="text/css">';
-    echo '.wp-list-table .column-id { width: 5%; }';
-    echo '.wp-list-table .column-naam { width: 40%; }';
-    echo '.wp-list-table .column-vornaam { width: 35%; }';
-	echo '.wp-list-table .column-email { width: 35%; }';
-    echo '.wp-list-table .column-land { width: 20%;}';
-    echo '</style>';
-  }
-
-  function no_items() {
-    _e( 'No books found, dude.' );
-  }
-
-  function column_default( $item, $column_name ) {
-  	
-    switch( $column_name ) {
-    	case 'p_picture': 
-			echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
-			break;
-        case 'p_naam':
-        case 'p_voornaam':
-		case 'p_email':
-        case 'p_land':
-			$region_location_array = get_field('region_location', 'option');
-			foreach($region_location_array as $region_location){
-				if($region_location['no'] == $item[ $column_name ]){
-					return $region_location['title'];
+    function column_default($item, $column_name){
+        switch($column_name){
+            case 'p_picture': 
+				echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
+				break;
+	        case 'p_naam':
+	        case 'p_voornaam':
+			case 'p_email':
+	        case 'p_land':
+				$region_location_array = get_field('region_location', 'option');
+				foreach($region_location_array as $region_location){
+					if($region_location['no'] == $item[ $column_name ]){
+						return $region_location['title'];
+					}
 				}
-			}
-		case 'p_telefoon':
-		case 'p_plaats':
-            return $item[ $column_name ];
-        default:
-            return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
-    }
-  }
-
-function get_sortable_columns() {
-  $sortable_columns = array(
-  	'p_picture' => array('Avatar',false),
-    'p_naam'  => array('Naam',false),
-    'p_voornaam' => array('Voornaam',false),
-    'p_email' => array('Email',false),
-    'p_land'   => array('Land',false),
-	'p_telefoon' => array('Telefoon',false),
-    'p_plaats'   => array('Plaats',false)
-  );
-  return $sortable_columns;
-}
-
-function get_columns(){
-        $columns = array(
-            'cb'        => '<input type="checkbox" />',
-            'p_picture' => __( 'Avatar', 'mylisttable' ),
-            'p_naam' => __( 'Naam', 'mylisttable' ),
-            'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
-            'p_email'    => __( 'Email', 'mylisttable' ),
-            'p_land'      => __( 'Land', 'mylisttable' ),
-			'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
-            'p_plaats'      => __( 'Plaats', 'mylisttable' )
-        );
-         return $columns;
+			case 'p_telefoon':
+			case 'p_plaats':
+	            return $item[ $column_name ];
+	        default:
+	            return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
+        }
     }
 
-function usort_reorder( $a, $b ) {
-  // If no sort, default to title
-  $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'p_naam';
-  // If no order, default to asc
-  $order = ( ! empty($_GET['order'] ) ) ? $_GET['order'] : 'asc';
-  // Determine sort order
-  $result = strcmp( $a[$orderby], $b[$orderby] );
-  // Send final sort direction to usort
-  return ( $order === 'asc' ) ? $result : -$result;
-}
-
-function column_p_naam($item){
-  $actions = array(
+    function column_p_naam($item){
+        
+        //Build row actions
+        $actions = array(
             'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id']),
             'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
             'detail'    => sprintf('<a href="?page=%s&action=%s&id=%s">Detail</a>',$_REQUEST['page'],'detail',$item['id']),
         );
-
-  return sprintf('%1$s %2$s', $item['p_naam'], $this->row_actions($actions) );
-}
-
-function get_bulk_actions() {
-  $actions = array(
-    'delete'    => 'Delete'
-  );
-  return $actions;
-}
-function process_bulk_action() {
-        global $wpdb;
-        //Detect when a bulk action is being triggered...
-        if( 'delete'===$this->current_action() ) {
-        	$delete = $wpdb->delete('wp_members', array('id' => $_GET['id']));
-            //wp_die('Items deleted (or they would be if we had items to delete)!');
-        }
         
+        //Return the title contents
+        return sprintf('%1$s %2$s', $item['p_naam'], $this->row_actions($actions) );
     }
-//edit member
-function process_edit_action() {
+
+
+    function column_cb($item){
+        return sprintf(
+            '<input type="checkbox" name="%1$s[]" value="%2$s" />',
+            /*$1%s*/ $this->_args['singular'],  //Let's simply repurpose the table's singular label ("movie")
+            /*$2%s*/ $item['id']                //The value of the checkbox should be the record's id
+        );
+    }
+
+
+    /** ************************************************************************
+     * REQUIRED! This method dictates the table's columns and titles. This should
+     * return an array where the key is the column slug (and class) and the value 
+     * is the column's title text. If you need a checkbox for bulk actions, refer
+     * to the $columns array below.
+     * 
+     * The 'cb' column is treated differently than the rest. If including a checkbox
+     * column in your table you must create a column_cb() method. If you don't need
+     * bulk actions or checkboxes, simply leave the 'cb' entry out of your array.
+     * 
+     * @see WP_List_Table::::single_row_columns()
+     * @return array An associative array containing column information: 'slugs'=>'Visible Titles'
+     **************************************************************************/
+    function get_columns(){
+        $columns = array(
+            'cb'        => '<input type="checkbox" />', //Render a checkbox instead of text
+            'p_picture' =>'Avatar',
+            'p_naam'     => 'Naam',
+            'p_voornaam'    => 'Voornaam',
+            'p_email'    => 'Email',
+            'p_land'      => 'Land',
+			'p_telefoon'    => 'Telefoon',
+            'p_plaats'      => 'Plaats'
+        );
+        return $columns;
+    }
+
+
+    /** ************************************************************************
+     * Optional. If you want one or more columns to be sortable (ASC/DESC toggle), 
+     * you will need to register it here. This should return an array where the 
+     * key is the column that needs to be sortable, and the value is db column to 
+     * sort by. Often, the key and value will be the same, but this is not always
+     * the case (as the value is a column name from the database, not the list table).
+     * 
+     * This method merely defines which columns should be sortable and makes them
+     * clickable - it does not handle the actual sorting. You still need to detect
+     * the ORDERBY and ORDER querystring variables within prepare_items() and sort
+     * your data accordingly (usually by modifying your query).
+     * 
+     * @return array An associative array containing all the columns that should be sortable: 'slugs'=>array('data_values',bool)
+     **************************************************************************/
+    function get_sortable_columns() {
+        $sortable_columns = array(
+            'p_picture' => array('p_picture',false),
+		    'p_naam'  => array('p_naam',false),
+		    'p_voornaam' => array('p_voornaam',false),
+		    'p_email' => array('p_email',false),
+		    'p_land'   => array('p_land',false),
+			'p_telefoon' => array('p_telefoon',false),
+		    'p_plaats'   => array('p_land',false)
+        );
+        return $sortable_columns;
+    }
+
+
+    /** ************************************************************************
+     * Optional. If you need to include bulk actions in your list table, this is
+     * the place to define them. Bulk actions are an associative array in the format
+     * 'slug'=>'Visible Title'
+     * 
+     * If this method returns an empty value, no bulk action will be rendered. If
+     * you specify any bulk actions, the bulk actions box will be rendered with
+     * the table automatically on display().
+     * 
+     * Also note that list tables are not automatically wrapped in <form> elements,
+     * so you will need to create those manually in order for bulk actions to function.
+     * 
+     * @return array An associative array containing all the bulk actions: 'slugs'=>'Visible Titles'
+     **************************************************************************/
+    function get_bulk_actions() {
+        $actions = array(
+            'delete'    => 'Delete'
+        );
+        return $actions;
+    }
+
+
+    /** ************************************************************************
+     * Optional. You can handle your bulk actions anywhere or anyhow you prefer.
+     * For this example package, we will handle it in the class to keep things
+     * clean and organized.
+     * 
+     * @see $this->prepare_items()
+     **************************************************************************/
     
-    //Detect when a bulk action is being triggered...
-    if( 'edit'===$this->current_action() ) {
-    	
+    function process_bulk_action() {
+        
+        //Detect when a bulk action is being triggered...
+       /* if( 'delete'===$this->current_action() ) {
+        	global $wpdb;
+			echo '<script>alert('.$_GET['id'].')</script>';
+            $wpdb->delete('wp_members', array('id' => $_GET['id']));
+			$link = admin_url().'admin.php?page=tt_member';*/
+			//echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+            //wp_die('Items deleted (or they would be if we had items to delete)!');
+        
+        if ('delete' === $this->current_action()) {
+            $ids = isset($_REQUEST['id']) ? $_REQUEST['id'] : array();
+            if (is_array($ids)) $ids = implode(',', $ids);
+
+            if (!empty($ids)) {
+                global $wpdb;
+	            $wpdb->delete('wp_members', array('id' => $_GET['id']));
+				$link = admin_url().'admin.php?page=tt_member';
+            }
+        }
+		  // If the delete bulk action is triggered
+		  if ( ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' )) {
+		 	
+		    $ids = isset($_GET['member']) ? $_GET['member'] : array();
+		    foreach ( $ids as $id ) {
+		      //self::delete_customer( $id );
+		 		global $wpdb;
+            	$wpdb->delete('wp_members', array('id' => $id));
+				$link = admin_url().'admin.php?page=tt_member';
+				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+		    }
+		 
+		  }
+    }
+	//edit member
+	function process_edit_action() {
+	    
+	    //Detect when a bulk action is being triggered...
+	    if( 'edit'===$this->current_action() ) {
+	    	
+			
+			global $wpdb;
+			$query = 'SELECT * FROM wp_members WHERE id = '.$_GET['id'];
+			$member = $wpdb->get_row($query, ARRAY_A);
+		?>
+	    	<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
+	    	<script src="<?php echo bloginfo('template_url')?>/members/js/jquery-ui-1.10.1.min.js"></script>
+			<script src="<?php echo bloginfo('template_url')?>/members/js/update_member.js"></script>
+	    	<link href="<?php echo bloginfo('template_url')?>/members/css/jquery-ui-1.10.1.css" rel="stylesheet">
+			<link type="text/css" rel='stylesheet' href="<?php echo bloginfo('template_url')?>/members/css/latoja.datepicker.css"/>
+			<script type="text/javascript">
+				  $(function() {
+				    $( "#date_geboortedatum, #date_geboorteplaats" ).datepicker({
+						inline: true,
+						changeMonth: true,
+		    			changeYear: true,
+						showOtherMonths: true
+					})
+					.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
+				  });
+			</script>
+	    	<div class="registerPage ">
+	    		<div class="registerBox">
+		    		<form action="" method="post" enctype="multipart/form-data">
+		    			<h3>Edit member</h3>
+		    			<div style="float: left;">
+		    				<h4>Naam: <?php echo $member['p_naam']; ?></h4>
+		    				<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+		    			</div>
+		    			<div class="informationBox" style="float: right;">
+							<div class="reg-left">
+								<h3>PRIVEGEGEVENS</h3>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Naam<span class="red">*</span></label>
+										<input type="text" name="p_naam" value="<?php echo $member['p_naam']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Voornaam<span class="red">*</span></label>
+										<input type="text" name="p_voornaam" value="<?php echo $member['p_voornaam']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Geboortedatum<span class="red">*</span></label>
+										<input id="date_geboortedatum" type="text" name="p_geboortedatum" value="<?php echo $member['p_geboortedatum']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Geboorteplaats<span class="red">*</span></label>
+										<input id="date_geboorteplaats" type="text" name="p_geboorteplaats" value="<?php echo $member['p_geboorteplaats']; ?>"  />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Straat<span class="red">*</span></label>
+										<input type="text" name="p_straat" value="<?php echo $member['p_straat']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Nr.<span class="red">*</span></label>
+										<input type="text" name="p_nr" value="<?php echo $member['p_nr']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Postcode<span class="red">*</span></label>
+										<input type="text" name="p_postcode" value="<?php echo $member['p_postcode']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Plaats<span class="red">*</span></label>
+										<input type="text" name="p_plaats" value="<?php echo $member['p_plaats']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Land<span class="red">*</span></label>
+		                                <?php
+		                                $region_location_array = get_field('region_location', 'option');
 		
-		global $wpdb;
-		$query = 'SELECT * FROM wp_members WHERE id = '.$_GET['id'];
-		$member = $wpdb->get_row($query, ARRAY_A);
-	?>
-    	<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
-    	<script src="<?php echo bloginfo('template_url')?>/members/js/jquery-ui-1.10.1.min.js"></script>
-		<script src="<?php echo bloginfo('template_url')?>/members/js/update_member.js"></script>
-    	<link href="<?php echo bloginfo('template_url')?>/members/css/jquery-ui-1.10.1.css" rel="stylesheet">
-		<link type="text/css" rel='stylesheet' href="<?php echo bloginfo('template_url')?>/members/css/latoja.datepicker.css"/>
-		<script type="text/javascript">
-			  $(function() {
-			    $( "#date_geboortedatum, #date_geboorteplaats" ).datepicker({
-					inline: true,
-					changeMonth: true,
-	    			changeYear: true,
-					showOtherMonths: true
-				})
-				.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
-			  });
-		</script>
-    	<div class="registerPage ">
-    		<div class="registerBox">
-	    		<form action="" method="post" enctype="multipart/form-data">
-	    			<h3>Edit member</h3>
-	    			<div style="float: left;">
-	    				<h4>Naam: <?php echo $member['p_naam']; ?></h4>
-	    				<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
-	    			</div>
-	    			<div class="informationBox" style="float: right;">
+		                                $stroption_region_location = '';
+		                                foreach($region_location_array as $region_location)
+		                                {
+		                                    $no = $region_location['no'];
+		                                    $title = $region_location['title'];
+		                                    $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
+		                                }
+		                                ?>
+										<select name="p_land">
+		                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
+										</select>
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Telefoon</label>
+										<input type="text" name="p_telefoon" value="<?php echo $member['p_telefoon']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Fax</label>
+										<input type="text" name="p_fax" value="<?php echo $member['p_fax']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>GSM<span class="red">*</span></label>
+										<input type="text" name="p_gsm" value="<?php echo $member['p_gsm']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Privé emailadres<span class="red">*</span></label>
+										
+										<input disabled="disabled" type="text" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
+										<input type="hidden" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
+										<input name="action" type="hidden" class="action" value="check_user_email"/>
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Linkedin Profiel pagina</label>
+										<input type="text" name="p_likedin" value="<?php echo $member['p_likedin']; ?>" />
+									</div>
+								</div>
+								
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Profielfoto</label>
+										<div class="pictureUpload">
+											<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" class="imgPreview" style="width: 48px; height: 38px;"/>
+											<div class="fileUpload ">
+												<span>UPLOAD FOTO</span>
+												<input type="file" class="upload" name="p_picture" id="filePicture"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="reg-right">
+								<h3>BEROEPSGEGEVENS</h3>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Naam van firma/organisatie<span class="red">*</span></label>
+										<input type="text" name="b_naam" value="<?php echo $member['b_naam']; ?>" />
+									</div>
+									<div class="col2">
+										<label>(Hoofd) Functie<span class="red">*</span></label>
+										<input type="text" name="b_hoofd" value="<?php echo $member['b_hoofd']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Aard van de firma/organisatie<span class="red">*</span></label>
+		                                <?php
+		                                $business_sector_array = get_field('business_sector', 'option');
+		
+		                                $stroption_business_sector = '';
+		                                foreach($business_sector_array as $business_sector)
+		                                {
+		                                    $no = $business_sector['no'];
+		                                    $title = $business_sector['title'];
+		                                    $stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
+		                                }
+		                                ?>
+										<select name="b_firma">
+											<?php echo str_replace('value="'.$member['b_firma'].'"', 'value="'.$member['b_firma'].'" selected', $stroption_business_sector);?>
+										</select>
+									</div>
+								</div>
+								
+								<div class="reg-row">
+									<div class="col1">
+										<label>Straat<span class="red">*</span></label>
+										<input type="text" name="b_straat" value="<?php echo $member['b_straat']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Nr.<span class="red">*</span></label>
+										<input type="text" name="b_nr" value="<?php echo $member['b_nr']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Postcode<span class="red">*</span></label>
+										<input type="text" name="b_postcode" value="<?php echo $member['b_postcode']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Plaats<span class="red">*</span></label>
+										<input type="text" name="b_plaats" value="<?php echo $member['b_plaats']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Land<span class="red">*</span></label>
+		
+										<select name="b_land">
+		                                    <?php echo str_replace('value="'.$member['b_land'].'"', 'value="'.$member['b_land'].'" selected', $stroption_region_location);?>
+										</select>
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="col1">
+										<label>Telefoon</label>
+										<input type="text" name="b_telefoon" value="<?php echo $member['b_telefoon']; ?>" />
+									</div>
+									<div class="col2">
+										<label>Fax</label>
+										<input type="text" name="b_fax" value="<?php echo $member['b_fax']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>GSM</label>
+										<input type="text" name="b_gsm" value="<?php echo $member['b_gsm']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Emailadres</label>
+										<input type="text" name="b_email" value="<?php echo $member['b_email']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Website bedrijf/organisatie</label>
+										<input type="text" name="b_organisatie" value="<?php echo $member['b_organisatie']; ?>" />
+									</div>
+								</div>
+								<div class="reg-row">
+									<div class="colfull">
+										<label>Andere functies en mandaten</label>
+										<input type="text" name="b_functies" value="<?php echo $member['b_functies']; ?>" />
+									</div>
+								</div>	
+							</div>
+							<div class="clear"></div>
+							<input type="submit"  value="Update" class="btn" />
+							<?php wp_nonce_field('update_member','act_update_member');?>
+						</div>
+						
+		    		</form>
+		    	</div>
+	    	</div>
+	    <?php 
+			exit();
+		}
+	}
+	function process_detail_action(){
+		if( 'detail'===$this->current_action() ) {
+			global $wpdb;
+			$query = 'SELECT * FROM wp_members WHERE id = '.$_GET['id'];
+			$member = $wpdb->get_row($query, ARRAY_A);
+		?>
+			<div class="registerPage ">
+	    		<div class="registerBox">
+					<h3>Member detail</h3>
+					<div style="float: left;">
+						<h4>Naam: <?php echo $member['p_naam']; ?></h4>
+						<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+					</div>
+					<div class="informationBox" style="float: right;">
 						<div class="reg-left">
 							<h3>PRIVEGEGEVENS</h3>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Naam<span class="red">*</span></label>
-									<input type="text" name="p_naam" value="<?php echo $member['p_naam']; ?>" />
+									<label><b>Naam:</b></label>
+									<span><?php echo $member['p_naam']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Voornaam<span class="red">*</span></label>
-									<input type="text" name="p_voornaam" value="<?php echo $member['p_voornaam']; ?>" />
+									<label><b>Voornaam:</b></label>
+									<span><?php echo $member['p_voornaam']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Geboortedatum<span class="red">*</span></label>
-									<input id="date_geboortedatum" type="text" name="p_geboortedatum" value="<?php echo $member['p_geboortedatum']; ?>" />
+									<label><b>Geboortedatum:</b></label>
+									<span><?php echo $member['p_geboortedatum']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Geboorteplaats<span class="red">*</span></label>
-									<input id="date_geboorteplaats" type="text" name="p_geboorteplaats" value="<?php echo $member['p_geboorteplaats']; ?>"  />
+									<label><b>Geboorteplaats:</b></label>
+									<span><?php echo $member['p_geboorteplaats']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Straat<span class="red">*</span></label>
-									<input type="text" name="p_straat" value="<?php echo $member['p_straat']; ?>" />
+									<label><b>Straat:</b></label>
+									<span><?php echo $member['p_straat']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Nr.<span class="red">*</span></label>
-									<input type="text" name="p_nr" value="<?php echo $member['p_nr']; ?>" />
+									<label><b>Nr.:</b></label>
+									<span><?php echo $member['p_nr']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Postcode<span class="red">*</span></label>
-									<input type="text" name="p_postcode" value="<?php echo $member['p_postcode']; ?>" />
+									<label><b>Postcode:</b></label>
+									<span><?php echo $member['p_postcode']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Plaats<span class="red">*</span></label>
-									<input type="text" name="p_plaats" value="<?php echo $member['p_plaats']; ?>" />
+									<label><b>Plaats:</b></label>
+									<span><?php echo $member['p_plaats']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Land<span class="red">*</span></label>
-	                                <?php
-	                                $region_location_array = get_field('region_location', 'option');
-	
-	                                $stroption_region_location = '';
-	                                foreach($region_location_array as $region_location)
-	                                {
-	                                    $no = $region_location['no'];
-	                                    $title = $region_location['title'];
-	                                    $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
-	                                }
-	                                ?>
-									<select name="p_land">
-	                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
-									</select>
+									<label><b>Land:</b></label>
+									<span><?php echo $member['p_land']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Telefoon</label>
-									<input type="text" name="p_telefoon" value="<?php echo $member['p_telefoon']; ?>" />
+									<label><b>Telefoon:</b></label>
+									<span><?php echo $member['p_telefoon']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Fax</label>
-									<input type="text" name="p_fax" value="<?php echo $member['p_fax']; ?>" />
+									<label><b>Fax:</b></label>
+									<span><?php echo $member['p_fax']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>GSM<span class="red">*</span></label>
-									<input type="text" name="p_gsm" value="<?php echo $member['p_gsm']; ?>" />
+									<label><b>GSM:</b></label>
+									<span><?php echo $member['p_gsm']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Privé emailadres<span class="red">*</span></label>
-									
-									<input disabled="disabled" type="text" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
-									<input type="hidden" name="p_email" value="<?php echo $member['p_email']; ?>" id="p_email"/>
-									<input name="action" type="hidden" class="action" value="check_user_email"/>
+									<label><b>Privé emailadres:</b></label>
+									<span><?php echo $member['p_email']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Linkedin Profiel pagina</label>
-									<input type="text" name="p_likedin" value="<?php echo $member['p_likedin']; ?>" />
-								</div>
-							</div>
-							
-							<div class="reg-row">
-								<div class="colfull">
-									<label>Profielfoto</label>
-									<div class="pictureUpload">
-										<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" class="imgPreview" style="width: 48px; height: 38px;"/>
-										<div class="fileUpload ">
-											<span>UPLOAD FOTO</span>
-											<input type="file" class="upload" name="p_picture" id="filePicture"/>
-										</div>
-									</div>
+									<label><b>Linkedin Profiel pagina:</b></label>
+									<span><?php echo $member['p_likedin']; ?></span>
 								</div>
 							</div>
 						</div>
@@ -287,363 +582,177 @@ function process_edit_action() {
 							<h3>BEROEPSGEGEVENS</h3>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Naam van firma/organisatie<span class="red">*</span></label>
-									<input type="text" name="b_naam" value="<?php echo $member['b_naam']; ?>" />
+									<label><b>Naam van firma/organisatie:</b></label>
+									<span><?php echo $member['b_naam']; ?></span>
 								</div>
 								<div class="col2">
-									<label>(Hoofd) Functie<span class="red">*</span></label>
-									<input type="text" name="b_hoofd" value="<?php echo $member['b_hoofd']; ?>" />
+									<label><b>(Hoofd) Functie:</b></label>
+									<span><?php echo $member['b_hoofd']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Aard van de firma/organisatie<span class="red">*</span></label>
-	                                <?php
-	                                $business_sector_array = get_field('business_sector', 'option');
-	
-	                                $stroption_business_sector = '';
-	                                foreach($business_sector_array as $business_sector)
-	                                {
-	                                    $no = $business_sector['no'];
-	                                    $title = $business_sector['title'];
-	                                    $stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
-	                                }
-	                                ?>
-									<select name="b_firma">
-										<?php echo str_replace('value="'.$member['b_firma'].'"', 'value="'.$member['b_firma'].'" selected', $stroption_business_sector);?>
-									</select>
+									<label><b>Aard van de firma/organisatie:</b></label>
+									<span><?php echo $member['b_firma']; ?></span>
 								</div>
 							</div>
 							
 							<div class="reg-row">
 								<div class="col1">
-									<label>Straat<span class="red">*</span></label>
-									<input type="text" name="b_straat" value="<?php echo $member['b_straat']; ?>" />
+									<label><b>Straat:</b></label>
+									<span><?php echo $member['b_straat']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Nr.<span class="red">*</span></label>
-									<input type="text" name="b_nr" value="<?php echo $member['b_nr']; ?>" />
+									<label><b>Nr.:</b></label>
+									<span><?php echo $member['b_nr']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Postcode<span class="red">*</span></label>
-									<input type="text" name="b_postcode" value="<?php echo $member['b_postcode']; ?>" />
+									<label><b>Postcode:</b></label>
+									<span><?php echo $member['b_postcode']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Plaats<span class="red">*</span></label>
-									<input type="text" name="b_plaats" value="<?php echo $member['b_plaats']; ?>" />
+									<label><b>Plaats:</b></label>
+									<span><?php echo $member['b_plaats']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Land<span class="red">*</span></label>
-	
-									<select name="b_land">
-	                                    <?php echo str_replace('value="'.$member['b_land'].'"', 'value="'.$member['b_land'].'" selected', $stroption_region_location);?>
-									</select>
+									<label><b>Land:</b></label>
+									<span><?php echo $member['b_land']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Telefoon</label>
-									<input type="text" name="b_telefoon" value="<?php echo $member['b_telefoon']; ?>" />
+									<label><b>Telefoon:</b></label>
+									<span><?php echo $member['b_telefoon']; ?></span>
 								</div>
 								<div class="col2">
-									<label>Fax</label>
-									<input type="text" name="b_fax" value="<?php echo $member['b_fax']; ?>" />
+									<label><b>Fax:</b></label>
+									<span><?php echo $member['b_fax']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>GSM</label>
-									<input type="text" name="b_gsm" value="<?php echo $member['b_gsm']; ?>" />
+									<label><b>GSM:</b></label>
+									<span><?php echo $member['b_gsm']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Emailadres</label>
-									<input type="text" name="b_email" value="<?php echo $member['b_email']; ?>" />
+									<label><b>Emailadres:</b></label>
+									<span><?php echo $member['b_email']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Website bedrijf/organisatie</label>
-									<input type="text" name="b_organisatie" value="<?php echo $member['b_organisatie']; ?>" />
+									<label><b>Website bedrijf/organisatie:</b></label>
+									<span><?php echo $member['b_organisatie']; ?></span>
 								</div>
 							</div>
 							<div class="reg-row">
 								<div class="colfull">
-									<label>Andere functies en mandaten</label>
-									<input type="text" name="b_functies" value="<?php echo $member['b_functies']; ?>" />
+									<label><b>Andere functies en mandaten:</b></label>
+									<span><?php echo $member['b_functies']; ?></span>
 								</div>
 							</div>	
 						</div>
 						<div class="clear"></div>
-						<input type="submit"  value="Update" class="btn" />
-						<?php wp_nonce_field('update_member','act_update_member');?>
 					</div>
-					
-	    		</form>
+		    	</div>
 	    	</div>
-    	</div>
-    <?php 
+		<?php	
 		exit();
+		}
 	}
-}
-    
-function process_detail_action(){
-	if( 'detail'===$this->current_action() ) {
-		global $wpdb;
-		$query = 'SELECT * FROM wp_members WHERE id = '.$_GET['id'];
-		$member = $wpdb->get_row($query, ARRAY_A);
-	?>
-		<div class="registerPage ">
-    		<div class="registerBox">
-				<h3>Member detail</h3>
-				<div style="float: left;">
-					<h4>Naam: <?php echo $member['p_naam']; ?></h4>
-					<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
-				</div>
-				<div class="informationBox" style="float: right;">
-					<div class="reg-left">
-						<h3>PRIVEGEGEVENS</h3>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Naam:</b></label>
-								<span><?php echo $member['p_naam']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Voornaam:</b></label>
-								<span><?php echo $member['p_voornaam']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Geboortedatum:</b></label>
-								<span><?php echo $member['p_geboortedatum']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Geboorteplaats:</b></label>
-								<span><?php echo $member['p_geboorteplaats']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Straat:</b></label>
-								<span><?php echo $member['p_straat']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Nr.:</b></label>
-								<span><?php echo $member['p_nr']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Postcode:</b></label>
-								<span><?php echo $member['p_postcode']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Plaats:</b></label>
-								<span><?php echo $member['p_plaats']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Land:</b></label>
-								<span><?php echo $member['p_land']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Telefoon:</b></label>
-								<span><?php echo $member['p_telefoon']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Fax:</b></label>
-								<span><?php echo $member['p_fax']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>GSM:</b></label>
-								<span><?php echo $member['p_gsm']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Privé emailadres:</b></label>
-								<span><?php echo $member['p_email']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Linkedin Profiel pagina:</b></label>
-								<span><?php echo $member['p_likedin']; ?></span>
-							</div>
-						</div>
-					</div>
-					<div class="reg-right">
-						<h3>BEROEPSGEGEVENS</h3>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Naam van firma/organisatie:</b></label>
-								<span><?php echo $member['b_naam']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>(Hoofd) Functie:</b></label>
-								<span><?php echo $member['b_hoofd']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Aard van de firma/organisatie:</b></label>
-								<span><?php echo $member['b_firma']; ?></span>
-							</div>
-						</div>
-						
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Straat:</b></label>
-								<span><?php echo $member['b_straat']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Nr.:</b></label>
-								<span><?php echo $member['b_nr']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Postcode:</b></label>
-								<span><?php echo $member['b_postcode']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Plaats:</b></label>
-								<span><?php echo $member['b_plaats']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Land:</b></label>
-								<span><?php echo $member['b_land']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="col1">
-								<label><b>Telefoon:</b></label>
-								<span><?php echo $member['b_telefoon']; ?></span>
-							</div>
-							<div class="col2">
-								<label><b>Fax:</b></label>
-								<span><?php echo $member['b_fax']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>GSM:</b></label>
-								<span><?php echo $member['b_gsm']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Emailadres:</b></label>
-								<span><?php echo $member['b_email']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Website bedrijf/organisatie:</b></label>
-								<span><?php echo $member['b_organisatie']; ?></span>
-							</div>
-						</div>
-						<div class="reg-row">
-							<div class="colfull">
-								<label><b>Andere functies en mandaten:</b></label>
-								<span><?php echo $member['b_functies']; ?></span>
-							</div>
-						</div>	
-					</div>
-					<div class="clear"></div>
-				</div>
-	    	</div>
-    	</div>
-	<?php	
-	exit();
-	}
-}
+		
+    function prepare_items() {
+        global $wpdb; //This is used only if making any database queries
+		$_SERVER['REQUEST_URI'] = remove_query_arg( '_wp_http_referer', $_SERVER['REQUEST_URI'] );
+        /**
+         * First, lets decide how many records per page to show
+         */
+        $per_page = 5;
+         
+        $columns = $this->get_columns();
+        $hidden = array();
+        $sortable = $this->get_sortable_columns();
+        
+        $this->_column_headers = array($columns, $hidden, $sortable);
+        
+        $this->process_bulk_action();
+        //edit compare
+		  $this->process_edit_action();
+		  
+		  //edit compare
+		  $this->process_detail_action();
+        
+        //$data = $this->example_data;
+          global $wpdb;
+		  $query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
+		  $members = $wpdb->get_results($query);
+		  $data = array();
+		  foreach ($members as $querydatum ) {
+		   			array_push($data, (array)$querydatum);}      
+        
+        function usort_reorder($a,$b){
+            $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'title'; //If no sort, default to title
+            $order = (!empty($_REQUEST['order'])) ? $_REQUEST['order'] : 'asc'; //If no order, default to asc
+            $result = strcmp($a[$orderby], $b[$orderby]); //Determine sort order
+            return ($order==='asc') ? $result : -$result; //Send final sort direction to usort
+        }
+        usort($data, 'usort_reorder');
+        
+        $current_page = $this->get_pagenum();
+        
 
-function column_cb($item) {
-        return sprintf(
-            '<input type="checkbox" name="book[]" value="%s" />', $item['ID']
-        );    
+        $total_items = count($data);
+        $data = array_slice($data,(($current_page-1)*$per_page),$per_page);
+        
+        
+        $this->items = $data;
+        
+        $this->set_pagination_args( array(
+            'total_items' => $total_items,                  //WE have to calculate the total number of items
+            'per_page'    => $per_page,                     //WE have to determine how many items to show on a page
+            'total_pages' => ceil($total_items/$per_page)   //WE have to calculate the total number of pages
+        ) );
     }
 
-function prepare_items() {
-  $columns  = $this->get_columns();
-  $hidden   = array();
-  $sortable = $this->get_sortable_columns();
-  $this->_column_headers = array( $columns, $hidden, $sortable );
-  usort( $this->example_data, array( &$this, 'usort_reorder' ) );
-  
-  $per_page = 5;
-  $current_page = $this->get_pagenum();
-  global $wpdb;
-  $query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
-  $members = $wpdb->get_results($query);
-  $data = array();
-  foreach ($members as $querydatum ) {
-   			array_push($data, (array)$querydatum);}
-  
-  $total_items = count( $data );
-
-  // only ncessary because we have sample data
-  
-  $this->found_data = array_slice( $data,( ( $current_page-1 )* $per_page ), $per_page );
-
-  $this->set_pagination_args( array(
-    'total_items' => $total_items,                  //WE have to calculate the total number of items
-    'per_page'    => $per_page                     //WE have to determine how many items to show on a page
-  ) );
-  $this->items = $this->found_data;
-  
-  //delete compare
-  $this->process_bulk_action();
-  
-  //edit compare
-  $this->process_edit_action();
-  
-  //edit compare
-  $this->process_detail_action();
-}
 
 }
-function my_add_menu_items(){
-  $hook = add_menu_page( 'Members', 'Members', 'activate_plugins', 'view_member', 'my_render_list_page','',8 );
-  add_action( "load-$hook", 'add_options' );
-}
-
-function add_options() {
-  global $myListTable;
-  $option = 'per_page';
-  $args = array(
-         'label' => 'Books',
-         'default' => 10,
-         'option' => 'books_per_page'
-         );
-  add_screen_option( $option, $args );
-  $myListTable = new My_Example_List_Table();
-}
-add_action( 'admin_menu', 'my_add_menu_items' );
 
 
 
-function my_render_list_page(){
-  global $myListTable;
-  echo '</pre><div class="wrap"><h2>Members</h2>'; 
-  $myListTable->prepare_items(); 
-  
-  /*EDIT MEMBER*/
-  if(!empty($_POST) && wp_verify_nonce($_POST['act_update_member'],'update_member')){
+
+
+/** ************************ REGISTER THE TEST PAGE ****************************
+ *******************************************************************************
+ * Now we just need to define an admin page. For this example, we'll add a top-level
+ * menu item to the bottom of the admin menus.
+ */
+function tt_add_member_menu_items(){
+    add_menu_page('Members', 'Members', 'activate_plugins', 'tt_member', 'tt_render_member_list_page','',8);
+} add_action('admin_menu', 'tt_add_member_menu_items');
+
+
+/** *************************** RENDER TEST PAGE ********************************
+ *******************************************************************************
+ * This function renders the admin page and the example list table. Although it's
+ * possible to call prepare_items() and display() from the constructor, there
+ * are often times where you may need to include logic here between those steps,
+ * so we've instead called those methods explicitly. It keeps things flexible, and
+ * it's the way the list tables are used in the WordPress core.
+ */
+function tt_render_member_list_page(){
+    
+    //Create an instance of our package class...
+    $testListTable = new TT_Member_List_Table();
+    //Fetch, prepare, sort, and filter our data...
+    $testListTable->prepare_items();
+    /*EDIT MEMBER*/
+  	if(!empty($_POST) && wp_verify_nonce($_POST['act_update_member'],'update_member')){
 		global $wpdb;
         $data['p_naam'] = $_POST['p_naam'];
         $data['p_voornaam'] = $_POST['p_voornaam'];
@@ -692,19 +801,24 @@ function my_render_list_page(){
 				$data,
 				array( 'Id' => $_GET['id'])
 			);
-			$link = admin_url().'admin.php?page=view_member';
+			$link = admin_url().'admin.php?page=tt_member';
 			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		}
 		else {
 			echo "<script>alert('can\'t update')</script>";
 		}
 	}
-?>
-  <form method="post">
-    <input type="hidden" name="page" value="ttest_list_table">
+    ?>
+    <div class="wrap">
+        
+        <!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
+        <form id="movies-filter" method="get">
+            <!-- For plugins, we also need to ensure that the form posts back to our current page -->
+            <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+            <!-- Now we can render the completed list table -->
+            <?php $testListTable->display() ?>
+        </form>
+        
+    </div>
     <?php
-    $myListTable->search_box( 'search', 'search_id' );
-
-  $myListTable->display(); 
-  echo '</form></div>'; 
 }
