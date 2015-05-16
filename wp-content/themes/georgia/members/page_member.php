@@ -546,7 +546,16 @@ class TT_Member_List_Table extends WP_List_Table {
 							<div class="reg-row">
 								<div class="colfull">
 									<label><b>Land:</b></label>
-									<span><?php echo $member['p_land']; ?></span>
+									<span>
+										<?php
+											$region_location_array = get_field('region_location', 'option');
+											foreach($region_location_array as $region_location){
+												if($region_location['no'] == $member['p_land']){
+													echo $region_location['title'];
+												}
+											}
+										?>
+									</span>
 								</div>
 							</div>
 							<div class="reg-row">
@@ -593,7 +602,16 @@ class TT_Member_List_Table extends WP_List_Table {
 							<div class="reg-row">
 								<div class="colfull">
 									<label><b>Aard van de firma/organisatie:</b></label>
-									<span><?php echo $member['b_firma']; ?></span>
+									<span>
+										<?php
+											$region_location_array = get_field('business_sector', 'option');
+											foreach($region_location_array as $region_location){
+												if($region_location['no'] == $member['b_firma']){
+													echo $region_location['title'];
+												}
+											}
+										?>
+									</span>
 								</div>
 							</div>
 							
@@ -620,7 +638,16 @@ class TT_Member_List_Table extends WP_List_Table {
 							<div class="reg-row">
 								<div class="colfull">
 									<label><b>Land:</b></label>
-									<span><?php echo $member['b_land']; ?></span>
+									<span>
+										<?php
+											$region_location_array = get_field('region_location', 'option');
+											foreach($region_location_array as $region_location){
+												if($region_location['no'] == $member['b_land']){
+													echo $region_location['title'];
+												}
+											}
+										?>
+									</span>
 								</div>
 							</div>
 							<div class="reg-row">
@@ -705,11 +732,9 @@ class TT_Member_List_Table extends WP_List_Table {
 		        	OR p_picture LIKE '%$search%'
 		        	OR p_naam LIKE '%$search%'
 		        	OR p_email LIKE '%$search%'
-		        	OR p_land LIKE '%$search%'
 		        	OR p_telefoon LIKE '%$search%'
 		        	OR p_plaats LIKE '%$search%'
 		        ";
-				echo "<script>alert('$s_query')</script>";
 		  		$members = $wpdb->get_results($s_query);
 				$data = array();
 		  		foreach ($members as $querydatum ) {
