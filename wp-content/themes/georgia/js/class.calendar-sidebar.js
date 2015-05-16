@@ -16,7 +16,8 @@ var calendar_sidebar = (function() {
 
     function initEvents(){
         $(document).on('click','#calendar-sidebar .day.active a',function(){
-
+            $('.day.active a').removeClass('display');
+            $(this).addClass('display');
             $data_day = $(this).attr('data-day');
             $data_month = $(this).attr('data-month');
             $data_year = $(this).attr('data-year');
