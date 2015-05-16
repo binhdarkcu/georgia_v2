@@ -30,7 +30,7 @@
 							)
 							)
 							GROUP BY wp_posts.ID
-							ORDER BY wp_posts.post_date DESC 
+							ORDER BY wp_postmeta.meta_value DESC
 
 						LIMIT ".$offset.",".$post_per_page;
 						$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
