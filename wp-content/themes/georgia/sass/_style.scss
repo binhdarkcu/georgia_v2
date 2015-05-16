@@ -125,7 +125,8 @@ CHECKBOX FOR GRID
   border: 1px solid #666;
   position: absolute;
   z-index: 1001;
-  bottom: 30px;
+  bottom: auto;
+  top: -250px;
   right: 3px;
   width: 320px;
   background-color: #f9f9f9;

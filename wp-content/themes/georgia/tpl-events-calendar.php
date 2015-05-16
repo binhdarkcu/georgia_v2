@@ -32,7 +32,7 @@
 
             </div>
             <div class="popuptemp" style="display: none;">
-                <div class="tribe-events-tooltip" style="bottom: 60px; display: none; z-index: 10;">
+                <div class="tribe-events-tooltip" style="display: none; z-index: 10;">
                     <h4 class="entry-title summary popup-title"></h4>
 
                     <div class="tribe-events-event-body">
