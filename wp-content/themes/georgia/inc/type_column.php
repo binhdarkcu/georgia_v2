@@ -39,8 +39,13 @@ function ST4_get_type_post($post_ID) {
         $type_post_id = get_field('datetime',$post_ID);
         return $type_post_id;
     }*/
+    global $wpdb;
+	$query_count = "SELECT COUNT( * ) as TOTALMEMBER
+					FROM  `wp_participate` 
+					WHERE id_event = '$post_ID'";
+	$total_row = $wpdb->get_results($query_count);
     $admin_url = admin_url();
-    echo '<a href="'.$admin_url.'admin.php?page=view_event_member&id_event='.$post_ID.'">View members</a>';
+    echo '<a href="'.$admin_url.'admin.php?page=view_event_member&id_event='.$post_ID.'">View members ('.$total_row[0]->TOTALMEMBER.')</a>';
 }
 
 // ADD NEW COLUMN
