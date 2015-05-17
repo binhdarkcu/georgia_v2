@@ -141,15 +141,7 @@ jQuery(document).ready(function() {
             'f_fax': {
                 required: true
             },
-            'f_interest': {
-                required: true
-            },
-            'f_addresspayment': {
-                required: true
-            },
-            'f_notepayment': {
-                required: true
-            },
+            
             'accept' :{
             	required: true
             }
