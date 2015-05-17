@@ -92,7 +92,9 @@
 	                                                        IK KOM
 	                                                    </a>
 	                                                    <?php }else {
-	                                                    	if($diff >= 10)	{
+
+                                                                $limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):10;
+	                                                    	if($diff >= $limit_time_to_cancel)	{
 	                                                    ?>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
 	                                                        CANCEL
