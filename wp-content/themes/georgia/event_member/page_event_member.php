@@ -361,12 +361,13 @@ function my_render_event_list_page(){
 					FROM  `wp_participate` 
 					WHERE id_event = '$id_event'";
   $total_row = $wpdb->get_results($query_count);
-  if(!empty($id_event)){
-  	echo '<h3>Have '.$total_row[0]->TOTALMEMBER.' members joined "'.$_GET['event_title'].'" event.</h3>';
-  }else{
-  	echo '<h3>All member join this event.</h3>';
+  if($_GET['action']!='edit'){
+	  if(!empty($id_event)){
+	  	echo '<h3>Have '.$total_row[0]->TOTALMEMBER.' members joined "'.$_GET['event_title'].'" event.</h3>';
+	  }else{
+	  	echo '<h3>All member join this event.</h3>';
+	  }
   }
-
 	$search = $_POST['s'];
 	if( isset($search) ){
 	        $myListTable->prepare_items($search);
