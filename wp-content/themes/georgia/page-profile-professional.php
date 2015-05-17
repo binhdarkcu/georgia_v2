@@ -27,7 +27,22 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Aard van de firma/organisatie</div>
-							<div class="col2"><input type="text" name="b_firma" value="<?php echo $user['b_firma']; ?>" disabled=""/></div>
+							<div class="col2">
+								<?php
+								$business_sector_array = get_field('business_sector', 'option');
+
+                                $stroption_business_sector = '';
+                                foreach($business_sector_array as $business_sector)
+                                {
+                                    $no = $business_sector['no'];
+                                    $title = $business_sector['title'];
+                                    $stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
+                                }
+                                ?>
+                                <select name="b_firma" disabled="">
+                                    <?php echo str_replace('value="'.$user['b_firma'].'"', 'value="'.$user['b_firma'].'" selected', $stroption_business_sector);?>
+								</select>
+							</div>
 							<div class="col3"><a href="#" data-fieldname="b_firma" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
@@ -76,7 +91,7 @@
                                 }
                                 ?>
 								<select name="b_land" disabled="">
-                                    <?php echo str_replace('value="'.$member['p_land'].'"', 'value="'.$member['p_land'].'" selected', $stroption_region_location);?>
+                                    <?php echo str_replace('value="'.$user['b_land'].'"', 'value="'.$user['b_land'].'" selected', $stroption_region_location);?>
 								</select>
 							</div>
 							<div class="col3"><a href="#" data-fieldname="b_land" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>

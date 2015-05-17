@@ -54,7 +54,7 @@ jQuery(document).ready(function(){
 				success: function(data) {
 					if(data){
 						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
-						$('select[name=' + $fieldname + ']').removeAttr('style');
+						$('select[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$(self).find('span').text('edit');
 						//alert('Profile updated.');
 					}else{
@@ -64,7 +64,7 @@ jQuery(document).ready(function(){
 			});
 		}else{
 			$('input[name=' + $fieldname + '], select[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
-			$('select[name=' + $fieldname + ']').css({'background':'#fff','color':'#333'});
+			$('select[name=' + $fieldname + ']').prop('disabled',false).css({'background':'#fff','color':'#333'});
 			$(this).parent().parent().find('.empty').hide();
 			$status = $(this).find('span').text('save');
 		}
