@@ -370,7 +370,7 @@ class TT_Member_List_Table extends WP_List_Table {
 									<div class="colfull">
 										<label>Profielfoto</label>
 										<div class="pictureUpload">
-											<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" class="imgPreview" style="width: 48px; height: 38px;"/>
+											<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" class="imgPreview" style="width: 48px; height: 48px;"/>
 											<div class="fileUpload ">
 												<span>UPLOAD FOTO</span>
 												<input type="file" class="upload" name="p_picture" id="filePicture"/>

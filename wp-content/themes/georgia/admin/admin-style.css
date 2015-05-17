@@ -69,7 +69,7 @@
 }
 
 .registerPage .informationBox .pictureUpload img {
-  margin-top: 3px;
+  margin-top: 0;
 }
 
 .registerPage .informationBox .pictureUpload .fileUpload, .registerPage .informationBox .pictureUpload img {
