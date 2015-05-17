@@ -25,7 +25,7 @@ jQuery(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(){
-				alert('Avatar is updated.');
+				//alert('Avatar is updated.');
 				$('#editPhoto').show();
 	    		$('#submit-btn').hide();
 			},
@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
 						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$('select[name=' + $fieldname + ']').removeAttr('style');
 						$(self).find('span').text('edit');
-						alert('Profile updated.');
+						//alert('Profile updated.');
 					}else{
 						alert('Profile not updated.');
 					}
