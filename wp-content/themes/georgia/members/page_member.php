@@ -98,8 +98,8 @@ class TT_Member_List_Table extends WP_List_Table {
         //Build row actions
         $actions = array(
             'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id']),
-            'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id']),
             'detail'    => sprintf('<a href="?page=%s&action=%s&id=%s">Detail</a>',$_REQUEST['page'],'detail',$item['id']),
+            'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id'])
         );
         
         //Return the title contents

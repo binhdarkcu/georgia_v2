@@ -69,12 +69,12 @@ class My_Event_List_Table extends WP_List_Table {
 
 function get_sortable_columns() {
   $sortable_columns = array(
-    'p_naam'  => array('Naam',false),
-    'p_voornaam' => array('Voornaam',false),
-    'p_email' => array('Email',false),
-    'p_telefoon' => array('Telefoon',false),
-    'status'   => array('Status',false),
-	'datejoin'   => array('Date join',false)
+    'p_naam'  => array('p_naam',false),
+    'p_voornaam' => array('p_voornaam',false),
+    'p_email' => array('p_email',false),
+    'p_telefoon' => array('p_telefoon',false),
+    'status'   => array('status',false),
+	'datejoin'   => array('datejoin',false)
   );
   return $sortable_columns;
 }
@@ -241,7 +241,7 @@ function prepare_items() {
   $hidden   = array();
   $sortable = $this->get_sortable_columns();
   $this->_column_headers = array( $columns, $hidden, $sortable );
-  usort( $this->example_data, array( &$this, 'usort_reorder' ) );
+  
   
   $per_page = 5;
   $current_page = $this->get_pagenum();
@@ -263,10 +263,52 @@ function prepare_items() {
   }
   
   $members = $wpdb->get_results($query);
+  
   $data = array();
   foreach ($members as $querydatum ) {
    			array_push($data, (array)$querydatum);}
   
+  
+  $search = $_POST['s'];
+  //echo "<script>alert('$search')</script>";
+  if( $search != NULL ){
+       
+        // Trim Search Term
+        $search = trim($search);
+       
+        /* Notice how you can search multiple columns for your search term easily, and return one data set */
+        $s_query = "SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
+				FROM wp_members m
+				JOIN wp_participate t ON m.id = t.id_member
+				JOIN wp_posts p on t.id_event = p.id
+				where t.id_event = '.$id_event.'
+	        	OR p_naam LIKE '%$search%'
+	        	OR p_email LIKE '%$search%'
+	        	OR p_voornaam LIKE '%$search%'
+	        	OR status LIKE '%$search%'
+	        	OR datejoin LIKE '%$search%'
+	        	GROUP BY m.id
+        ";
+  		$members = $wpdb->get_results($s_query);
+		$data = array();
+  		foreach ($members as $querydatum ) {
+   			array_push($data, (array)$querydatum);}
+ 
+  }else{
+  	if(empty($id_event)){
+	  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
+					FROM wp_members m
+					JOIN wp_participate t ON m.id = t.id_member
+					JOIN wp_posts p on t.id_event = p.id
+					GROUP BY m.id';
+	  	$members = $wpdb->get_results($query);
+	  
+		$data = array();
+		foreach ($members as $querydatum ) {
+		   	array_push($data, (array)$querydatum);}
+	}
+  }
+  usort( $data, array( &$this, 'usort_reorder' ) );
   $total_items = count( $data );
 
   // only ncessary because we have sample data
@@ -313,7 +355,25 @@ add_action( 'admin_menu', 'event_add_menu_items' );
 function my_render_event_list_page(){
   global $myListTable;
   echo '</pre><div class="wrap"><h2>Event Members</h2>'; 
-  $myListTable->prepare_items(); 
+  $id_event = $_GET['id_event'];
+  global $wpdb;
+  $query_count = "SELECT COUNT( * ) as TOTALMEMBER
+					FROM  `wp_participate` 
+					WHERE id_event = '$id_event'";
+  $total_row = $wpdb->get_results($query_count);
+  if(!empty($id_event)){
+  	echo '<h3>Have '.$total_row[0]->TOTALMEMBER.' members joined "'.$_GET['event_title'].'" event.</h3>';
+  }else{
+  	echo '<h3>All member join this event.</h3>';
+  }
+
+	$search = $_POST['s'];
+	if( isset($search) ){
+	        $myListTable->prepare_items($search);
+	} else {
+	        $myListTable->prepare_items();
+	}
+   
   
 ?>
   <form method="post">
