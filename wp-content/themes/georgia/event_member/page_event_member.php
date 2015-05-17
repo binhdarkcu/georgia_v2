@@ -60,6 +60,7 @@ class My_Event_List_Table extends WP_List_Table {
 		case 'p_email':
 		case 'p_telefoon':
         case 'status':
+		case 'status_join':
 		case 'datejoin':
             return $item[ $column_name ];
         default:
@@ -74,6 +75,7 @@ function get_sortable_columns() {
     'p_email' => array('p_email',false),
     'p_telefoon' => array('p_telefoon',false),
     'status'   => array('status',false),
+    'status_join'   => array('status_join',false),
 	'datejoin'   => array('datejoin',false)
   );
   return $sortable_columns;
@@ -87,6 +89,7 @@ function get_columns(){
             'p_email'    => __( 'Email', 'mylisttable' ),
             'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
             'status'      => __( 'Status', 'mylisttable' ),
+            'status_join'      => __( 'Status Join', 'mylisttable' ),
             'datejoin'      => __( 'Date Join', 'mylisttable' )
 			
         );
@@ -133,7 +136,7 @@ function process_edit_action() {
     //Detect when a bulk action is being triggered...
     if( 'edit'===$this->current_action() ) {
 		global $wpdb;
-		$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status, t.datejoin
+		$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status,t.status_join, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
@@ -172,13 +175,22 @@ function process_edit_action() {
 								<div class="col1">
 									<label>Status<span class="red">*</span></label>
 									<select name="status">
-										<option value="invoice" <?php echo ($member['status'] == 'invoice') ? 'selected':''; ?>>invoice</option>
-										<option value="uninvoice" <?php echo ($member['status'] == 'uninvoice') ? 'selected':''; ?>>uninvoice</option>
+										<option value="invoiced" <?php echo ($member['status'] == 'invoiced') ? 'selected':''; ?>>invoiced</option>
+										<option value="uninvoiced" <?php echo ($member['status'] == 'uninvoiced') ? 'selected':''; ?>>uninvoiced</option>
 									</select>
 								</div>
 								<div class="col2">
 									<label>Date Join<span class="red">*</span></label>
 									<input disabled="disabled" type="text" name="p_nr" value="<?php echo $member['datejoin']; ?>" />
+								</div>
+							</div>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Status Join<span class="red">*</span></label>
+									<select name="status_join">
+										<option value="yes" <?php echo ($member['status_join'] == 'yes') ? 'selected':''; ?>>yes</option>
+										<option value="cancle" <?php echo ($member['status_join'] == 'cancle') ? 'selected':''; ?>>cancle</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -197,14 +209,14 @@ function process_edit_action() {
 	  	global $wpdb;	
 		$data['id_event'] = $_GET['id_event'];
 		$data['id_member'] = $_GET['id'];
-		print_r('aaaa'.$data['id_event'].'   '.$data['id_member']);
 		$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
 		
 		if(!empty($event)){
 			$execute = $wpdb->update( 
 				'wp_participate', 
 				array( 
-					'status' => $_POST['status']
+					'status' => $_POST['status'],
+					'status_join' => $_POST['status_join']
 				), 
 				array(
 					'id' => $event->{'id'}
@@ -248,18 +260,17 @@ function prepare_items() {
   global $wpdb;
   $id_event = $_GET['id_event'];
   if(!empty($id_event)){
-  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
+  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
 				where t.id_event = '.$id_event.'
-				GROUP BY m.id';
+				';
   }else{
-  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
-				FROM wp_members m
-				JOIN wp_participate t ON m.id = t.id_member
-				JOIN wp_posts p on t.id_event = p.id
-				GROUP BY m.id';
+  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+				FROM wp_members m, wp_participate t
+				GROUP BY t.id
+				';
   }
   
   $members = $wpdb->get_results($query);
@@ -277,7 +288,7 @@ function prepare_items() {
         $search = trim($search);
        
         /* Notice how you can search multiple columns for your search term easily, and return one data set */
-        $s_query = "SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
+        $s_query = "SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
@@ -285,9 +296,10 @@ function prepare_items() {
 	        	OR p_naam LIKE '%$search%'
 	        	OR p_email LIKE '%$search%'
 	        	OR p_voornaam LIKE '%$search%'
-	        	OR status LIKE '%$search%'
+	        	OR status LIKE '%$search%',
+	        	OR status_join LIKE '%$search%'
 	        	OR datejoin LIKE '%$search%'
-	        	GROUP BY m.id
+	        	GROUP BY t.id
         ";
   		$members = $wpdb->get_results($s_query);
 		$data = array();
@@ -296,11 +308,10 @@ function prepare_items() {
  
   }else{
   	if(empty($id_event)){
-	  	$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status, t.datejoin
-					FROM wp_members m
-					JOIN wp_participate t ON m.id = t.id_member
-					JOIN wp_posts p on t.id_event = p.id
-					GROUP BY m.id';
+	  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+				FROM wp_members m, wp_participate t
+				GROUP BY t.id';
+				
 	  	$members = $wpdb->get_results($query);
 	  
 		$data = array();
