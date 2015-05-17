@@ -55,11 +55,12 @@ add_action("wp_ajax_nopriv_check_user_email", "checkEmail");
 function checkEmail(){
 	global $wpdb;	
 	$checkEmail = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '".$_POST['p_email']."'");
-     if(email_exists($_POST['p_email'])){
-        echo ('false');
+	
+     if($checkEmail){
+        echo ('true');
     }
     else{
-        echo ('true');
+        echo ('false');
     }
     die();
 }
