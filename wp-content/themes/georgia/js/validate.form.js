@@ -60,8 +60,11 @@ jQuery(document).ready(function() {
                         },
                         complete: function(data){
 	                        if( data.responseText == "true" ) {
-	                        	$( "#p_email" ).focus();
+	                            $( "#p_email" ).focus();
 	                            alert("Email address already in use. Please use other email.");
+	                        }else{
+	                        	console.log(2);
+	                        	$( "#p_email" ).removeClass('error');
 	                        }
 	                    }
                     }
