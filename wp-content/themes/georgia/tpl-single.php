@@ -75,9 +75,10 @@
 																		FROM  wp_participate 
 																		WHERE id_member = ".$_SESSION['user']['id']."
 																		AND id_event = ".get_the_ID()."
-																		AND status = 'invoice'"."
+																		AND status_join = 'yes'"."
 																		LIMIT 0 , 30";
 		                                                	$isjoin = $wpdb->get_row($join_query);
+															
 															$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
 															$diff = abs(dateDiff($datetime,date('Y/m/d')));
 															if($canjoin){
@@ -129,7 +130,7 @@
 		                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
 																			FROM wp_participate pt
 																			JOIN wp_members mb ON mb.id = pt.id_member
-																			WHERE pt.id_event = ".get_the_ID()." AND pt.status = 'invoice'"."
+																			WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
 																			GROUP BY pt.id_member, pt.id
 																			LIMIT 0 , 30";
 																$joinEvents = $wpdb->get_results($p_query);

@@ -5,14 +5,16 @@ function addEvent(){
 	global $wpdb;	
 	$data['id_event'] = $_REQUEST['id_event'];
 	$data['id_member'] = $_REQUEST['id_member'];
-	$data['status'] = 'invoice';
+	$data['status'] = 'unvoice';
+	$data['status_join'] = 'yes';
 	$data['datejoin'] = date('Y-m-d');
 	$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
 	if(!empty($event)){
         $execute = $wpdb->update( 
 			'wp_participate', 
 			array( 
-				'status' => 'invoice',
+				'status' => 'unvoice',
+				'status_join'	=> 'yes',
 				'datejoin' => $data['datejoin']
 			), 
 			array( 'id' => $event->{'id'} ), 
@@ -43,7 +45,7 @@ function cancelEvent(){
 		$execute = $wpdb->update( 
 			'wp_participate', 
 			array( 
-				'status' => 'uninvoice'
+				'status_join' => 'no'
 			), 
 			array(
 				'id' => $event->{'id'}
