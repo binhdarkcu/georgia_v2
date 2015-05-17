@@ -93,13 +93,18 @@
 	                                                    </a>
 	                                                    <?php }else {
 
-                                                                $limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):10;
+                                                            $limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):10;
 	                                                    	if($diff >= $limit_time_to_cancel)	{
 	                                                    ?>
-	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
-	                                                        CANCEL
-	                                                    </a>
-	                                                    <?php } }?>
+		                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
+		                                                        CANCEL
+		                                                    </a>
+		                                                    <?php } else{?> 
+		                                                    	<div class="blur"></div>
+		                                                    	<a class="btn" rel="external" href="">
+			                                                        CANCEL
+			                                                    </a>
+														<?php } }?>
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
                                                     <?php }?>
                                                     <?php }?>

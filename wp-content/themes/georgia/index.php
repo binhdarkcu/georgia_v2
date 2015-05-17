@@ -105,7 +105,12 @@
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
 	                                                        CANCEL
 	                                                    </a>
-	                                                    <?php } }?>
+	                                                    <?php } else{?> 
+		                                                    	<div class="blur"></div>
+		                                                    	<a class="btn" rel="external" href="">
+			                                                        CANCEL
+			                                                    </a>
+														<?php } }?>
 	                                                    <input name="security" type="hidden" class="action" value="<?php echo wp_create_nonce('security')?>"/>
 	                                                </div>
                                                 <?php }?>

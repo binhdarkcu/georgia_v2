@@ -252,3 +252,17 @@
     }
   }
 }
+#tribe-events-content.tribe-events-single .tribe-events-cta .tribe-events-cta-btn{
+  position: relative;
+  .blur{
+      position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 27px;
+    width: 100%;
+    height: 43px;
+    z-index: 1000;
+    background: #fff;
+    opacity: 0.4;
+  }
+}
