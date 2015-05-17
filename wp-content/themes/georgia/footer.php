@@ -69,5 +69,7 @@
     <script type='text/javascript' src='js/class.calendar-page.js'></script>
 
     <?php get_template_part('tpl','login')?>
+    <?php get_template_part('tpl','message-success')?>
+    <?php get_template_part('tpl','message-cancle')?>
 </body>
 </html>

@@ -99,3 +99,29 @@
     }
   }
 }
+
+.message-popup{
+  .popup-content{
+      background: #fff;
+      padding: 30px 25px;
+      text-align: center;
+        margin-top: -85px;
+        a.close{
+          color: #333;
+        @include RalewayBold(24px);
+        position: absolute;
+      top: 0px;
+      right: 5px;
+        }
+      h3{
+        color: #333;
+        @include RalewayBold(14px);
+        padding-bottom: 15px;
+        text-transform: uppercase;
+      }
+      p{
+        color: #333;
+        @include RalewayRegular(14px);
+      }
+  }
+}

@@ -82,12 +82,14 @@ jQuery(document).ready(function(){
             success:function(data) {
             	if(data){
 					if ($action == 'add_event') {
-						alert('Thank you participated this event.');
+						//alert('Thank you participated this event.');
+						$('#message-success').show();
 					}
             		else if ($action == 'cancel_event') {
-						alert('Cancel successful.');
+						//alert('Cancel successful.');
+						$('#message-cancle').show();
 					}
-            		window.location.reload();
+            		//window.location.reload();
             	}else{
             		alert('You only participate once.');
             	}
