@@ -637,14 +637,7 @@ class TT_Member_List_Table extends WP_List_Table {
 								<div class="colfull">
 									<label><b>Land:</b></label>
 									<span>
-										<?php
-											$region_location_array = get_field('region_location', 'option');
-											foreach($region_location_array as $region_location){
-												if($region_location['no'] == $member['p_land']){
-													echo $region_location['title'];
-												}
-											}
-										?>
+										<?php echo getCountry('p_land',$member['p_land']);?>
 									</span>
 								</div>
 							</div>
