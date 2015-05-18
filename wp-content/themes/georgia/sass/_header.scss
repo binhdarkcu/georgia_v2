@@ -13,6 +13,7 @@
   }
   a.sf-with-ul{
     background: transparent;
+    padding-right: 29px;
   }
 }
 .header-menu.sf-menu li:hover > a{
@@ -93,7 +94,7 @@
 }
 .home-slider-events{
    .slide-event-venue-name, .slide-event-venue-address{
-     @include NotoSansBold(12px); 
+     @include NotoSansRegular(12px); 
      line-height: 17px;
      padding-bottom: 5px;
      width: 130px;
@@ -102,6 +103,7 @@
 
 .sf-menu > li.special {
   border: 2px solid #887554;
+  margin-left: 15px;
 
   a {
     color: #887554 !important;

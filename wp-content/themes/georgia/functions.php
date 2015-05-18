@@ -58,6 +58,8 @@
 	//add type columns
     include 'inc/type_column.php';
 	
+	//add countries
+    include 'inc/countries.php';
 	//filter home
     //include 'inc/filter_home.php';
 	
@@ -129,7 +131,8 @@
 		
         return $flag ? $arrayMonths_Long[$month] : $arrayMonths_short[$month];
     }
-
+	
+	
 
 if( function_exists('acf_add_options_sub_page') ) {
 

@@ -9,7 +9,7 @@
                     <span class="trail-begin"><a href="<?php echo bloginfo('home')?>" title="Home">Home</a></span>
                     <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home')?>/events/" title="EVENTS">EVENTS</a></span>
                 </div>					
-                <h1>Events</h1>
+                <h1>KALENDER</h1>
             </div>
         </section>
 

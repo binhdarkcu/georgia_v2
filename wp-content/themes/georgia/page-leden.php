@@ -32,7 +32,13 @@
 
                                         <!-- List Title -->
                                         <div class="tribe-events-page-title-wrap no-pad">
-                                            <h2 class="tribe-events-page-title">MOMENTEEL TELT GEORGIA <b>240 LEDEN</b></h2>
+                                        	<?php
+                                        		global $wpdb;
+												$query_count = "SELECT COUNT( * ) as TOTALMEMBER
+																	FROM  `wp_participate`";
+												$total_row = $wpdb->get_results($query_count);
+                                        	?>
+                                            <h2 class="tribe-events-page-title">MOMENTEEL TELT GEORGIA <b><?php echo $total_row[0]->TOTALMEMBER;?> LEDEN</b></h2>
                                         </div>
 
                                         <!-- Notices -->

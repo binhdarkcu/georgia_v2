@@ -189,7 +189,7 @@
 											</div>
 											<div class="col2">
 												<label>Geboorteplaats<span class="red">*</span></label>
-												<input id="date_geboorteplaats" type="text" name="p_geboorteplaats" value=""  />
+												<input type="text" name="p_geboorteplaats" value=""  />
 											</div>
 										</div>
 										<div class="reg-row">
@@ -216,7 +216,7 @@
 											<div class="colfull">
 												<label>Land<span class="red">*</span></label>
                                                 <?php
-                                                $region_location_array = get_field('region_location', 'option');
+                                                /*$region_location_array = get_field('region_location', 'option');
 
                                                 $stroption_region_location = '';
                                                 foreach($region_location_array as $region_location)
@@ -224,12 +224,14 @@
                                                     $no = $region_location['no'];
                                                     $title = $region_location['title'];
                                                     $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
-                                                }
+                                                }*/
+                                                
                                                 ?>
-												<select name="p_land">
+												<!--select name="p_land">
 													<option value="0">Please select...</option>
                                                     <?php echo $stroption_region_location;?>
-												</select>
+												</select-->
+												<?php echo countryArray('p_land','');?>	
 											</div>
 										</div>
 										<div class="reg-row">
@@ -340,7 +342,17 @@
 										<div class="reg-row">
 											<div class="colfull">
 												<label>Land<span class="red">*</span></label>
-
+												<?php
+													$region_location_array = get_field('region_location', 'option');
+		
+					                                $stroption_region_location = '';
+					                                foreach($region_location_array as $region_location)
+					                                {
+					                                    $no = $region_location['no'];
+					                                    $title = $region_location['title'];
+					                                    $stroption_region_location .= '<option value="'.$no.'">'.$title.'</option>';
+					                                }
+												?>
 												<select name="b_land">
                                                     <option value="0">Please select...</option>
                                                     <?php echo $stroption_region_location;?>
@@ -442,7 +454,7 @@
 											<input type="text" name="f_telefoon" value="" />
 										</div>
 										<div class="col2">
-											<label>Fax<span class="red">*</span></label>
+											<label>Fax</label>
 											<input type="text" name="f_fax" value="" />
 										</div>
 									</div>
@@ -551,7 +563,7 @@
 									<!--end factureBox-->
 									<div class="acceptBox">
 										<div class="chkaccept checkboxStyle">
-											<input type="checkbox" name="accept" id="acceptform"/>
+											<input type="checkbox" name="accept" id="acceptform" checked="checked"/>
 											<label for="acceptform">
 												Ik verklaar hierbij de <a href="<?php echo bloginfo('home')?>/voorwaarden-reglementen" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
 											</label>

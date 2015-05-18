@@ -142,9 +142,6 @@ jQuery(document).ready(function() {
             'f_btw': {
                 required: true
             },
-            'f_fax': {
-                required: true
-            },
             
             'accept' :{
             	required: true
