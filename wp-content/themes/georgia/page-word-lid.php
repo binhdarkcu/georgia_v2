@@ -139,7 +139,7 @@
             <div class="container">
 
                 <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">WORD LID</a></span>
+                    <span class="trail-begin"><a href="<?php echo get_bloginfo('home')?>/word-lid" title="Eventica">WORD LID</a></span>
                     
                 </div>					
                 <h1>REGISTREER JE HIER</h1>
@@ -158,7 +158,7 @@
                     			<span>Vul hieronder je gegevens in, wij contacteren jou zo snel mogelijk en valideren uw aanzoek.</span>
                     			<span class="s-2">Indien uw aanzoek werd goedgekeurd ontvangt u van ons een log in en paswoord waarmee u toegang krijgt en kan deelnemen aan </span>
                     			<span class="s-3">de evenementen.</span>	
-                    			<span><a href="<?php echo bloginfo('home')?>/privacy-policy" target="_blank">Lees eerste de voorwaarden en reglementen</a></span>
+                    			<span><a href="<?php echo bloginfo('home')?>/voorwaarden-reglementen" target="_blank">Lees eerste de voorwaarden en reglementen</a></span>
                     		</div>
                     		<form action="" method="post" id="registerForm" enctype="multipart/form-data">
                     			<?php
@@ -553,7 +553,7 @@
 										<div class="chkaccept checkboxStyle">
 											<input type="checkbox" name="accept" id="acceptform"/>
 											<label for="acceptform">
-												Ik verklaar hierbij de <a href="<?php echo bloginfo('home')?>/privacy-policy" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
+												Ik verklaar hierbij de <a href="<?php echo bloginfo('home')?>/voorwaarden-reglementen" target="_blank">voorwaarden en reglementen</a> te hebben gelezen en ga daarmee akkoord
 											</label>
 										</div>
 										<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
