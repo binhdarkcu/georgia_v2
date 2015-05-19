@@ -5,7 +5,35 @@ $prefix = 'tt_';
 global $meta_boxes;
 
 $meta_boxes = array();
+// 4nd meta box - testimonials
+$meta_boxes[] = array(
+    // Meta box id, UNIQUE per meta box. Optional since 4.1.5
+    'id' => 'photogallery',
 
+    // Meta box title - Will appear at the drag and drop handle bar. Required.
+    'title' => 'PHOTOGALLERY IMAGES',
+
+    // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+    'pages' => array( 'post'),
+
+    // Where the meta box appear: normal (default), advanced, side. Optional.
+    'context' => 'normal',
+
+    // Order of meta box: high (default), low. Optional.
+    'priority' => 'high',
+
+    // List of meta fields
+    'fields' => array(
+        // TEXT
+        array(
+            'name'  => 'Images library',
+            'id'    => "{$prefix}image_gallery",
+            'type'  => 'plupload_image',
+            'desc' =>'Landscape 600pxx800px /portrait 800pxx600px pixels'
+        ),
+
+    )
+);
 // 4nd meta box - testimonials
 $meta_boxes[] = array(
     // Meta box id, UNIQUE per meta box. Optional since 4.1.5
@@ -29,7 +57,7 @@ $meta_boxes[] = array(
         array(
             'name'  => 'Link',
             'id'    => "{$prefix}organisaties_link",
-            'type'  => 'text'
+            'type'  => 'textarea'
         ),
 
     )
