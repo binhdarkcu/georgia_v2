@@ -67,7 +67,10 @@
 					$datetime = get_field('datetime', get_the_ID());
 					//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
 					$loc = get_field('place_event', get_the_ID());
-					$time = get_field('time', get_the_ID());
+					
+					$start_time = get_field('start_time', get_the_ID());
+					$end_time = get_field('end_time', get_the_ID());
+					$time = $start_time.' - '.$end_time;
 
                     $day = substr($datetime, -2); // 13052015
                     $year = substr($datetime, 0, 4);

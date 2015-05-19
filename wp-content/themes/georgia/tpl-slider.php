@@ -2,8 +2,9 @@
      <?php
         $i = 0;
         $args_slider = array(
-            'post_type' 	 => 'slider',
+            'post_type' 	 => 'post',
             'posts_per_page' => 5,
+            'category_name' =>'slider',
             'order'			 => 'asc'
         );
         $querySlider = get_posts($args_slider);
@@ -12,7 +13,8 @@
 		$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
         foreach ($querySlider as $slider) {
             $i++;
-            $url = wp_get_attachment_url(get_post_thumbnail_id($slider->ID));
+			$url = get_field('image_for_slider',$slider->ID);
+            //$url = wp_get_attachment_url(get_post_thumbnail_id($slider->ID));
 			$datetime = get_field('datetime', $slider->ID);
 			//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
             $day = substr($datetime, -2); // 13052015
@@ -21,7 +23,7 @@
 			$loc = get_field('place_event', $slider->ID);
 
     ?>
-    <div class="slide-event item" style="background-image:url(<?php echo $url;?>)">
+    <div class="slide-event item" style="background-image:url(<?php echo $url['url'];?>)">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-5 col-lg-4">

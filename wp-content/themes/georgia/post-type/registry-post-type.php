@@ -1,6 +1,6 @@
 <?php
 //Promotion
-add_action( 'init', 'register_custom_slider' );
+//add_action( 'init', 'register_custom_slider' );
 function register_custom_slider() {
     $slider_label = array(
         'name' => _x('Slider', 'Slider'),

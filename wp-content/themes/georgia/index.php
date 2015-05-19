@@ -32,7 +32,9 @@
                                 $year = substr($datetime, 0, 4);
                                 $month = substr($datetime, 5, 2);
 
-								$time = get_field('time', $featured->ID);
+								$start_time = get_field('start_time', $featured->ID);
+								$end_time = get_field('end_time', $featured->ID);
+								$time = $start_time.' - '.$end_time;
 								$loc = get_field('place', $featured->ID);
 								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($featured->ID) );
 							?>
@@ -57,7 +59,7 @@
                                                     </a>
                                                 </h2>
                                                 <div class="tribe-events-event-image">
-                                                    <img width="929" height="646" src="images/home/e-4.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
+                                                    <img src="images/home/e-4.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo $featured->post_content;?>

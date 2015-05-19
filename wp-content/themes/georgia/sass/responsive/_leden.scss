@@ -11,3 +11,9 @@
     height: 169px;
   }
 }
+
+@media only screen and (max-width: 767px) and (min-width: 0){
+  .tribe-events-list .tribe-events-event-image {
+    height: auto;
+  }
+}

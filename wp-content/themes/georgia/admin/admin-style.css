@@ -377,7 +377,16 @@ select {
 .update-status-event .registerBox input[type="text"], .update-status-event .registerBox input[type="password"], .update-status-event .registerBox input[type="date"]{
 	width: 91%;
 }
-
+#acf-start_time{
+	margin-right: 5%;
+}
+#acf-end_time, #acf-start_time{
+	width: 45%;
+	float: left;
+}
+#acf-shedule{
+	clear: both;
+}
 @media only screen and (min-width: 0) and (max-width: 1270px) {
 	.registerPage .informationBox .reg-row .col2, .registerPage .informationBox .reg-row .col1{
 		width: 90%;

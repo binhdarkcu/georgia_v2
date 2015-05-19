@@ -10,7 +10,9 @@
         $month = substr($datetime, 5, 2);
 		$month = convertMonths_String((int)$month,true);
 
-		$time = get_field('time', get_the_ID());
+		$start_time = get_field('start_time', get_the_ID());
+		$end_time = get_field('end_time', get_the_ID());
+		$time = $start_time.' - '.$end_time;
 		$loc = get_field('place_event', get_the_ID());
 		$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
 	?>
@@ -50,7 +52,7 @@
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
                                                 
                                                 <div class="tribe-events-event-image">
-                                                    <img width="929" height="646" src="<?php echo $bigImg;?>" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
+                                                    <img src="<?php echo $bigImg;?>" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo get_the_content(get_the_ID());?>

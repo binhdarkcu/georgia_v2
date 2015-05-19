@@ -36,7 +36,9 @@
                                         $month = substr($datetime, 5, 2);
 
 										$loc = get_field('place', $coming->ID);
-										$time = get_field('time', $coming->ID);
+										$start_time = get_field('start_time', $coming->ID);
+										$end_time = get_field('end_time', $coming->ID);
+										$time = $start_time.' - '.$end_time;
 							    ?>
                                 <div id="post-<?php echo $coming->ID;?>" class="hentry vevent type-tribe_events post-2053 tribe-clearfix tribe-events-category-wordcamp tribe-events-venue-2054 col-sm-6 col-md-4">
 

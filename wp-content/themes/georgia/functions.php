@@ -6,7 +6,7 @@
 	add_action('init','ses_init');
     //add theme support
     add_theme_support('post-thumbnails',array('post','page','slider','organisaties','promotion','homeland'));
-
+	set_post_thumbnail_size( 360, 182, true ); 
     //register post type
     include TEMPLATEPATH.'/post-type/registry-post-type.php';
 	
@@ -88,7 +88,12 @@
         wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/admin/admin-style.css', false, '1.0.0' );
        }
 	
-	
+	add_action('do_meta_boxes', 'replace_featured_image_box');  
+	function replace_featured_image_box()  
+	{  
+	    remove_meta_box( 'postimagediv', 'post', 'side' );  
+	    add_meta_box('postimagediv', __('Thumbnail (360 width x 182 height pixels)'), 'post_thumbnail_meta_box', 'post', 'side', 'low');  
+	}  
 	//rewrite view all category
 	function change_viewall_url_rewrite() {
 		if ( is_category()) {
@@ -146,3 +151,22 @@ if( function_exists('acf_add_options_sub_page') ) {
     ));
 }
 
+function my_title_count(){ ?>
+<script>jQuery(document).ready(function(){
+	jQuery("#titlediv .inside").after("<div style=\"position:absolute;top:-25px;right:-5px;\"><span>Max 30 characters:</span> <input type=\"text\" value=\"0\" maxlength=\"30\" size=\"3\" id=\"title_counter\" readonly=\"\" style=\"background:none;border:none;box-shadow:none;font-weight:bold; text-align:right;\"></div>");
+		jQuery("#title_counter").val(jQuery("#title").val().length);
+		jQuery("#title").on('keypress change input' ,function(e) {
+			jQuery("#title_counter").val(jQuery("#title").val().length);
+			if(jQuery(this).val().length > 29){
+				e.preventDefault();
+			}
+		}).on('keydown', function(e) {
+		   if (e.keyCode==8)
+		     jQuery("#title_counter").val(jQuery("#title").val().length);
+		 });
+	});
+</script>
+<?php }
+add_action( 'admin_head-post.php', 'my_title_count');
+add_action( 'admin_head-post-new.php', 'my_title_count');
+?>
