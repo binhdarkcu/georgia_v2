@@ -1,4 +1,21 @@
 @media only screen and (min-width: 0) and (max-width: 1200px) {
+  .ledenPage #tribe-events-content .ledenList{
+    .pad{
+      padding: 40px 15px 40px 20px;
+    }
+    .col1{
+      width: 55px;
+    }
+    .col4{
+      width: 115px;
+    }
+    .col6{
+      width: 130px;
+    }
+    .divrow{
+      width: 100%;
+    }
+  }
   .ledenPage .ledenChart .chart-left, .ledenPage .ledenChart .chart-right{
     display: table;
     float: none;
@@ -13,6 +30,29 @@
 }
 
 @media only screen and (max-width: 767px) and (min-width: 0){
+  .ledenPage #tribe-events-content .ledenList{
+    .pad{
+      padding: 40px 15px 40px 20px;
+    }
+    .col1{
+      width: 55px;
+    }
+    .col2{
+      width: 135px;
+    }
+    .col3{
+      width: 35px;
+    }
+    .col4, .col5{
+      width: 115px;
+    }
+    .col6{
+      width: 115px;
+    }
+    .divrow{
+      width: 100%;
+    }
+  }
   .tribe-events-list .tribe-events-event-image {
     height: auto;
   }
@@ -26,7 +66,7 @@
     width: 100%;
     margin: 0 auto;
     .profileDetail {
-      width: 98%;
+      width: 98%; 
     }
   }
   .profilePage .nav-box{
@@ -52,6 +92,23 @@
 }
 
 @media (max-width: 991px) and (min-width: 768px){
+  .ledenPage #tribe-events-content .ledenList{
+    .pad{
+      padding: 40px 15px 40px 20px;
+    }
+    .col1{
+      width: 55px;
+    }
+    .col4{
+      width: 115px;
+    }
+    .col6{
+      width: 130px;
+    }
+    .divrow{
+      width: 100%;
+    }
+  }
   .user-logined{
     right: 15px;
   }
