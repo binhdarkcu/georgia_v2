@@ -151,7 +151,10 @@ if( function_exists('acf_add_options_sub_page') ) {
     ));
 }
 
-function my_title_count(){ ?>
+function my_title_count(){
+ $screen = get_current_screen();
+ if($screen->post_type == 'post'){	
+?>
 <script>jQuery(document).ready(function(){
 	jQuery("#titlediv .inside").after("<div style=\"position:absolute;top:-25px;right:-5px;\"><span>Max 30 characters:</span> <input type=\"text\" value=\"0\" maxlength=\"30\" size=\"3\" id=\"title_counter\" readonly=\"\" style=\"background:none;border:none;box-shadow:none;font-weight:bold; text-align:right;\"></div>");
 		jQuery("#title_counter").val(jQuery("#title").val().length);
@@ -166,7 +169,7 @@ function my_title_count(){ ?>
 		 });
 	});
 </script>
-<?php }
+<?php } }
 add_action( 'admin_head-post.php', 'my_title_count');
 add_action( 'admin_head-post-new.php', 'my_title_count');
 ?>
