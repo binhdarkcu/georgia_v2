@@ -64,7 +64,7 @@
 				    array(
 				      'key'     => 'datetime',
 				      'value'   => $today,
-				      'compare' => '>'
+				      'compare' => '>='
 				    ) 
 				  )
 				);
