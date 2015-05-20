@@ -1,7 +1,14 @@
 <div id="header-block" class="site-header">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-5 col-lg-4">
+        <div class="row relative">
+        	<div class="user-logined">ingelogd als <a href="<?php echo bloginfo('home')?>/profile">
+        		<?php	
+        			if(isset($_SESSION['user'])){
+        				echo $_SESSION['user']['p_voornaam'];
+        			}
+        		?>
+        	</a></div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-cls-mobile">
                 <div class="site-branding">
                     <a href="<?php echo bloginfo('home')?>/">
                         <div class="logo">
@@ -15,15 +22,10 @@
                     <i class="fa fa-navicon"></i>
                 </a>
             </div>
-            <div class="col-sm-6 col-md-7 col-lg-8 hidden-xs hidden-sm">
+            <div class="col-sm-6 col-md-7 col-lg-8 hidden-xs hidden-sm relative">
+            	
                 <div id="primary-menu" class="primary-menu <?php if(isset($_SESSION['user'])) echo 'loggedin';?>">
-                	<div class="user-logined">ingelogd als <a href="<?php echo bloginfo('home')?>/profile">
-                		<?php	
-                			if(isset($_SESSION['user'])){
-                				echo $_SESSION['user']['p_voornaam'];
-                			}
-                		?>
-                	</a></div>
+                	
                 	<?php
 						$nav = array(
 							'theme_location'  => 'menu_top',

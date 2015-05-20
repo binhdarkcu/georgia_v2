@@ -9,7 +9,7 @@ var SiteMain = (function() {
 	}
 	
 	function initEvent(){
-		jQuery('.sf-menu li.clslogin a').click(function(){
+		jQuery('#header-menu li.clslogin a').click(function(){
 			openPopup('#login-user');
 			return false;
 		});
@@ -49,7 +49,7 @@ var SiteMain = (function() {
 	                s = ~~(file.size/1024) +'KB';
 	            jQuery('.pictureUpload img.imgPreview').attr('src', this.src);
 	            $('#editPhoto').hide();
-	    $('#submit-btn').show();
+	    		$('#submit-btn').show();
 	        };
 	        image.onerror= function() {
 	            alert('Invalid file type: '+ file.type);

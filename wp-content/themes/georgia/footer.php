@@ -1,6 +1,9 @@
 	<?php get_template_part('tpl','footer')?>
     </div>
-    <div class="sb-slidebar sb-left sb-style-push"></div>
+    <div class="<?php if(isset($_SESSION['user'])) echo 'loggedin';?>">
+    	 <div class="sb-slidebar sb-left sb-style-push"></div>
+    </div>
+   
 
 	<link rel='stylesheet' id='widget-calendar-pro-style-css' href='assets/css/widget-calendar-full.css?ver=3.9.1' type='text/css' media='all' />
     <link rel='stylesheet' id='tribe_events-widget-calendar-pro-style-css' href='assets/css/widget-calendar-theme.css?ver=3.9.1' type='text/css' media='all' />

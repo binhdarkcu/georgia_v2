@@ -16,4 +16,67 @@
   .tribe-events-list .tribe-events-event-image {
     height: auto;
   }
+  .col-cls-mobile{
+    width: 377px;
+  }
+  .site-header .mobile-menu a{
+    padding-right: 15px;
+  }
+  .profilePage{
+    width: 100%;
+    margin: 0 auto;
+    .profileDetail {
+      width: 98%;
+    }
+  }
+  .profilePage .nav-box{
+    padding-left: 15px;
+    min-height: inherit;
+    padding-bottom: 40px; 
+  }
+  .profilePage .profileDetail {
+    .row-f {
+      width: 100%;
+      .col1{
+        width: 45%; 
+      }
+      .col2{
+        width: 35%;
+      }
+      .col3{
+        width: 20%;
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px){
+  .user-logined{
+    right: 15px;
+  }
+  .profilePage{
+    width: 750px;
+    margin: 0 auto;
+  }
+  .profilePage .nav-box{
+    padding-left: 15px;
+    min-height: inherit;
+    padding-bottom: 40px; 
+  }
+  .profilePage .profileDetail {
+    .row-f {
+      width: 100%;
+      .col1{
+        width: 45%; 
+      }
+      .col2{
+        width: 35%;
+      }
+      .col3{
+        width: 20%;
+        text-align: right;
+      }
+    }
+  }
 }

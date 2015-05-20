@@ -20,7 +20,7 @@
   color: #887554;
   background: transparent;
 }
-.sf-menu li.clslogout{
+#header-menu li.clslogout{
   display: none;
 }
 .header-menu.sf-menu li .sub-menu li a:hover{
@@ -33,7 +33,13 @@
 .primary-menu .user-logined{
   display: none;
 }
-.primary-menu.loggedin {
+.menu-slidebar a{
+  text-transform: uppercase;
+}
+.loggedin {
+  #header-menu li.clslogout{
+    display: block;
+  }
   .user-logined, .clslogout{
     display: block;
   }
