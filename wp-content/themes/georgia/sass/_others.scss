@@ -3,6 +3,7 @@
 }
 .user-logined{
   background: #887554;
+  display: none;
   @include RalewayRegular(10px);
   text-transform: uppercase;
   position: absolute;

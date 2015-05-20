@@ -30,6 +30,9 @@
 }
 
 @media only screen and (max-width: 767px) and (min-width: 0){
+  .page-title h1{
+    width: 100%;
+  }
   .ledenPage #tribe-events-content .ledenList{
     .pad{
       padding: 40px 15px 40px 20px;

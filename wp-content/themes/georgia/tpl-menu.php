@@ -1,7 +1,7 @@
 <div id="header-block" class="site-header">
     <div class="container">
         <div class="row relative">
-        	<div class="user-logined">ingelogd als <a href="<?php echo bloginfo('home')?>/profile">
+        	<div class="user-logined" style="<?php if(isset($_SESSION['user'])) echo 'display:block;';?>">ingelogd als <a href="<?php echo bloginfo('home')?>/profile">
         		<?php	
         			if(isset($_SESSION['user'])){
         				echo $_SESSION['user']['p_voornaam'];
