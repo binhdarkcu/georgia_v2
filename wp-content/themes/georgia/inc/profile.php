@@ -56,11 +56,11 @@ function checkEmail(){
 	global $wpdb;	
 	$checkEmail = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '".$_POST['p_email']."'");
 	
-     if($checkEmail){
-        echo ('true');
+     if($checkEmail==true){
+        echo ('false');
     }
     else{
-        echo ('false');
+        echo ('true');
     }
     die();
 }

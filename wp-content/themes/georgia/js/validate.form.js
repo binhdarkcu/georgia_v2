@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
 			               'action': 'check_user_email'
                         },
                         complete: function(data){
-	                        if( data.responseText == "true" ) {
+	                        if( data.responseText == "false" ) {
 	                            $( "#p_email" ).focus();
 	                            alert("Email address already in use. Please use other email.");
 	                        }else{
