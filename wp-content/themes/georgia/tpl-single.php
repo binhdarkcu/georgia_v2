@@ -219,12 +219,55 @@
 
 
                                     </div>
-
+									
                                 </div>
 
                             </div>
-                    </div>
+							<!--
+										photo gallery
+									-->
+									<div class="ledenOrg" style="clear: both;">
+										<div class="home-featured-event" style="margin-bottom: 0;">
+											<div class="featured-event-title">
+												<h2>FOTO Galerij</h2>
+											</div>
+										</div>
+										<div class="leden-logo">
+											<ul>
+												<?php
+													$galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
+													foreach($galleryPhoto as $photo){
+														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
+												?>
+												<li>
+													<img src="<?php echo $bigImg[0];?>"/>
+												</li>
+												<?php } ?>
+											</ul>
+											<div class="clear"></div>
+										</div>
+									</div>
+									<style>
+										.leden-logo{
+											  padding-top: 30px;
+											  padding-left: 30px;
+											  background: #000;
+											  padding-bottom: 19px;
 
+										}
+										.leden-logo ul li{
+											  width: 121px;
+											  height: 121px;
+											  display: inline-block;
+											  margin-right: 9px;
+											  margin-bottom: 11px;
+										}
+										.leden-logo ul li img{
+											width: 100%
+										}
+									</style>
+                    </div>
+					
                     <div class="col-md-3">
                         <?php get_sidebar();?>
                     </div><!-- ./ sidebar -->
