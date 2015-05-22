@@ -292,13 +292,17 @@
           thisRef.$element.find('[data-group="days"]').empty();
           dayNum = dayBase - firstDayOfMonth;
           i = thisRef.options.startFromSunday ? 0 : 1;
+
+            var allowdisplay = true;
           while (dayNum < loopBase - firstDayOfMonth + dayBase) {
               //only display days of month
               //console.log(i, dayNum, monthNum, yearNum );
-                if( !(i > 35 && dayNum > 31) ) {
-                    //console.log(i, dayNum, monthNum, yearNum );
-                    thisRef.drawDay(lastDayOfMonth, yearNum, monthNum, dayNum, i);
+                if( i == 36 && dayNum > 31 ) {
+                    allowdisplay = false;
                 }
+
+              if(allowdisplay)
+              thisRef.drawDay(lastDayOfMonth, yearNum, monthNum, dayNum, i);
 
               dayNum = dayNum + 1;
               i = i + 1;
