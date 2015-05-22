@@ -40,8 +40,6 @@
                                             <div class="tribe-events-loop hfeed vcalendar" id="sidebar-events-loop">
 
 
-
-
                                             </div><!-- .tribe-events-loop -->
                                         </div> <!-- .tribe-mini-calendar-list-wrapper -->
                                     </div>

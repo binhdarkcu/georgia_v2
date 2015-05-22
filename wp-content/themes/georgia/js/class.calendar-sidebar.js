@@ -8,9 +8,7 @@ var calendar_sidebar = (function() {
         setting.url = url;
         initEvents();
         build (objEvents);
-        setTimeout(function(){
-            gotofirstdate();
-        },200)
+        gotofirstdate();
 
     }
 
@@ -39,12 +37,22 @@ var calendar_sidebar = (function() {
     var onetime = false;
     function gotofirstdate(){
 
-        $('.day.future.active').each(function(){
-            $this = $(this);
+        var d = new Date();
 
-            $this.find('a').click();
+        $data_month = d.getMonth() + 1;
+        $data_year = d.getFullYear();
 
-        });
+        jQuery.ajax({
+            type : "post",
+            cache: false,
+            url : setting.url + '/wp-admin/admin-ajax.php',
+            data : {action: "user_events_month", data_month : $data_month, data_year : $data_year},
+            success: function(response) {
+                $('#sidebar-events-loop').html(response);
+            }
+        })
+
+        return false;
     }
     //BUILD
     function build (objEvents){
