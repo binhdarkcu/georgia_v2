@@ -218,6 +218,7 @@
         return new Date(year, month + 1, 0).getDate();
       },
       drawDay: function(lastDayOfMonth, yearNum, monthNum, dayNum, i) {
+
         var numrow = ( parseInt((i-1)/7) ) + 1;
         var calcDate, dateNow, dateString, day, dayDate, pastFutureClass;
         day = $("<div></div>").addClass("day");
@@ -292,9 +293,15 @@
           dayNum = dayBase - firstDayOfMonth;
           i = thisRef.options.startFromSunday ? 0 : 1;
           while (dayNum < loopBase - firstDayOfMonth + dayBase) {
-            thisRef.drawDay(lastDayOfMonth, yearNum, monthNum, dayNum, i);
-            dayNum = dayNum + 1;
-            i = i + 1;
+              //only display days of month
+              //console.log(i, dayNum, monthNum, yearNum );
+                if( !(i > 35 && dayNum > 31) ) {
+                    //console.log(i, dayNum, monthNum, yearNum );
+                    thisRef.drawDay(lastDayOfMonth, yearNum, monthNum, dayNum, i);
+                }
+
+              dayNum = dayNum + 1;
+              i = i + 1;
           }
           setEvents = function() {
             var _j, _len1;

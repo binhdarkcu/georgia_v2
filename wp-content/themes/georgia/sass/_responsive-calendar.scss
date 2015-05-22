@@ -185,11 +185,15 @@
       color: #2e3e40;
       background-color: #e0e0e0;
     }
+  }
 
-    &.not-current a{
+  .day.not-current{
+    a{
       opacity: 0.4;
     }
   }
+
+
 
   .day.today {
     a {
