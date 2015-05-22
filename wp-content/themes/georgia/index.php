@@ -2,9 +2,7 @@
 <body class="home page page-id-1881 page-template page-template-page_home_event page-template-page_home_event-php sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive tribe-theme-eventica-wp">
     <div id="site-container" class="site-container sb-site-container">
         <?php get_template_part('tpl','menu');?>
-        <?php get_template_part('tpl','slider');
-			$featuredid = 0;
-		?>
+        <?php get_template_part('tpl','slider');?>
         <div id="main-content" class="home-plus-events">
 
             <?php get_template_part('tpl','comming-events')?>
@@ -29,7 +27,6 @@
 						        
 						        foreach ($queryFeatured as $featured) {
 								$datetime = get_field('datetime', $featured->ID);
-								$featuredid = $featured->ID;
 								//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                                 $day = substr($datetime, -2); // 13052015
                                 $year = substr($datetime, 0, 4);
@@ -288,21 +285,17 @@
                             				<?php
 												$argevent = array(
 												  'post_type'      => 'post',
-												  'category_name' =>'show-gallery',
-												  'posts_per_page' => 40,
-												  'featured'	 => 'yes'
+												  'category_name' =>'show-event',
+												  'posts_per_page' => 40
 												);
 												$event_query = query_posts( $argevent );
 												if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
-													
-													$galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
-													foreach($galleryPhoto as $photo){
-														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
+                            					$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID(),'medium') );
                             				?>
                             				<li>
-                            					<img src="<?php echo $bigImg[0];?>"/>
+                            					<a href="<?php echo get_permalink(get_the_ID())?>"><img src="<?php echo $bigImg;?>"/></a>
                             				</li>
-                            				<?php } endwhile; endif;?>
+                            				<?php endwhile; endif;?>
                             			</ul>
                             		</div>
                             	</div>
