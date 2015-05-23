@@ -148,7 +148,7 @@
 														$organisaties = query_posts( $orevent );
 														if(have_posts($organisaties->$post)): while(have_posts($organisaties->$post)): the_post($organisaties->$post);
 															$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
-															$link = get_field('url_link', get_the_ID());
+															$link = get_post_meta(get_the_ID(),'tt_organisaties_link', true);
                                         			?>
                                         			<li><a href="<?php echo $link;?>" target="_blank"><img src="<?php echo $bigImg;?>"/></a></li>
                                         			<?php endwhile; endif;?>

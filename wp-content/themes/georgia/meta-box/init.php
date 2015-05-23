@@ -34,34 +34,7 @@ $meta_boxes[] = array(
 
     )
 );
-// 4nd meta box - testimonials
-$meta_boxes[] = array(
-    // Meta box id, UNIQUE per meta box. Optional since 4.1.5
-    'id' => 'organizelink',
 
-    // Meta box title - Will appear at the drag and drop handle bar. Required.
-    'title' => 'Organisaties Link',
-
-    // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
-    'pages' => array( 'organisaties'),
-
-    // Where the meta box appear: normal (default), advanced, side. Optional.
-    'context' => 'normal',
-
-    // Order of meta box: high (default), low. Optional.
-    'priority' => 'high',
-
-    // List of meta fields
-    'fields' => array(
-        // TEXT
-        array(
-            'name'  => 'Link',
-            'id'    => "{$prefix}organisaties_link",
-            'type'  => 'textarea'
-        ),
-
-    )
-);
 /********************* META BOX REGISTERING ***********************/
 
 /**
