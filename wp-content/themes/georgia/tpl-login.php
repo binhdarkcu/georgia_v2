@@ -24,9 +24,9 @@
 		        }
 		        else{
 		            echo '<script language="javascript">';
-					echo 'alert("Login fail.")';
+					//echo 'alert("Login fail.")';
 					echo '</script>';
-					$link = get_site_url().'/word-lid';
+					$link = get_site_url().'/loginfail';
 					echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";
 		        }
 		     }
