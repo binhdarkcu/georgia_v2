@@ -14,29 +14,59 @@
                         <div class="col-md-8 col-md-push-4">
 
 							<?php
+							
+								$today = date('Y/m/d');
 								$args_featured = array(
+						            'post_type' 	 => 'post',
+						            'posts_per_page' => -1,
+						            'order'			 => 'asc',
+						            'meta_query'     => array(
+									    array(
+									      'key'     => 'datetime',
+									      'value'   => $today,
+									      'compare' => '>='
+									    ) 
+									  )
+						        );
+						        //$queryFeatured = new WP_Query($args_featured);
+						        $queryFeatured = get_posts($args_featured);
+						        $neardate = closest($queryFeatured, $today);
+								$datearr = array();
+								foreach ($queryFeatured as $featured) {
+									$datenew = get_field('datetime', $featured->ID);
+									array_push($datearr, $datenew);
+								}
+								$neardate = closest($datearr, $today);
+								
+								//array get post near date
+								$args_near = array(
 						            'post_type' 	 => 'post',
 						            'posts_per_page' => 1,
 						            'order'			 => 'asc',
-						            'featured'		 => 'yes'
+						            'meta_query'     => array(
+									    array(
+									      'key'     => 'datetime',
+									      'value'   => $neardate,
+									      'compare' => '='
+									    ) 
+									  )
 						        );
-						        $queryFeatured = get_posts($args_featured);
 								date_default_timezone_set( 'Europe/Amsterdam' );
 								setlocale(LC_ALL, 'nl_NL');
 								$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
-						        
-						        foreach ($queryFeatured as $featured) {
-								$datetime = get_field('datetime', $featured->ID);
+						        $queryNears = get_posts($args_near);
+						        foreach ($queryNears as $near) {
+								$datetime = get_field('datetime', $near->ID);
 								//$date = DateTime::createFromFormat( 'dmY', $datetime , new DateTimeZone( 'Europe/Amsterdam' ));
                                 $day = substr($datetime, -2); // 13052015
                                 $year = substr($datetime, 0, 4);
                                 $month = substr($datetime, 5, 2);
 
-								$start_time = get_field('start_time', $featured->ID);
-								$end_time = get_field('end_time', $featured->ID);
+								$start_time = get_field('start_time', $near->ID);
+								$end_time = get_field('end_time', $near->ID);
 								$time = $start_time.' - '.$end_time;
-								$loc = get_field('place', $featured->ID);
-								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($featured->ID) );
+								$loc = get_field('place', $near->ID);
+								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($near->ID) );
 							?>
                             <div class="home-featured-event">
 
@@ -55,14 +85,14 @@
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
                                                 <h2 class="entry-title">
                                                     <a class="url" href="<?php echo get_the_permalink($featured->ID)?>" title="<?php echo get_the_title($featured->ID);?>" rel="bookmark">
-                                                        <?php echo get_the_title($featured->ID);?>
+                                                        <?php echo get_the_title($near->ID);?>
                                                     </a>
                                                 </h2>
                                                 <div class="tribe-events-event-image">
                                                     <img src="images/home/e-4.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
-                                                    <?php echo $featured->post_content;?>
+                                                    <?php echo $near->post_content;?>
                                                 </div>
                                             </div>
 
@@ -82,7 +112,7 @@
 													$join_query = "SELECT * 
 																FROM  wp_participate
 																WHERE id_member = ".$_SESSION['user']['id']."
-																AND id_event = ".$featured->ID."
+																AND id_event = ".$near->ID."
 																AND status_join = 'yes'"."
 																LIMIT 0 , 30";
                                                 	$isjoin = $wpdb->get_row($join_query);
@@ -144,7 +174,7 @@
                                             			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
 																	FROM wp_participate pt
 																	JOIN wp_members mb ON mb.id = pt.id_member
-																	WHERE pt.id_event = ".$featured->ID." AND pt.status_join = 'yes'"."
+																	WHERE pt.id_event = ".$near->ID." AND pt.status_join = 'yes'"."
 																	GROUP BY pt.id_member, pt.id
 																	LIMIT 0 , 30";
 														$joinEvents = $wpdb->get_results($p_query);
@@ -191,7 +221,7 @@
                                                 </h3>
                                                 <ul>
                                                     <?php
-                                                    	$shedule = get_field('shedule', $featured->ID); 
+                                                    	$shedule = get_field('shedule', $near->ID); 
 														//print_r($shedule);
 		                                            	//if( have_rows('shedule') ): while ( have_rows('shedule') ) : the_row(); 
 														foreach( $shedule as $s ){

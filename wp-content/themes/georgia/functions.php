@@ -103,6 +103,15 @@
 	}
 	//add_action( 'template_redirect', 'change_viewall_url_rewrite' );
 	
+	function closest($array, $number) {
+
+	    sort($array);
+	    foreach ($array as $a) {
+	        if ($a >= $number) return $a;
+	    }
+	    return end($array); // or return NULL;
+	}
+	
 	function get_page_id_by_slug($slug){
 	    global $wpdb;
 	    $id = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$slug."'AND post_type = 'page'");
