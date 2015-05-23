@@ -240,7 +240,7 @@
 														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
 												?>
 												<li>
-													<img src="<?php echo $bigImg[0];?>"/>
+													<a class="fresco" data-fresco-group='galleryphoto' href="<?php echo $bigImg[0];?>"><img src="<?php echo $bigImg[0];?>"/></a>
 												</li>
 												<?php } ?>
 											</ul>
