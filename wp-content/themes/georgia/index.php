@@ -310,22 +310,25 @@
 	                                        <h2>LAATSTE FOTO’S</h2>
 	                                    </div>
                             		</div>
-                            		<div class="lastestList">
+                            		<div class="lastestList scrollbar">
                             			<ul>
                             				<?php
-												$argevent = array(
+												$argphoto = array(
 												  'post_type'      => 'post',
 												  'category_name' =>'show-event',
-												  'posts_per_page' => 40
+												  'posts_per_page' => -1
 												);
-												$event_query = query_posts( $argevent );
+												$event_query = query_posts( $argphoto );
 												if(have_posts($event_query->$post)): while(have_posts($event_query->$post)): the_post($event_query->$post);
-                            					$bigImg = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID(),'medium') );
+													$galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
+													
+													foreach($galleryPhoto as $photo){
+														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
                             				?>
                             				<li>
-                            					<a href="<?php echo get_permalink(get_the_ID())?>"><img src="<?php echo $bigImg;?>"/></a>
+                            					<a href="<?php echo get_permalink($photo)?>"><img src="<?php echo $bigImg[0];?>"/></a>
                             				</li>
-                            				<?php endwhile; endif;?>
+                            				<?php } endwhile; endif;?>
                             			</ul>
                             		</div>
                             	</div>

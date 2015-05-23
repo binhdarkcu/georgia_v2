@@ -252,6 +252,14 @@
     }
   }
 }
+.lastestPhoto{
+  .scrollbar {
+    max-height: 694px;
+  }
+  .mCSB_inside > .mCSB_container{
+    margin-right: -3px;
+  }
+}
 #tribe-events-content.tribe-events-single .tribe-events-cta .tribe-events-cta-btn{
   position: relative;
   .blur{
