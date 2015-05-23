@@ -128,13 +128,13 @@
 	                                                    <?php
 	                                                    	if(empty($isjoin)){
 	                                                    ?>
-	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
+	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $near->ID;?>" id="addEvent" href="javascript:void(0);">
 	                                                        IK KOM
 	                                                    </a>
 	                                                    <?php }else {
 	                                                    	if($diff >= 10)	{
 	                                                    ?>
-	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
+	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $near->ID;?>" id="addEvent" href="javascript:void(0);">
 	                                                        CANCEL
 	                                                    </a>
 	                                                    <?php } else{?> 
