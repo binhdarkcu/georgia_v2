@@ -70,6 +70,9 @@
     <script type='text/javascript' src='js/responsive-calendar.js'></script>
     <script type='text/javascript' src='js/class.calendar-sidebar.js'></script>
     <script type='text/javascript' src='js/class.calendar-page.js'></script>
+    
+    <script type="text/javascript" src="js/fresco/fresco.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/fresco/fresco.css" />
 
     <?php get_template_part('tpl','login')?>
     <?php get_template_part('tpl','message-success')?>

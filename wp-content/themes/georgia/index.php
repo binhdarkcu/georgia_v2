@@ -326,7 +326,7 @@
 														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
                             				?>
                             				<li>
-                            					<a href="<?php echo get_permalink($photo)?>"><img src="<?php echo $bigImg[0];?>"/></a>
+                            					<a class="fresco" data-fresco-group='lastestphoto' href="<?php echo $bigImg[0];?>"><img src="<?php echo $bigImg[0];?>"/></a>
                             				</li>
                             				<?php } endwhile; endif;?>
                             			</ul>
