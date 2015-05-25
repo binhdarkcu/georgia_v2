@@ -53,6 +53,8 @@ jQuery(document).ready(function(){
 				data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
 				success: function(data) {
 					if(data){
+						$('input[name=' + $fieldname + ']').parent().attr('href',$setfield);
+						$(this).parent().parent().find('a').attr('href',$('input[name=' + $fieldname + ']').val());
 						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$('select[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$(self).find('span').text('edit');
@@ -63,6 +65,7 @@ jQuery(document).ready(function(){
 				}
 			});
 		}else{
+			$(this).parent().parent().find('a').attr('href','javascript:void(0)');
 			$('input[name=' + $fieldname + '], select[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
 			$('select[name=' + $fieldname + ']').prop('disabled',false).css({'background':'#fff','color':'#333'});
 			$(this).parent().parent().find('.empty').hide();

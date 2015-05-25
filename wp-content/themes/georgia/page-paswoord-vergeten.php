@@ -9,7 +9,7 @@
                     <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
                     <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home').'/'.$query_object->post_name;?>" title="Events"><?php echo get_the_title($query_object->ID);?></a></span>
                 </div>					
-                <h1>Forgot Password</h1>
+                <h1>PASWOORD VERGETEN</h1>
             </div>
         </section>
 
@@ -31,7 +31,7 @@
 
                                         <!-- List Title -->
                                         <div class="tribe-events-page-title-wrap">
-                                            <h2 class="tribe-events-page-title"><?php the_title();?></h2>
+                                            <h2 class="tribe-events-page-title">VRAAG UW PASWOORD OPNIEUW AAN</h2>
                                         </div>
 
                                         <!-- Notices -->
@@ -43,7 +43,7 @@
                                         <!-- Events Loop -->
 
                                         <div class="events-loop tribe-events-loop vcalendar forgotPassword">
-                                        	<h4>Find Your Account</h4>
+                                        	
                                         	<?php
 	                                        	
 												$message = "";
@@ -62,7 +62,7 @@
 															array( 'p_email' => $p_email)
 														);
 														send_password($p_email,'Your password'.$password);
-											            $message = "Your password is send to your email.";
+											            $message = "Jouw paswoord werd opnieuw naar uw email adres verstuurd";
 														
 											        }
 											        else{
@@ -81,13 +81,13 @@
 						                        ?>  
 												<div class="searchpass">
 													<div class="col1">
-														Your email
+														Jouw email adres
 													</div>
 													<div class="col2">
 														<input value="" type="text" autocomplete="off" name="fp_email" placeholder=""/>
 													</div>
 													<div class="clear"></div>
-													<input type="submit" value="Find" class="btn" />
+													<input type="submit" value="VERZENDEN" class="btn" />
 													<?php wp_nonce_field('forgot_password','act_forgot_password');?>
 												</div>
 											</form>

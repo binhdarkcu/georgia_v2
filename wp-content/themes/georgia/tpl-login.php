@@ -54,7 +54,7 @@
 					</p>
 					<a href="javascript:void(0)" onclick="jQuery('#loginForm').submit();"  class="btn">LOG IN</a>
 					<p class="txt">
-						paswoord vergeten? <a href="<?php echo bloginfo('home')?>/forgot-password">klik dan hier</a>
+						paswoord vergeten? <a href="<?php echo bloginfo('home')?>/paswoord-vergeten">klik dan hier</a>
 					</p>
 				</div>
 				<div class="l-right">

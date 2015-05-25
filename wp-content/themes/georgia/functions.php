@@ -57,7 +57,7 @@
 	}
 	//add type columns
     include 'inc/type_column.php';
-	
+	include 'inc/date_column.php';
 	//add countries
     include 'inc/countries.php';
 	//filter home
@@ -102,7 +102,18 @@
 		}	
 	}
 	//add_action( 'template_redirect', 'change_viewall_url_rewrite' );
-	
+	if( !function_exists('wp_remove_wp_columns') ):
+	function wp_remove_wp_columns( $columns ) {
+	  unset($columns['tags']);
+	  unset($columns['comments']);
+	  unset($columns['date']);
+	  return $columns;
+	}
+	function wp_remove_wp_columns_init() {
+	add_filter( 'manage_posts_columns' , 'wp_remove_wp_columns' );
+	}
+	add_action( 'admin_init' , 'wp_remove_wp_columns_init' );
+	endif;
 	function closest($array, $number) {
 
 	    sort($array);

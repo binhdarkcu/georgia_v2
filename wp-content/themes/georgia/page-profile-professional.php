@@ -118,14 +118,14 @@
 						<div class="row-f">
 							<div class="col1">Emailadres</div>
 							<div class="col2"><?php if(empty($user['b_email'])){echo '-';} else {?>
-								<a href="mailto:<?php echo $user['b_email']; ?>"><?php echo $user['b_email']; ?></a>
+								<input type="text" name="b_email" value="<?php echo $user['b_email']; ?>" disabled=""/>
 								<?php }?>
 							</div>
-							<div class="col3"><a href="#" class="fa fedit"><span>edit</span></a></div>
+							<div class="col3"><a href="#" data-fieldname="b_email" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">Website bedrijf/organisatie</div>
-							<div class="col2"><input type="text" name="b_organisatie" value="<?php echo $user['b_organisatie']; ?>" disabled=""/></div>
+							<div class="col2"><a href="<?php echo $user['b_organisatie']; ?>" target="_blank"><input type="text" name="b_organisatie" value="<?php echo $user['b_organisatie']; ?>" disabled=""/></a></div>
 							<div class="col3"><a href="#" data-fieldname="b_organisatie" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>

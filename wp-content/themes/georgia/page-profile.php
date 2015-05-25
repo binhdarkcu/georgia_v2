@@ -108,12 +108,12 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Privé emailadres</div>
-							<div class="col2"><a href="mailto:<?php echo $user['p_email']; ?>"><?php echo $user['p_email']; ?></a></div>
-							<div class="col3"><a href="#" class="fa fedit"><span>edit</span></a></div>
+							<div class="col2"><input type="text" name="p_email" value="<?php echo $user['p_email']; ?>"/></div>
+							<div class="col3"><a href="#" data-fieldname="p_email" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">Linkedin Profiel pagina</div>
-							<div class="col2"><span class="empty"><?php if(empty($user['p_likedin'])) echo '-';?></span><input type="text" name="p_likedin" value="<?php echo $user['p_fax']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['p_likedin'])) echo '-';?></span><input type="text" name="p_likedin" value="<?php echo $user['p_likedin']; ?>" disabled=""/></div>
 								<div class="col3"><a href="#" data-fieldname="p_likedin" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="clear"></div>
