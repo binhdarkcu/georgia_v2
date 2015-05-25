@@ -37,7 +37,11 @@ function ST4_get_event_type_post($post_ID) {
     $type_post_id = get_field('datetime',$post_ID);
     if ($type_post_id) {
         $type_post_id = get_field('datetime',$post_ID);
-        return $type_post_id;
+		$day = substr($type_post_id, -2); // 13052015
+        $year = substr($type_post_id, 0, 4);
+        $month = substr($type_post_id, 5, 2);
+    	//$month = convertMonths_String((int)$month,true);
+        return $day.'/'.$month.'/'.$year;
     }
 }
 
