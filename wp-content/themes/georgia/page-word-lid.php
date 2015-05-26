@@ -236,7 +236,7 @@
 										</div>
 										<div class="reg-row">
 											<div class="col1">
-												<label>Telefoon</label>
+												<label>Telefoon<span class="red">*</span></label>
 												<input type="text" name="p_telefoon" value="" />
 											</div>
 											<div class="col2">
