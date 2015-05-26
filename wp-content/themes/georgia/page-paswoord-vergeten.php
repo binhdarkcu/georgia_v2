@@ -61,7 +61,7 @@
 															$data,
 															array( 'p_email' => $p_email)
 														);
-														send_password($p_email,'Your password'.$password);
+														send_password($p_email, $password);
 											            $message = "Jouw paswoord werd opnieuw naar uw email adres verstuurd";
 														
 											        }

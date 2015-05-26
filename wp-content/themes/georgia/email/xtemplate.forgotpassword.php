@@ -9,7 +9,7 @@
                 $contact_name = get_bloginfo('name');
 				//echo $contact_email;
                 $date = date('d-m-Y');
-                $parseTemplate	=	new XTemplate('xtemplate.register.html');
+                $parseTemplate	=	new XTemplate('xtemplate.forgotpassword.html');
                 $parseTemplate->assign('date',$date);      
 				$parseTemplate->assign('message',$message);
 				

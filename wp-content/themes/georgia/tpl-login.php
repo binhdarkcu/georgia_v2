@@ -3,10 +3,10 @@
 	    
 		$logged = false;
 	    	$message = "";
-		    if(isset($_POST['p_email']))
+		    if(isset($_POST['login_email']))
 		    {
 		        global $wpdb;
-		        $email = $_POST['p_email'];
+		        $email = $_POST['login_email'];
 		        $password = sha1($_POST['p_password']);
 		        print_r($password);
 		        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$email' and p_password = '$password'");
@@ -47,7 +47,7 @@
 				<div class="l-left">
 					<h4>LOG IN </h4>
 					<p>
-						<input type="text" value="" name="p_email" placeholder="e-mailadres" />
+						<input type="text" value="" name="login_email" placeholder="e-mailadres" />
 					</p>
 					<p>
 						<input type="password" value="" name="p_password" placeholder="paswoord" />

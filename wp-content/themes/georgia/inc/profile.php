@@ -19,6 +19,40 @@ function updateProfile(){
 		array( '%d' ) 
 	);
 }
+
+add_action("wp_ajax_user_active_profile", "activeProfile");
+add_action("wp_ajax_nopriv_user_active_profile", "activeProfile");
+
+function activeProfile(){
+	$setfield = $_REQUEST['setfield'];
+	$fieldname = $_REQUEST['fieldname'];
+	$id = $_REQUEST['id'];
+	$username = $_REQUEST['username'];
+	$useremail = $_REQUEST['useremail'];
+	global $wpdb;	
+	$execute = $execute = $wpdb->update( 
+		'wp_members', 
+		array( 
+			$fieldname => $setfield
+		), 
+		array( 'id' => $id ), 
+		array( 
+			'%s'
+		),
+		array( '%d' ) 
+	);
+	 if($execute){
+	 	$s_password = actived_form($username, $useremail);
+		if($s_password){
+			echo 'Actived!';
+		}else{
+			echo 'can\'t send email!';
+		}
+	 }else{
+	 	echo 'not Actived';
+	 }
+}
+
 add_action("wp_ajax_user_update_avatar", "saveFile");
 add_action("wp_ajax_nopriv_user_update_avatar", "saveFile");
 function saveFile(){

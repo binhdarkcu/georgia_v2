@@ -107,7 +107,7 @@
 				$data['f_addresspayment'] = $w_pay;	
 			}
 			$data['f_notepayment'] = $_POST['f_notepayment'];
-			
+			$data['f_user_status'] = $_POST['f_user_status'];
 			$data['created'] = date('Y-m-d h:i:s');
 	        $data['modified'] = date('Y-m-d h:i:s');
 	        
@@ -115,11 +115,11 @@
 	        if($results){
 	            $logged = true;
 	            $message = "Register success";
-	            unset($data['password']);
-	            $_SESSION['user'] = $data;
-				$_SESSION['user_id'] = $data['id'];
+	            //unset($data['password']);
+	            //$_SESSION['user'] = $data;
+				//$_SESSION['user_id'] = $data['id'];
 	            $link = get_site_url().'/success';
-	            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+	            echo "<script>setTimeout(function(){window.location.href = '$link';},1);</script>";
 	        }
 	        else{
 	        	
@@ -572,6 +572,7 @@
 	                                    <input name="action" type="hidden" class="action" value="register_action"/>
 										<a href="javascript:void(0)" onclick="jQuery('#registerForm').submit();" class="btn">VERSTUUR MIJN AANVRAAG</a>
 										<?php wp_nonce_field('register_member','act_register_member');?>
+										<input type="hidden" name="f_user_status" value="verified"/>
 									</div>
 								</div>
 							</form>
