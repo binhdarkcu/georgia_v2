@@ -852,7 +852,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		        	OR p_naam LIKE '%$search%'
 		        	OR p_email LIKE '%$search%'
 		        	OR p_telefoon LIKE '%$search%'
-		        	OR p_plaats LIKE '%$search%'
+		        	OR f_user_status LIKE '%$search%'
 		        ";
 		  		$members = $wpdb->get_results($s_query);
 				$data = array();

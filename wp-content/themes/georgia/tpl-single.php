@@ -226,6 +226,7 @@
 							<!--
 										photo gallery
 									-->
+									<?php if(isset($_SESSION['user'])) {?>
 									<div class="ledenOrg" style="clear: both;">
 										<div class="home-featured-event" style="margin-bottom: 0;">
 											<div class="featured-event-title">
@@ -247,6 +248,7 @@
 											<div class="clear"></div>
 										</div>
 									</div>
+									<?php }?>
 									<style>
 										.leden-logo{
 											  padding-top: 30px;
