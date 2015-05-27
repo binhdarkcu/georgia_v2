@@ -50,9 +50,9 @@
 				move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
 				$data['p_picture'] = $fileName;
 			}
-			
+			$data['p_user_status'] = 0;
 			$data['p_password'] = sha1($_POST['p_password']);
-			
+			$data['p_plain_password'] = $_POST['p_password'];
 			$data['p_picture'] = $data['p_picture']; 
 	        $data['b_naam'] = $_POST['p_naam'];
 			$data['b_hoofd'] = $_POST['b_hoofd'];
@@ -107,7 +107,7 @@
 				$data['f_addresspayment'] = $w_pay;	
 			}
 			$data['f_notepayment'] = $_POST['f_notepayment'];
-			$data['f_user_status'] = $_POST['f_user_status'];
+			//$data['f_user_status'] = $_POST['f_user_status'];
 			$data['created'] = date('Y-m-d h:i:s');
 	        $data['modified'] = date('Y-m-d h:i:s');
 	        
