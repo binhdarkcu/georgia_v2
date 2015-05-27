@@ -44,7 +44,7 @@ function activeProfile(){
 		array( '%d' ) 
 	);
 	 if($execute){
-	 	$s_password = actived_form($username, $useremail);
+	 	$s_password = actived_form($username, $useremail, $plainpassword);
 		if($s_password){
 			echo 'Actived!';
 		}else{

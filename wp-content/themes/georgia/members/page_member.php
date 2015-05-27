@@ -385,13 +385,40 @@ class TT_Member_List_Table extends WP_List_Table {
 					.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
 				  });
 			</script>
+			<script>
+				$(document).ready(function(){
+					$('#activeuser').click(function(){
+						$id = $(this).attr('data-userid');
+						$username = $(this).attr('data-username');
+						$useremail = $(this).attr('data-useremail');
+						$userpassword = $(this).attr('data-plainpassword');
+						jQuery.ajax({
+							type : "post",
+							url : $('.ajaxurl').val(),
+							data : {action: "user_active_profile", setfield:'1', fieldname:'p_user_status', id:$id, username: $username, useremail: $useremail, plainpassword:$userpassword  },
+							success: function(data) {
+								if(data){
+									console.log('Profile updated.');
+									window.location.reload(true);
+								}else{
+									alert('can\'t not updated.');
+								}
+							}
+						});
+					});
+				});
+			</script>
 	    	<div class="registerPage ">
 	    		<div class="registerBox">
 		    		<form action="" method="post" enctype="multipart/form-data">
 		    			<h3>Edit member</h3>
 		    			<div style="float: left;">
+		    				<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 		    				<h4>Naam: <?php echo $member['p_naam']; ?></h4>
 		    				<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+		    				<?php if($member['p_user_status'] == 0){?>
+		    				<p><a href="javascript:void(0);" id="activeuser" data-plainpassword="<?php echo $member['p_plain_password'];?>" data-username="<?php echo $member['p_naam'];?>" data-useremail="<?php echo $member['p_email'];?>" data-userid="<?php echo $member['id'];?>">Active</a></p>
+		    				<?php }?>
 		    			</div>
 		    			<div class="informationBox" style="float: right;">
 							<div class="reg-left">
