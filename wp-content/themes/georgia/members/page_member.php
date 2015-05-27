@@ -161,7 +161,7 @@ class TT_Member_List_Table extends WP_List_Table {
 				echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
 				break;
 			case 'actived_user':
-				if($item[ 'f_user_status' ] != 'actived'){
+				if($item[ 'p_user_status' ] != 'actived'){
 					echo '<a href="javascript:void(0);" class="activeuser" data-username="'.$item['p_naam'].'" data-useremail="'.$item['p_email'].'" data-userid="'.$item['id'].'">Active</a>';
 					break;
 				}
@@ -170,7 +170,7 @@ class TT_Member_List_Table extends WP_List_Table {
 			case 'p_email':
 			case 'p_telefoon':
 			
-			case 'f_user_status':
+			case 'p_user_status':
 	            return $item[ $column_name ];
 	        default:
 	            return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
@@ -222,7 +222,7 @@ class TT_Member_List_Table extends WP_List_Table {
             'p_email'    => 'Email',
             'p_land'      => 'Land',
 			'p_telefoon'    => 'Telefoon',
-            'f_user_status'      => 'User status',
+            'p_user_status'      => 'User status',
             'actived_user' => 'Actived User',
         );
         return $columns;
@@ -251,7 +251,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		    'p_email' => array('p_email',false),
 		    'p_land'   => array('p_land',false),
 			'p_telefoon' => array('p_telefoon',false),
-		    'f_user_status'   => array('f_user_status',false)
+		    'p_user_status'   => array('p_user_status',false)
         );
         return $sortable_columns;
     }
@@ -334,7 +334,7 @@ class TT_Member_List_Table extends WP_List_Table {
 					jQuery.ajax({
 						type : "post",
 						url : $('.ajaxurl').val(),
-						data : {action: "user_active_profile", setfield:'actived', fieldname:'f_user_status', id:$id, username: $username, useremail: $useremail },
+						data : {action: "user_active_profile", setfield:'1', fieldname:'p_user_status', id:$id, username: $username, useremail: $useremail },
 						success: function(data) {
 							if(data){
 								console.log('Profile updated.');
@@ -846,13 +846,13 @@ class TT_Member_List_Table extends WP_List_Table {
 		        $search = trim($search);
 		       
 		        /* Notice how you can search multiple columns for your search term easily, and return one data set */
-		        $s_query = "SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, f_user_status FROM wp_members where p_plaats LIKE '%$search%'
+		        $s_query = "SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status FROM wp_members where p_plaats LIKE '%$search%'
 		        	OR p_plaats LIKE '%$search%'
 		        	OR p_picture LIKE '%$search%'
 		        	OR p_naam LIKE '%$search%'
 		        	OR p_email LIKE '%$search%'
 		        	OR p_telefoon LIKE '%$search%'
-		        	OR f_user_status LIKE '%$search%'
+		        	OR p_user_status LIKE '%$search%'
 		        ";
 		  		$members = $wpdb->get_results($s_query);
 				$data = array();
@@ -860,7 +860,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		   			array_push($data, (array)$querydatum);}
 		 
 		  }else{
-		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, f_user_status FROM wp_members';
+		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status FROM wp_members';
 		  	$members = $wpdb->get_results($query);
 			$data = array();
 		  	foreach ($members as $querydatum ) {

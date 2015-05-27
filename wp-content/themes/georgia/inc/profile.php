@@ -33,11 +33,12 @@ function activeProfile(){
 	$execute = $execute = $wpdb->update( 
 		'wp_members', 
 		array( 
-			$fieldname => $setfield
+			$fieldname => $setfield,
+			'p_plain_password' => ''
 		), 
 		array( 'id' => $id ), 
 		array( 
-			'%s'
+			'%s', '%s'
 		),
 		array( '%d' ) 
 	);
