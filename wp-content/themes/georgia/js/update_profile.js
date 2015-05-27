@@ -105,4 +105,24 @@ jQuery(document).ready(function(){
 
        });
 	});
+	
+	//LOGIN
+	$('#btn-user-login').click(function() {
+		$form = $('#loginForm');
+		$p_email = $form.find('input[name=login_email]').val();
+        $p_password = $form.find('input[name=p_password]').val();
+	    jQuery.ajax({
+            type : "post",
+            url : $('.ajaxurl').val(),
+            data : {action: "user_login", p_email : $p_email, p_password : $p_password},
+            success: function(response) {
+				if (response == 'false') {
+					alert('Your account is not activated');
+				}
+				else {
+					window.location.href = response;
+				}
+            }
+       });
+	});
 });

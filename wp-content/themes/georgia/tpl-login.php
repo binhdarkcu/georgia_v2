@@ -41,6 +41,8 @@
                 echo '<div class="alert '.$alert.'">'.$message.'</div>';
             }
         ?>
+		<div id="login-error" class="alert alert-danger"></div>
+		<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 		<div class="popup-content">
 			<img src="images/logo.png"/>
 			<div class="login-form">
@@ -52,7 +54,7 @@
 					<p>
 						<input type="password" value="" name="p_password" placeholder="paswoord" />
 					</p>
-					<a href="javascript:void(0)" onclick="jQuery('#loginForm').submit();"  class="btn">LOG IN</a>
+					<a href="javascript:void(0)" id="btn-user-login" class="btn">LOG IN</a>
 					<p class="txt">
 						paswoord vergeten? <a href="<?php echo bloginfo('home')?>/paswoord-vergeten">klik dan hier</a>
 					</p>
