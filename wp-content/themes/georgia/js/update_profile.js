@@ -58,7 +58,10 @@ jQuery(document).ready(function(){
 						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$('select[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$(self).find('span').text('edit');
+						if($('input[name=' + $fieldname + ']').val() == ''){
+							$('input[name=' + $fieldname + ']').parent().find('.empty').show();	
 						//alert('Profile updated.');
+						}
 					}else{
 						alert('Profile not updated.');
 					}

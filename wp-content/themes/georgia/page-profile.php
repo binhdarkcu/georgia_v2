@@ -58,12 +58,12 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Postcode</div>
-							<div class="col2"><input type="text" name="p_postcode" value="<?php echo $user['p_postcode']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['p_postcode'])) echo '-';?></span><input type="text" name="p_postcode" value="<?php echo $user['p_postcode']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="p_postcode" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">Plaats</div>
-							<div class="col2"><input type="text" name="p_plaats" value="<?php echo $user['p_plaats']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['p_plaats'])) echo '-';?></span><input type="text" name="p_plaats" value="<?php echo $user['p_plaats']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="p_plaats" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
@@ -97,18 +97,18 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Fax</div>
-							<div class="col2"><span class="empty"><?php if(empty($user['p_fax'])) echo '-';?></span><input type="text" name="p_fax" value="<?php echo $user['p_fax']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['p_fax'])) echo '-';?></span><span class="empty"><?php if(empty($user['p_fax'])) echo '-';?></span><input type="text" name="p_fax" value="<?php echo $user['p_fax']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="p_fax" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">GSM</div>
-							<div class="col2"><input type="text" name="p_gsm" value="<?php echo $user['p_gsm']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['p_gsm'])) echo '-';?></span><input type="text" name="p_gsm" value="<?php echo $user['p_gsm']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="p_gsm" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 			
 						</div>
 						<div class="row-f">
 							<div class="col1">Privé emailadres</div>
-							<div class="col2"><input type="text" name="p_email" value="<?php echo $user['p_email']; ?>"/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['p_email'])) echo '-';?></span><input type="text" name="p_email" value="<?php echo $user['p_email']; ?>"/></div>
 							<div class="col3"><a href="#" data-fieldname="p_email" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
