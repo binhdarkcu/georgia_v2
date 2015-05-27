@@ -161,16 +161,22 @@ class TT_Member_List_Table extends WP_List_Table {
 				echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
 				break;
 			case 'actived_user':
-				if($item[ 'p_user_status' ] != 'actived'){
-					echo '<a href="javascript:void(0);" class="activeuser" data-username="'.$item['p_naam'].'" data-useremail="'.$item['p_email'].'" data-userid="'.$item['id'].'">Active</a>';
+				if($item[ 'p_user_status' ] != '1'){
+					echo '<a href="javascript:void(0);" class="activeuser" data-plainpassword="'.$item['p_plain_password'].'" data-username="'.$item['p_naam'].'" data-useremail="'.$item['p_email'].'" data-userid="'.$item['id'].'">Active</a>';
 					break;
 				}
+			case 'p_user_status':
+				if($item[ $column_name ] == 0){
+					echo 'veryfied';
+					break;
+				}else{
+					echo 'actived';
+					break;
+				}	
 	        case 'p_naam':
 	        case 'p_voornaam':
 			case 'p_email':
 			case 'p_telefoon':
-			
-			case 'p_user_status':
 	            return $item[ $column_name ];
 	        default:
 	            return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
@@ -331,10 +337,11 @@ class TT_Member_List_Table extends WP_List_Table {
 					$id = $(this).attr('data-userid');
 					$username = $(this).attr('data-username');
 					$useremail = $(this).attr('data-useremail');
+					$userpassword = $(this).attr('data-plainpassword');
 					jQuery.ajax({
 						type : "post",
 						url : $('.ajaxurl').val(),
-						data : {action: "user_active_profile", setfield:'1', fieldname:'p_user_status', id:$id, username: $username, useremail: $useremail },
+						data : {action: "user_active_profile", setfield:'1', fieldname:'p_user_status', id:$id, username: $username, useremail: $useremail, plainpassword:$userpassword  },
 						success: function(data) {
 							if(data){
 								console.log('Profile updated.');
@@ -860,7 +867,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		   			array_push($data, (array)$querydatum);}
 		 
 		  }else{
-		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status FROM wp_members';
+		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status, p_plain_password FROM wp_members';
 		  	$members = $wpdb->get_results($query);
 			$data = array();
 		  	foreach ($members as $querydatum ) {

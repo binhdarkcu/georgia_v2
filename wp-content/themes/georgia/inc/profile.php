@@ -29,6 +29,7 @@ function activeProfile(){
 	$id = $_REQUEST['id'];
 	$username = $_REQUEST['username'];
 	$useremail = $_REQUEST['useremail'];
+	$plainpassword = $_REQUEST['plainpassword'];
 	global $wpdb;	
 	$execute = $execute = $wpdb->update( 
 		'wp_members', 
