@@ -60,6 +60,8 @@ jQuery(document).ready(function(){
 						$(self).find('span').text('edit');
 						if($('input[name=' + $fieldname + ']').val() == ''){
 							$('input[name=' + $fieldname + ']').parent().find('.empty').show();	
+							$('input[name=' + $fieldname + ']').parent().attr('href','javascript:void(0)');
+							$('input[name=' + $fieldname + ']').parent().parent().find('.empty').show()
 						//alert('Profile updated.');
 						}
 					}else{
