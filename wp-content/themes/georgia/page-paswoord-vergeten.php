@@ -50,24 +50,25 @@
                                         		if(!empty($_POST) && wp_verify_nonce($_POST['act_forgot_password'],'forgot_password')){
 	                                        		global $wpdb;
 													$p_email = $_POST['fp_email'];
-	                                        		$results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '".$p_email."'");
-													//print_r($results);
+	                                        		$results = $wpdb->get_row("SELECT p_email, p_user_status FROM wp_members WHERE p_email = '".$p_email."'", ARRAY_A);
 											        if(!empty($results)){
-											        	$password =  substr(md5(uniqid(rand(),true)), 10,15); 
-											        	$data['p_password'] = sha1($password);
-														//print_r($password.'  '.$data['p_password']);
-											           	$update_query = $wpdb->update( 
-															'wp_members', 
-															$data,
-															array( 'p_email' => $p_email)
-														);
-														send_password($p_email, $password);
-											            $message = "Jouw paswoord werd opnieuw naar uw email adres verstuurd";
-														
+															if ($results['p_user_status'] == 1) {
+																$password =  substr(md5(uniqid(rand(),true)), 10,15); 
+															$data['p_password'] = sha1($password);
+															$update_query = $wpdb->update( 
+																'wp_members', 
+																$data,
+																array( 'p_email' => $p_email)
+															);
+															send_password($p_email, $password);
+															$message = "Jouw paswoord werd opnieuw naar uw email adres verstuurd";
+														}
+											        	else {
+															$message = "Your account is not activated.";
+														}
 											        }
 											        else{
 											        	$message = "Email not exist. Please choose other email.";
-											            
 											        }
 												}
                                         	?>
