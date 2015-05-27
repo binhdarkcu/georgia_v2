@@ -8,7 +8,7 @@
 				<div class="l-left">
 					<h4>LOG IN </h4>
 					<p>
-						<input type="text" value="" name="login_email" placeholder="e-mailadres" />
+						<input type="text" value="" name="login_email" placeholder="e-mailadres" class="email"/>
 					</p>
 					<p>
 						<input type="password" value="" name="p_password" placeholder="paswoord" />

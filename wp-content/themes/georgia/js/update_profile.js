@@ -107,22 +107,59 @@ jQuery(document).ready(function(){
 	});
 	
 	//LOGIN
+	jQuery(document).ready(function() {
+        jQuery("#loginForm").validate({
+    		rules: {
+                'p_email': { 
+                    required: true, 
+                    email: true,
+                },
+                'p_password': { 
+                    required: true, 
+                    minlength: 6, 
+                }
+    		},
+    		submitHandler: function(form) {
+                form.submit();
+    		},
+    	});
+    });
 	$('#btn-user-login').click(function() {
 		$form = $('#loginForm');
 		$p_email = $form.find('input[name=login_email]').val();
         $p_password = $form.find('input[name=p_password]').val();
-	    jQuery.ajax({
-            type : "post",
-            url : $('.ajaxurl').val(),
-            data : {action: "user_login", p_email : $p_email, p_password : $p_password},
-            success: function(response) {
-				if (response == 'false') {
-					alert('Your account is not activated');
+        $check = false;
+        $form.find('input').removeClass('error');
+        if($p_email == ''){
+        	$form.find('input[name=login_email]').addClass('error');
+        	$check = true;
+        }
+        if($p_password == ''){
+        	$form.find('input[name=p_password]').addClass('error');
+        	$check = true;
+        }else{
+	    	if($form.find('input[name=login_email]').hasClass('email')){
+				var h=/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+				if(!h.test($p_email)){
+					$form.find('input[name=login_email]').addClass('error');
+					$check=true;
 				}
-				else {
-					window.location.href = response;
-				}
-            }
-       });
+			}
+        }
+        if(!$check){
+		    jQuery.ajax({
+	            type : "post",
+	            url : $('.ajaxurl').val(),
+	            data : {action: "user_login", p_email : $p_email, p_password : $p_password},
+	            success: function(response) {
+					if (response == 'false') {
+						alert('Your account is not activated');
+					}
+					else {
+						window.location.href = response;
+					}
+	            }
+	       });
+	    }
 	});
 });
