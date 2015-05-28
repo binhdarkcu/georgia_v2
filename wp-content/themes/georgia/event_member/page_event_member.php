@@ -56,7 +56,7 @@ class My_Event_List_Table extends WP_List_Table {
   function column_default( $item, $column_name ) {
     switch( $column_name ) {
     	case 'id_event':
-			print(get_the_title($item[ $column_name ])).'( id: '.$item[ $column_name ].' )'; break; 
+			echo '<a href="'.admin_url().'post.php?post='.$item[$column_name].'&action=edit">'.get_the_title($item[ $column_name ]).'</a>';break;
         case 'p_naam':
         case 'p_voornaam':
 		case 'p_email':
@@ -273,7 +273,7 @@ function prepare_items() {
   }else{
   	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m, wp_participate t where m.id = t.id_member
-				GROUP BY t.id
+				
 				';
   }
   
@@ -314,7 +314,7 @@ function prepare_items() {
   	if(empty($id_event)){
 	  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m, wp_participate t where m.id = t.id_member
-				GROUP BY t.id';
+				';
 				
 	  	$members = $wpdb->get_results($query);
 		$data = array();

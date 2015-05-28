@@ -41,10 +41,10 @@ function ST4_get_type_post($post_ID) {
     }*/
     global $wpdb;
 	$query_count = "SELECT COUNT( * ) as TOTALMEMBER
-					FROM  `wp_participate` 
-					WHERE id_event = '$post_ID'";
+					FROM  wp_participate 
+					WHERE id_event = $post_ID";
 	
-	$total_row = $wpdb->get_results($query_count);
+	$total_row = $wpdb->get_row($query_count);
     $admin_url = admin_url();
     echo '<a href="'.$admin_url.'admin.php?page=view_event_member&event_title='.get_the_title($post_ID).'&id_event='.$post_ID.'">View members </a>';
 }
