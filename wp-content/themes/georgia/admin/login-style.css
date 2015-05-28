@@ -1,0 +1,12 @@
+body.login{
+	background: #000;
+}
+.login h1 a{
+	background: url(../images/logo.png) no-repeat center #000;
+  width: 319px;
+  height: 90px;
+}
+body.login.wp-core-ui .button-primary{
+	background: #000;
+	  border: none;
+}
