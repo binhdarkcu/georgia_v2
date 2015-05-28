@@ -54,7 +54,9 @@ class My_Event_List_Table extends WP_List_Table {
   }
 
   function column_default( $item, $column_name ) {
-    switch( $column_name ) { 
+    switch( $column_name ) {
+    	case 'id_event':
+			print(get_the_title($item[ $column_name ])); break; 
         case 'p_naam':
         case 'p_voornaam':
 		case 'p_email':
@@ -76,7 +78,8 @@ function get_sortable_columns() {
     'p_telefoon' => array('p_telefoon',false),
     'status'   => array('status',false),
     'status_join'   => array('status_join',false),
-	'datejoin'   => array('datejoin',false)
+	'datejoin'   => array('datejoin',false),
+	'id_event' => array('id_event',false)
   );
   return $sortable_columns;
 }
@@ -90,7 +93,8 @@ function get_columns(){
             'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
             'status'      => __( 'Status', 'mylisttable' ),
             'status_join'      => __( 'Status Join', 'mylisttable' ),
-            'datejoin'      => __( 'Date Join', 'mylisttable' )
+            'datejoin'      => __( 'Date Join', 'mylisttable' ),
+            'id_event' =>  __( 'Event', 'mylisttable')
 			
         );
          return $columns;
@@ -268,7 +272,7 @@ function prepare_items() {
 				';
   }else{
   	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
-				FROM wp_members m, wp_participate t
+				FROM wp_members m, wp_participate t where m.id = t.id_member
 				GROUP BY t.id
 				';
   }
