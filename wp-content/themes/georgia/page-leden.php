@@ -238,7 +238,7 @@
             $str_moduleData1 = '';
             foreach($array_land as $land){
                 $no = $land->{'b_land'};
-                $percentage = $land->{'percentage'};
+                $percentage = $land->{'count'};
                 $title = $array_region_location[$no]['title'];
                 $color = $array_region_location[$no]['color'];
                 $strArrayColor1 .= '"'.$title.'": "'.$color.'",';
@@ -253,7 +253,7 @@
             $str_moduleData2 = '';
             foreach($array_business as $business){
                 $no = $business->{'b_firma'};
-                $percentage = $business->{'percentage'};
+                $percentage = $business->{'count'};
                 $title = $array_business_sector[$no]['title'];
                 $color = $array_business_sector[$no]['color'];
                 $strArrayColor2 .= '"'.$title.'": "'.$color.'",';
@@ -319,7 +319,7 @@
             //
             var moduleDoughnut_2 = new Chart(canvas_2.getContext('2d')).Doughnut(moduleData, {
                     segmentStrokeColor : "#000",
-                    tooltipTemplate : "<%if (label){%><%=label%>: <%}%><%= value %>%", animation: false }
+                    tooltipTemplate : "<%if (label){%><%=label%>: <%}%><%= value %>", animation: false }
             );
             //
             var legendHolder_2 = document.createElement('div');
