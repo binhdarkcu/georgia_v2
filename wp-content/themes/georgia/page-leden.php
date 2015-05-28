@@ -231,13 +231,13 @@
             }
 
             //SQL FOR LOCATION
-            $strsql = 'select p_land, count(*) as count, sum(100) / total as percentage from wp_members cross join (select count(*) as total from wp_members) x group by 1';
+            $strsql = 'select b_land, count(*) as count, sum(100) / total as percentage from wp_members cross join (select count(*) as total from wp_members) x group by 1';
             $array_land = $wpdb->get_results($strsql);
 
             $strArrayColor1 = '';
             $str_moduleData1 = '';
             foreach($array_land as $land){
-                $no = $land->{'p_land'};
+                $no = $land->{'b_land'};
                 $percentage = $land->{'percentage'};
                 $title = $array_region_location[$no]['title'];
                 $color = $array_region_location[$no]['color'];
