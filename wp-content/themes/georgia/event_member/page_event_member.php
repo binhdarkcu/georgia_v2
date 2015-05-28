@@ -56,7 +56,7 @@ class My_Event_List_Table extends WP_List_Table {
   function column_default( $item, $column_name ) {
     switch( $column_name ) {
     	case 'id_event':
-			print(get_the_title($item[ $column_name ])); break; 
+			print(get_the_title($item[ $column_name ])).'( id: '.$item[ $column_name ].' )'; break; 
         case 'p_naam':
         case 'p_voornaam':
 		case 'p_email':
@@ -268,7 +268,7 @@ function prepare_items() {
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
-				where t.id_event = '.$id_event.'
+				where t.id_event = '.$id_event.' and m.id = t.id_member
 				';
   }else{
   	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
@@ -377,7 +377,7 @@ function my_render_event_list_page(){
   $total_row = $wpdb->get_results($query_count);
   if($_GET['action']!='edit'){
 	  if(!empty($id_event)){
-	  	echo '<h3>Have '.$total_row[0]->TOTALMEMBER.' members joined "'.$_GET['event_title'].'" event.</h3>';
+	  	echo '<h3>The members joined "'.$_GET['event_title'].'" event.</h3>';
 	  }else{
 	  	echo '<h3>All member join this event.</h3>';
 	  }
