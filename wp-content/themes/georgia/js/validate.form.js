@@ -63,7 +63,6 @@ jQuery(document).ready(function() {
 	                            $( "#p_email" ).focus();
 	                            alert("Email address already in use. Please use other email.");
 	                        }else{
-	                        	console.log(2);
 	                        	$( "#p_email" ).removeClass('error');
 	                        }
 	                    }
@@ -72,6 +71,10 @@ jQuery(document).ready(function() {
             'p_password':{
             	required: true,
             	minlength: 6
+            },
+            'p_telefoon':{
+            	required: true,
+            	minlength: 9
             },
             'p_picture':{
             	required: true
@@ -173,13 +176,7 @@ jQuery(document).ready(function() {
         },
         submitHandler: function(form) {
             var boxes = jQuery('.ipinterests:checkbox');
-            if(boxes.length > 0) {
-                if( jQuery('.ipinterests:checkbox:checked').length < 1) {
-                    alert('Please select at least one checkbox');
-                    boxes[0].focus();
-                    return false;
-                }
-            }
+            
             form.submit();
         },
     });

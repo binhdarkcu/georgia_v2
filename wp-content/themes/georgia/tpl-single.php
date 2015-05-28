@@ -226,6 +226,7 @@
 							<!--
 										photo gallery
 									-->
+									<?php if(isset($_SESSION['user'])) {?>
 									<div class="ledenOrg" style="clear: both;">
 										<div class="home-featured-event" style="margin-bottom: 0;">
 											<div class="featured-event-title">
@@ -240,13 +241,14 @@
 														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
 												?>
 												<li>
-													<img src="<?php echo $bigImg[0];?>"/>
+													<a class="fresco" data-fresco-group='galleryphoto' href="<?php echo $bigImg[0];?>"><img src="<?php echo $bigImg[0];?>"/></a>
 												</li>
 												<?php } ?>
 											</ul>
 											<div class="clear"></div>
 										</div>
 									</div>
+									<?php }?>
 									<style>
 										.leden-logo{
 											  padding-top: 30px;

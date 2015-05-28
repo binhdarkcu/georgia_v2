@@ -9,7 +9,7 @@
                     <span class="trail-begin"><a href="<?php echo bloginfo('home')?>/word-lid" title="Eventica">WORD LID</a></span>
                     
                 </div>					
-                <h1>REGISTREER JE HIER</h1>
+                <h1>LOG IN FAIL</h1>
             </div>
         </section>
 
@@ -22,7 +22,7 @@
                     <div class="col-md-12">
                     	<div class="registerBox">
                     		<div class="intro">
-                    			<span>Bedankt voor uw registratie, we hebben uw aanvroaag goed ontvangen en contacteren u zo snel mogelijk terug</span>
+                    			<span>U bent verkeerd ingelogd, probeer het opnieuw.</span>
                     			
                     		</div>
                     		

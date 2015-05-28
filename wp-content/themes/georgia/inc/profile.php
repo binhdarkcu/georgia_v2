@@ -19,6 +19,42 @@ function updateProfile(){
 		array( '%d' ) 
 	);
 }
+
+add_action("wp_ajax_user_active_profile", "activeProfile");
+add_action("wp_ajax_nopriv_user_active_profile", "activeProfile");
+
+function activeProfile(){
+	$setfield = $_REQUEST['setfield'];
+	$fieldname = $_REQUEST['fieldname'];
+	$id = $_REQUEST['id'];
+	$username = $_REQUEST['username'];
+	$useremail = $_REQUEST['useremail'];
+	$plainpassword = $_REQUEST['plainpassword'];
+	global $wpdb;	
+	$execute = $execute = $wpdb->update( 
+		'wp_members', 
+		array( 
+			$fieldname => $setfield,
+			'p_plain_password' => ''
+		), 
+		array( 'id' => $id ), 
+		array( 
+			'%s', '%s'
+		),
+		array( '%d' ) 
+	);
+	 if($execute){
+	 	$s_password = actived_form($username, $useremail, $plainpassword);
+		if($s_password){
+			echo 'Actived!';
+		}else{
+			echo 'can\'t send email!';
+		}
+	 }else{
+	 	echo 'not Actived';
+	 }
+}
+
 add_action("wp_ajax_user_update_avatar", "saveFile");
 add_action("wp_ajax_nopriv_user_update_avatar", "saveFile");
 function saveFile(){
@@ -61,6 +97,33 @@ function checkEmail(){
     }
     else{
         echo ('true');
+    }
+    die();
+}
+
+add_action("wp_ajax_user_login", "login");
+add_action("wp_ajax_nopriv_user_login", "login");
+function login(){
+	global $wpdb;	
+	$password = sha1($_POST['p_password']);
+	$user = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '".$_POST['p_email']."' AND p_password = '".$password."'", ARRAY_A);
+	$isActivated = $user['p_user_status'];
+	if ($isActivated == null) {
+		$link = get_site_url().'/loginfail';
+		echo ($link);
+	}
+    else if ($isActivated == 1) {
+		$data = array();
+		foreach ($user as $key => $value) {
+			$data[$key] = $value;
+		}
+		unset($data['p_password']);
+		$_SESSION['user'] = $data;
+		$link = get_site_url().'/leden';
+		echo ($link);
+    }
+    else {
+        echo ('false');
     }
     die();
 }

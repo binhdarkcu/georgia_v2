@@ -160,12 +160,23 @@ class TT_Member_List_Table extends WP_List_Table {
             case 'p_picture': 
 				echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
 				break;
+			case 'actived_user':
+				if($item[ 'p_user_status' ] != '1'){
+					echo '<a href="javascript:void(0);" class="activeuser" data-plainpassword="'.$item['p_plain_password'].'" data-username="'.$item['p_naam'].'" data-useremail="'.$item['p_email'].'" data-userid="'.$item['id'].'">Active</a>';
+					break;
+				}
+			case 'p_user_status':
+				if($item[ $column_name ] == 0){
+					echo 'veryfied';
+					break;
+				}else{
+					echo 'actived';
+					break;
+				}	
 	        case 'p_naam':
 	        case 'p_voornaam':
 			case 'p_email':
-	       
 			case 'p_telefoon':
-			case 'p_plaats':
 	            return $item[ $column_name ];
 	        default:
 	            return print_r( $item, true ) ; //Show the whole array for troubleshooting purposes
@@ -217,7 +228,8 @@ class TT_Member_List_Table extends WP_List_Table {
             'p_email'    => 'Email',
             'p_land'      => 'Land',
 			'p_telefoon'    => 'Telefoon',
-            'p_plaats'      => 'Plaats'
+            'p_user_status'      => 'User status',
+            'actived_user' => 'Actived User',
         );
         return $columns;
     }
@@ -245,7 +257,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		    'p_email' => array('p_email',false),
 		    'p_land'   => array('p_land',false),
 			'p_telefoon' => array('p_telefoon',false),
-		    'p_plaats'   => array('p_land',false)
+		    'p_user_status'   => array('p_user_status',false)
         );
         return $sortable_columns;
     }
@@ -316,6 +328,36 @@ class TT_Member_List_Table extends WP_List_Table {
 		 
 		  }
     }
+	//active user
+	function process_bulk_active_user_action() {?>
+		<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
+		<script>
+			$(document).ready(function(){
+				$('.activeuser').click(function(){
+					$id = $(this).attr('data-userid');
+					$username = $(this).attr('data-username');
+					$useremail = $(this).attr('data-useremail');
+					$userpassword = $(this).attr('data-plainpassword');
+					jQuery.ajax({
+						type : "post",
+						url : $('.ajaxurl').val(),
+						data : {action: "user_active_profile", setfield:'1', fieldname:'p_user_status', id:$id, username: $username, useremail: $useremail, plainpassword:$userpassword  },
+						success: function(data) {
+							if(data){
+								console.log('Profile updated.');
+								window.location.reload(true);
+							}else{
+								alert('can\'t not updated.');
+							}
+						}
+					});
+				});
+			});
+		</script>
+			
+	<?php
+	}
+
 	//edit member
 	function process_edit_action() {
 	    
@@ -343,13 +385,40 @@ class TT_Member_List_Table extends WP_List_Table {
 					.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
 				  });
 			</script>
+			<script>
+				$(document).ready(function(){
+					$('#activeuser').click(function(){
+						$id = $(this).attr('data-userid');
+						$username = $(this).attr('data-username');
+						$useremail = $(this).attr('data-useremail');
+						$userpassword = $(this).attr('data-plainpassword');
+						jQuery.ajax({
+							type : "post",
+							url : $('.ajaxurl').val(),
+							data : {action: "user_active_profile", setfield:'1', fieldname:'p_user_status', id:$id, username: $username, useremail: $useremail, plainpassword:$userpassword  },
+							success: function(data) {
+								if(data){
+									console.log('Profile updated.');
+									window.location.reload(true);
+								}else{
+									alert('can\'t not updated.');
+								}
+							}
+						});
+					});
+				});
+			</script>
 	    	<div class="registerPage ">
 	    		<div class="registerBox">
 		    		<form action="" method="post" enctype="multipart/form-data">
 		    			<h3>Edit member</h3>
 		    			<div style="float: left;">
+		    				<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 		    				<h4>Naam: <?php echo $member['p_naam']; ?></h4>
 		    				<img src="<?php echo bloginfo('home')?>/wp-content/uploads/avatar/<?php echo $member['p_picture'];?>" style="width: 148px;"/>
+		    				<?php if($member['p_user_status'] == 0){?>
+		    				<p><a href="javascript:void(0);" id="activeuser" data-plainpassword="<?php echo $member['p_plain_password'];?>" data-username="<?php echo $member['p_naam'];?>" data-useremail="<?php echo $member['p_email'];?>" data-userid="<?php echo $member['id'];?>">Active</a></p>
+		    				<?php }?>
 		    			</div>
 		    			<div class="informationBox" style="float: right;">
 							<div class="reg-left">
@@ -798,6 +867,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		  //edit compare
 		  $this->process_detail_action();
         
+		$this->process_bulk_active_user_action();
         //$data = $this->example_data;
           global $wpdb;
 		  
@@ -805,18 +875,18 @@ class TT_Member_List_Table extends WP_List_Table {
 		  $search = $_POST['s'];
 		  //echo "<script>alert('$search')</script>";
 		  if( $search != NULL ){
-		       
+		       	
 		        // Trim Search Term
 		        $search = trim($search);
 		       
 		        /* Notice how you can search multiple columns for your search term easily, and return one data set */
-		        $s_query = "SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members where p_plaats LIKE '%$search%'
+		        $s_query = "SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status FROM wp_members where p_plaats LIKE '%$search%'
 		        	OR p_plaats LIKE '%$search%'
 		        	OR p_picture LIKE '%$search%'
 		        	OR p_naam LIKE '%$search%'
 		        	OR p_email LIKE '%$search%'
 		        	OR p_telefoon LIKE '%$search%'
-		        	OR p_plaats LIKE '%$search%'
+		        	OR p_user_status LIKE '%$search%'
 		        ";
 		  		$members = $wpdb->get_results($s_query);
 				$data = array();
@@ -824,7 +894,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		   			array_push($data, (array)$querydatum);}
 		 
 		  }else{
-		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats FROM wp_members';
+		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status, p_plain_password FROM wp_members';
 		  	$members = $wpdb->get_results($query);
 			$data = array();
 		  	foreach ($members as $querydatum ) {
@@ -952,6 +1022,7 @@ function tt_render_member_list_page(){
 	}
     ?>
     <div class="wrap">
+    	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
         <form method="post">
 		  <input type="hidden" name="page" value="tt_member" />
 		  <?php $testListTable->search_box('search', 'search_id'); ?>

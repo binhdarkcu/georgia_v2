@@ -2,8 +2,7 @@
 	<div class="overlays" onclick="window.location.reload()"></div>
 		<div class="popup-content">
 			<a href="javascript:void(0)" class="close" onclick="window.location.reload()">x</a>
-			<h3>Message from GEORGIA</h3>
-			<p>You cancled this event.</p>
+			<p>U hebt zich geannuleerd voor dit evenement</p>
 		</div>
 	</div>
 </div>

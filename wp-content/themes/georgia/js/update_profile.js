@@ -53,16 +53,24 @@ jQuery(document).ready(function(){
 				data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
 				success: function(data) {
 					if(data){
+						$('input[name=' + $fieldname + ']').parent().attr('href',$setfield);
+						$(this).parent().parent().find('a').attr('href',$('input[name=' + $fieldname + ']').val());
 						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$('select[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
 						$(self).find('span').text('edit');
+						if($('input[name=' + $fieldname + ']').val() == ''){
+							$('input[name=' + $fieldname + ']').parent().find('.empty').show();	
+							$('input[name=' + $fieldname + ']').parent().attr('href','javascript:void(0)');
+							$('input[name=' + $fieldname + ']').parent().parent().find('.empty').show()
 						//alert('Profile updated.');
+						}
 					}else{
 						alert('Profile not updated.');
 					}
 				}
 			});
 		}else{
+			$(this).parent().parent().find('a').attr('href','javascript:void(0)');
 			$('input[name=' + $fieldname + '], select[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
 			$('select[name=' + $fieldname + ']').prop('disabled',false).css({'background':'#fff','color':'#333'});
 			$(this).parent().parent().find('.empty').hide();
@@ -101,5 +109,62 @@ jQuery(document).ready(function(){
 	        }
 
        });
+	});
+	
+	//LOGIN
+	jQuery(document).ready(function() {
+        jQuery("#loginForm").validate({
+    		rules: {
+                'p_email': { 
+                    required: true, 
+                    email: true,
+                },
+                'p_password': { 
+                    required: true, 
+                    minlength: 6, 
+                }
+    		},
+    		submitHandler: function(form) {
+                form.submit();
+    		},
+    	});
+    });
+	$('#btn-user-login').click(function() {
+		$form = $('#loginForm');
+		$p_email = $form.find('input[name=login_email]').val();
+        $p_password = $form.find('input[name=p_password]').val();
+        $check = false;
+        $form.find('input').removeClass('error');
+        if($p_email == ''){
+        	$form.find('input[name=login_email]').addClass('error');
+        	$check = true;
+        }
+        if($p_password == ''){
+        	$form.find('input[name=p_password]').addClass('error');
+        	$check = true;
+        }else{
+	    	if($form.find('input[name=login_email]').hasClass('email')){
+				var h=/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+				if(!h.test($p_email)){
+					$form.find('input[name=login_email]').addClass('error');
+					$check=true;
+				}
+			}
+        }
+        if(!$check){
+		    jQuery.ajax({
+	            type : "post",
+	            url : $('.ajaxurl').val(),
+	            data : {action: "user_login", p_email : $p_email, p_password : $p_password},
+	            success: function(response) {
+					if (response == 'false') {
+						alert('Your account is not activated');
+					}
+					else {
+						window.location.href = response;
+					}
+	            }
+	       });
+	    }
 	});
 });

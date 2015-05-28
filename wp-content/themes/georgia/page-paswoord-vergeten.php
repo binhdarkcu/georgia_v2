@@ -9,7 +9,7 @@
                     <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
                     <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home').'/'.$query_object->post_name;?>" title="Events"><?php echo get_the_title($query_object->ID);?></a></span>
                 </div>					
-                <h1>Forgot Password</h1>
+                <h1>PASWOORD VERGETEN</h1>
             </div>
         </section>
 
@@ -31,7 +31,7 @@
 
                                         <!-- List Title -->
                                         <div class="tribe-events-page-title-wrap">
-                                            <h2 class="tribe-events-page-title"><?php the_title();?></h2>
+                                            <h2 class="tribe-events-page-title">VRAAG UW PASWOORD OPNIEUW AAN</h2>
                                         </div>
 
                                         <!-- Notices -->
@@ -43,31 +43,32 @@
                                         <!-- Events Loop -->
 
                                         <div class="events-loop tribe-events-loop vcalendar forgotPassword">
-                                        	<h4>Find Your Account</h4>
+                                        	
                                         	<?php
 	                                        	
 												$message = "";
                                         		if(!empty($_POST) && wp_verify_nonce($_POST['act_forgot_password'],'forgot_password')){
 	                                        		global $wpdb;
 													$p_email = $_POST['fp_email'];
-	                                        		$results = $wpdb->get_row("SELECT p_email FROM wp_members WHERE p_email = '".$p_email."'");
-													//print_r($results);
+	                                        		$results = $wpdb->get_row("SELECT p_email, p_user_status FROM wp_members WHERE p_email = '".$p_email."'", ARRAY_A);
 											        if(!empty($results)){
-											        	$password =  substr(md5(uniqid(rand(),true)), 10,15); 
-											        	$data['p_password'] = sha1($password);
-														//print_r($password.'  '.$data['p_password']);
-											           	$update_query = $wpdb->update( 
-															'wp_members', 
-															$data,
-															array( 'p_email' => $p_email)
-														);
-														send_password($p_email,'Your password'.$password);
-											            $message = "Your password is send to your email.";
-														
+															if ($results['p_user_status'] == 1) {
+																$password =  substr(md5(uniqid(rand(),true)), 10,15); 
+															$data['p_password'] = sha1($password);
+															$update_query = $wpdb->update( 
+																'wp_members', 
+																$data,
+																array( 'p_email' => $p_email)
+															);
+															send_password($p_email, $password);
+															$message = "Jouw paswoord werd opnieuw naar uw email adres verstuurd";
+														}
+											        	else {
+															$message = "Your account is not activated.";
+														}
 											        }
 											        else{
 											        	$message = "Email not exist. Please choose other email.";
-											            
 											        }
 												}
                                         	?>
@@ -81,13 +82,13 @@
 						                        ?>  
 												<div class="searchpass">
 													<div class="col1">
-														Your email
+														Jouw email adres
 													</div>
 													<div class="col2">
 														<input value="" type="text" autocomplete="off" name="fp_email" placeholder=""/>
 													</div>
 													<div class="clear"></div>
-													<input type="submit" value="Find" class="btn" />
+													<input type="submit" value="VERZENDEN" class="btn" />
 													<?php wp_nonce_field('forgot_password','act_forgot_password');?>
 												</div>
 											</form>

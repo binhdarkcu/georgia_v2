@@ -274,3 +274,7 @@
     opacity: 0.4;
   }
 }
+.fr-window canvas{
+  display: none!important;
+  left: -10000px!important;
+}

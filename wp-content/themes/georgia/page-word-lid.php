@@ -50,9 +50,9 @@
 				move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
 				$data['p_picture'] = $fileName;
 			}
-			
+			$data['p_user_status'] = 0;
 			$data['p_password'] = sha1($_POST['p_password']);
-			
+			$data['p_plain_password'] = $_POST['p_password'];
 			$data['p_picture'] = $data['p_picture']; 
 	        $data['b_naam'] = $_POST['p_naam'];
 			$data['b_hoofd'] = $_POST['b_hoofd'];
@@ -107,7 +107,7 @@
 				$data['f_addresspayment'] = $w_pay;	
 			}
 			$data['f_notepayment'] = $_POST['f_notepayment'];
-			
+			//$data['f_user_status'] = $_POST['f_user_status'];
 			$data['created'] = date('Y-m-d h:i:s');
 	        $data['modified'] = date('Y-m-d h:i:s');
 	        
@@ -115,11 +115,11 @@
 	        if($results){
 	            $logged = true;
 	            $message = "Register success";
-	            unset($data['password']);
-	            $_SESSION['user'] = $data;
-				$_SESSION['user_id'] = $data['id'];
+	            //unset($data['password']);
+	            //$_SESSION['user'] = $data;
+				//$_SESSION['user_id'] = $data['id'];
 	            $link = get_site_url().'/success';
-	            echo "<script>setTimeout(function(){window.location.href = '$link';},10);</script>";
+	            echo "<script>setTimeout(function(){window.location.href = '$link';},1);</script>";
 	        }
 	        else{
 	        	
@@ -236,7 +236,7 @@
 										</div>
 										<div class="reg-row">
 											<div class="col1">
-												<label>Telefoon</label>
+												<label>Telefoon<span class="red">*</span></label>
 												<input type="text" name="p_telefoon" value="" />
 											</div>
 											<div class="col2">
@@ -572,6 +572,7 @@
 	                                    <input name="action" type="hidden" class="action" value="register_action"/>
 										<a href="javascript:void(0)" onclick="jQuery('#registerForm').submit();" class="btn">VERSTUUR MIJN AANVRAAG</a>
 										<?php wp_nonce_field('register_member','act_register_member');?>
+										<input type="hidden" name="f_user_status" value="verified"/>
 									</div>
 								</div>
 							</form>

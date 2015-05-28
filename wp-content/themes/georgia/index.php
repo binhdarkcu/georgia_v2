@@ -128,13 +128,13 @@
 	                                                    <?php
 	                                                    	if(empty($isjoin)){
 	                                                    ?>
-	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
+	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $near->ID;?>" id="addEvent" href="javascript:void(0);">
 	                                                        IK KOM
 	                                                    </a>
 	                                                    <?php }else {
 	                                                    	if($diff >= 10)	{
 	                                                    ?>
-	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $featured->ID;?>" id="addEvent" href="javascript:void(0);">
+	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $near->ID;?>" id="addEvent" href="javascript:void(0);">
 	                                                        CANCEL
 	                                                    </a>
 	                                                    <?php } else{?> 
@@ -323,10 +323,10 @@
 													$galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
 													
 													foreach($galleryPhoto as $photo){
-														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
+														$bigImg = wp_get_attachment_image_src( $photo,'full' );
                             				?>
                             				<li>
-                            					<a href="<?php echo get_permalink($photo)?>"><img src="<?php echo $bigImg[0];?>"/></a>
+                            					<a class="fresco" data-fresco-group='lastestphoto' href="<?php echo $bigImg[0];?>"><img src="<?php echo $bigImg[0];?>"/></a>
                             				</li>
                             				<?php } endwhile; endif;?>
                             			</ul>

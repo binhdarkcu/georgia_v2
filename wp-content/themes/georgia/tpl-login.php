@@ -1,60 +1,21 @@
 <div class="popup" id="login-user" style="display: none;">
-	<?php
-	    
-		$logged = false;
-	    	$message = "";
-		    if(isset($_POST['p_email']))
-		    {
-		        global $wpdb;
-		        $email = $_POST['p_email'];
-		        $password = sha1($_POST['p_password']);
-		        print_r($password);
-		        $results = $wpdb->get_row("SELECT * FROM wp_members WHERE p_email = '$email' and p_password = '$password'");
-		        if($results){
-		            $data = array();
-		            foreach ($results as $key => $value) {
-		                $data[$key] = $value;
-		            }
-		            $logged = true;
-		            $message = "Login success";
-		            unset($data['p_password']);
-		            $_SESSION['user'] = $data;
-		            $link = get_site_url().'/leden';
-		            echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";
-		        }
-		        else{
-		            echo '<script language="javascript">';
-					echo 'alert("Login fail.")';
-					echo '</script>';
-					$link = get_site_url().'/word-lid';
-					echo "<script>setTimeout(function(){window.location.href = '$link';},0);</script>";
-		        }
-		     }
-	
-	?>
 	<div class="overlays"></div>
 	<form id="loginForm" method="post" class="" action="">
-        <?php
-            if($message != "")
-            {
-                $alert = $logged == true ? "alert-success" : "alert-danger";
-                echo '<div class="alert '.$alert.'">'.$message.'</div>';
-            }
-        ?>
+		<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 		<div class="popup-content">
 			<img src="images/logo.png"/>
 			<div class="login-form">
 				<div class="l-left">
 					<h4>LOG IN </h4>
 					<p>
-						<input type="text" value="" name="p_email" placeholder="e-mailadres" />
+						<input type="text" value="" name="login_email" placeholder="e-mailadres" class="email"/>
 					</p>
 					<p>
 						<input type="password" value="" name="p_password" placeholder="paswoord" />
 					</p>
-					<a href="javascript:void(0)" onclick="jQuery('#loginForm').submit();"  class="btn">LOG IN</a>
+					<a href="javascript:void(0)" id="btn-user-login" class="btn">LOG IN</a>
 					<p class="txt">
-						paswoord vergeten? <a href="<?php echo bloginfo('home')?>/forgot-password">klik dan hier</a>
+						paswoord vergeten? <a href="<?php echo bloginfo('home')?>/paswoord-vergeten">klik dan hier</a>
 					</p>
 				</div>
 				<div class="l-right">

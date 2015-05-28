@@ -48,31 +48,31 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">(Hoofd) Functie</div>
-							<div class="col2"><input type="text" name="b_hoofd" value="<?php echo $user['b_hoofd']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_hoofd'])) echo '-';?></span><input type="text" name="b_hoofd" value="<?php echo $user['b_hoofd']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_hoofd" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Straat</div>
-							<div class="col2"><input type="text" name="b_straat" value="<?php echo $user['b_straat']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_straat'])) echo '-';?></span><input type="text" name="b_straat" value="<?php echo $user['b_straat']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_straat" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Nr.</div>
-							<div class="col2"><input type="text" name="b_nr" value="<?php echo $user['b_nr']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_nr'])) echo '-';?></span><input type="text" name="b_nr" value="<?php echo $user['b_nr']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_nr" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Postcode</div>
-							<div class="col2"><input type="text" name="b_postcode" value="<?php echo $user['b_postcode']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_postcode'])) echo '-';?></span><input type="text" name="b_postcode" value="<?php echo $user['b_postcode']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_postcode" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Plaats</div>
-							<div class="col2"><input type="text" name="b_plaats" value="<?php echo $user['b_plaats']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_plaats'])) echo '-';?></span><input type="text" name="b_plaats" value="<?php echo $user['b_plaats']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_plaats" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
@@ -99,39 +99,39 @@
 						</div>
 						<div class="row-f">
 							<div class="col1">Telefoon</div>
-							<div class="col2"><input type="text" name="b_telefoon" value="<?php echo $user['b_telefoon']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_telefoon'])) echo '-';?></span><input type="text" name="b_telefoon" value="<?php echo $user['b_telefoon']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_telefoon" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Fax</div>
-							<div class="col2"><input type="text" name="b_fax" value="<?php echo $user['b_fax']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_fax'])) echo '-';?></span><input type="text" name="b_fax" value="<?php echo $user['b_fax']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_fax" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">GSM</div>
-							<div class="col2"><input type="text" name="b_gsm" value="<?php echo $user['b_gsm']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_gsm'])) echo '-';?></span><input type="text" name="b_gsm" value="<?php echo $user['b_gsm']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_gsm" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Emailadres</div>
 							<div class="col2"><?php if(empty($user['b_email'])){echo '-';} else {?>
-								<a href="mailto:<?php echo $user['b_email']; ?>"><?php echo $user['b_email']; ?></a>
+								<input type="text" name="b_email" value="<?php echo $user['b_email']; ?>" disabled=""/>
 								<?php }?>
 							</div>
-							<div class="col3"><a href="#" class="fa fedit"><span>edit</span></a></div>
+							<div class="col3"><a href="#" data-fieldname="b_email" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						</div>
 						<div class="row-f">
 							<div class="col1">Website bedrijf/organisatie</div>
-							<div class="col2"><input type="text" name="b_organisatie" value="<?php echo $user['b_organisatie']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_functies'])) echo '-';?></span><a href="<?php echo (empty($user['b_organisatie'])) ? 'javascript:void(0);':$user['b_organisatie']; ?>" target="_blank"><input type="text" name="b_organisatie" value="<?php echo $user['b_organisatie']; ?>" disabled=""/></a></div>
 							<div class="col3"><a href="#" data-fieldname="b_organisatie" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
 						<div class="row-f">
 							<div class="col1">Andere functies en mandaten</div>
-							<div class="col2"><input type="text" name="b_functies" value="<?php echo $user['b_functies']; ?>" disabled=""/></div>
+							<div class="col2"><span class="empty"><?php if(empty($user['b_functies'])) echo '-';?></span><input type="text" name="b_functies" value="<?php echo $user['b_functies']; ?>" disabled=""/></div>
 							<div class="col3"><a href="#" data-fieldname="b_functies" data-userid="<?php echo $user['id']; ?>" class="fa fedit"><span>edit</span></a></div>
 						
 						</div>
