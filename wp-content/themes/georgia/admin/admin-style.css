@@ -387,6 +387,10 @@ select {
 #acf-shedule{
 	clear: both;
 }
+
+.login h1 a{
+	background: #000;
+}
 @media only screen and (min-width: 0) and (max-width: 1270px) {
 	.registerPage .informationBox .reg-row .col2, .registerPage .informationBox .reg-row .col1{
 		width: 90%;

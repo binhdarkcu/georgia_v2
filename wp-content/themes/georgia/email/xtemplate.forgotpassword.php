@@ -10,7 +10,8 @@
 				//echo $contact_email;
                 $date = date('d-m-Y');
                 $parseTemplate	=	new XTemplate('xtemplate.forgotpassword.html');
-                $parseTemplate->assign('date',$date);      
+                $parseTemplate->assign('date',$date); 
+				$parseTemplate->assign('email',$email);      
 				$parseTemplate->assign('message',$message);
 				
                 $parseTemplate->parse('main');	
