@@ -852,7 +852,7 @@ class TT_Member_List_Table extends WP_List_Table {
         /**
          * First, lets decide how many records per page to show
          */
-        $per_page = 5;
+        $per_page = 10;
          
         $columns = $this->get_columns();
         $hidden = array();
