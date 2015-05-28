@@ -4,7 +4,7 @@
     function 	actived_form($name, $email, $password){
                 include_once	'xtemplate.class.php';
                 $header   	= 'Content-type: text/html; charset=utf-8\r\n';				
-                $title 		= 'User Contact';
+                $title 		= 'Information active member from GEORGIA';
                 $contact_email = $email;
                 $contact_name = $name;
 				//echo $contact_email;
