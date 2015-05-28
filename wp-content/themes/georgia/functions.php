@@ -55,6 +55,12 @@
 	    $days = ceil($days/86400);
 	    return $days;
 	}
+	//style login page
+	function custom_login_css() {
+	echo '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'/admin/login-style.css" />';
+	}
+	add_action('login_head', 'custom_login_css');
+	
 	//add type columns
     include 'inc/type_column.php';
 	include 'inc/date_column.php';
