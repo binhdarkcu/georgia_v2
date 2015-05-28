@@ -255,7 +255,7 @@ function prepare_items() {
   $this->_column_headers = array( $columns, $hidden, $sortable );
   
   
-  $per_page = 5;
+  $per_page = 10;
   $current_page = $this->get_pagenum();
   global $wpdb;
   $id_event = $_GET['id_event'];
