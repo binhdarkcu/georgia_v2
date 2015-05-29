@@ -164,10 +164,12 @@ class TT_Member_List_Table extends WP_List_Table {
 				if($item[ 'p_user_status' ] != '1'){
 					echo '<a href="javascript:void(0);" class="activeuser" data-plainpassword="'.$item['p_plain_password'].'" data-username="'.$item['p_naam'].'" data-useremail="'.$item['p_email'].'" data-userid="'.$item['id'].'">Active</a>';
 					break;
+				}else{
+					echo 'verified';break;
 				}
 			case 'p_user_status':
 				if($item[ $column_name ] == 0){
-					echo 'veryfied';
+					echo 'inactived';
 					break;
 				}else{
 					echo 'actived';
@@ -852,7 +854,7 @@ class TT_Member_List_Table extends WP_List_Table {
         /**
          * First, lets decide how many records per page to show
          */
-        $per_page = 10;
+        $per_page = 5;
          
         $columns = $this->get_columns();
         $hidden = array();
