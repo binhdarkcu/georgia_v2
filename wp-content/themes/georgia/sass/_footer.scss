@@ -11,14 +11,14 @@
   padding-top: 15px;
    li a{
      .fa{
-      background: url(../images/social.jpg) no-repeat;
+      background: url(../images/social.png) no-repeat;
       width: 33px;
       height: 33px;
       &:before{
         content: "";
       }
       &.fa-twitter{
-        background-position: -39px 0px;
+        background-position: -38px 0px;
       }
       &.fa-google-plus{
         background-position: -77px 0;
