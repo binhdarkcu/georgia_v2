@@ -231,8 +231,9 @@ function process_edit_action() {
 				array( '%d' ) 
 			);
 			if($execute){
-				$link = admin_url().'admin.php?page=view_event_member';
+				$link = admin_url().'admin.php?page=view_event_member&action=edit&id='.$data['id_member'].'&id_event='.$data['id_event'];
 				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+				exit();
 			}else{
 				echo "<script>alert('can\'t update')</script>";
 			}

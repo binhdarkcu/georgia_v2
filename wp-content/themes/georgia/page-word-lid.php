@@ -54,7 +54,7 @@
 			$data['p_password'] = sha1($_POST['p_password']);
 			$data['p_plain_password'] = $_POST['p_password'];
 			$data['p_picture'] = $data['p_picture']; 
-	        $data['b_naam'] = $_POST['p_naam'];
+	        $data['b_naam'] = $_POST['b_naam'];
 			$data['b_hoofd'] = $_POST['b_hoofd'];
 	        $data['b_firma'] = $_POST['b_firma'];
 	        $data['b_straat'] = $_POST['b_straat'];

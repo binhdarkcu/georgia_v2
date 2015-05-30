@@ -36,12 +36,17 @@
 	<link type="text/css" rel='stylesheet' href="assets/css/latoja.datepicker.css"/>
 	<script type="text/javascript">
 		  $(function() {
-		    $( "#date_geboortedatum, #date_geboorteplaats" ).datepicker({
+		    $( "#date_geboortedatum" ).datepicker({
 				inline: true,
+				language: "nl",
 				changeMonth: true,
     			changeYear: true,
 				showOtherMonths: true,
 				yearRange: '1900:c',
+				onChangeMonthYear:function(y, m, i){                                
+			        var d = i.selectedDay;
+			        $(this).datepicker('setDate', new Date(y, m-1, d));
+			    }
 			})
 			.datepicker('widget').wrap('<div class="ll-skin-latoja"/>');
 		  });
