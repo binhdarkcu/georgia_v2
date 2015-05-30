@@ -90,9 +90,6 @@
 																	//send_password($p_email, $password);
 																	$message = "Your password has been changed.";
 																}
-																else{
-																	$message = "Email not exist. Please choose other email.";
-																}
 															}
 															else {
 																$message = "Your current password is not correct.";
