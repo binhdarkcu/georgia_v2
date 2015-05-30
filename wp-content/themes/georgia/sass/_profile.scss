@@ -47,6 +47,9 @@
           @include RalewayBold(20px);
           padding-bottom: 10px;
         }
+        &.pad{
+          padding-top: 126px;
+        }
         a.fedit,a.editPhoto, .savebtn{
           span{
              @include NotoSansRegular(12px);

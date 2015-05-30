@@ -86,3 +86,29 @@
 .upcoming-event-wrap.tribe-events-list .tribe-events-event-image{
   height: auto;
 }
+.events-single-left{
+  .number-events{
+    .scrollbar{
+      ul{
+        li{
+          .avatar-box{
+            width: 45px;
+            height: 45px;
+            float: left;
+            img{
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.avatar-box{
+  width: 45px;
+  height: 45px;
+  float: left;
+  img{
+    height: 100%;
+  }
+}
