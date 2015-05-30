@@ -215,9 +215,15 @@
     @include NotoSansRegular(12px);
     color: #887554;
     line-height: 1.2; 
+    p{
+       @include NotoSansRegular(12px);
+       line-height: 1.3; 
+    }
   }
 }
-
+#tribe-events-content.tribe-events-single .tribe-events-meta-group-schedule ul .item span{
+  @include NotoSansRegular(12px);
+}
 .lastestPhoto{
   .home-featured-event{
     margin-bottom: 0;
