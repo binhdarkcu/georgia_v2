@@ -37,6 +37,7 @@
 									 <input type="submit" id="submit-btn" class="savebtn" value="save" />
 									 <?php if($other_user == false){ ?>
 									 <a href="javascript: void(0)" id="editPhoto" class="fa editPhoto"><span>edit photo</span></a>
+									 <a href="<?php echo bloginfo('home')?>/paswoord-verrander" class="fa editPhoto" style="margin-left: 30px;"><span>Verandering paswoord</span></a>
 									 <?php }?>
 								</div>
 							</form>

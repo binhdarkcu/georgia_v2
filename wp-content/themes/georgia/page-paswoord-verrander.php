@@ -1,3 +1,9 @@
+<?php
+	if(!isset($_SESSION['user'])){
+		wp_redirect(home_url() ); //to redirect back to "index.php" after logging out
+		exit();
+	}
+?>
 <?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
@@ -90,9 +96,6 @@
 																	//send_password($p_email, $password);
 																	$message = "Your password has been changed.";
 																}
-																else{
-																	$message = "Email not exist. Please choose other email.";
-																}
 															}
 															else {
 																$message = "Your current password is not correct.";
@@ -105,7 +108,7 @@
 													$message = "You are not logged in.";
 												}
                                         	?>
-											<form action="" method="post">
+											<form action="" method="post" id="change_password">
 												<?php
 						                            if($message != "")
 						                            {
@@ -125,7 +128,7 @@
 														Nieuw paswoord
 													</div>
 													<div class="col2">
-														<input value="" type="password" autocomplete="off" name="nieuw_password" placeholder=""/>
+														<input value="" type="password" id="nieuw_password" autocomplete="off" name="nieuw_password" placeholder=""/>
 													</div>
 													<div class="clear"></div>
 													<div class="col1">
@@ -167,3 +170,39 @@
         </div>
 
 <?php get_footer();?>
+<script>
+	$(document).ready(function(){
+		jQuery("#change_password").validate({
+    		rules: {
+                'huidig_password': { 
+                    required: true
+                },
+                'nieuw_password': { 
+                    required: true
+                },
+                'bevestig_password': { 
+                    required: true,
+                    equalTo : "#nieuw_password"
+                }
+    		},
+    		submitHandler: function(form) {
+                form.submit();
+    		},
+    	});
+	});
+</script>
+<style>
+	input[type="password"]{
+		width: 200px;
+	  height: 29px;
+	  border: 1px solid #fff;
+	  border-radius: 3px;
+	  outline: none;
+	}
+	input[type="password"].error{
+		border: 1px solid red;
+	}
+	#change_password label.error{
+		display: none!important;
+	}
+</style>
