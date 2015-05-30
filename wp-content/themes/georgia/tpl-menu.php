@@ -4,7 +4,7 @@
         	<div class="user-logined" style="<?php if(isset($_SESSION['user'])) echo 'display:block;';?>">ingelogd als <a href="<?php echo bloginfo('home')?>/profile">
         		<?php	
         			if(isset($_SESSION['user'])){
-        				echo $_SESSION['user']['p_voornaam'];
+        				echo $_SESSION['user']['p_naam'].' '.$_SESSION['user']['p_voornaam'];
         			}
         		?>
         	</a></div>
