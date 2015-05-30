@@ -854,7 +854,7 @@ class TT_Member_List_Table extends WP_List_Table {
         /**
          * First, lets decide how many records per page to show
          */
-        $per_page = 5;
+        $per_page = 10;
          
         $columns = $this->get_columns();
         $hidden = array();
@@ -995,7 +995,7 @@ function tt_render_member_list_page(){
 			move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
 			$data['p_picture'] = basename($fileName);
 		}
-        $data['b_naam'] = $_POST['p_naam'];
+        $data['b_naam'] = $_POST['b_naam'];
 		$data['b_hoofd'] = $_POST['b_hoofd'];
         $data['b_firma'] = $_POST['b_firma'];
         $data['b_straat'] = $_POST['b_straat'];
@@ -1015,8 +1015,9 @@ function tt_render_member_list_page(){
 				$data,
 				array( 'Id' => $_GET['id'])
 			);
-			$link = admin_url().'admin.php?page=tt_member';
-			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			$link = admin_url().'admin.php?page=tt_member&action=edit&id='.$_GET['id'];
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},0);</script>";
+			exit();
 		}
 		else {
 			echo "<script>alert('can\'t update')</script>";
