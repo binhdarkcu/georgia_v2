@@ -80,7 +80,7 @@
 	                                        	<div class="scrollbar">
                                                     <?php
                                                         global $wpdb;
-                                                        $join_query = "SELECT m.p_picture,m.p_naam, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m";
+                                                        $join_query = "SELECT m.id,m.p_picture,m.p_naam, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m";
                                                         $members = $wpdb->get_results($join_query);
                                                         foreach($members as $member){
                                                             $srcimage = content_url().'/uploads/avatar/'.$member->{'p_picture'};
@@ -95,7 +95,7 @@
 														<div class="col col1">
 	                                        				<img src="<?php echo $srcimage; ?>" style="width: 45px; height: 45px;"/>
 	                                        			</div>
-	                                        			<div class="col col2"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>"><?php echo $member->{'p_naam'}.' '.$member->{'p_voornaam'} ?></a></div></div>
+	                                        			<div class="col col2"><div class="middle"><a href="<?php echo bloginfo('home')?>/profile/<?php if($member->{'id'}!=$_SESSION['user']['id']) echo '?user_id='.$member->{'id'};?>"><?php echo $member->{'p_naam'}.' '.$member->{'p_voornaam'} ?></a></div></div>
 	                                        			<div class="col col3"><div class="middle"><a href="<?php echo $member->{'p_likedin'} ?>" class="fa fa-linkedin"></a></div></div>
 	                                        			<div class="col col4">
 	                                        				<div class="middle">

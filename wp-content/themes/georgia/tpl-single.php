@@ -136,7 +136,7 @@
                                                 
                                                 <?php
 		                                            			global $wpdb;
-		                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam
+		                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam, mb.p_naam
 																			FROM wp_participate pt
 																			JOIN wp_members mb ON mb.id = pt.id_member
 																			WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
@@ -147,7 +147,7 @@
 																$totalUser = $wpdb->get_results($total_query);
 												?>
                                                 <h4><?php echo $totalUser[0]->TOTALUSER;?>  <span>leden komen</span></h4>
-                                                
+                                                <?php if(isset($_SESSION['user'])){ ?>
                                                 <div class="scrollbar">
                                                 	<ul>
 	                                                	<li>
@@ -155,8 +155,10 @@
 																foreach ($joinEvents as $join) {			
 	                                                		?>
 		                                                	<li>
-		                                                		<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>" width="45"/>
-		                                                		<p><?php echo $join->p_voornaam;?></p>
+		                                                		<div class="avatar-box">
+		                                                			<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>"/>
+		                                                		</div>
+		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
 		                                                	</li>
 		                                                	<?php }?>
 	                                                	</li>
@@ -164,6 +166,7 @@
 	                                                </ul>
 	                                                <div class="clear"></div>
                                                 </div>
+                                                <?php }?>
                                             </div>
                                             <div class="tribe-events-meta-group tribe-events-meta-group-venue events-location">
                                                 <h3 class="tribe-events-single-section-title"> LOKATIE </h3>
