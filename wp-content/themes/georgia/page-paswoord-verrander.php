@@ -37,7 +37,7 @@
 
                                         <!-- List Title -->
                                         <div class="tribe-events-page-title-wrap">
-                                            <h2 class="tribe-events-page-title">VRAAG UW PASWOORD OPNIEUW AAN</h2>
+                                            <h2 class="tribe-events-page-title">uw paswoord wijzigen</h2>
                                         </div>
 
                                         <!-- Notices -->
