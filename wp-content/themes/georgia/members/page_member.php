@@ -178,6 +178,8 @@ class TT_Member_List_Table extends WP_List_Table {
 	        case 'p_naam':
 	        case 'p_voornaam':
 			case 'p_email':
+				echo '<a href="mailto:'.$item[ $column_name ].'">'.$item[ $column_name ].'</a>';
+				break;
 			case 'p_telefoon':
 	            return $item[ $column_name ];
 	        default:
