@@ -32,6 +32,8 @@
 							GROUP BY wp_posts.ID
 							ORDER BY wp_postmeta.meta_value
 						LIMIT ".$offset.",".$post_per_page;
+
+            //echo $wp_query;
 						//print_r(new WP_Query($wp_query));
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
 			$queryEvents = $wpdb->get_results($wp_query);
