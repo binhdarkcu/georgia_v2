@@ -203,6 +203,10 @@
     }
   }
 
+  .day.future.active > a {
+    background: #887554;
+  }
+
   .day.future.not-current a{
     background: #b2b2b2;
   }
