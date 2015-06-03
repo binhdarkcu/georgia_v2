@@ -19,7 +19,7 @@
       var time;
       this.$element = element;
       this.options = options;
-      this.weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+      this.weekDays = ['zon', 'maa', 'din', 'woe', 'don', 'vrij', 'zat', 'zon'];
       this.time = new Date();
       this.currentYear = this.time.getFullYear();
       this.currentMonth = this.time.getMonth();
