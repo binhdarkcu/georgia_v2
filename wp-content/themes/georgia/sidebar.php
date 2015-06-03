@@ -19,13 +19,14 @@
                                                 <a class="pull-right" data-go="next"><div class="btn btn-primary">»</div></a>
                                             </div><hr/>
                                             <div class="day-headers">
-                                                <div class="day header">Mon</div>
-                                                <div class="day header">Tue</div>
-                                                <div class="day header">Wed</div>
-                                                <div class="day header">Thu</div>
-                                                <div class="day header">Fri</div>
-                                                <div class="day header">Sat</div>
-                                                <div class="day header">Sun</div>
+
+                                                <div class="day header">Maa</div>
+                                                <div class="day header">Din</div>
+                                                <div class="day header">Woe</div>
+                                                <div class="day header">Don</div>
+                                                <div class="day header">Vrij</div>
+                                                <div class="day header">Zat</div>
+                                                <div class="day header">Zon</div>
                                             </div>
                                             <div class="days" data-group="days">
 
