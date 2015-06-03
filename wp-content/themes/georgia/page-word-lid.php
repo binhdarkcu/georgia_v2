@@ -252,7 +252,7 @@
 										</div>
 										<div class="reg-row">
 											<div class="colfull">
-												<label>Privé emailadres<span class="red">*</span></label>
+												<label>Privé emailadres<span class="red">*</span> (u dient in te loggen met dit emailadres)</label>
 												
 												<input type="text" name="p_email" value="" id="p_email"/>
 												<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
@@ -341,7 +341,7 @@
 										</div>
 										<div class="reg-row">
 											<div class="colfull">
-												<label>Land<span class="red">*</span></label>
+												<label>Regio<span class="red">*</span></label>
 												<?php
 													$region_location_array = get_field('region_location', 'option');
 		
