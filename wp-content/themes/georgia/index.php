@@ -65,7 +65,7 @@
 								$start_time = get_field('start_time', $near->ID);
 								$end_time = get_field('end_time', $near->ID);
 								$time = $start_time.' - '.$end_time;
-								$loc = get_field('place', $near->ID);
+								$loc = get_field('place_event', $near->ID);
 								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($near->ID) );
 							?>
                             <div class="home-featured-event">
@@ -89,7 +89,7 @@
                                                     </a>
                                                 </h2>
                                                 <div class="tribe-events-event-image">
-                                                    <img src="images/home/e-4.jpg" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
+                                                    <img src="<?php echo $bigImg;?>" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo $near->post_content;?>
@@ -328,7 +328,7 @@
 														$bigImg = wp_get_attachment_image_src( $photo,'full' );
                             				?>
                             				<li>
-                            					<a class="fresco" data-fresco-group='lastestphoto' href="<?php echo $bigImg[0];?>"><img src="<?php echo $bigImg[0];?>"/></a>
+                            					<a class="fresco" data-fresco-group='lastestphoto' href="<?php echo $bigImg[0];?>"><div class="bg-thumb" style="background: url(<?php echo $bigImg[0]; ?>); background-size: cover;"></div></a>
                             				</li>
                             				<?php } endwhile; endif;?>
                             			</ul>
@@ -341,7 +341,11 @@
                 </div>
             </div>
 
-
+		<style>
+			.bg-thumb{
+				height: 97px;
+			}
+		</style>
 
         </div>
 

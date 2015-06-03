@@ -31,7 +31,7 @@
 
                                         <!-- List Title -->
                                         <div class="tribe-events-page-title-wrap">
-                                            <h2 class="tribe-events-page-title">VOORBIJE EVENTS</h2>
+                                            <h2 class="tribe-events-page-title">ALLE EVENTS</h2>
                                         </div>
 
                                         <!-- Notices -->
