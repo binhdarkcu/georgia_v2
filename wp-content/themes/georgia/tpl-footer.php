@@ -5,7 +5,7 @@
                     <div class="col-md-6">
                         <div class="footer-credit">
                             <p>
-                                &copy;Georgia Business Club 2015
+                                &copy;Georgia Business Club 2015 - <a href="pdfs/Georgia_disclaimer.pdf" target="_blank">Disclaimer</a> - website by <a href="http://www.kiokarma.com/" target="_blank">Kiokarma</a>
 
                             </p>
                         </div>
@@ -14,9 +14,7 @@
                         <div id="footer-menu">
                             <ul id="social-icon">
                                 <li>
-                                    <a href="#" title="Facebook" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title="Twitter" class="twitter"><i class="fa fa-twitter"></i></a>																															
-                                    <a href="#" title="gPlus" class="google-plus"><i class="fa fa-google-plus"></i></a>																															<a href="#" title="Linkedin" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/company/georgia-business-club-vzw" title="Twitter" class="twitter " target="_blank"><i class="fa fa-twitter"></i></a>
                                 </li>
                             </ul>
                         </div>

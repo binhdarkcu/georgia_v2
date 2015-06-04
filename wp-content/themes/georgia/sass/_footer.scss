@@ -5,6 +5,10 @@
   p{
     @include NotoSansRegular(12px);
     padding-top: 25px;
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -19,7 +23,7 @@
         content: "";
       }
       &.fa-twitter{
-        background-position: -38px 0px;
+        background-position: -77px 0px;
       }
       &.fa-google-plus{
         background-position: -77px 0;
