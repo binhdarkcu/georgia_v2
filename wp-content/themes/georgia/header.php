@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Georgia Business Club 2015</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     <base href="<?php echo get_bloginfo('template_url')?>/"></base>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png?v=3" />
     <link rel='stylesheet' id='tribe-events-full-pro-calendar-style-css' href='assets/css/tribe-events-pro-full.min.css' type='text/css' media='all' />

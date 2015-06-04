@@ -241,10 +241,10 @@
 												<?php
 													$galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
 													foreach($galleryPhoto as $photo){
-														$bigImg = wp_get_attachment_image_src( $photo,'medium' );
+														$bigImg = wp_get_attachment_image_src( $photo,'full' );
 												?>
 												<li>
-													<a class="fresco" data-fresco-group='galleryphoto' href="<?php echo $bigImg[0];?>"><img src="<?php echo $bigImg[0];?>"/></a>
+													<a class="fresco" data-fresco-group='galleryphoto' href="<?php echo $bigImg[0];?>"><div class="bg-thumb" style="background: url(<?php echo $bigImg[0]; ?>); background-size: cover;"></div></a>
 												</li>
 												<?php } ?>
 											</ul>

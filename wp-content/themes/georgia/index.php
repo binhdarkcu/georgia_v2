@@ -342,9 +342,7 @@
             </div>
 
 		<style>
-			.bg-thumb{
-				height: 97px;
-			}
+
 		</style>
 
         </div>
