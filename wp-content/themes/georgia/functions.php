@@ -199,6 +199,20 @@ if( function_exists('acf_add_options_sub_page') ) {
 
     ));
 }
+add_action( 'current_screen', 'thisScreen' );
+
+function thisScreen() {
+    $currentScreen = get_current_screen();
+	if($currentScreen->post_type == 'organisaties'){?>
+		<style>
+			.types_post.column-types_post, #types_post{
+				display: none;
+			}
+			
+		</style>
+	<?php }
+}
+
 
 function my_title_count(){
  $screen = get_current_screen();

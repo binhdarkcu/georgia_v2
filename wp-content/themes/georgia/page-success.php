@@ -1,3 +1,10 @@
+<?php
+	if(!isset($_SESSION['user'])){
+        //$home_url = get_bloginfo('home');
+		wp_redirect(home_url() ); //to redirect back to "index.php" after logging out
+		exit();
+    }
+?>
 <?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <div id="site-container" class="site-container sb-site-container">
@@ -22,7 +29,7 @@
                     <div class="col-md-12">
                     	<div class="registerBox">
                     		<div class="intro">
-                    			<span>Bedankt voor uw registratie, we hebben uw aanvroaag goed ontvangen en contacteren u zo snel mogelijk terug</span>
+                    			<span>Bedankt voor uw registratie, we hebben uw aanvraag goed ontvangen en contacteren u zo snel mogelijk terug.</span>
                     			
                     		</div>
                     		

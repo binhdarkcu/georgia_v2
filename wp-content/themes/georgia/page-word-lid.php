@@ -236,7 +236,7 @@
 										</div>
 										<div class="reg-row">
 											<div class="col1">
-												<label>Telefoon<span class="red">*</span></label>
+												<label>Telefoon</label>
 												<input type="text" name="p_telefoon" value="" />
 											</div>
 											<div class="col2">
@@ -399,40 +399,40 @@
 								<!--End first box-->
 								<div class="referenceBox">
 									<h3>REFERENTIEPERSONEN</h3>
-									<span class="note">Leden (minimum 2) die uw aanvraag om lid te worden steuren</span>
+									<span class="note">Leden (minimum 2) die uw aanvraag om lid te worden steunen</span>
 									<div class="reg-now">
 										<div class="col">
-											<label>Naam<span class="red">*</span></label>
+											<label>Naam</label>
 											<input type="text" name="r_naam" value="" />
 										</div>
 										<div class="col">
-											<label>Voornaam<span class="red">*</span></label>
+											<label>Voornaam</label>
 											<input type="text" name="r_voornaam" value="" />
 										</div>
 										<div class="col">
-											<label>Telefoon<span class="red">*</span></label>
+											<label>Telefoon</label>
 											<input type="text" name="r_telefoon" value="" />
 										</div>
 										<div class="col">
-											<label>Email<span class="red">*</span></label>
+											<label>Email</label>
 											<input type="text" name="r_email" value="" />
 										</div>
 									</div>
 									<div class="reg-now">
 										<div class="col">
-											<label>Naam<span class="red">*</span></label>
+											<label>Naam</label>
 											<input type="text" name="r_naam_2" value="" />
 										</div>
 										<div class="col">
-											<label>Voornaam<span class="red">*</span></label>
+											<label>Voornaam</label>
 											<input type="text" name="r_voornaam_2" value="" />
 										</div>
 										<div class="col">
-											<label>Telefoon<span class="red">*</span></label>
+											<label>Telefoon</label>
 											<input type="text" name="r_telefoon_2" value="" />
 										</div>
 										<div class="col">
-											<label>Email<span class="red">*</span></label>
+											<label>Email</label>
 											<input type="text" name="r_email_2" value="" />
 										</div>
 									</div>
@@ -444,13 +444,13 @@
 									<h4>SECETARIAAT</h4>
 									<div class="reg-now">
 										<div class="colfull">
-											<label>Naam contactpersoon op uw secretariaat<span class="red">*</span></label>
+											<label>Naam contactpersoon op uw secretariaat</label>
 											<input type="text" name="f_personname" value="" />
 										</div>
 									</div>
 									<div class="reg-now">
 										<div class="col1">
-											<label>Telefoon<span class="red">*</span></label>
+											<label>Telefoon</label>
 											<input type="text" name="f_telefoon" value="" />
 										</div>
 										<div class="col2">
@@ -461,11 +461,11 @@
 									
 									<div class="reg-now">
 										<div class="col1">
-											<label>Emailadres<span class="red">*</span></label>
+											<label>Emailadres</label>
 											<input type="text" name="f_email" value="" />
 										</div>
 										<div class="col2">
-											<label>BTW nummer firma/organisatie<span class="red">*</span></label>
+											<label>BTW nummer firma/organisatie</label>
 											<input type="text" name="f_btw" value="" />
 										</div>
 									</div>

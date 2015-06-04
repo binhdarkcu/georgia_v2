@@ -72,10 +72,6 @@ jQuery(document).ready(function() {
             	required: true,
             	minlength: 6
             },
-            'p_telefoon':{
-            	required: true,
-            	minlength: 9
-            },
             'p_picture':{
             	required: true
             },
@@ -105,46 +101,6 @@ jQuery(document).ready(function() {
                 selectcheck: true
             },
             
-            'r_naam': {
-                required: true
-            },
-            'r_voornaam': {
-                required: true
-            },
-            'r_telefoon': {
-                required: true
-            },
-            'r_email': {
-                required: true,
-                email: true
-            },
-            'r_naam_2': {
-                required: true
-            },
-            'r_voornaam_2': {
-                required: true
-            },
-            'r_telefoon_2': {
-                required: true
-            },
-            'r_email_2': {
-                required: true,
-                email: true
-            },
-            
-            'f_personname': {
-                required: true
-            },
-            'f_telefoon': {
-                required: true
-            },
-            'f_email': {
-                required: true,
-                email: true
-            },
-            'f_btw': {
-                required: true
-            },
             
             'accept' :{
             	required: true
