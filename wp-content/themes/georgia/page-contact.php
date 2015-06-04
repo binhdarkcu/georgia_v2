@@ -38,12 +38,11 @@
 							<div class="loc-title">
 								<h3>CONTACT GEGEVENS</h3>
 								<p>
-									Georgia bvba<br/>
-									Straat 57<br/>
-									200 Antwerpen<br/><br/>
-									BTW 354 567 890<br/><br/>
-									Tel. 012-345678<br/>
-									Fax. 012-345678<br/><br/>
+                                    Georgia vzw<br/>
+                                    Pater Damiaanstraat 71<br/>
+                                    2610 Wilrijk<br/><br/>
+									BTW 599.994.884<br/><br/>
+									Tel. 0473/56.20.04<br/><br/>
 									email: <a href="mailto:info@georgia.be">info@georgia.be</a>
 								</p>
 								<?php
