@@ -28,7 +28,7 @@
 						pm.meta_key =  'datetime'
 						)
 						GROUP BY pm.post_id, pm.meta_value
-						ORDER BY pm.meta_value DESC 
+						ORDER BY pm.meta_value 
 						LIMIT ".$offset.",".$post_per_page;
 			//print_r(new WP_Query($wp_query));
 			$total_query = "SELECT FOUND_ROWS() AS TOTALEVENT;";
