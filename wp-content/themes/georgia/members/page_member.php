@@ -256,10 +256,8 @@ class TT_Member_List_Table extends WP_List_Table {
      **************************************************************************/
     function get_sortable_columns() {
         $sortable_columns = array(
-            'p_picture' => array('p_picture',false),
 		    'p_naam'  => array('p_naam',false),
 		    'p_voornaam' => array('p_voornaam',false),
-		    'p_email' => array('p_email',false),
 		    'p_land'   => array('p_land',false),
 			'p_telefoon' => array('p_telefoon',false),
 		    'p_user_status'   => array('p_user_status',false)
@@ -899,13 +897,15 @@ class TT_Member_List_Table extends WP_List_Table {
 		   			array_push($data, (array)$querydatum);}
 		 
 		  }else{
-		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status, p_plain_password FROM wp_members';
+		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status, p_plain_password FROM wp_members order by p_user_status';
+		  	
 		  	$members = $wpdb->get_results($query);
 			$data = array();
 		  	foreach ($members as $querydatum ) {
-		   			array_push($data, (array)$querydatum);}
+		   			array_push($data, (array)$querydatum);
+			}
 		  }
-		        
+		  
         
         function usort_reorder($a,$b){
             $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'title'; //If no sort, default to title
@@ -913,7 +913,7 @@ class TT_Member_List_Table extends WP_List_Table {
             $result = strcmp($a[$orderby], $b[$orderby]); //Determine sort order
             return ($order==='asc') ? $result : -$result; //Send final sort direction to usort
         }
-        usort($data, 'usort_reorder');
+        //usort($data, 'usort_reorder');
         
         $current_page = $this->get_pagenum();
         
