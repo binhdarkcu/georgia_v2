@@ -118,6 +118,7 @@
 	            //unset($data['password']);
 	            //$_SESSION['user'] = $data;
 				//$_SESSION['user_id'] = $data['id'];
+				send_new_subscriber($data['p_email']);
 	            $link = get_site_url().'/success';
 	            echo "<script>setTimeout(function(){window.location.href = '$link';},1);</script>";
 	        }

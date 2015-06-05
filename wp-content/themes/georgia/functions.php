@@ -78,6 +78,7 @@
 	include TEMPLATEPATH . '/email/xtemplate.forgotpassword.php';
 	
 	include TEMPLATEPATH . '/email/xtemplate.actived.php';
+	include TEMPLATEPATH . '/email/xtemplate.sendtoadmin.php';
 	//contact form
 	//include TEMPLATEPATH . '/email/xtemplate.jimform.php';
 	// Setup Admin Thumbnail Size
