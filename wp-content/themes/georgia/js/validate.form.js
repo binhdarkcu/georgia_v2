@@ -100,7 +100,9 @@ jQuery(document).ready(function() {
             'b_land': {
                 selectcheck: true
             },
-            
+			'b_organisatie': {
+				url: true
+			},
             
             'accept' :{
             	required: true

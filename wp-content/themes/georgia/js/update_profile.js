@@ -47,28 +47,41 @@ jQuery(document).ready(function(){
 		if($status == 'save'){
 			$setfield = $('input[name=' + $fieldname + ']').val() || $('select[name=' + $fieldname + ']').val();
 			$id = $(this).attr('data-userid');
-			jQuery.ajax({
-				type : "post",
-				url : $('.ajaxurl').val(),
-				data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
-				success: function(data) {
-					if(data){
-						$('input[name=' + $fieldname + ']').parent().attr('href',$setfield);
-						$(this).parent().parent().find('a').attr('href',$('input[name=' + $fieldname + ']').val());
-						$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
-						$('select[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
-						$(self).find('span').text('edit');
-						if($('input[name=' + $fieldname + ']').val() == ''){
-							$('input[name=' + $fieldname + ']').parent().find('.empty').show();	
-							$('input[name=' + $fieldname + ']').parent().attr('href','javascript:void(0)');
-							$('input[name=' + $fieldname + ']').parent().parent().find('.empty').show()
-						//alert('Profile updated.');
-						}
-					}else{
-						alert('Profile not updated.');
-					}
+			$valid = true;
+			if ($fieldname == 'b_organisatie') {
+				if (!/^https?/.test($setfield)) {
+					$setfield = 'http://' + $setfield;
 				}
-			});
+				$pattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+				$valid = $pattern.test($setfield);
+			}
+			if ($valid) {
+				jQuery.ajax({
+					type : "post",
+					url : $('.ajaxurl').val(),
+					data : {action: "user_update_profile", setfield:$setfield, fieldname:$fieldname, id:$id },
+					success: function(data) {
+						if(data){
+							$('input[name=' + $fieldname + ']').val($setfield);
+							$('input[name=' + $fieldname + ']').parent().attr('href',$setfield);
+							$(this).parent().parent().find('a').attr('href',$('input[name=' + $fieldname + ']').val());
+							$('input[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
+							$('select[name=' + $fieldname + ']').prop('disabled',true).removeAttr('style');
+							$(self).find('span').text('edit');
+							if($('input[name=' + $fieldname + ']').val() == ''){
+								$('input[name=' + $fieldname + ']').parent().find('.empty').show();	
+								$('input[name=' + $fieldname + ']').parent().attr('href','javascript:void(0)');
+								$('input[name=' + $fieldname + ']').parent().parent().find('.empty').show();
+							}
+						}else{
+							alert('Profile not updated.');
+						}
+					}
+				});
+			}
+			else {
+				alert('Url is invalid.');
+			}
 		}else{
 			$(this).parent().parent().find('a').attr('href','javascript:void(0)');
 			$('input[name=' + $fieldname + '], select[name=' + $fieldname + ']').prop('disabled',false).css({'border':'1px solid #fff'});
