@@ -385,7 +385,7 @@
 										<div class="reg-row">
 											<div class="colfull">
 												<label>Website bedrijf/organisatie</label>
-												<input type="text" name="b_organisatie" value="" />
+												<input type="text" name="b_organisatie" value="" placeholder="http://www.yoursite.com" />
 											</div>
 										</div>
 										<div class="reg-row">
