@@ -76,9 +76,16 @@ define('WP_DEBUG', false);
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
+$url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if (strpos($url, 'www') !== false){
+    define('WP_HOME','http://www.georgia-bc.be');
+    define('WP_SITEURL','http://www.georgia-bc.be');
 
-define('WP_HOME','http://georgia-bc.be');
-define('WP_SITEURL','http://georgia-bc.be');
+}
+else {
+    define('WP_HOME','http://georgia-bc.be');
+    define('WP_SITEURL','http://georgia-bc.be');
+}
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
