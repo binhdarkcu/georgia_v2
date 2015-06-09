@@ -4,11 +4,7 @@
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
             <div class="container">
-
-                <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="<?php echo bloginfo('home')?>" title="Home">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo bloginfo('home')?>/contact/" title="CONTACT">CONTACT</a></span>
-                </div>					
+				
                 <h1>CONTACT</h1>
             </div>
         </section>

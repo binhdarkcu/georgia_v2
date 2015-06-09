@@ -5,11 +5,7 @@
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
             <div class="container">
-
-                <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="<?php echo get_bloginfo('home')?>" title="Eventica">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="<?php echo get_bloginfo('home')?>/leden/" title="Events">LEDEN</a></span>
-                </div>					
+			
                 <h1>LEDEN</h1>
             </div>
         </section>
@@ -134,7 +130,7 @@
                                         <div class="ledenOrg" style="margin-top: 12px;">
                                         	<div class="home-featured-event">
                                         		<div class="featured-event-title">
-			                                        <h2>FIRMA’S/ORGANISATIES</h2>
+			                                        <h2>firma bestuurders</h2>
 			                                    </div>
                                         	</div>
                                         	<div class="leden-logo">

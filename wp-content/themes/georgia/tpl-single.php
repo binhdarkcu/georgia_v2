@@ -21,11 +21,7 @@
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
             <div class="container">
-
-                <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="http://demo.toko.press/eventica-tecpro" title="Eventica">Home</a></span>
-                    <span class="sep">&#047;</span> <span class="trail-end"><a href="http://demo.toko.press/eventica-tecpro/events/" title="Events">Events</a></span>
-                </div>					
+				
                 <h1><?php echo get_the_title(get_the_ID());?></h1>
             </div>
         </section>

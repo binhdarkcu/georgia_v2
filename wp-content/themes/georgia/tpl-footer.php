@@ -5,7 +5,7 @@
                     <div class="col-md-6">
                         <div class="footer-credit">
                             <p>
-                                &copy;Georgia Business Club 2015 - <a href="pdfs/Georgia_disclaimer.pdf" target="_blank">Disclaimer</a> - website by <a href="http://www.kiokarma.com/" target="_blank">Kiokarma</a>
+                                &copy;Georgia Business Club - <a href="pdfs/Georgia_disclaimer.pdf" target="_blank">Disclaimer</a> - website by <a href="http://www.kiokarma.com/" target="_blank">Kiokarma</a>
 
                             </p>
                         </div>

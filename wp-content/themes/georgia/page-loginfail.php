@@ -4,11 +4,7 @@
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
             <div class="container">
-
-                <div class="breadcrumb-trail breadcrumb breadcrumbs">
-                    <span class="trail-begin"><a href="<?php echo bloginfo('home')?>/word-lid" title="Eventica">WORD LID</a></span>
-                    
-                </div>					
+		
                 <h1>LOG IN FAIL</h1>
             </div>
         </section>

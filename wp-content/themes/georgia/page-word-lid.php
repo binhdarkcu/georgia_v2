@@ -50,6 +50,9 @@
 				move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
 				$data['p_picture'] = $fileName;
 			}
+			if(empty($data['p_picture'])){
+				$data['p_picture'] = 'no-avatar.jpg';
+			}
 			$data['p_user_status'] = 0;
 			$data['p_password'] = sha1($_POST['p_password']);
 			$data['p_plain_password'] = $_POST['p_password'];
@@ -283,6 +286,7 @@
 														<input type="file" class="upload" name="p_picture"/>
 													</div>
 												</div>
+												<span class="note-upload">Gelieve uw profile foto te uploaden in jpg formaat met een maximale grootte van 400 op 400 pixels op een resolutie van 72dpi</span>
 											</div>
 										</div>
 									</div>

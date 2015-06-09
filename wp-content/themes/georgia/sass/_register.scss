@@ -65,6 +65,7 @@
       }
       .fileUpload{
         margin-left: 14px;
+        margin-right: 14px;
       }
     }
     .reg-left{
@@ -263,6 +264,18 @@
       }
     }
   }
+}
+.note-upload{
+    font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.5;
+  display: block;
+  color: #fff;
+  clear: both;
+  padding-top: 19px;
+  width: 82%;
 }
 .relative{
   position: relative;
