@@ -21,7 +21,7 @@
 							            'post_type' 	 => 'post',
 							            'posts_per_page' => 3,
 							            'meta_key' => 'datetime',
-            							'orderby'   => 'meta_value', //or 'meta_value_num'
+                                        'order'			 => 'asc'
 							        );
 							        $queryComing = get_posts($args_coming);
 									date_default_timezone_set( 'Europe/Amsterdam' );
