@@ -84,7 +84,7 @@
 
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
                                                 <h2 class="entry-title">
-                                                    <a class="url" href="<?php echo get_the_permalink($featured->ID)?>" title="<?php echo get_the_title($featured->ID);?>" rel="bookmark">
+                                                    <a class="url" href="<?php echo get_the_permalink($near->ID)?>" title="<?php echo get_the_title($featured->ID);?>" rel="bookmark">
                                                         <?php echo get_the_title($near->ID);?>
                                                     </a>
                                                 </h2>
