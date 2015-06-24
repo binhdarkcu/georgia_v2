@@ -84,14 +84,14 @@
                                                     	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 	                                                	<input name="action" type="hidden" class="action" value="<?php echo empty($isjoin) ? 'add' : 'cancel'; ?>_event"/>
 	                                                    <?php
-	                                                    	if(empty($isjoin)){
+															$limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):2;
+	                                                    	if(!$isjoin){
+																if($diff > $limit_time_to_cancel)	{
 	                                                    ?>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
 	                                                        IK KOM
 	                                                    </a>
-	                                                    <?php }else {
-
-                                                            $limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):10;
+	                                                    <?php } }else {
 	                                                    	if($diff >= $limit_time_to_cancel)	{
 	                                                    ?>
 		                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
