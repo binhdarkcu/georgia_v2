@@ -64,7 +64,7 @@
 																$stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
 															}
 														?>
-														<li><a href="#">aaaa</li>
+														<li></li>
 													</ul>
 												</div>
                                             </div>
@@ -115,7 +115,7 @@
 		                                                    </a>
 		                                                    <?php } else{?> 
 		                                                    	<div class="blur"></div>
-		                                                    	<a class="btn" rel="external" href="">
+		                                                    	<a class="btn" rel="external" href="javascript:void(0);" style="cursor: inherit;">
 			                                                        CANCEL
 			                                                    </a>
 														<?php } }?>
