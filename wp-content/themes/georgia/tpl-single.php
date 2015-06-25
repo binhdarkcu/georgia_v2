@@ -53,6 +53,20 @@
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo get_the_content(get_the_ID());?>
                                                 </div>
+												<div class="downloadbox">
+													<ul>
+														<?php
+															$business_sector_array = get_field('business_sector', 'option');
+															foreach($business_sector_array as $business_sector)
+															{
+																$no = $business_sector['no'];
+																$title = $business_sector['title'];
+																$stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
+															}
+														?>
+														<li><a href="#">aaaa</li>
+													</ul>
+												</div>
                                             </div>
 
                                         </div>
@@ -78,7 +92,9 @@
 		                                                	$isjoin = $wpdb->get_row($join_query);
 															
 															$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
-															$diff = abs(dateDiff($datetime,date('Y/m/d')));
+															$hours_event = strtotime($date_event);
+															$current_hours = strtotime(date('Y-m-d H:i:s'));
+															$diff = round(($hours_event - $current_hours) / 3600);
 															if($canjoin){
 		                                                ?>
                                                     	<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
@@ -86,13 +102,13 @@
 	                                                    <?php
 															$limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):2;
 	                                                    	if(!$isjoin){
-																if($diff > $limit_time_to_cancel)	{
+																if($diff >= 48)	{
 	                                                    ?>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
 	                                                        IK KOM
 	                                                    </a>
 	                                                    <?php } }else {
-	                                                    	if($diff >= $limit_time_to_cancel)	{
+	                                                    	if($diff >= 48)	{
 	                                                    ?>
 		                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo get_the_ID();?>" id="addEvent" href="javascript:void(0);">
 		                                                        CANCEL

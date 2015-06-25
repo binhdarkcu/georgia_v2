@@ -67,6 +67,7 @@
 								$time = $start_time.' - '.$end_time;
 								$loc = get_field('place_event', $near->ID);
 								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($near->ID) );
+								
 							?>
                             <div class="home-featured-event">
 
@@ -117,7 +118,10 @@
 																LIMIT 0 , 30";
                                                 	$isjoin = $wpdb->get_row($join_query);
 													$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
-													$diff = abs(dateDiff($datetime,date('Y/m/d')));
+													$date_event = DateTime::createFromFormat('Y/m/d', $datetime)->format('Y-m-d').' '.substr($start_time, 0, -3).':00';
+													$hours_event = strtotime($date_event);
+													$current_hours = strtotime(date('Y-m-d H:i:s'));
+													$diff = round(($hours_event - $current_hours) / 3600);
 													if($canjoin){
                                                 ?>
                                                 
@@ -128,13 +132,13 @@
 	                                                    <?php
 															$limit_time_to_cancel = is_numeric(get_field('limit_time_to_cancel', 'option')) ? get_field('limit_time_to_cancel', 'option'):2;
 	                                                    	if(!$isjoin){
-																if($diff > $limit_time_to_cancel)	{
+																if($diff >= 48)	{
 	                                                    ?>
 															<a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $near->ID;?>" id="addEvent" href="javascript:void(0);">
 																IK KOM
 															</a>
 	                                                    <?php } }else {
-	                                                    	if($diff > $limit_time_to_cancel)	{
+	                                                    	if($diff >= 48)	{
 	                                                    ?>
 	                                                    <a class="btn" rel="external" data-user-id="<?php echo $_SESSION['user']['id'];?>" data-event-id="<?php echo $near->ID;?>" id="addEvent" href="javascript:void(0);">
 	                                                        CANCEL
