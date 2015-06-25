@@ -77,8 +77,8 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 
-define('WP_HOME','http://localhost/PHP/BLISS/www/YVES/GEORGIA/sourcecode/v2/');
-define('WP_SITEURL','http://localhost/PHP/BLISS/www/YVES/GEORGIA/sourcecode/v2/');
+define('WP_HOME','http://localhost/PHP/BLISS/www/Temp/GEORGIA/sourcecode/v2/');
+define('WP_SITEURL','http://localhost/PHP/BLISS/www/Temp/GEORGIA/sourcecode/v2/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

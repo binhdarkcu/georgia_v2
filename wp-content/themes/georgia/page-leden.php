@@ -84,6 +84,11 @@
                                                                 $srcimage = get_template_directory_uri().'/images/favicon.png';
                                                             }*/
 
+                                                            $search  = array('http://', '.com/', '.be/', '.eu/');
+                                                            $replace = array('', '.com', '.be', '.eu');
+
+                                                            $str_organisatie = str_replace($search, $replace, $member->{'b_organisatie'});
+
                                                             ?>
 	                                        		<div class="divrow">
 	                                        			
@@ -106,7 +111,7 @@
 	                                        					
 	                                        				</div>
 	                                        			</div>
-	                                        			<div class="col col5"><div class="middle"><a target="_blank" href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $member->{'b_organisatie'} ?></a></div></div>
+	                                        			<div class="col col5"><div class="middle"><a target="_blank" href="<?php echo $member->{'b_organisatie'} ?>"><?php echo $str_organisatie;?></a></div></div>
 	                                        			<div class="col col6">
 	                                        				<div class="middle">
 	                                        					<?php
