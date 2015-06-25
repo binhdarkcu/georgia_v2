@@ -80,9 +80,14 @@
                                                         $members = $wpdb->get_results($join_query);
                                                         foreach($members as $member){
                                                             $srcimage = content_url().'/uploads/avatar/'.$member->{'p_picture'};
-                                                            /*if (@getimagesize($srcimage) === false) {
+
+                                                            $upload_dir = wp_upload_dir();
+                                                            $upload_image = $upload_dir['basedir'].'/avatar/'.$member->{'p_picture'};
+
+                                                            if( !file_exists( $upload_image ) ) {
                                                                 $srcimage = get_template_directory_uri().'/images/favicon.png';
-                                                            }*/
+                                                            }
+
 
                                                             $search  = array('http://', '.com/', '.be/', '.eu/');
                                                             $replace = array('', '.com', '.be', '.eu');
