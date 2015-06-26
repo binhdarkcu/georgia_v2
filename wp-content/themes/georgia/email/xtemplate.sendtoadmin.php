@@ -4,7 +4,7 @@
     function 	send_new_subscriber($email){
                 include_once	'xtemplate.class.php';
                 $header   	= 'Content-type: text/html; charset=utf-8\r\n';				
-                $title 		= 'Theres a new subscriber waiting for approval';
+                $title 		= 'Er is een nieuw lidmaatschap aanvraag voor Georgia';
 
                 //$contact_email = 'info@georgia-bc.be';//get_option('admin_email');
 
@@ -22,8 +22,7 @@
                     'nguyenthai2010@yahoo.com'
                 );
 
-
-        $date = date('d-m-Y');
+                $date = date('d-m-Y');
                 $parseTemplate	=	new XTemplate('xtemplate.sendtoadmin.html');
                 $parseTemplate->assign('date',$date);             
                 $parseTemplate->assign('email',$email);	
