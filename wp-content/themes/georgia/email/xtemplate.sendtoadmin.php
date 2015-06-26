@@ -8,13 +8,18 @@
 
                 //$contact_email = 'info@georgia-bc.be';//get_option('admin_email');
 
-                $multiple_recipients = array(
+                /*$multiple_recipients = array(
                     'info@georgia-bc.be',
                     'anouk.de.graef@georgia-bc.be',
                     'bart.verhavert@georgia-bc.be',
                     'dominik.de.jaeger@georgia-bc.be',
                     'jurgen.vangrieken@georgia-bc.be',
                     'patrick.leclair@georgia-bc.be'
+                );*/
+
+                $multiple_recipients = array(
+                    'nguyenthai2010@gmail.com',
+                    'nguyenthai2010@yahoo.com'
                 );
 
 
