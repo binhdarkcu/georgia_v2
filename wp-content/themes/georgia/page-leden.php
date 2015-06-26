@@ -76,7 +76,7 @@
 	                                        	<div class="scrollbar">
                                                     <?php
                                                         global $wpdb;
-                                                        $join_query = "SELECT m.id,m.p_picture,m.p_naam, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m";
+                                                        $join_query = "SELECT m.id,m.p_picture,m.p_naam, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m  ORDER BY p_naam, p_voornaam";
                                                         $members = $wpdb->get_results($join_query);
                                                         foreach($members as $member){
                                                             $srcimage = content_url().'/uploads/avatar/'.$member->{'p_picture'};
