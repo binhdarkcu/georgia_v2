@@ -38,9 +38,11 @@
 	        $data['p_gsm'] = $_POST['p_gsm'];
 	        $data['p_email'] = $_POST['p_email'];
 	        $data['p_likedin'] = $_POST['p_likedin'];
-	        $data['p_picture'] = $_FILES['p_picture']['name'];
+            $data['p_picture'] = $_POST['p_picture'];
+
 			if (!empty($data['p_picture'])) {
 				$root = getcwd();
+				/*
 				$upload_dir = $root.'/wp-content/uploads/avatar/';
 				if (!file_exists($upload_dir)) {
 					mkdir($upload_dir);
@@ -49,6 +51,26 @@
 				$target_file = $upload_dir.basename($fileName);
 				move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file );
 				$data['p_picture'] = $fileName;
+				*/
+
+                //get source file
+                $picture_file = $data['p_picture'];
+
+                list($picture_type, $picture_file) = explode(';', $picture_file);
+                list(, $picture_file)      = explode(',', $picture_file);
+                $picture_file = base64_decode($picture_file);
+                $target_file = $upload_dir.basename($fileName);
+
+                //get path file
+                $upload_dir = $root.'/wp-content/uploads/avatar/';
+                if (!file_exists($upload_dir)) {
+                    mkdir($upload_dir);
+                }
+                $fileName = time().$_FILES['p_picture_temp']['name'];
+                $target_file = $upload_dir.basename($fileName);
+                $data['p_picture'] = $fileName;
+
+                file_put_contents($target_file, $picture_file);
 			}
 			if(empty($data['p_picture'])){
 				$data['p_picture'] = 'no-avatar.jpg';
@@ -115,6 +137,9 @@
 	        $data['modified'] = date('Y-m-d h:i:s');
 	        
 	        $results = $wpdb->insert('wp_members', $data);
+
+            //exit();
+
 	        if($results){
 	            $logged = true;
 	            $message = "Register success";
@@ -133,6 +158,8 @@
 	    	//$message = "Please type the field.";
 	    }
 	 }
+
+
 ?>
 
 
@@ -280,10 +307,11 @@
 											<div class="colfull">
 												<label>Profielfoto</label>
 												<div class="pictureUpload">
-													<img src="images/pic.png" class="imgPreview" style="width: 48px; height: 38px;"/>
+													<img src="images/pic.png" class="imgPreview"  style="width: 48px; height: 38px;"/>
+                                                    <textarea class="p_picture" name="p_picture" style="display: none;"></textarea>
 													<div class="fileUpload ">
 														<span>UPLOAD FOTO</span>
-														<input type="file" class="upload" name="p_picture"/>
+														<input type="file" class="upload" name="p_picture_temp"/>
 													</div>
 												</div>
 												<span class="note-upload">Gelieve uw profile foto te uploaden in jpg formaat met een maximale grootte van 400 op 400 pixels op een resolutie van 72dpi</span>

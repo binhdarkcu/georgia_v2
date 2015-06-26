@@ -48,6 +48,11 @@ var SiteMain = (function() {
 	                n = file.name,
 	                s = ~~(file.size/1024) +'KB';
 	            jQuery('.pictureUpload img.imgPreview').attr('src', this.src);
+
+
+                jQuery('.p_picture').html(this.src);
+
+
 	            $('#editPhoto').hide();
 	    		$('#submit-btn').show();
 	        };
