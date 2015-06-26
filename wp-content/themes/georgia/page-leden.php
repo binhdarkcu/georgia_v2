@@ -31,7 +31,7 @@
                                         	<?php
                                         		global $wpdb;
 												$query_count = "SELECT COUNT( * ) as TOTALMEMBER
-																	FROM  `wp_members`";
+																	FROM  `wp_members` WHERE p_user_status=1";
 												$total_row = $wpdb->get_results($query_count);
                                         	?>
                                             <h2 class="tribe-events-page-title">MOMENTEEL TELT GEORGIA <b><?php echo $total_row[0]->TOTALMEMBER;?> LEDEN</b></h2>
@@ -76,7 +76,7 @@
 	                                        	<div class="scrollbar">
                                                     <?php
                                                         global $wpdb;
-                                                        $join_query = "SELECT m.id,m.p_picture,m.p_naam, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m  ORDER BY p_naam, p_voornaam";
+                                                        $join_query = "SELECT m.id,m.p_picture,m.p_naam, m.p_voornaam, m.p_likedin, m.b_firma,m.b_land, m.b_organisatie, m.p_plaats FROM wp_members m WHERE p_user_status=1 ORDER BY p_naam, p_voornaam";
                                                         $members = $wpdb->get_results($join_query);
                                                         foreach($members as $member){
                                                             $srcimage = content_url().'/uploads/avatar/'.$member->{'p_picture'};
