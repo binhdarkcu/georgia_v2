@@ -125,3 +125,70 @@
       }
   }
 }
+
+.add_guest_popup{
+  .popup-content{
+    background: #1b1a19;
+      text-align: left;
+        width: 537px;
+  margin-left: -268px;
+    a.close{
+      color: #fff;
+        top: 2px;
+      right: 7px;
+    }
+    .guest_form{
+      padding-bottom: 25px;
+    }
+    h4{
+      @include RalewayBold(18px);
+      color: #fff;
+      padding-bottom: 12px;
+    }
+    input[type="text"]{
+      @include RalewayRegular(12px);
+      width: 173px;
+      border: 1px solid #b7b7b7;
+      margin-right: 8px;
+      height: 25px;
+      &.notedit{
+          background: transparent;
+        border: none;
+        font-family: 'Noto Sans', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.1;
+        color: #fff;
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 0;
+      }
+      &.error{
+        border-color: red;
+      }
+    }
+    p{
+      @include NotoSansRegular(12px);
+        color: #fff;
+        input.text2{
+          margin-left: 10px;
+        }
+    }
+    input[type="submit"]{
+      @include RalewayBold(12px);
+      color: #887554;
+      border: 2px solid #887554;
+      width: 117px;
+      background: transparent;
+        padding: 6px 0 5px;
+      
+    }
+    a.fedit{
+      color: #887554;
+      @include NotoSansRegular(12px);
+      text-decoration: underline;
+    }
+  }
+}

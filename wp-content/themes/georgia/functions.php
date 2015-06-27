@@ -30,6 +30,7 @@
     include 'inc/ajax_events_sidebar.php';
 	include 'inc/profile.php';
 	include 'inc/participate_event.php';
+	include 'inc/add_guest.php';
 	
 	//
 	include 'members/page_member.php';

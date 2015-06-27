@@ -53,20 +53,38 @@
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo get_the_content(get_the_ID());?>
                                                 </div>
+                                                <?php if(isset($_SESSION['user'])){ ?>
+                                                <div class="add_guest">
+                                                	<a href="#">Wenst u gasten mee te brengen?</a>
+                                                </div>
+                                                
+                                                <div class="infoPayment">
+                                                	<?php $account_number = get_field('account_number', 'option');?>
+                                                	<div class="pad">
+                                                		Gelieve <b><?php echo get_field('cost',get_the_ID());?></b> € per persoon te betalen op rekeningnummer 
+														<b><?php echo $account_number;?></b> op naam van Georgia met 
+														vermelding "Kredietverstrekking <?php echo $day.' '.$month;?> - Jurgen Van 
+														Grieken" ten laatste de dag voor aanvang van het event. 
+                                                	</div>
+                                                </div>
+                                                <?php
+                                                	$future_date =datediff(date('Y/m/d'), $datetime);
+													if($future_date < 0){
+                                                ?>
 												<div class="downloadbox">
-													<ul>
-														<?php
-															$business_sector_array = get_field('business_sector', 'option');
-															foreach($business_sector_array as $business_sector)
-															{
-																$no = $business_sector['no'];
-																$title = $business_sector['title'];
-																$stroption_business_sector .= '<option value="'.$no.'">'.$title.'</option>';
-															}
+													<?php if(get_field('presentation_files', get_the_ID())): ?>
+														<ul>
+														<?php while(has_sub_field('presentation_files')): 
+															$buttonname = get_sub_field('button_name');	
+															$filename = get_sub_field('file_name');	
 														?>
-														<li></li>
-													</ul>
+															<li><a href="<?php echo $filename;?>" target="_blank"><?php echo $buttonname;?></a></li>
+														<?php endwhile; ?>
+														</ul>
+													<?php endif; ?>
 												</div>
+												<?php } ?>
+												<?php } ?>
                                             </div>
 
                                         </div>
@@ -300,3 +318,5 @@
 	endwhile; 
 ?>
 <?php get_footer();?>
+<?php get_template_part('tpl','addguest');?>
+<script type='text/javascript' src='js/add_guest.js'></script>

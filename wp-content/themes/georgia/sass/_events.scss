@@ -112,3 +112,44 @@
     height: 100%;
   }
 }
+#tribe-events-content{
+  .add_guest{
+    padding-top: 18px;
+    padding-bottom: 18px;
+    a{
+      text-decoration: underline;
+      @include RalewayRegular(12px);
+      color: #887554;
+    }
+  }
+  .infoPayment{
+    background: #887554;
+    .pad{
+      padding: 13px 25px 12px 12px;
+      color: #fff;
+      @include NotoSansRegular(12px);
+      line-height:  1.4;
+        word-spacing: 2px;
+      b{
+        font-weight: bold;
+      }
+    }
+  }
+  .downloadbox{
+    margin-top:15px;
+    ul{
+      li{
+        margin-bottom: 15px;
+        a{
+          @include NotoSansBold(12px);
+          color: #887554;
+          border: 1px solid #887554;
+          text-transform: uppercase;
+            padding: 10px 12px;
+            display: inline-block;
+        }
+      }
+    }
+  }
+}
+
