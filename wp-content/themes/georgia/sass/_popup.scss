@@ -127,6 +127,9 @@
 }
 
 .add_guest_popup{
+  .guest_rownumber{
+    padding-bottom: 20px;
+  }
   .popup-content{
     background: #1b1a19;
       text-align: left;
@@ -185,7 +188,7 @@
         padding: 6px 0 5px;
       
     }
-    a.fedit{
+    a.linkedit{
       color: #887554;
       @include NotoSansRegular(12px);
       text-decoration: underline;

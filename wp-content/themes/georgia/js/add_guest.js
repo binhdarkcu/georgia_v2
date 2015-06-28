@@ -30,12 +30,60 @@ $(document).ready(function() {
 			cache: false,
 			processData:false,
 			success: function(response) {
-				if(response == 1){
-					console.log('success');
-				}else{
-					console.log('not success');
+				$('.guest_result').append(response);
+				$form.get(0).reset();
+				if($('.guest_rownumber').length == 1){
+					$('.guest_rownumber_1 h4').html('GUEST 1');
+					$('.guest_form_ajax h4').html('GUEST 2');
 				}
+				if($('.guest_rownumber').length == 2){
+					$('.guest_form_ajax h4, .guest_rownumber_2 h4').html('GUEST 2');
+					$('.guest_form_ajax').empty();
+				}
+				$(".add_guest_popup p input").each(function () {
+			        $(this).attr('size', $(this).attr('value').length);
+			    });
+			    editGuest();
 			}            
 		});
 	}));
+	
+	function editGuest(){
+		$('.guest_rownumber .linkedit').click(function(e){
+			e.preventDefault();
+			$status = $(this).find('span').text();
+			$field_guestname = $(this).attr('data-guestname');
+			$field_guestsurname = $(this).attr('data-guestsurname');
+			$id_event = $('input[name="id_event"]').val();
+			var self = this;
+			if($status == 'save'){
+				$guestid = $(this).attr('data-guestid');
+				$set_guestname = $(self).parent().find('input[name=' + $field_guestname + ']').val();
+				$set_guestsurname = $(self).parent().find('input[name=' + $field_guestsurname + ']').val();
+				jQuery.ajax({
+					type : "post",
+					url : $('.ajaxurl').val(),
+					data : {action: "user_update_guest", guest_name:$set_guestname, guest_surname:$set_guestsurname, id_guest:$guestid, id_event:$id_event },
+					success: function(data) {
+						if(data){
+							$(self).parent().find('input[type=text]').prop('disabled',true).addClass('notedit');
+							$(self).find('span').text('edit');
+							$(".add_guest_popup p input").each(function () {
+						        $(this).attr('size', $(this).attr('value').length);
+						    });
+							
+						}else{
+							alert('Guest not updated.');
+						}
+					}
+				});
+			}else{
+				$(this).parent().find('input[type=text]').prop('disabled',false).removeClass('notedit');
+				$(this).attr('href','javascript:void(0)');
+				
+				$status = $(this).find('span').text('save');
+			}
+		});
+	}
+	editGuest();
 });

@@ -40,8 +40,7 @@
                                 <div class="featured-event-wrap ">
                                     
                                     <div id="tribe-events-content" class="tribe-events-single vevent clearfix">
-
-
+										<?php $future_date =datediff(date('Y/m/d'), $datetime);?>
 
                                         <div class="events-single-right col-sm-7 col-sm-push-5">
 
@@ -54,10 +53,24 @@
                                                     <?php echo get_the_content(get_the_ID());?>
                                                 </div>
                                                 <?php if(isset($_SESSION['user'])){ ?>
-                                                <div class="add_guest">
-                                                	<a href="#">Wenst u gasten mee te brengen?</a>
+                                                	<div class="add_guest">
+                                                <?php
+                                                	global $wpdb;
+													$guest_count = "SELECT COUNT( * ) as COUNTGUEST
+																		FROM  `wp_guest` WHERE id_event=".get_the_ID()." and id_member=".$_SESSION['user']['id']."";
+													$count_row = $wpdb->get_results($guest_count);
+													$total_guest = $count_row[0]->COUNTGUEST;
+													if($future_date > 0){
+                                                ?>
+	                                                
+	                                                	<?php if($total_guest <= 0) {?>
+	                                                		<a href="javascript:void(0);">Wenst u gasten mee te brengen?</a>
+	                                                	<?php } else{?>
+	                                                		U hebt zich ingeschreven samen met <a href="javascript:void(0);"><b><?php echo $total_guest;?> gasten</b></a>
+	                                                	<?php }?>
+	                                                
+                                                <?php }?>
                                                 </div>
-                                                
                                                 <div class="infoPayment">
                                                 	<?php $account_number = get_field('account_number', 'option');?>
                                                 	<div class="pad">
@@ -68,7 +81,6 @@
                                                 	</div>
                                                 </div>
                                                 <?php
-                                                	$future_date =datediff(date('Y/m/d'), $datetime);
 													if($future_date < 0){
                                                 ?>
 												<div class="downloadbox">

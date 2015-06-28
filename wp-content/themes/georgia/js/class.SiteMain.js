@@ -16,6 +16,9 @@ var SiteMain = (function() {
 		jQuery('.popup .overlays').click(function(){
 			closePopup();
 		});
+		jQuery('.add_guest a').click(function(){
+			openPopup('#add_guest');
+		});
 	}
 
     function initCSS(){

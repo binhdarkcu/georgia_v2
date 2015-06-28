@@ -116,10 +116,16 @@
   .add_guest{
     padding-top: 18px;
     padding-bottom: 18px;
+      @include RalewayRegular(12px);
+      color: #887554;
+       text-decoration: none;
     a{
       text-decoration: underline;
       @include RalewayRegular(12px);
       color: #887554;
+      b{
+        font-weight: 700;
+      }
     }
   }
   .infoPayment{
