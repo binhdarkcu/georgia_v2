@@ -476,11 +476,12 @@ add_action( 'admin_menu', 'event_add_menu_items' );
 
 function my_render_event_list_page(){
   global $myListTable;
+  $id_event = $_GET['id_event'];
   echo '
   	</pre><div class="wrap"><h2>Event Members
-  	<a href="?page=view_event_member&action=add_new" class="add-new-h2">Add Member To Event</a></h2>
+  	<a href="?page=view_event_member&action=add_new&event_id='.$id_event.'" class="add-new-h2">Add Member To Event</a></h2>
   '; 
-  $id_event = $_GET['id_event'];
+  
   global $wpdb;
   $query_count = "SELECT COUNT( * ) as TOTALMEMBER
 					FROM  `wp_participate` 

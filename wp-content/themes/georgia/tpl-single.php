@@ -40,7 +40,17 @@
                                 <div class="featured-event-wrap ">
                                     
                                     <div id="tribe-events-content" class="tribe-events-single vevent clearfix">
-										<?php $future_date =datediff(date('Y/m/d'), $datetime);?>
+										<?php 
+											$future_date =datediff(date('Y/m/d'), $datetime);
+											global $wpdb;
+											$join_query = "SELECT * 
+														FROM  wp_participate 
+														WHERE id_member = ".$_SESSION['user']['id']."
+														AND id_event = ".get_the_ID()."
+														AND status_join = 'yes'"."
+														LIMIT 0 , 30";
+                                        	$isjoin = $wpdb->get_row($join_query);
+										?>
 
                                         <div class="events-single-right col-sm-7 col-sm-push-5">
 
@@ -55,12 +65,12 @@
                                                 <?php if(isset($_SESSION['user'])){ ?>
                                                 	<div class="add_guest">
                                                 <?php
-                                                	global $wpdb;
 													$guest_count = "SELECT COUNT( * ) as COUNTGUEST
 																		FROM  `wp_guest` WHERE id_event=".get_the_ID()." and id_member=".$_SESSION['user']['id']."";
 													$count_row = $wpdb->get_results($guest_count);
 													$total_guest = $count_row[0]->COUNTGUEST;
-													if($future_date > 0){
+													if($isjoin){
+														if($future_date > 0){
                                                 ?>
 	                                                
 	                                                	<?php if($total_guest <= 0) {?>
@@ -69,7 +79,7 @@
 	                                                		U hebt zich ingeschreven samen met <a href="javascript:void(0);"><b><?php echo $total_guest;?> gasten</b></a>
 	                                                	<?php }?>
 	                                                
-                                                <?php }?>
+                                                <?php } }?>
                                                 </div>
                                                 <div class="infoPayment">
                                                 	<?php $account_number = get_field('account_number', 'option');?>
@@ -112,16 +122,9 @@
                                                <div class="tribe-events-cta-btn">
                                                     <?php if(isset($_SESSION['user'])){ ?>
                                                     	<?php
-		                                                	global $wpdb;
-															$join_query = "SELECT * 
-																		FROM  wp_participate 
-																		WHERE id_member = ".$_SESSION['user']['id']."
-																		AND id_event = ".get_the_ID()."
-																		AND status_join = 'yes'"."
-																		LIMIT 0 , 30";
-		                                                	$isjoin = $wpdb->get_row($join_query);
-															
+		                                                	
 															$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
+															$date_event = DateTime::createFromFormat('Y/m/d', $datetime)->format('Y-m-d').' '.substr($start_time, 0, -3).':00';
 															$hours_event = strtotime($date_event);
 															$current_hours = strtotime(date('Y-m-d H:i:s'));
 															$diff = round(($hours_event - $current_hours) / 3600);
