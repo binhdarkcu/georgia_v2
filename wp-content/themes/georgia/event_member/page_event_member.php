@@ -245,6 +245,113 @@ function process_edit_action() {
 		exit();
 	}
     
+	//Detect when a bulk action is being triggered...
+    if( 'add_new'===$this->current_action() ) {
+		global $wpdb;
+		$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status,t.status_join, t.datejoin
+				FROM wp_members m
+				JOIN wp_participate t ON m.id = t.id_member
+				JOIN wp_posts p on t.id_event = p.id
+				where t.id_event = '.$_GET['id_event'].' AND t.id_member = '.$_GET['id'].'
+				GROUP BY m.id';
+		$member = $wpdb->get_row($query, ARRAY_A);
+		?>
+		<link href="<?php echo bloginfo('template_url')?>/event_member/css/jquery-ui-1.10.1.css" rel="stylesheet">
+    	<div class="registerPage update-status-event">
+    		<div class="registerBox">
+				<form action="" method="post">
+					<div class="informationBox">
+						<div class="reg-left">
+							<div class="reg-row">
+								<div class="col1">
+									<label>Naam<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_naam" value="" />
+								</div>
+								<div class="col2">
+									<label>Voornaam<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_voornaam" value="" />
+								</div>
+							</div>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Email<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_email" value="" />
+								</div>
+								<div class="col2">
+									<label>Telefoon<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_telefoon" value=""  />
+								</div>
+							</div>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Status<span class="red">*</span></label>
+									<select name="status">
+										<option value="invoiced" <?php echo ($member['status'] == 'invoiced') ? 'selected':''; ?>>invoiced</option>
+										<option value="uninvoiced" <?php echo ($member['status'] == 'uninvoiced') ? 'selected':''; ?>>uninvoiced</option>
+									</select>
+								</div>
+								<div class="col2">
+									<label>Date Join<span class="red">*</span></label>
+									<input disabled="disabled" type="text" name="p_nr" value="" />
+								</div>
+							</div>
+							<div class="reg-row">
+								<div class="col1">
+									<label>Status Join<span class="red">*</span></label>
+									<select name="status_join">
+										<option value="yes" <?php echo ($member['status_join'] == 'yes') ? 'selected':''; ?>>yes</option>
+										<option value="cancle" <?php echo ($member['status_join'] == 'cancle') ? 'selected':''; ?>>cancle</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<input type="submit"  value="Update" class="btn" />
+					<?php wp_nonce_field('add_event_member','act_event_add_member');?>
+					<input type="hidden" value="<?php echo $_GET['id_event'];?>" name="id_event" />
+					<input type="hidden" value="<?php echo $_GET['id'];?>" name="id_member" />
+				</form>
+			</div>
+    	</div>
+    <?php 
+	  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_update_member'],'update_event_member')){
+	  	
+	  	global $wpdb;	
+		$data['id_event'] = $_GET['id_event'];
+		$data['id_member'] = $_GET['id'];
+		$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
+		
+		if(!empty($event)){
+			$execute = $wpdb->update( 
+				'wp_participate', 
+				array( 
+					'status' => $_POST['status'],
+					'status_join' => $_POST['status_join']
+				), 
+				array(
+					'id' => $event->{'id'}
+				), 
+				array( 
+					'%s'
+				),
+				array( '%d' ) 
+			);
+			if($execute){
+				$link = admin_url().'admin.php?page=view_event_member&action=edit&id='.$data['id_member'].'&id_event='.$data['id_event'];
+				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+				exit();
+			}else{
+				echo "<script>alert('can\'t update')</script>";
+			}
+			
+		}
+	  }else{
+	  	
+	  }
+		exit();
+	}
+    
 }
 
 function column_cb($item) {
@@ -369,7 +476,10 @@ add_action( 'admin_menu', 'event_add_menu_items' );
 
 function my_render_event_list_page(){
   global $myListTable;
-  echo '</pre><div class="wrap"><h2>Event Members</h2>'; 
+  echo '
+  	</pre><div class="wrap"><h2>Event Members
+  	<a href="?page=view_event_member&action=add_new" class="add-new-h2">Add Member To Event</a></h2>
+  '; 
   $id_event = $_GET['id_event'];
   global $wpdb;
   $query_count = "SELECT COUNT( * ) as TOTALMEMBER
@@ -392,6 +502,7 @@ function my_render_event_list_page(){
    
   
 ?>
+<a href="#"></a>
   <form method="post">
     <input type="hidden" name="page" value="ttest_list_table">
     <?php
