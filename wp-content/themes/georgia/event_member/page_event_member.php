@@ -113,7 +113,8 @@ function usort_reorder( $a, $b ) {
 
 function column_p_naam($item){
   $actions = array(
-            'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id'], $item['id_event'])
+            'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id'], $item['id_event']),
+            'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id'], $item['id_event'])
         );
 
   return sprintf('%1$s %2$s', $item['p_naam'], $this->row_actions($actions) );
@@ -128,10 +129,34 @@ function get_bulk_actions() {
 function process_bulk_action() {
         global $wpdb;
         //Detect when a bulk action is being triggered...
-        if( 'delete'===$this->current_action() ) {
-        	$delete = $wpdb->delete('wp_members', array('id' => $_GET['id']));
-            //wp_die('Items deleted (or they would be if we had items to delete)!');
+        if ('delete' === $this->current_action()) {
+            $ids = isset($_REQUEST['id']) ? $_REQUEST['id'] : array();
+			$evs = isset($_REQUEST['id_event']) ? $_REQUEST['id_event'] : array();
+            if (is_array($ids)) $ids = implode(',', $ids);
+			if (is_array($evs)) $evs = implode(',', $evs);
+			
+            if (!empty($ids) && !empty($evs)) {
+                global $wpdb;
+	            $wpdb->delete('wp_participate', array('id_member' => $_GET['id'],'id_event' => $_GET['id_event']));
+				$link = admin_url().'admin.php?page=view_event_member';
+            }
         }
+		  // If the delete bulk action is triggered
+		  if ( ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' )) {
+		 	
+		    $ids = isset($_GET['id']) ? $_GET['id'] : array();
+			$evs = isset($_GET['id_event']) ? $_GET['id_event'] : array();
+		    $i = -1;
+		    foreach ( $ids as $id ) {
+		    	$i++;
+		      //self::delete_customer( $id );
+		 		global $wpdb;
+            	$wpdb->delete('wp_members', array('id_member' => $id, 'id_event' => $evs[$i]));
+				$link = admin_url().'admin.php?page=view_event_member';
+				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+		    }
+		 
+		  }
         
     }
 //edit member
@@ -387,37 +412,7 @@ function process_edit_action() {
 			</div>
     	</div>
     <?php 
-	  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_add_member'],'add_event_member')){
-	  	
-	  	global $wpdb;
-		$id_event = !empty($_GET['id_event'])? $_GET['id_event']: $_POST['id_event'];
-		$id_member = $_POST['id_member'];
-		$execute = $wpdb->insert('wp_participate',
-			array(
-			  'id_event'		=> $id_event,
-			  'id_member'          => $id_member,
-			  'status' => $_POST['status'],
-			  'datejoin' => $_POST['datejoin'],
-			  'status_join' => $_POST['status_join']
-			),
-			array(
-			  '%s',
-			  '%s',
-			  '%s',
-			  '%s',
-			  '%s'
-			) 
-		);
-		if($execute){
-			$link = admin_url().'admin.php?page=view_event_member&action=add_new&id_event='.$id_event;
-			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
-			exit();
-		}else{
-			echo "<script>alert('can\'t update')</script>";
-		}
-	  }else{
-	  	
-	  }
+	  
 	exit();
 	}
     
@@ -570,7 +565,37 @@ function my_render_event_list_page(){
 	        $myListTable->prepare_items();
 	}
    
-  
+  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_add_member'],'add_event_member')){
+	  	
+	  	global $wpdb;
+		$id_event = !empty($_GET['id_event'])? $_GET['id_event']: $_POST['id_event'];
+		$id_member = $_POST['id_member'];
+		$execute = $wpdb->insert('wp_participate',
+			array(
+			  'id_event'		=> $id_event,
+			  'id_member'          => $id_member,
+			  'status' => $_POST['status'],
+			  'datejoin' => date('Y-m-d'),
+			  'status_join' => $_POST['status_join']
+			),
+			array(
+			  '%s',
+			  '%s',
+			  '%s',
+			  '%s',
+			  '%s'
+			) 
+		);
+		if($execute){
+			$link = admin_url().'admin.php?page=view_event_member';
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			exit();
+		}else{
+			echo "<script>alert('can\'t update')</script>";
+		}
+	  }else{
+	  	
+	  }
 ?>
 <a href="#"></a>
   <form method="post">
