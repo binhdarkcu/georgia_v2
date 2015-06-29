@@ -85,7 +85,7 @@
                                                             $upload_image = $upload_dir['basedir'].'/avatar/'.$member->{'p_picture'};
 
                                                             if( !file_exists( $upload_image ) ) {
-                                                                $srcimage = get_template_directory_uri().'/images/favicon.png';
+                                                                $srcimage = get_template_directory_uri().'/images/avatar.jpg';
                                                             }
 
 

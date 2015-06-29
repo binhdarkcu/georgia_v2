@@ -36,8 +36,8 @@
 
     <script type='text/javascript' src='js/jquery.js?ver=1.11.1'></script>
     <script type='text/javascript' src='js/jquery-migrate.min.js?ver=1.2.1'></script>
-   
-	<script type="text/javascript" src="js/map_location.js"></script> 
+    <script type="text/javascript" src="js/jquery.cropit.js"></script>
+    <script type="text/javascript" src="js/map_location.js"></script>
 	
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script type='text/javascript'>

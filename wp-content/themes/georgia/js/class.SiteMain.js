@@ -50,7 +50,14 @@ var SiteMain = (function() {
 	                t = file.type,                           // ext only: // file.type.split('/')[1],
 	                n = file.name,
 	                s = ~~(file.size/1024) +'KB';
-	            jQuery('.pictureUpload img.imgPreview').attr('src', this.src);
+	            /*jQuery('.cropit-image-loaded').css({
+                    'background-image': 'url('+this.src+')',
+                    'background-size': w + 'px ' + h + 'px'
+                });*/
+                jQuery('.pictureUpload img.imgPreview').attr('src', this.src);
+
+                $('.image-editor').cropit('imageSrc', this.src);
+
 
 
                 jQuery('.p_picture').html(this.src);
@@ -73,12 +80,21 @@ var SiteMain = (function() {
 	function closePopup(){
 		jQuery('.popup').css('display','none');
 	}
-	
+
+    //DROP FUNCTIONS
+    function dropImage () {
+        $('.pictureUpload img.imgPreview').attr('src', $('.image-editor').cropit('export'));
+        closePopup();
+    }
+
+    //RETURN
+
 	return {
 		init:init,
 		openPopup:openPopup,
 		closePopup:closePopup,
 		createScrollbar:createScrollbar,
+        dropImage:dropImage,
 		readImage:readImage
 	};
 	

@@ -1,6 +1,8 @@
 <?php 
 	get_header();
 ?>
+
+
 <?php
     //VALIDATE EMAIL
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
@@ -307,11 +309,11 @@
 											<div class="colfull">
 												<label>Profielfoto</label>
 												<div class="pictureUpload">
-													<img src="images/pic.png" class="imgPreview"  style="width: 48px; height: 38px;"/>
+													<img src="images/pic.png" class="imgPreview" title="Edit Image"  style="width: 48px; height: 38px;" onclick="SiteMain.openPopup('#message-cropit')"/>
                                                     <textarea class="p_picture" name="p_picture" style="display: none;"></textarea>
 													<div class="fileUpload ">
 														<span>UPLOAD FOTO</span>
-														<input type="file" class="upload" name="p_picture_temp"/>
+														<input type="file" class="upload cropit-image-input" name="p_picture_temp"/>
 													</div>
 												</div>
 												<span class="note-upload">Gelieve uw profile foto te uploaden in jpg formaat met een maximale grootte van 400 op 400 pixels op een resolutie van 72dpi</span>
@@ -618,4 +620,5 @@
         </div>
         </div>
 
+<?php get_template_part('tpl','message-cropit')?>
 <?php get_footer();?>

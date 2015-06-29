@@ -14,6 +14,7 @@ var SiteMain = (function() {
 	}
 	function closePopup(idDiv){
 		$(idDiv).css('display','none');
+        return false;
 	}
 	return {
 		init:init,

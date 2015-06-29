@@ -195,3 +195,164 @@
     }
   }
 }
+
+#message-cropit {
+  .popup-content {
+    left: 50%;
+    margin-left: -125px;
+    position: absolute;
+    z-index: 102;
+    width: 250px;
+    top: 50%;
+    margin-top: -175px;
+
+    .buttons {
+      clear: both;
+      margin-top: 30px;
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+    }
+  }
+
+  .cropit-image-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 200px;
+    height: 200px;
+    cursor: move;
+  }
+
+  .cropit-image-background {
+    opacity: .2;
+    cursor: auto;
+  }
+
+  .image-size-label {
+    margin-top: 10px;
+  }
+
+
+  .export {
+    margin-top: 10px;
+  }
+
+  .slider-wrapper * {
+    vertical-align: middle;
+  }
+
+  .slider-wrapper {
+    margin-top: 20px;
+    text-align: center;
+    width: 200px;
+
+    .small-image {
+      font-size: 16px;
+    }
+
+    .cropit-image-zoom-input {
+      width: 120px;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .large-image {
+      font-size: 24px;
+    }
+
+    .cropit-image-zoom-input.custom {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: 5px;
+      background: #eee;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      outline: none;
+    }
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-image:before {
+    content: "\e600";
+  }
+  .icon-box-add:before {
+    content: "\e601";
+  }
+  .icon-github2:before {
+    content: "\e603";
+  }
+
+  .cropit-image-zoom-input.custom::-moz-range-track,.cropit-image-zoom-input.custom::-moz-range-track
+  {
+    appearance: none;
+    background: #eee;
+    border-radius: 5px;
+    height: 5px;
+    moz-appearance: none;
+    outline: none;
+    webkit-appearance: none;
+    webkit-border-radius: 5px;
+  }
+
+  .cropit-image-zoom-input.custom::-webkit-slider-thumb,.cropit-image-zoom-input.custom::-webkit-slider-thumb
+  {
+    appearance: none;
+    background: #888;
+    border-radius: 50%;
+    height: 15px;
+    moz-appearance: none;
+    moz-transition: background 0.25s;
+    ms-transition: background 0.25s;
+    o-transition: background 0.25s;
+    transition: background 0.25s;
+    webkit-appearance: none;
+    webkit-border-radius: 50%;
+    webkit-transition: background 0.25s;
+    width: 15px;
+  }
+
+  .cropit-image-zoom-input.custom::-webkit-slider-thumb:active,.cropit-image-zoom-input.custom::-webkit-slider-thumb:active
+  {
+    background: #bbb;
+  }
+
+  .cropit-image-zoom-input.custom::-moz-range-thumb, .cropit-image-zoom-input.custom::-moz-range-thumb
+  {
+    appearance: none;
+    background: #888;
+    border-radius: 50%;
+    height: 15px;
+    moz-appearance: none;
+    moz-transition: background 0.25s;
+    ms-transition: background 0.25s;
+    o-transition: background 0.25s;
+    transition: background 0.25s;
+    webkit-appearance: none;
+    webkit-border-radius: 50%;
+    webkit-transition: background 0.25s;
+    width: 15px;
+  }
+}
+
