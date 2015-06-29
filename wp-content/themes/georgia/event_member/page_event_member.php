@@ -248,29 +248,101 @@ function process_edit_action() {
 	//Detect when a bulk action is being triggered...
     if( 'add_new'===$this->current_action() ) {
 		global $wpdb;
-		$query = 'SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.status,t.status_join, t.datejoin
-				FROM wp_members m
-				JOIN wp_participate t ON m.id = t.id_member
-				JOIN wp_posts p on t.id_event = p.id
-				where t.id_event = '.$_GET['id_event'].' AND t.id_member = '.$_GET['id'].'
-				GROUP BY m.id';
-		$member = $wpdb->get_row($query, ARRAY_A);
+		
+		$id_event = $_GET['event_id'];
+		if(!empty($id_event)){
+			$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email FROM wp_members WHERE id NOT IN (select id_member from wp_participate where id_event ='".$id_event."')";
+			$members_arr = $wpdb->get_results($query_ev, ARRAY_A);
+		}
 		?>
+		<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
+		<script src="<?php echo bloginfo('template_url')?>/js/bootstrap.min.js"></script>
+  		<script src="<?php echo bloginfo('template_url')?>/js/bootstrap-select.js"></script>
 		<link href="<?php echo bloginfo('template_url')?>/event_member/css/jquery-ui-1.10.1.css" rel="stylesheet">
+		<link rel="stylesheet" href="<?php echo bloginfo('template_url')?>/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="<?php echo bloginfo('template_url')?>/css/bootstrap-select.css">
+		<script>
+			$(document).ready(function(){
+				$(".choose_id_event").on('change',(function(e){
+					$id_ev = $(this).val();
+					$('input[name="id_event"]').val($id_ev);
+					$('select[name=id_member]').empty().append('<option value="0">Select member</option>');
+					$.ajax({
+						type : "post",
+						url : $('.ajaxurl').val(),
+						data : {action: "user_select_event", id_event : $id_ev},
+						//data: new FormData(this),
+						success: function(response) {
+							$('select[name=id_member]').append(response);
+							$('.selectpicker').selectpicker('refresh');
+						}            
+					});
+				}));
+				
+				$(".choose_id_member").on('change',(function(e){
+					$id_ev = $(this).val();
+					$('input[name="id_member"]').val($id_ev);
+					$.ajax({
+						type : "post",
+						url : $('.ajaxurl').val(),
+						dataType: "json",
+						data : {action: "user_select_member", id: $id_ev},
+						//data: new FormData(this),
+						success: function(response) {
+							$('input[name="p_email"]').val(response.p_email);
+							$('input[name="p_telefoon"]').val(response.p_telefoon);
+						}            
+					});
+				}));
+			});
+		</script>
+		<script>
+			//$('.selectpicker').selectpicker();
+		</script>
     	<div class="registerPage update-status-event">
     		<div class="registerBox">
 				<form action="" method="post">
 					<div class="informationBox">
 						<div class="reg-left">
 							<div class="reg-row">
+								<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
+								<?php if(empty($id_event)){?>
 								<div class="col1">
-									<label>Naam<span class="red">*</span></label>
-									<input disabled="disabled" type="text" name="p_naam" value="" />
+									<label>Event<span class="red">*</span></label>
+									
+									<input name="action" type="hidden" class="action" value="user_select_event"/>
+									<select name="id_event" class="choose_id_event selectpicker" data-live-search="true">
+										<option value="0">Select event</option>
+										<?php
+										$args_event = array(
+								            'post_type' 	 => 'post',
+								            'posts_per_page' => -1
+								        );
+										$queryevent = get_posts($args_event);
+										foreach ($queryevent as $ev) {
+										?>
+										<option value="<?php echo $ev->ID;?>"><?php echo $ev->post_title;?></option>
+										<?php }?>
+									</select>
 								</div>
+								<?php }?>
 								<div class="col2">
-									<label>Voornaam<span class="red">*</span></label>
-									<input disabled="disabled" type="text" name="p_voornaam" value="" />
+									<label>Member<span class="red">*</span></label>
+									<input name="action" type="hidden" class="action" value="user_select_member"/>
+									<select name="id_member" class="choose_id_member selectpicker" data-live-search="true">
+										<option value="0">Select member</option>
+										<?php if(!empty($members_arr)){
+										foreach ($members_arr as $ev) {
+											?>
+											<option value="<?php echo $ev['id']?>"><?php echo $ev['p_naam'];?></option>
+											<?php
+											}	
+										?>
+											
+										<?php }?>
+									</select>
 								</div>
+								
 							</div>
 							<div class="reg-row">
 								<div class="col1">
@@ -278,7 +350,7 @@ function process_edit_action() {
 									<input disabled="disabled" type="text" name="p_email" value="" />
 								</div>
 								<div class="col2">
-									<label>Telefoon<span class="red">*</span></label>
+									<label>Telefoon</label>
 									<input disabled="disabled" type="text" name="p_telefoon" value=""  />
 								</div>
 							</div>
@@ -286,13 +358,13 @@ function process_edit_action() {
 								<div class="col1">
 									<label>Status<span class="red">*</span></label>
 									<select name="status">
-										<option value="invoiced" <?php echo ($member['status'] == 'invoiced') ? 'selected':''; ?>>invoiced</option>
 										<option value="uninvoiced" <?php echo ($member['status'] == 'uninvoiced') ? 'selected':''; ?>>uninvoiced</option>
+										<option value="invoiced" <?php echo ($member['status'] == 'invoiced') ? 'selected':''; ?>>invoiced</option>
 									</select>
 								</div>
 								<div class="col2">
 									<label>Date Join<span class="red">*</span></label>
-									<input disabled="disabled" type="text" name="p_nr" value="" />
+									<input disabled="disabled" type="text" name="datejoin" value="<?php echo date('Y-m-d')?>" />
 								</div>
 							</div>
 							<div class="reg-row">
@@ -315,41 +387,38 @@ function process_edit_action() {
 			</div>
     	</div>
     <?php 
-	  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_update_member'],'update_event_member')){
+	  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_add_member'],'add_event_member')){
 	  	
-	  	global $wpdb;	
-		$data['id_event'] = $_GET['id_event'];
-		$data['id_member'] = $_GET['id'];
-		$event = $wpdb->get_row("SELECT * FROM wp_participate WHERE (id_event = '".$data['id_event']."' AND id_member = '".$data['id_member']."')");
-		
-		if(!empty($event)){
-			$execute = $wpdb->update( 
-				'wp_participate', 
-				array( 
-					'status' => $_POST['status'],
-					'status_join' => $_POST['status_join']
-				), 
-				array(
-					'id' => $event->{'id'}
-				), 
-				array( 
-					'%s'
-				),
-				array( '%d' ) 
-			);
-			if($execute){
-				$link = admin_url().'admin.php?page=view_event_member&action=edit&id='.$data['id_member'].'&id_event='.$data['id_event'];
-				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
-				exit();
-			}else{
-				echo "<script>alert('can\'t update')</script>";
-			}
-			
+	  	global $wpdb;
+		$id_event = !empty($_GET['id_event'])? $_GET['id_event']: $_POST['id_event'];
+		$id_member = $_POST['id_member'];
+		$execute = $wpdb->insert('wp_participate',
+			array(
+			  'id_event'		=> $id_event,
+			  'id_member'          => $id_member,
+			  'status' => $_POST['status'],
+			  'datejoin' => $_POST['datejoin'],
+			  'status_join' => $_POST['status_join']
+			),
+			array(
+			  '%s',
+			  '%s',
+			  '%s',
+			  '%s',
+			  '%s'
+			) 
+		);
+		if($execute){
+			$link = admin_url().'admin.php?page=view_event_member&action=add_new&id_event='.$id_event;
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			exit();
+		}else{
+			echo "<script>alert('can\'t update')</script>";
 		}
 	  }else{
 	  	
 	  }
-		exit();
+	exit();
 	}
     
 }
