@@ -61,7 +61,7 @@
 
                                         ?>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 preson col-centered">
-                                    <a href="#" class="thumbnail"><img src="<?=$image?>" alt="" ></a>
+                                    <a class="thumbnail"><img src="<?=$image?>" alt="" ></a>
                                     <p class="information">
                                         <span class="name"><?=$fullname?></span><br>
                                         <span><?=$title?></span>
