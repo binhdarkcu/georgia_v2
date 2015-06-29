@@ -1,0 +1,66 @@
+.contact-page {
+  .persons {
+    .preson {
+      margin-bottom: 30px;
+
+      .thumbnail {
+        text-align: center;
+        display: block;
+
+      }
+      p {
+        @include NotoSansRegular(12px);
+        line-height: 20px;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #342915;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        span {
+          &.name {
+            @include RalewayBold(16px);
+          }
+
+
+        }
+
+        .color {
+          color: #887554;
+          text-decoration: none;
+        }
+      }
+      .information {
+
+      }
+    }
+  }
+}
+
+
+/* centered columns styles */
+.row-centered {
+  text-align:center;
+}
+.col-centered {
+  display:inline-block;
+  float:none;
+  /* reset the text-align */
+  text-align:left;
+  /* inline-block space fix */
+  margin-right:-4px;
+}
+.col-fixed {
+  /* custom width */
+  width:320px;
+}
+.col-min {
+  /* custom min width */
+  min-width:320px;
+}
+.col-max {
+  /* custom max width */
+  max-width:320px;
+}

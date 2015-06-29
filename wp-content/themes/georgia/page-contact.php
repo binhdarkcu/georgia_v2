@@ -31,8 +31,30 @@
 
                     <div class="col-md-9">
 						<div class="location-box">
-							<div class="loc-title">
-								<h3>CONTACT GEGEVENS</h3>
+                            <div class="loc-title persons row-centered">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 preson col-centered">
+                                    <a href="#" class="thumbnail"><img src="images/contact.jpg" alt="" ></a>
+                                    <p class="information">
+                                        <span class="name">Jurgen Van Grieken</span><br>
+                                        <span>Bestuurder</span>
+                                    </p>
+
+                                    <p>
+                                        <a href="mailto:jurgen.vangrieken@georgia.be" class="color">jurgen.vangrieken@georgia.be</a><br>
+                                        <span>0473 28 17 60</span>
+                                    </p>
+
+                                    <p>
+                                        <span>Comacon</span><br>
+                                        <a href="http://www.comacon.be" class="color">www.comacon.be</a>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="loc-title" style="clear: both">
+								<h3>ALGEMENE CONTACT GEGEVENS</h3>
 								<p>
                                     Georgia vzw<br/>
                                     Pater Damiaanstraat 71<br/>
