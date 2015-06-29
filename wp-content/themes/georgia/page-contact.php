@@ -32,24 +32,55 @@
                     <div class="col-md-9">
 						<div class="location-box">
                             <div class="loc-title persons row-centered">
+                                <?php
+                                    $i = 0;
+                                    $args_contact = array(
+                                        'post_type' 	 => 'contacts',
+                                        'posts_per_page' => -1,
+                                        'order'			 => 'asc'
+                                    );
+
+                                    $queryContact = get_posts($args_contact);
+                                    foreach ($queryContact as $contact) {
+                                        $i++;
+                                        $fullname = get_the_title($contact->ID);
+                                        $title = get_field('title',$contact->ID);
+                                        $email = get_field('email', $contact->ID);
+
+                                        $phone_number = get_field('phone_number', $contact->ID);
+                                        $company = get_field('company', $contact->ID);
+                                        $website = get_field('website', $contact->ID);
+                                        $image_arr = get_field('image', $contact->ID);
+
+                                        $image = $image_arr['sizes']['thumbnail'];
+
+                                        $search  = array('http://', '.com/', '.be/', '.eu/');
+                                        $replace = array('', '.com', '.be', '.eu');
+
+                                        $str_website = str_replace($search, $replace, $website);
+
+                                        ?>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 preson col-centered">
-                                    <a href="#" class="thumbnail"><img src="images/contact.jpg" alt="" ></a>
+                                    <a href="#" class="thumbnail"><img src="<?=$image?>" alt="" ></a>
                                     <p class="information">
-                                        <span class="name">Jurgen Van Grieken</span><br>
-                                        <span>Bestuurder</span>
+                                        <span class="name"><?=$fullname?></span><br>
+                                        <span><?=$title?></span>
                                     </p>
 
                                     <p>
-                                        <a href="mailto:jurgen.vangrieken@georgia.be" class="color">jurgen.vangrieken@georgia.be</a><br>
-                                        <span>0473 28 17 60</span>
+                                        <a href="mailto:jurgen.vangrieken@georgia.be" class="color"><?=$email?></a><br>
+                                        <span><?=$phone_number?></span>
                                     </p>
 
                                     <p>
-                                        <span>Comacon</span><br>
-                                        <a href="http://www.comacon.be" class="color">www.comacon.be</a>
+                                        <span><?=$company?></span><br>
+                                        <a href="<?=$website?>" target="_blank" class="color"><?=$str_website?></a>
                                     </p>
 
                                 </div>
+                                <?php
+                                    }//end for
+                                ?>
 
                             </div>
 
