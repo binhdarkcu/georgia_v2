@@ -58,21 +58,46 @@ function activeProfile(){
 add_action("wp_ajax_user_update_avatar", "saveFile");
 add_action("wp_ajax_nopriv_user_update_avatar", "saveFile");
 function saveFile(){
-	$user_id = $_POST['user_id'];
+	/*
+    $user_id = $_POST['user_id'];
 	//$dir = $_REQUEST['dir'];
 	$root = get_home_path();
 	$upload_dir = $root.'/wp-content/uploads/avatar/';
 	if (!file_exists($upload_dir)) {
 		mkdir($upload_dir);
 	}
+
+
+
 	$filename = time().$_FILES['p_picture']['name'];
 	$target_file = $upload_dir.basename($filename);
-	if(move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file )){
+	*/
+
+    //get path file
+    $user_id = $_POST['user_id'];
+    $root = get_home_path();
+    $upload_dir = $root.'/wp-content/uploads/avatar/';
+    if (!file_exists($upload_dir)) {
+        mkdir($upload_dir);
+    }
+    //get source file
+    $picture_file = $_POST['p_picture'];
+
+    list(, $picture_file) = explode(';', $picture_file);
+    list(, $picture_file)      = explode(',', $picture_file);
+    $picture_file = base64_decode($picture_file);
+    $target_file = $upload_dir.basename($fileName);
+
+    $fileName = time().$_FILES['p_picture_temp']['name'];
+    $target_file = $upload_dir.basename($fileName);
+    echo $fileName;
+
+    if(file_put_contents($target_file, $picture_file)){
 		global $wpdb;	
 		$execute = $wpdb->update( 
 			'wp_members', 
 			array( 
-				'p_picture' => $filename
+				'p_picture' => $fileName
 			), 
 			array( 'id' => $user_id ), 
 			array( 
@@ -83,7 +108,6 @@ function saveFile(){
 	}else{
 		die('error uploading File!');
 	}
-	//move_uploaded_file($_FILES['p_picture']['tmp_name'], $target_file);
 }
 
 add_action("wp_ajax_check_user_email", "checkEmail");
