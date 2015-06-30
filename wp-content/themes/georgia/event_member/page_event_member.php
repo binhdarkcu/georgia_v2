@@ -86,7 +86,6 @@ function get_sortable_columns() {
 
 function get_columns(){
         $columns = array(
-            'cb'        => '<input type="checkbox" />',
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
             'p_email'    => __( 'Email', 'mylisttable' ),
