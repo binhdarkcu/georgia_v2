@@ -281,15 +281,50 @@ function process_edit_action() {
 		}
 		?>
 		<script src="<?php echo bloginfo('template_url')?>/js/jquery.js?ver=1.11.1"></script>
+		<script type='text/javascript' src='<?php echo bloginfo('template_url')?>/js/jquery.validate.js'></script>
 		<script src="<?php echo bloginfo('template_url')?>/js/bootstrap.min.js"></script>
   		<script src="<?php echo bloginfo('template_url')?>/js/bootstrap-select.js"></script>
 		<link href="<?php echo bloginfo('template_url')?>/event_member/css/jquery-ui-1.10.1.css" rel="stylesheet">
 		<link rel="stylesheet" href="<?php echo bloginfo('template_url')?>/css/bootstrap.min.css">
   		<link rel="stylesheet" href="<?php echo bloginfo('template_url')?>/css/bootstrap-select.css">
+		<style>
+		.notice, div.error, div.updated{
+			box-shadow: none;
+			border-bottom: none;
+		}
+		</style>
 		<script>
 			$(document).ready(function(){
+				//validate
+				jQuery.validator.addMethod('selectcheck', function (value) {
+					return (value != '0');
+				}, "");
+				jQuery("#add_member_to_event").validate({
+					rules: {
+						'id_member': { 
+							selectcheck: true
+						},
+						'id_event': { 
+							selectcheck: true
+						}
+					},
+					errorPlacement: function(error, element){},
+					highlight: function(element) {
+						var name = jQuery(element).attr('name');
+						jQuery('select[name='+name+']').parent().addClass('error');
+					},
+					unhighlight: function(element, errorClass, validClass) {
+						jQuery(element).removeClass(errorClass).addClass(validClass); // remove error class from elements/add valid class
+						var name = jQuery(element).attr('name');
+						jQuery('select[name='+name+']').parent().removeClass('error');
+					},
+					submitHandler: function(form) {
+						form.submit();
+					},
+				});
 				$(".choose_id_event").on('change',(function(e){
 					$id_ev = $(this).val();
+					$(this).parent().removeClass('error');
 					$('input[name="id_event"]').val($id_ev);
 					$('select[name=id_member]').empty().append('<option value="0">Select member</option>');
 					$.ajax({
@@ -306,6 +341,7 @@ function process_edit_action() {
 				
 				$(".choose_id_member").on('change',(function(e){
 					$id_ev = $(this).val();
+					$(this).parent().removeClass('error');
 					$('input[name="id_member"]').val($id_ev);
 					$.ajax({
 						type : "post",
@@ -326,7 +362,7 @@ function process_edit_action() {
 		</script>
     	<div class="registerPage update-status-event">
     		<div class="registerBox">
-				<form action="" method="post">
+				<form action="" method="post" id="add_member_to_event">
 					<div class="informationBox">
 						<div class="reg-left">
 							<div class="reg-row">
@@ -406,6 +442,7 @@ function process_edit_action() {
 					</div>
 					<input type="submit"  value="Update" class="btn" />
 					<?php wp_nonce_field('add_event_member','act_event_add_member');?>
+					<input type="hidden" value="<?php echo $_GET['event_title'];?>" name="event_title" />
 					<input type="hidden" value="<?php echo $_GET['id_event'];?>" name="id_event" />
 					<input type="hidden" value="<?php echo $_GET['id'];?>" name="id_member" />
 				</form>
@@ -553,7 +590,7 @@ function my_render_event_list_page(){
   $total_row = $wpdb->get_results($query_count);
   if($_GET['action']!='edit'){
 	  if(!empty($id_event)){
-	  	echo '<h3>The members joined "'.$_GET['event_title'].'" event.</h3>';
+	  	echo '<h3>The members joined "'.get_the_title($id_event).'" event.</h3>';
 	  }else{
 	  	echo '<h3>All member join this event.</h3>';
 	  }
@@ -568,7 +605,8 @@ function my_render_event_list_page(){
   if(!empty($_POST) && wp_verify_nonce($_POST['act_event_add_member'],'add_event_member')){
 	  	
 	  	global $wpdb;
-		$id_event = !empty($_GET['id_event'])? $_GET['id_event']: $_POST['id_event'];
+		$event_title = !empty($_GET['event_title'])? $_GET['event_title']: $_POST['event_title'];
+		$id_event = !empty($_GET['event_id'])? $_GET['event_id']: $_POST['id_event'];
 		$id_member = $_POST['id_member'];
 		$execute = $wpdb->insert('wp_participate',
 			array(
@@ -587,14 +625,17 @@ function my_render_event_list_page(){
 			) 
 		);
 		if($execute){
-			$link = admin_url().'admin.php?page=view_event_member';
+			if(empty($id_event)){
+				$link = admin_url().'admin.php?page=view_event_member';
+			}else{
+				$link = admin_url().'admin.php?page=view_event_member&event_title='.$event_title.'&id_event='.$id_event;
+			}
 			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 			exit();
 		}else{
 			echo "<script>alert('can\'t update')</script>";
 		}
-	  }else{
-	  	
+		exit();
 	  }
 ?>
 <a href="#"></a>
