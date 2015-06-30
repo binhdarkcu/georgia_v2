@@ -27,8 +27,9 @@
 							<form method="post" id="MyUploadForm" enctype="multipart/form-data">
 								<input name="action" type="hidden" class="action" value="user_update_avatar"/>
 								<div class="img-box pictureUpload">
-									<input data-picture = "<?php echo $_FILES['p_picture']['tmp_name'];?>" name="p_picture" type="file" id="filePicture" style="display:none">
-									<img data-dir = "<?php echo $user['p_voornaam']?>" src="<?php echo content_url().'/uploads/avatar/'.$user['p_picture']; ?>"  class="imgPreview"/>
+									<input name="p_picture_temp" type="file" id="filePicture" style="display:none">
+									<img data-dir = "<?php echo $user['p_voornaam']?>" src="<?php echo content_url().'/uploads/avatar/'.$user['p_picture']; ?>"  class="imgPreview" title="Edit Image" onclick="SiteMain.openPopup('#message-cropit')"/>
+                                    <textarea class="p_picture" name="p_picture" style="display: none;"></textarea>
 									<input name="user_id" type="hidden" value="<?php echo $user['id']; ?>"/>
 								</div>
 							
@@ -142,5 +143,11 @@
 
         </div>
     </div>
-
+<?php get_template_part('tpl','message-cropit')?>
+    <script>
+        $(function() {
+            $('.image-editor').cropit();
+            $('.image-editor').cropit('imageSrc', $('.imgPreview').attr('src'));
+        });
+    </script>
 <?php get_footer();?>

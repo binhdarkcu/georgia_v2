@@ -54,13 +54,10 @@ var SiteMain = (function() {
                     'background-image': 'url('+this.src+')',
                     'background-size': w + 'px ' + h + 'px'
                 });*/
-                jQuery('.pictureUpload img.imgPreview').attr('src', this.src);
+                $('.pictureUpload img.imgPreview').attr('src', this.src);
 
                 $('.image-editor').cropit('imageSrc', this.src);
-
-
-
-                jQuery('.p_picture').html(this.src);
+                $('.p_picture').html(this.src);
 
 
 	            $('#editPhoto').hide();
@@ -83,7 +80,9 @@ var SiteMain = (function() {
 
     //DROP FUNCTIONS
     function dropImage () {
-        $('.pictureUpload img.imgPreview').attr('src', $('.image-editor').cropit('export'));
+        var src = $('.image-editor').cropit('export');
+        $('.pictureUpload img.imgPreview').attr('src', src);
+        $('.p_picture').html(src);
         closePopup();
     }
 

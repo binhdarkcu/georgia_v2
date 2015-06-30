@@ -621,4 +621,11 @@
         </div>
 
 <?php get_template_part('tpl','message-cropit')?>
+<script>
+    $(function() {
+        $('.image-editor').cropit({
+            imageState: {src:"images/avatar.jpg"}
+        });
+    });
+</script>
 <?php get_footer();?>

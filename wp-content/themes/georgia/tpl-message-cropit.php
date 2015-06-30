@@ -21,13 +21,7 @@
 
             </div>
 
-            <script>
-                $(function() {
-                    $('.image-editor').cropit({
-                        imageState: {src:"images/avatar.jpg"}
-                    });
-                });
-            </script>
+
 		</div>
 	</div>
 </div>
