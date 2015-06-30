@@ -128,34 +128,16 @@ function get_bulk_actions() {
 }
 function process_bulk_action() {
         global $wpdb;
-        //Detect when a bulk action is being triggered...
-        if ('delete' === $this->current_action()) {
-            $ids = isset($_REQUEST['id']) ? $_REQUEST['id'] : array();
-			$evs = isset($_REQUEST['id_event']) ? $_REQUEST['id_event'] : array();
-            if (is_array($ids)) $ids = implode(',', $ids);
-			if (is_array($evs)) $evs = implode(',', $evs);
-			
-            if (!empty($ids) && !empty($evs)) {
-                global $wpdb;
-	            $wpdb->delete('wp_participate', array('id_member' => $_GET['id'],'id_event' => $_GET['id_event']));
-				$link = admin_url().'admin.php?page=view_event_member';
-            }
-        }
 		  // If the delete bulk action is triggered
 		  if ( ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' )) {
 		 	
 		    $ids = isset($_GET['id']) ? $_GET['id'] : array();
 			$evs = isset($_GET['id_event']) ? $_GET['id_event'] : array();
-		    $i = -1;
-		    foreach ( $ids as $id ) {
-		    	$i++;
-		      //self::delete_customer( $id );
-		 		global $wpdb;
-            	$wpdb->delete('wp_members', array('id_member' => $id, 'id_event' => $evs[$i]));
-				$link = admin_url().'admin.php?page=view_event_member';
-				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
-		    }
-		 
+		    print_r($ids.' '.$evs);
+			$i = -1;
+		    $wpdb->delete('wp_members', array('id_member' => $id, 'id_event' => $evs));
+			$link = admin_url().'admin.php?page=view_event_member';
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		  }
         
     }
