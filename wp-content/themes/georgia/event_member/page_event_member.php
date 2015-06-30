@@ -130,13 +130,11 @@ function process_bulk_action() {
         global $wpdb;
 		  // If the delete bulk action is triggered
 		  if ( ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' )) {
-		 	
 		    $ids = isset($_GET['id']) ? $_GET['id'] : array();
 			$evs = isset($_GET['id_event']) ? $_GET['id_event'] : array();
-		    print_r($ids.' '.$evs);
 			$i = -1;
-		    $wpdb->delete('wp_members', array('id_member' => $id, 'id_event' => $evs));
-			$link = admin_url().'admin.php?page=view_event_member';
+		    $query_delete = $wpdb->query("DELETE FROM wp_participate WHERE id_event = '".$evs."' and id_member='".$ids."'");
+			$link = admin_url().'admin.php?page=view_event_member&event_title='.get_the_title($evs).'&id_event='.$evs;
 			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		  }
         
