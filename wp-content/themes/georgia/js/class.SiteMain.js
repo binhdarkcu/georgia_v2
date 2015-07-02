@@ -62,6 +62,8 @@ var SiteMain = (function() {
 
 	            $('#editPhoto').hide();
 	    		$('#submit-btn').show();
+
+                SiteMain.openPopup('#message-cropit');
 	        };
 	        image.onerror= function() {
 	            alert('Invalid file type: '+ file.type);
