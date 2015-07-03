@@ -161,11 +161,15 @@ class TT_Member_List_Table extends WP_List_Table {
 				echo '<img src="' . home_url().'/wp-content/uploads/avatar/' . $item[ $column_name ].'" width="38"/>';
 				break;
 			case 'actived_user':
+				if(empty($item['p_email'])){
+					break;
+				}else{
 				if($item[ 'p_user_status' ] != '1'){
 					echo '<a href="javascript:void(0);" class="activeuser" data-plainpassword="'.$item['p_plain_password'].'" data-username="'.$item['p_naam'].'" data-useremail="'.$item['p_email'].'" data-userid="'.$item['id'].'">Active</a>';
 					break;
 				}else{
 					echo 'verified';break;
+				}
 				}
 			case 'p_user_status':
 				if($item[ $column_name ] == 0){
