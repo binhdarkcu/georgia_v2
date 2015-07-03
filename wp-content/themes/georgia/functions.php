@@ -59,6 +59,7 @@
 	    $days = ceil($days/86400);
 	    return $days;
 	}
+
 	//style login page
 	function custom_login_css() {
 	echo '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'/admin/login-style.css" />';

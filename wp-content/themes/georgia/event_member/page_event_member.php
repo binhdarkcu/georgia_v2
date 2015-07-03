@@ -550,6 +550,7 @@ function my_render_event_list_page(){
 				array(
 				  'id_event'		=> $id_event,
 				  'id_member'          => $id_member,
+				  'guest_member' => '1',
 				  'status' => 'invoiced',
 				  'datejoin' => date('Y-m-d'),
 				  'status_join' => 'yes'

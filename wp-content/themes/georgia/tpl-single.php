@@ -41,7 +41,9 @@
                                     
                                     <div id="tribe-events-content" class="tribe-events-single vevent clearfix">
 										<?php 
-											$future_date =datediff(date('Y/m/d'), $datetime);
+											$expire_date = strtotime(date("Y-m-d", strtotime($datetime)));
+											$todate = strtotime(date('Y-m-d'));
+											$future_date = $expire_date > $todate ? 1 : 0;
 											global $wpdb;
 											$join_query = "SELECT * 
 														FROM  wp_participate 
@@ -86,12 +88,11 @@
                                                 	<div class="pad">
                                                 		Gelieve <b><?php echo get_field('cost',get_the_ID());?></b> € per persoon te betalen op rekeningnummer 
 														<b><?php echo $account_number;?></b> op naam van Georgia met 
-														vermelding "Kredietverstrekking <?php echo $day.' '.$month;?> - Jurgen Van 
-														Grieken" ten laatste de dag voor aanvang van het event. 
+														vermelding "Kredietverstrekking <?php echo $day.' '.$month;?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
                                                 	</div>
                                                 </div>
                                                 <?php
-													if($future_date < 0){
+													if($future_date == 0){
                                                 ?>
 												<div class="downloadbox">
 													<?php if(get_field('presentation_files', get_the_ID())): ?>
@@ -181,14 +182,14 @@
                                                 
                                                 <?php
 		                                            			global $wpdb;
-		                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam, mb.p_naam
+		                                            			$p_query = "SELECT pt.id_member,pt.guest_member, mb.p_picture, mb.p_voornaam, mb.p_naam
 																			FROM wp_participate pt
 																			JOIN wp_members mb ON mb.id = pt.id_member
-																			WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
+																			WHERE pt.id_event = ".get_the_ID()." AND pt.guest_member='0' AND pt.status_join = 'yes'"."
 																			GROUP BY pt.id_member, pt.id
 																			LIMIT 0 , 30";
 																$joinEvents = $wpdb->get_results($p_query);
-																$total_query = "SELECT FOUND_ROWS() AS TOTALUSER;";
+																$total_query = "SELECT FOUND_ROWS() AS TOTALUSER";
 																$totalUser = $wpdb->get_results($total_query);
 
                                                     $extra_members =  (int) get_field('extra_members', get_the_ID());
@@ -200,7 +201,8 @@
                                                 	<ul>
 	                                                	<li>
 	                                                		<?php
-																foreach ($joinEvents as $join) {			
+																foreach ($joinEvents as $join) {
+																	if(!$join->guest_member){
 	                                                		?>
 		                                                	<li>
 		                                                		<div class="avatar-box">
@@ -208,7 +210,7 @@
 		                                                		</div>
 		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
 		                                                	</li>
-		                                                	<?php }?>
+		                                                	<?php } }?>
 	                                                	</li>
 	                                                	
 	                                                </ul>

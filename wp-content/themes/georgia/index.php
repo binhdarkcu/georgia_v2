@@ -67,7 +67,17 @@
 								$time = $start_time.' - '.$end_time;
 								$loc = get_field('place_event', $near->ID);
 								$bigImg = wp_get_attachment_url( get_post_thumbnail_id($near->ID) );
-								
+								global $wpdb;
+								$expire_date = strtotime(date("Y-m-d", strtotime($datetime)));
+								$todate = strtotime(date('Y-m-d'));
+								$future_date = $expire_date > $todate ? 1 : 0;
+								$join_query = "SELECT * 
+											FROM  wp_participate
+											WHERE id_member = ".$_SESSION['user']['id']."
+											AND id_event = ".$near->ID."
+											AND status_join = 'yes'"."
+											LIMIT 0 , 30";
+								$isjoin = $wpdb->get_row($join_query);
 							?>
                             <div class="home-featured-event">
 
@@ -95,6 +105,34 @@
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo $near->post_content;?>
                                                 </div>
+												<?php if(isset($_SESSION['user'])){ ?>
+                                                	<div class="add_guest">
+                                                <?php
+													$guest_count = "SELECT COUNT( * ) as COUNTGUEST
+																		FROM  `wp_guest` WHERE id_event=".$near->ID." and id_member=".$_SESSION['user']['id']."";
+													$count_row = $wpdb->get_results($guest_count);
+													$total_guest = $count_row[0]->COUNTGUEST;
+													if($isjoin){
+														if($future_date > 0){
+                                                ?>
+	                                                
+	                                                	<?php if($total_guest <= 0) {?>
+	                                                		<a href="javascript:void(0);">Wenst u gasten mee te brengen?</a>
+	                                                	<?php } else{?>
+	                                                		U hebt zich ingeschreven samen met <a href="javascript:void(0);"><b><?php echo $total_guest;?> gasten</b></a>
+	                                                	<?php }?>
+	                                                
+                                                <?php } }?>
+                                                </div>
+                                                <div class="infoPayment">
+                                                	<?php $account_number = get_field('account_number', 'option');?>
+                                                	<div class="pad">
+                                                		Gelieve <b><?php echo get_field('cost',$near->ID);?></b> € per persoon te betalen op rekeningnummer 
+														<b><?php echo $account_number;?></b> op naam van Georgia met 
+														vermelding "Kredietverstrekking <?php echo $day.' '.convertMonths_String((int)$month,true);?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
+                                                	</div>
+                                                </div>
+												<?php } ?>
                                             </div>
 
                                         </div>
@@ -109,14 +147,7 @@
                                                 </div>
                                                 <?php if(isset($_SESSION['user'])){ ?>
                                                 <?php
-                                                	global $wpdb;
-													$join_query = "SELECT * 
-																FROM  wp_participate
-																WHERE id_member = ".$_SESSION['user']['id']."
-																AND id_event = ".$near->ID."
-																AND status_join = 'yes'"."
-																LIMIT 0 , 30";
-                                                	$isjoin = $wpdb->get_row($join_query);
+                                                	
 													$canjoin = DateTime::createFromFormat('Y/m/d', $datetime) > DateTime::createFromFormat('Y/m/d', date('Y/m/d'));
 													$date_event = DateTime::createFromFormat('Y/m/d', $datetime)->format('Y-m-d').' '.substr($start_time, 0, -3).':00';
 													$hours_event = strtotime($date_event);
@@ -354,3 +385,5 @@
         </div>
 
 <?php get_footer();?>
+<?php get_template_part('tpl','addguest');?>
+<script type='text/javascript' src='js/add_guest.js'></script>
