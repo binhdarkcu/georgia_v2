@@ -1,18 +1,21 @@
 <div class="popup message-popup add_guest_popup" id="add_guest" style="display: none;">
 	<div class="overlays" onclick="window.location.reload()"></div>
 		<div class="popup-content">
+			<?php
+				$id_ev = $near->ID;
+			?>
 			<input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['id'];?>" />
-			<input type="hidden" name="id_event" value="<?php echo get_the_ID();?>" />
+			<input type="hidden" name="id_event" value="<?php echo empty($id_ev)? get_the_ID(): $id_ev;?>" />
 			<input name="action" type="hidden" class="action" value="user_update_guest"/>
 			<?php
         		global $wpdb;
 				$guest_count = "SELECT COUNT( * ) as COUNTGUEST
-									FROM  `wp_guest` WHERE id_event=".get_the_ID()." and id_member=".$_SESSION['user']['id']."";
+									FROM  `wp_guest` WHERE id_event=".$id_ev." and id_member=".$_SESSION['user']['id']."";
 				$count_row = $wpdb->get_results($guest_count);
 				$total_guest = $count_row[0]->COUNTGUEST;
 				
 				$guest_member = "SELECT DISTINCT id_guest, guest_name, guest_surname
-									FROM  `wp_guest` WHERE id_event=".get_the_ID()." and id_member=".$_SESSION['user']['id']."";
+									FROM  `wp_guest` WHERE id_event=".$id_ev." and id_member=".$_SESSION['user']['id']."";
 				$guest_row = $wpdb->get_results($guest_member);
         	?>
 			
@@ -76,7 +79,7 @@
 				<h4>GUEST <?php if($total_guest == 0) echo '1'; else echo '2';?></h4>
 				<div class="common_guest_form" id="guest_form_01">
 					<form action="" method="post" class="guest_form" id="guest_form">
-						<input type="hidden" name="id_event" value="<?php echo get_the_ID();?>" />
+						<input type="hidden" name="id_event" value="<?php echo empty($id_ev)? get_the_ID(): $id_ev;?>" />
 						<input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['id'];?>" />
 						<input type="text" name="guest_name" placeholder="Naam" />
 						<input type="text" name="guest_surname" placeholder="Bedrijf" />
@@ -89,7 +92,6 @@
 			<?php }?>
 		</div>
 	</div>
-</div>
 <script>
 	$(document).ready(function(){
 		$(".add_guest_popup p input").each(function () {

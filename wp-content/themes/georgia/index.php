@@ -6,7 +6,7 @@
         <div id="main-content" class="home-plus-events">
 
             <?php get_template_part('tpl','comming-events')?>
-			
+			<?php global $near_id;?>
             <div class="home-group-box">
                 <div class="container">
                     <div class="row">
@@ -78,6 +78,7 @@
 											AND status_join = 'yes'"."
 											LIMIT 0 , 30";
 								$isjoin = $wpdb->get_row($join_query);
+								$near_id = $near->ID;
 							?>
                             <div class="home-featured-event">
 
@@ -109,7 +110,7 @@
                                                 	<div class="add_guest">
                                                 <?php
 													$guest_count = "SELECT COUNT( * ) as COUNTGUEST
-																		FROM  `wp_guest` WHERE id_event=".$near->ID." and id_member=".$_SESSION['user']['id']."";
+																		FROM  wp_guest WHERE id_event=".$near->ID." and id_member=".$_SESSION['user']['id']."";
 													$count_row = $wpdb->get_results($guest_count);
 													$total_guest = $count_row[0]->COUNTGUEST;
 													if($isjoin){
@@ -288,6 +289,8 @@
                                 </div>
 
                             </div>
+                            <?php  include 'tpl-addguest.php';?>
+                            
                             <?php 	
 								}
 							?>
@@ -385,5 +388,5 @@
         </div>
 
 <?php get_footer();?>
-<?php get_template_part('tpl','addguest');?>
+
 <script type='text/javascript' src='js/add_guest.js'></script>
