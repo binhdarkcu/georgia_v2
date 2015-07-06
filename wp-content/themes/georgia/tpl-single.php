@@ -86,13 +86,14 @@
                                                 <div class="infoPayment">
                                                 	<?php $account_number = get_field('account_number', 'option');?>
                                                 	<div class="pad">
-                                                		Gelieve <b><?php echo get_field('cost',get_the_ID());?></b> € per persoon te betalen op rekeningnummer 
+                                                		Gelieve <b><?php echo get_field('cost',get_the_ID());?> €</b> per persoon te betalen op rekeningnummer 
 														<b><?php echo $account_number;?></b> op naam van Georgia met 
 														vermelding "Kredietverstrekking <?php echo $day.' '.$month;?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
                                                 	</div>
                                                 </div>
                                                 <?php
 													if($future_date == 0){
+														if($isjoin){
                                                 ?>
 												<div class="downloadbox">
 													<?php if(get_field('presentation_files', get_the_ID())): ?>
@@ -106,7 +107,7 @@
 														</ul>
 													<?php endif; ?>
 												</div>
-												<?php } ?>
+												<?php } } ?>
 												<?php } ?>
                                             </div>
 

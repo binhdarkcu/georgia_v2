@@ -127,7 +127,7 @@
                                                 <div class="infoPayment">
                                                 	<?php $account_number = get_field('account_number', 'option');?>
                                                 	<div class="pad">
-                                                		Gelieve <b><?php echo get_field('cost',$near->ID);?></b> € per persoon te betalen op rekeningnummer 
+                                                		Gelieve <b><?php echo get_field('cost',$near->ID);?> €</b> per persoon te betalen op rekeningnummer 
 														<b><?php echo $account_number;?></b> op naam van Georgia met 
 														vermelding "Kredietverstrekking <?php echo $day.' '.convertMonths_String((int)$month,true);?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
                                                 	</div>

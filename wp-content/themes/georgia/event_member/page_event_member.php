@@ -50,7 +50,7 @@ class My_Event_List_Table extends WP_List_Table {
   }
 
   function no_items() {
-    _e( 'No member in event.' );
+    _e( 'No books found, dude.' );
   }
 
   function column_default( $item, $column_name ) {
@@ -137,7 +137,6 @@ function process_bulk_action() {
 			$link = admin_url().'admin.php?page=view_event_member&event_title='.get_the_title($evs).'&id_event='.$evs;
 			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		  }
-        
     }
 //edit member
 function process_edit_action() {
@@ -281,11 +280,8 @@ function process_edit_action() {
 				}, "");
 				jQuery("#add_member_to_event").validate({
 					rules: {
-						'p_naam_member': { 
-							required: true
-						},
-						'p_voornaam_member': { 
-							required: true
+						'id_member': { 
+							selectcheck: true
 						},
 						'id_event': { 
 							selectcheck: true
@@ -295,13 +291,11 @@ function process_edit_action() {
 					highlight: function(element) {
 						var name = jQuery(element).attr('name');
 						jQuery('select[name='+name+']').parent().addClass('error');
-						jQuery('input[name='+name+']').addClass('error');
 					},
 					unhighlight: function(element, errorClass, validClass) {
 						jQuery(element).removeClass(errorClass).addClass(validClass); // remove error class from elements/add valid class
 						var name = jQuery(element).attr('name');
 						jQuery('select[name='+name+']').parent().removeClass('error');
-						jQuery('input[name='+name+']').removeClass('error');
 					},
 					submitHandler: function(form) {
 						form.submit();
@@ -311,6 +305,23 @@ function process_edit_action() {
 					$id_ev = $(this).val();
 					$(this).parent().removeClass('error');
 					$('input[name="id_event"]').val($id_ev);
+					$('select[name=id_member]').empty().append('<option value="0">Select member</option>');
+					$.ajax({
+						type : "post",
+						url : $('.ajaxurl').val(),
+						data : {action: "user_select_event", id_event : $id_ev},
+						//data: new FormData(this),
+						success: function(response) {
+							$('select[name=id_member]').append(response);
+							$('.selectpicker').selectpicker('refresh');
+						}            
+					});
+				}));
+				
+				$(".choose_id_member").on('change',(function(e){
+					$id_ev = $(this).val();
+					$(this).parent().removeClass('error');
+					$('input[name="id_member"]').val($id_ev);
 				}));
 			});
 		</script>
@@ -323,9 +334,12 @@ function process_edit_action() {
 					<div class="informationBox">
 						<div class="reg-left">
 							<div class="reg-row">
+								<input name="ajaxurl" type="hidden" class="ajaxurl" value="<?php echo bloginfo('home').'/wp-admin/admin-ajax.php'; ?>"/>
 								<?php if(empty($id_event)){?>
 								<div class="col1">
 									<label>Event<span class="red">*</span></label>
+									
+									<input name="action" type="hidden" class="action" value="user_select_event"/>
 									<select name="id_event" class="choose_id_event selectpicker" data-live-search="true">
 										<option value="0">Select event</option>
 										<?php
@@ -341,17 +355,25 @@ function process_edit_action() {
 									</select>
 								</div>
 								<?php }?>
+								
+								
 							</div>
 							<div class="reg-row">
 								<div class="col1">
-									<label>Naam<span class="red">*</span></label>
-									<input type="text" name="p_naam_member" value="">
-								</div>
-							</div>
-							<div class="reg-row">
-								<div class="col1">
-									<label>Voornaam<span class="red">*</span></label>
-									<input type="text" name="p_voornaam_member" value="">
+									<label>Member<span class="red">*</span></label>
+									<input name="action" type="hidden" class="action" value="user_select_member"/>
+									<select name="id_member" class="choose_id_member selectpicker" data-live-search="true">
+										<option value="0">Select member</option>
+										<?php if(!empty($members_arr)){
+										foreach ($members_arr as $ev) {
+											?>
+											<option value="<?php echo $ev['id']?>"><?php echo $ev['p_naam'];?></option>
+											<?php
+											}	
+										?>
+											
+										<?php }?>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -359,14 +381,14 @@ function process_edit_action() {
 					</div>
 					<input type="submit"  value="Update" class="btn" />
 					<?php wp_nonce_field('add_event_member','act_event_add_member');?>
-					<input name="action" value="add_event_member" type="hidden">
 					<input type="hidden" value="<?php echo $_GET['event_title'];?>" name="event_title" />
-					<input type="hidden" value="<?php echo $_GET['event_id'];?>" name="id_event" />
+					<input type="hidden" value="<?php echo $_GET['id_event'];?>" name="id_event" />
 					<input type="hidden" value="<?php echo $_GET['id'];?>" name="id_member" />
 				</form>
 			</div>
     	</div>
     <?php 
+	  
 	exit();
 	}
     
@@ -519,63 +541,41 @@ function my_render_event_list_page(){
 	        $myListTable->prepare_items();
 	}
    
-	if(!empty($_POST) && wp_verify_nonce($_POST['act_event_add_member'],'add_event_member')){
-		
-		global $wpdb;
+  if(!empty($_POST) && wp_verify_nonce($_POST['act_event_add_member'],'add_event_member')){
+	  	
+	  	global $wpdb;
 		$event_title = !empty($_GET['event_title'])? $_GET['event_title']: $_POST['event_title'];
 		$id_event = !empty($_GET['event_id'])? $_GET['event_id']: $_POST['id_event'];
-		//
-		$p_naam = $_POST['p_naam_member'];
-		$p_voornaam = $_POST['p_voornaam_member'];
-		$created = date('Y-m-d h:i:s');
-		$modified = date('Y-m-d h:i:s');
-		
-		$insert_member = $wpdb->insert('wp_members',
+		$id_member = $_POST['id_member'];
+		$execute = $wpdb->insert('wp_participate',
 			array(
-			  'p_naam'		=> $p_naam,
-			  'p_voornaam'          => $p_voornaam,
-			  'created' => $created,
-			  'modified' => $modified
+			  'id_event'		=> $id_event,
+			  'id_member'          => $id_member,
+			  'status' => 'uninvoiced',
+			  'datejoin' => date('Y-m-d'),
+			  'status_join' => 'yes'
 			),
 			array(
+			  '%s',
 			  '%s',
 			  '%s',
 			  '%s',
 			  '%s'
 			) 
 		);
-		$id_member = $wpdb->insert_id;
-		if($insert_member){
-			$execute = $wpdb->insert('wp_participate',
-				array(
-				  'id_event'		=> $id_event,
-				  'id_member'          => $id_member,
-				  'guest_member' => '1',
-				  'status' => 'invoiced',
-				  'datejoin' => date('Y-m-d'),
-				  'status_join' => 'yes'
-				),
-				array(
-				  '%s',
-				  '%s',
-				  '%s',
-				  '%s',
-				  '%s'
-				) 
-			);
-			if($execute){
-				if(empty($id_event)){
-					$link = admin_url().'admin.php?page=view_event_member';
-				}else{
-					$link = admin_url().'admin.php?page=view_event_member&event_title='.$event_title.'&id_event='.$id_event;
-				}
-				echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
-				exit();
+		if($execute){
+			if(empty($id_event)){
+				$link = admin_url().'admin.php?page=view_event_member';
 			}else{
-				echo "<script>alert('can\'t update')</script>";
+				$link = admin_url().'admin.php?page=view_event_member&event_title='.$event_title.'&id_event='.$id_event;
 			}
+			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
+			exit();
+		}else{
+			echo "<script>alert('can\'t update')</script>";
 		}
-	  }  
+		exit();
+	  }
 ?>
 <a href="#"></a>
   <form method="post">
