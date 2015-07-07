@@ -316,7 +316,6 @@
 														<input type="file" class="upload cropit-image-input" name="p_picture_temp"/>
 													</div>
 												</div>
-												<span class="note-upload">Gelieve uw profile foto te uploaden in jpg formaat met een maximale grootte van 400 op 400 pixels op een resolutie van 72dpi</span>
 											</div>
 										</div>
 									</div>

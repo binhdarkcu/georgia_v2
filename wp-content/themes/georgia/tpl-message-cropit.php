@@ -7,7 +7,7 @@
             </style>
             <div class="image-editor">
                 <div class="image-size-label">
-                    Resize image
+                    Pas je profielfoto aan
                 </div>
                 <div class="col1">
                     <div class="cropit-image-preview"></div>
@@ -15,8 +15,8 @@
                     <div class="slider-wrapper"><span class="icon icon-image small-image"></span><input type="range" class="cropit-image-zoom-input custom" min="0" max="1" step="0.01"><span class="icon icon-image large-image"></span></div>
                 </div>
                 <div class="buttons">
-                    <a href="javascript:void(0)" class="btn left" onclick="SiteMain.closePopup()">Cancel</a>
-                    <a href="javascript:void(0)"  class="btn right" onclick="SiteMain.dropImage()">Drop Image</a>
+                    <a href="javascript:void(0)" class="btn left" onclick="SiteMain.closePopup()">Terug</a>
+                    <a href="javascript:void(0)"  class="btn right" onclick="SiteMain.dropImage()">Ok!</a>
                 </div>
 
             </div>
