@@ -106,14 +106,16 @@
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo $near->post_content;?>
                                                 </div>
-												<?php if(isset($_SESSION['user'])){ ?>
+												<?php if(isset($_SESSION['user'])){ 
+												if($isjoin){
+												?>
                                                 	<div class="add_guest">
                                                 <?php
 													$guest_count = "SELECT COUNT( * ) as COUNTGUEST
 																		FROM  wp_guest WHERE id_event=".$near->ID." and id_member=".$_SESSION['user']['id']."";
 													$count_row = $wpdb->get_results($guest_count);
 													$total_guest = $count_row[0]->COUNTGUEST;
-													if($isjoin){
+													
 														if($future_date > 0){
                                                 ?>
 	                                                
@@ -123,7 +125,7 @@
 	                                                		U hebt zich ingeschreven samen met <a href="javascript:void(0);"><b><?php echo $total_guest;?> <?php if($total_guest == 1) echo 'gast'; else echo 'gasten';?></b></a>
 	                                                	<?php }?>
 	                                                
-                                                <?php } }?>
+                                                <?php } ?>
                                                 </div>
                                                 <div class="infoPayment">
                                                 	<?php $account_number = get_field('account_number', 'option');?>
@@ -133,7 +135,7 @@
 														vermelding "Kredietverstrekking <?php echo $day.' '.convertMonths_String((int)$month,true);?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
                                                 	</div>
                                                 </div>
-												<?php } ?>
+												<?php } }?>
                                             </div>
 
                                         </div>
