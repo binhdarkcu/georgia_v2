@@ -3,6 +3,7 @@
 		<div class="popup-content">
 			<?php
 				$id_ev = $near->ID;
+				$id_event = empty($id_ev)? get_the_ID(): $id_ev;
 			?>
 			<input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['id'];?>" />
 			<input type="hidden" name="id_event" value="<?php echo empty($id_ev)? get_the_ID(): $id_ev;?>" />
@@ -10,12 +11,11 @@
 			<?php
         		global $wpdb;
 				$guest_count = "SELECT COUNT( * ) as COUNTGUEST
-									FROM  `wp_guest` WHERE id_event=".$id_ev." and id_member=".$_SESSION['user']['id']."";
+									FROM  `wp_guest` WHERE id_event=".$id_event." and id_member=".$_SESSION['user']['id']."";
 				$count_row = $wpdb->get_results($guest_count);
 				$total_guest = $count_row[0]->COUNTGUEST;
-				
 				$guest_member = "SELECT DISTINCT id_guest, guest_name, guest_surname
-									FROM  `wp_guest` WHERE id_event=".$id_ev." and id_member=".$_SESSION['user']['id']."";
+									FROM  `wp_guest` WHERE id_event=".$id_event." and id_member=".$_SESSION['user']['id']."";
 				$guest_row = $wpdb->get_results($guest_member);
         	?>
 			

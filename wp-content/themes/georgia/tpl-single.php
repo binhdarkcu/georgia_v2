@@ -78,7 +78,7 @@
 	                                                	<?php if($total_guest <= 0) {?>
 	                                                		<a href="javascript:void(0);">Wenst u gasten mee te brengen?</a>
 	                                                	<?php } else{?>
-	                                                		U hebt zich ingeschreven samen met <a href="javascript:void(0);"><b><?php echo $total_guest;?> gasten</b></a>
+	                                                		U hebt zich ingeschreven samen met <a href="javascript:void(0);"><b><?php echo $total_guest;?> <?php if($total_guest == 1) echo 'gast'; else echo 'gasten';?></b></a>
 	                                                	<?php }?>
 	                                                
                                                 <?php } }?>
