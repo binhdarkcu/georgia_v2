@@ -57,6 +57,7 @@ function cancelEvent(){
 		);
 		if($execute){
 			$query_delete = $wpdb->query("DELETE FROM wp_guest WHERE id_event = '".$data['id_event']."' and id_member='".$data['id_member']."'");
+			$query_delete = $wpdb->query("DELETE FROM wp_members WHERE id_member='".$data['id_member']."'");
 			echo 'true';
 		}
 		

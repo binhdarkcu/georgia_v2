@@ -53,26 +53,12 @@ function add_guest(){
 		) 
 	);
 	if($results){
-		$insert_member = $wpdb->insert('wp_members',
-			array(
-			  'p_naam'		=> $guest_name,
-			  'p_voornaam'          => $guest_surname,
-			  'created' => date('Y-m-d'),
-			  'modified' => date('Y-m-d')
-			),
-			array(
-			  '%s',
-			  '%s',
-			  '%s',
-			  '%s'
-			) 
-		);
-		$id_member = $wpdb->insert_id;
+		$id_guest = $wpdb->insert_id;
 		$participate = $wpdb->insert('wp_participate',
 			array(
 			  'id_event'		=> $id_event,
-			  'id_member'          => $id_member,
-			  'guest_member' => 1,
+			  'id_member'          => $u_id,
+			  'guest_member' => $id_guest,
 			  'status' => 'uninvoiced',
 			  'datejoin' => date('Y-m-d'),
 			  'status_join' => 'yes'

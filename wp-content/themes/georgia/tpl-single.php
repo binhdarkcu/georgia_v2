@@ -206,17 +206,32 @@
 	                                                	<li>
 	                                                		<?php
 																foreach ($joinEvents as $join) {
-																	if(!$join->guest_member){
+																	
 	                                                		?>
 		                                                	<li>
 		                                                		<div class="avatar-box">
+																	<?php
+																		if(!empty($join->p_picture)){
+																	?>
 		                                                			<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>"/>
+																	<?php } else {
+																	?>
+																		<img src="<?php echo get_bloginfo('template_url')?>/images/avatar.jpg"/>
+																	<?php }?>
 		                                                		</div>
+																<?php if($join->guest_member!=1){?>
 		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
+																<?php } else{ ?>
+																<p class="p_guest"><?php echo $join->p_naam.' '.$join->p_voornaam;?></p>
+																<?php }?>
 		                                                	</li>
-		                                                	<?php } }?>
+		                                                	<?php  }?>
 	                                                	</li>
-	                                                	
+	                                                	<style>
+														.p_guest{
+															color: #827b5e;
+														}
+														</style>
 	                                                </ul>
 	                                                <div class="clear"></div>
                                                 </div>
