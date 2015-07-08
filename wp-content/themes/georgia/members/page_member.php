@@ -154,7 +154,12 @@ class TT_Member_List_Table extends WP_List_Table {
 		return $thisExtra;
 	}
     function column_default($item, $column_name){
+		for($i = 0; $i<$item['p_email'].length;$i++){
+			print_r($item[$i]);
+		}
+		
         switch($column_name){
+				
         	 case 'p_land':
 				return getcountry('p_naam', $item[ $column_name ]);
             case 'p_picture': 
@@ -180,11 +185,18 @@ class TT_Member_List_Table extends WP_List_Table {
 					break;
 				}	
 	        case 'p_naam':
-				case 'p_email':
-				echo '<a href="mailto:'.$item[ 'p_email' ].'">'.$item[ 'p_email' ].'</a>';
-				break;
+			case 'p_email':
+				if(!empty($item['p_email'])){
+					echo '<a href="mailto:'.$item[ 'p_email' ].'">'.$item[ 'p_email' ].'</a>';
+					break;
+				}else{
+					break;
+				}
+			break;
 	        case 'p_voornaam':
-			
+				if(empty($item['p_email'])){
+					break;
+				}
 			case 'p_telefoon':
 	            return $item[ $column_name ];
 	        default:
@@ -229,6 +241,7 @@ class TT_Member_List_Table extends WP_List_Table {
      * @return array An associative array containing column information: 'slugs'=>'Visible Titles'
      **************************************************************************/
     function get_columns(){
+		
         $columns = array(
             'cb'        => '<input type="checkbox" />', //Render a checkbox instead of text
             'p_picture' =>'Avatar',
@@ -240,6 +253,7 @@ class TT_Member_List_Table extends WP_List_Table {
             'p_user_status'      => 'User status',
             'actived_user' => 'Actived User',
         );
+		
         return $columns;
     }
 

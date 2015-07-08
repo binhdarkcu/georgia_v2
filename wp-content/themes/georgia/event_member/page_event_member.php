@@ -255,7 +255,7 @@ function process_edit_action() {
 		
 		$id_event = $_GET['event_id'];
 		if(!empty($id_event)){
-			$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email FROM wp_members WHERE id NOT IN (select id_member from wp_participate where id_event ='".$id_event."')";
+			$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email FROM wp_members WHERE id NOT IN (select id_member from wp_participate where id_event ='".$id_event."') ORDER BY p_voornaam ASC";
 			$members_arr = $wpdb->get_results($query_ev, ARRAY_A);
 		}
 		?>
@@ -367,7 +367,7 @@ function process_edit_action() {
 										<?php if(!empty($members_arr)){
 										foreach ($members_arr as $ev) {
 											?>
-											<option value="<?php echo $ev['id']?>"><?php echo $ev['p_naam'];?></option>
+											<option value="<?php echo $ev['id']?>"><?php echo $ev['p_voornaam'].' '.$ev['p_naam'];?></option>
 											<?php
 											}	
 										?>
