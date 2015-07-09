@@ -196,7 +196,6 @@
 																$joinEvents = $wpdb->get_results($p_query);
 																$total_query = "SELECT FOUND_ROWS() AS TOTALUSER";
 																$totalUser = $wpdb->get_results($total_query);
-echo $p_query;
                                                     $extra_members =  (int) get_field('extra_members', get_the_ID());
                                                     $totalNumberDisplay = (int) $totalUser[0]->TOTALUSER + $extra_members;
 												?>

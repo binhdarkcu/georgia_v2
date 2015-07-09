@@ -217,7 +217,6 @@
 																	WHERE pt.id_event = ".$near->ID." AND pt.status_join = 'yes'"."
 																	GROUP BY pt.id_member, pt.id
 																	LIMIT 0 , 30";
-                                                echo $p_query;
 														$joinEvents = $wpdb->get_results($p_query);
 														$total_query = "SELECT FOUND_ROWS() AS TOTALUSER;";
 														$totalUser = $wpdb->get_results($total_query);
