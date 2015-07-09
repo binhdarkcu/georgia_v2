@@ -220,8 +220,8 @@
 														$joinEvents = $wpdb->get_results($p_query);
 														$total_query = "SELECT FOUND_ROWS() AS TOTALUSER;";
 														$totalUser = $wpdb->get_results($total_query);
-    
-                                                    $extra_members =  (int) get_field('extra_members', get_the_ID());
+
+                                                    $extra_members =  (int) get_field('extra_members', $near->ID);
                                                     $totalNumberDisplay = (int) $totalUser[0]->TOTALUSER + $extra_members;
                                                 ?>
                                                 <h4><?php echo $totalNumberDisplay;?> <span>leden komen</span></h4>

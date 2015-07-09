@@ -185,16 +185,16 @@
 											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
                                                 
                                                 <?php
-		                                            			global $wpdb;
-		                                            			$p_query = "SELECT pt.id_member,pt.guest_member, mb.p_picture, mb.p_voornaam, mb.p_naam
-																			FROM wp_participate pt
-																			JOIN wp_members mb ON mb.id = pt.id_member
-																			WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
-																			GROUP BY pt.id_member, pt.id
-																			LIMIT 0 , 30";
-																$joinEvents = $wpdb->get_results($p_query);
-																$total_query = "SELECT FOUND_ROWS() AS TOTALUSER";
-																$totalUser = $wpdb->get_results($total_query);
+                                                        global $wpdb;
+                                                        $p_query = "SELECT pt.id_member,pt.guest_member, mb.p_picture, mb.p_voornaam, mb.p_naam
+                                                                    FROM wp_participate pt
+                                                                    JOIN wp_members mb ON mb.id = pt.id_member
+                                                                    WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
+                                                                    GROUP BY pt.id_member, pt.id
+                                                                    LIMIT 0 , 30";
+                                                        $joinEvents = $wpdb->get_results($p_query);
+                                                        $total_query = "SELECT FOUND_ROWS() AS TOTALUSER";
+                                                        $totalUser = $wpdb->get_results($total_query);
 
                                                     $extra_members =  (int) get_field('extra_members', get_the_ID());
                                                     $totalNumberDisplay = (int) $totalUser[0]->TOTALUSER + $extra_members;
