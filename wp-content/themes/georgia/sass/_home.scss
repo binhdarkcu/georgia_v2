@@ -191,6 +191,9 @@
               display: table-cell;
               vertical-align: middle;
               float: none;
+              &.p_guest{
+                  color: #827b5e;
+                }
           }
         }
       }

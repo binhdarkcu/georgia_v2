@@ -915,7 +915,7 @@ class TT_Member_List_Table extends WP_List_Table {
 		   			array_push($data, (array)$querydatum);}
 		 
 		  }else{
-		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status, p_plain_password FROM wp_members order by p_user_status';
+		  	$query = 'SELECT id, p_picture, p_naam, p_voornaam, p_email, p_land, p_telefoon, p_plaats, p_user_status, p_plain_password FROM wp_members where p_email is NOT NULL order by p_user_status';
 		  	
 		  	$members = $wpdb->get_results($query);
 			$data = array();

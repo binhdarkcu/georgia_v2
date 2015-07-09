@@ -322,6 +322,9 @@ function process_edit_action() {
 					$id_ev = $(this).val();
 					$(this).parent().removeClass('error');
 					$('input[name="id_member"]').val($id_ev);
+					console.log();
+					$('input[name="p_voornaam_member"]').val($('.choose_id_member option[value="'+$id_ev+'"]').attr('data-voornaam'));
+					$('input[name="p_naam_member"]').val($('.choose_id_member option[value="'+$id_ev+'"]').attr('data-naam'));
 				}));
 			});
 		</script>
@@ -367,7 +370,7 @@ function process_edit_action() {
 										<?php if(!empty($members_arr)){
 										foreach ($members_arr as $ev) {
 											?>
-											<option value="<?php echo $ev['id']?>"><?php echo $ev['p_voornaam'].' '.$ev['p_naam'];?></option>
+											<option value="<?php echo $ev['id']?>" data-voornaam="<?php echo $ev['p_voornaam'];?>" data-naam="<?php echo $ev['p_naam']?>"><?php echo $ev['p_voornaam'].' '.$ev['p_naam'];?></option>
 											<?php
 											}	
 										?>
@@ -384,6 +387,8 @@ function process_edit_action() {
 					<input type="hidden" value="<?php echo $_GET['event_title'];?>" name="event_title" />
 					<input type="hidden" value="<?php echo $_GET['id_event'];?>" name="id_event" />
 					<input type="hidden" value="<?php echo $_GET['id'];?>" name="id_member" />
+					<input type="hidden" value="" name="p_naam_member" />
+					<input type="hidden" value="" name="p_voornaam_member" />
 				</form>
 			</div>
     	</div>
@@ -546,23 +551,42 @@ function my_render_event_list_page(){
 	  	global $wpdb;
 		$event_title = !empty($_GET['event_title'])? $_GET['event_title']: $_POST['event_title'];
 		$id_event = !empty($_GET['event_id'])? $_GET['event_id']: $_POST['id_event'];
+		$p_naam = $_POST['p_naam_member'];
+		$p_voornaam = $_POST['p_voornaam_member'];
 		$id_member = $_POST['id_member'];
-		$execute = $wpdb->insert('wp_participate',
+		$insert_member = $wpdb->insert('wp_members',
 			array(
-			  'id_event'		=> $id_event,
-			  'id_member'          => $id_member,
-			  'status' => 'uninvoiced',
-			  'datejoin' => date('Y-m-d'),
-			  'status_join' => 'yes'
+			  'p_naam'		=> $p_naam,
+			  'p_voornaam'          => $p_voornaam,
+			  'created' => $created,
+			  'modified' => $modified
 			),
 			array(
-			  '%s',
 			  '%s',
 			  '%s',
 			  '%s',
 			  '%s'
 			) 
 		);
+		$id_member = $wpdb->insert_id;
+		if($insert_member){
+			$execute = $wpdb->insert('wp_participate',
+				array(
+				  'id_event'		=> $id_event,
+				  'id_member'          => $id_member,
+				  'status' => 'uninvoiced',
+				  'datejoin' => date('Y-m-d'),
+				  'status_join' => 'yes'
+				),
+				array(
+				  '%s',
+				  '%s',
+				  '%s',
+				  '%s',
+				  '%s'
+				) 
+			);
+		}
 		if($execute){
 			if(empty($id_event)){
 				$link = admin_url().'admin.php?page=view_event_member';

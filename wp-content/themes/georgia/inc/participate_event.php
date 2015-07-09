@@ -56,8 +56,9 @@ function cancelEvent(){
 			array( '%d' ) 
 		);
 		if($execute){
-			$query_delete = $wpdb->query("DELETE FROM wp_guest WHERE id_event = '".$data['id_event']."' and id_member='".$data['id_member']."'");
-			$query_delete = $wpdb->query("DELETE FROM wp_members WHERE id_member='".$data['id_member']."'");
+			$query_delete = $wpdb->query("DELETE FROM wp_guest WHERE id_event = '".$data['id_event']."' and id_member='".$data['id_member']."'");			
+			$delete_guest = $wpdb->query("DELETE FROM wp_participate WHERE id_event = '".$data['id_event']."' and guest_member='".$data['id_member']."'");
+			$delete_member = $wpdb->query("DELETE FROM wp_members WHERE is_guest='".$data['id_member']."'");
 			echo 'true';
 		}
 		

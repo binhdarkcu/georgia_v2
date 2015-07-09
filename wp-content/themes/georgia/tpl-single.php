@@ -191,7 +191,8 @@
 																			JOIN wp_members mb ON mb.id = pt.id_member
 																			WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
 																			GROUP BY pt.id_member, pt.id
-																			LIMIT 0 , 30";
+																			LIMIT 0 , 30
+																			";
 																$joinEvents = $wpdb->get_results($p_query);
 																$total_query = "SELECT FOUND_ROWS() AS TOTALUSER";
 																$totalUser = $wpdb->get_results($total_query);
@@ -203,7 +204,6 @@
                                                 <?php if(isset($_SESSION['user'])){ ?>
                                                 <div class="scrollbar">
                                                 	<ul>
-	                                                	<li>
 	                                                		<?php
 																foreach ($joinEvents as $join) {
 																	
@@ -219,19 +219,13 @@
 																		<img src="<?php echo get_bloginfo('template_url')?>/images/avatar.jpg"/>
 																	<?php }?>
 		                                                		</div>
-																<?php if($join->guest_member!=1){?>
+																<?php if(empty($join->guest_member)){?>
 		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
 																<?php } else{ ?>
 																<p class="p_guest"><?php echo $join->p_naam.' '.$join->p_voornaam;?></p>
 																<?php }?>
 		                                                	</li>
 		                                                	<?php  }?>
-	                                                	</li>
-	                                                	<style>
-														.p_guest{
-															color: #827b5e;
-														}
-														</style>
 	                                                </ul>
 	                                                <div class="clear"></div>
                                                 </div>

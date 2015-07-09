@@ -211,7 +211,7 @@
 											<div class="tribe-events-meta-group tribe-events-meta-group-details number-events">
                                                 <?php
                                             			global $wpdb;
-                                            			$p_query = "SELECT pt.id_member, mb.p_picture, mb.p_voornaam,mb.p_naam
+                                            			$p_query = "SELECT pt.id_member,pt.guest_member,  mb.p_picture, mb.p_voornaam,mb.p_naam
 																	FROM wp_participate pt
 																	JOIN wp_members mb ON mb.id = pt.id_member
 																	WHERE pt.id_event = ".$near->ID." AND pt.status_join = 'yes'"."
@@ -229,11 +229,22 @@
 															foreach ($joinEvents as $join) {			
                                                 		?>
 	                                                	<li>
-	                                                		<div class="avatar-box">
-	                                                			<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>" width="45"/>
-	                                                		</div>
-	                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
-	                                                	</li>
+		                                                		<div class="avatar-box">
+																	<?php
+																		if(!empty($join->p_picture)){
+																	?>
+		                                                			<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>"/>
+																	<?php } else {
+																	?>
+																		<img src="<?php echo get_bloginfo('template_url')?>/images/avatar.jpg"/>
+																	<?php }?>
+		                                                		</div>
+																<?php if(empty($join->guest_member)){?>
+		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
+																<?php } else{ ?>
+																<p class="p_guest"><?php echo $join->p_naam.' '.$join->p_voornaam;?></p>
+																<?php }?>
+		                                                	</li>
 	                                                	<?php }?>
 	                                                </ul>
 	                                                <div class="clear"></div>
