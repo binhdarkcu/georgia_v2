@@ -63,18 +63,18 @@
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 preson col-centered">
                                     <a class="thumbnail"><img src="<?=$image?>" alt="" ></a>
                                     <p class="information">
-                                        <span class="name"><?=$fullname?></span><br>
-                                        <span><?=$title?></span>
+                                        <span class="name"><?=$fullname?>&nbsp;</span><br>
+                                        <span><?=$title?>&nbsp;</span>
                                     </p>
 
                                     <p>
                                         <a href="mailto:jurgen.vangrieken@georgia.be" class="color"><?=$email?></a><br>
-                                        <span><?=$phone_number?></span>
+                                        <span><?=$phone_number?>&nbsp;</span>
                                     </p>
 
                                     <p>
-                                        <span><?=$company?></span><br>
-                                        <a href="<?=$website?>" target="_blank" class="color"><?=$str_website?></a>
+                                        <span><?=$company?>&nbsp;</span><br>
+                                        <a href="<?=$website?>" target="_blank" class="color"><?=$str_website?>&nbsp;</a>
                                     </p>
 
                                 </div>
