@@ -1,8 +1,13 @@
 <?php get_header();?>
 <?php
     $user_id = empty($_GET['user_id']) ? $_SESSION['user']['id']:$_GET['user_id'];
+	
 	if(isset($user_id)){
         $user = $wpdb->get_row("SELECT * FROM wp_members WHERE id = '".$user_id."'", ARRAY_A);
+		if(empty($user) || !empty($user['is_guest'])){
+			wp_redirect(home_url() ); //to redirect back to "index.php" after logging out
+			exit();
+		}
     }else{
     	//$home_url = get_bloginfo('home');
 		wp_redirect(home_url() ); //to redirect back to "index.php" after logging out

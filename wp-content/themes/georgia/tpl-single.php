@@ -85,6 +85,7 @@
 	                                                
                                                 <?php } ?>
                                                 </div>
+                                                <?php if($future_date > 0){?>
                                                 <div class="infoPayment">
                                                 	<?php $account_number = get_field('account_number', 'option');?>
                                                 	<div class="pad">
@@ -93,7 +94,7 @@
 														vermelding "Kredietverstrekking <?php echo $day.' '.$month;?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
                                                 	</div>
                                                 </div>
-												<?php }?>
+												<?php } }?>
                                                 <?php
 													if($future_date == 0){
 														//if($isjoin){
@@ -104,9 +105,10 @@
 														<?php while(has_sub_field('presentation_files')): 
 															$buttonname = get_sub_field('button_name');	
 															$filename = get_sub_field('file_name');	
+															if(!empty($filename)){
 														?>
 															<li><a href="<?php echo $filename;?>" target="_blank"><?php echo $buttonname;?></a></li>
-														<?php endwhile; ?>
+														<?php } endwhile; ?>
 														</ul>
 													<?php endif; ?>
 												</div>
@@ -186,7 +188,7 @@
                                                 
                                                 <?php
 		                                            			global $wpdb;
-		                                            			$p_query = "SELECT pt.id_member,pt.guest_member, mb.p_picture, mb.p_voornaam, mb.p_naam
+		                                            			$p_query = "SELECT pt.id_member,mb.p_email, pt.guest_member, mb.p_picture, mb.p_voornaam, mb.p_naam
 																			FROM wp_participate pt
 																			JOIN wp_members mb ON mb.id = pt.id_member
 																			WHERE pt.id_event = ".get_the_ID()." AND pt.status_join = 'yes'"."
@@ -205,7 +207,6 @@
                                                 	<ul>
 	                                                		<?php
 																foreach ($joinEvents as $join) {
-																	
 	                                                		?>
 		                                                	<li>
 		                                                		<div class="avatar-box">
@@ -218,7 +219,7 @@
 																		<img src="<?php echo get_bloginfo('template_url')?>/images/avatar.jpg"/>
 																	<?php }?>
 		                                                		</div>
-																<?php if(empty($join->guest_member)){?>
+																<?php if(!empty($join->p_email)){?>
 		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
 																<?php } else{ ?>
 																<p class="p_guest"><?php echo $join->p_naam.' '.$join->p_voornaam;?></p>
