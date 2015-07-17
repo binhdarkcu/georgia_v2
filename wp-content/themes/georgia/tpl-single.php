@@ -96,7 +96,7 @@
 												<?php }?>
                                                 <?php
 													if($future_date == 0){
-														if($isjoin){
+														//if($isjoin){
                                                 ?>
 												<div class="downloadbox">
 													<?php if(get_field('presentation_files', get_the_ID())): ?>
@@ -110,7 +110,7 @@
 														</ul>
 													<?php endif; ?>
 												</div>
-												<?php } } ?>
+												<?php } //} ?>
 												<?php } ?>
                                             </div>
 
