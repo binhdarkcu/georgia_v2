@@ -134,9 +134,12 @@ function process_bulk_action() {
 			$i = -1;
 			$id_guest_member = $wpdb->get_row("select guest_member from wp_participate where id_member='".$ids."'");
 			$query_delete_guest = $wpdb->query("DELETE FROM wp_guest WHERE id_event = '".$evs."' and id_member='".$id_guest_member->guest_member."'");
-			
+			print_r($id_guest_member->guest_member);
 		    $query_delete = $wpdb->query("DELETE FROM wp_participate WHERE id_event = '".$evs."' and id_member='".$ids."'");
-			$wpdb->delete('wp_members', array('id' => $_GET['id']));
+			if(!empty($id_guest_member->guest_member)){
+				$wpdb->query("DELETE FROM wp_members WHERE is_guest = '".$id_guest_member->guest_member."' and id='".$ids."'");
+			}
+			
 			$link = admin_url().'admin.php?page=view_event_member&event_title='.get_the_title($evs).'&id_event='.$evs;
 			echo "<script>setTimeout(function(){window.location.href = '".$link."';},10);</script>";
 		  }

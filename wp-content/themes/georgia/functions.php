@@ -15,7 +15,9 @@
 	
 	//register post type
     //include TEMPLATEPATH.'/taxonomy-custom/taxonomy-custom.php';
-	
+    global $wpdb;
+	$wpdb->query("ALTER TABLE wp_members add COLUMN is_guest INT(1) AFTER id_event");
+	$wpdb->query("ALTER TABLE wp_participate add COLUMN guest_member INT(4) AFTER status");
 	//register meta box
 	require_once( 'meta-box/init.php' );
 
