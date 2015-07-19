@@ -261,7 +261,7 @@ function process_edit_action() {
 		
 		$id_event = $_GET['event_id'];
 		if(!empty($id_event)){
-			$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email FROM wp_members WHERE id NOT IN (select id_member from wp_participate where id_event ='".$id_event."') ORDER BY p_naam";
+			$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email,is_guest FROM wp_members WHERE (is_guest=0 OR is_guest is NULL) AND id NOT IN (select id_member from wp_participate where id_event ='".$id_event."') ORDER BY p_naam";
 			$members_arr = $wpdb->get_results($query_ev, ARRAY_A);
 		}
 		?>
@@ -560,39 +560,22 @@ function my_render_event_list_page(){
 		$p_naam = $_POST['p_naam_member'];
 		$p_voornaam = $_POST['p_voornaam_member'];
 		$id_member = $_POST['id_member'];
-		$insert_member = $wpdb->insert('wp_members',
+		$execute = $wpdb->insert('wp_participate',
 			array(
-			  'p_naam'		=> $p_naam,
-			  'p_voornaam'          => $p_voornaam,
-			  'created' => $created,
-			  'modified' => $modified
+			  'id_event'		=> $id_event,
+			  'id_member'          => $id_member,
+			  'status' => 'uninvoiced',
+			  'datejoin' => date('Y-m-d'),
+			  'status_join' => 'yes'
 			),
 			array(
+			  '%s',
 			  '%s',
 			  '%s',
 			  '%s',
 			  '%s'
 			) 
 		);
-		$id_member = $wpdb->insert_id;
-		if($insert_member){
-			$execute = $wpdb->insert('wp_participate',
-				array(
-				  'id_event'		=> $id_event,
-				  'id_member'          => $id_member,
-				  'status' => 'uninvoiced',
-				  'datejoin' => date('Y-m-d'),
-				  'status_join' => 'yes'
-				),
-				array(
-				  '%s',
-				  '%s',
-				  '%s',
-				  '%s',
-				  '%s'
-				) 
-			);
-		}
 		if($execute){
 			if(empty($id_event)){
 				$link = admin_url().'admin.php?page=view_event_member';
