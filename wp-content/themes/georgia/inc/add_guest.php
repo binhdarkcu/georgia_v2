@@ -123,7 +123,7 @@ add_action("wp_ajax_nopriv_user_select_event", "selectEvent");
 function selectEvent(){
 	global $wpdb;
 	$ev_id = $_REQUEST['id_event'];
-	$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email FROM wp_members WHERE id NOT IN (select id_member from wp_participate where id_event ='".$ev_id."') ORDER BY p_naam";
+	$query_ev = "SELECT id,p_naam,p_voornaam, p_telefoon, p_email,is_guest FROM wp_members WHERE (is_guest=0 OR is_guest is NULL) AND id NOT IN (select id_member from wp_participate where id_event ='".$id_event."') ORDER BY p_naam";
 	
 	$members = $wpdb->get_results($query_ev, ARRAY_A);
 	
