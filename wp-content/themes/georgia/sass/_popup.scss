@@ -188,10 +188,14 @@
         padding: 6px 0 5px;
       
     }
-    a.linkedit{
+    a.linkedit, a.linkdelete{
       color: #887554;
       @include NotoSansRegular(12px);
       text-decoration: underline;
+    }
+    span{
+      padding-left: 5px;
+      padding-right: 5px;
     }
   }
 }

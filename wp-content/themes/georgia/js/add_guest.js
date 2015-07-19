@@ -44,6 +44,7 @@ $(document).ready(function() {
 			        $(this).attr('size', $(this).attr('value').length);
 			    });
 			    editGuest();
+			    deleteGuest();
 			}            
 		});
 	}));
@@ -58,12 +59,13 @@ $(document).ready(function() {
 			var self = this;
 			if($status == 'save'){
 				$guestid = $(this).attr('data-guestid');
+				$memberid = $(this).attr('data-userid');
 				$set_guestname = $(self).parent().find('input[name=' + $field_guestname + ']').val();
 				$set_guestsurname = $(self).parent().find('input[name=' + $field_guestsurname + ']').val();
 				jQuery.ajax({
 					type : "post",
 					url : $('.ajaxurl').val(),
-					data : {action: "user_update_guest", guest_name:$set_guestname, guest_surname:$set_guestsurname, id_guest:$guestid, id_event:$id_event },
+					data : {action: "user_update_guest", guest_name:$set_guestname, guest_surname:$set_guestsurname, id_guest:$guestid, id_event:$id_event, id_member: $memberid },
 					success: function(data) {
 						if(data){
 							$(self).parent().find('input[type=text]').prop('disabled',true).addClass('notedit');
@@ -86,4 +88,21 @@ $(document).ready(function() {
 		});
 	}
 	editGuest();
+	function deleteGuest(){
+		$('.guest_rownumber .linkdelete').click(function(e){
+			$guestid = $(this).attr('data-guestid');
+			$memberid = $(this).attr('data-userid');
+			$id_event = $('input[name="id_event"]').val();
+			jQuery.ajax({
+				type : "post",
+				url : $('.ajaxurl').val(),
+				data : {action: "user_delete_guest", id_guest:$guestid, id_event:$id_event, id_member: $memberid },
+				success: function(data) {
+					window.location.reload();
+					
+				}
+			});
+		});
+	}
+	deleteGuest();
 });

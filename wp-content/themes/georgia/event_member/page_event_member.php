@@ -113,7 +113,7 @@ function usort_reorder( $a, $b ) {
 function column_p_naam($item){
   $actions = array(
             'edit'      => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s">Edit</a>',$_REQUEST['page'],'edit',$item['id'], $item['id_event']),
-            'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id'], $item['id_event'])
+            'delete'    => sprintf('<a href="?page=%s&action=%s&id=%s&id_event=%s&id_guest=%s">Delete</a>',$_REQUEST['page'],'delete',$item['id'], $item['id_event'], $item['is_guest'])
         );
 
   return sprintf('%1$s %2$s', $item['p_naam'], $this->row_actions($actions) );
@@ -131,13 +131,16 @@ function process_bulk_action() {
 		  if ( ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' )) {
 		    $ids = isset($_GET['id']) ? $_GET['id'] : array();
 			$evs = isset($_GET['id_event']) ? $_GET['id_event'] : array();
+			$id_guest = $_GET['id_guest'];
 			$i = -1;
 			$id_guest_member = $wpdb->get_row("select guest_member from wp_participate where id_member='".$ids."'");
-			$query_delete_guest = $wpdb->query("DELETE FROM wp_guest WHERE id_event = '".$evs."' and id_member='".$id_guest_member->guest_member."'");
-			print_r($id_guest_member->guest_member);
+			if(!empty($id_guest)){
+				$query_delete_guest = $wpdb->query("DELETE FROM wp_guest WHERE id_guest = '".$id_guest."'");
+			}
+			//print_r($id_guest_member->guest_member);
 		    $query_delete = $wpdb->query("DELETE FROM wp_participate WHERE id_event = '".$evs."' and id_member='".$ids."'");
-			if(!empty($id_guest_member->guest_member)){
-				$wpdb->query("DELETE FROM wp_members WHERE is_guest = '".$id_guest_member->guest_member."' and id='".$ids."'");
+			if(!empty($id_guest)){
+				$wpdb->query("DELETE FROM wp_members WHERE is_guest = '".$id_guest."' and id='".$ids."'");
 			}
 			
 			$link = admin_url().'admin.php?page=view_event_member&event_title='.get_the_title($evs).'&id_event='.$evs;
@@ -423,14 +426,14 @@ function prepare_items() {
   global $wpdb;
   $id_event = $_GET['id_event'];
   if(!empty($id_event)){
-  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+  	$query = 'SELECT  m.id,m.is_guest, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
 				where t.id_event = '.$id_event.' and m.id = t.id_member
 				';
   }else{
-  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+  	$query = 'SELECT  m.id,m.is_guest, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m, wp_participate t where m.id = t.id_member
 				
 				';

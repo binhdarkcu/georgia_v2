@@ -8,6 +8,7 @@
 			<input type="hidden" name="user_id" value="<?php echo $_SESSION['user']['id'];?>" />
 			<input type="hidden" name="id_event" value="<?php echo empty($id_ev)? get_the_ID(): $id_ev;?>" />
 			<input name="action" type="hidden" class="action" value="user_update_guest"/>
+			<input name="action" type="hidden" class="action" value="user_delete_guest"/>
 			<?php
         		global $wpdb;
 				$guest_count = "SELECT COUNT( * ) as COUNTGUEST
@@ -16,12 +17,21 @@
 				$total_guest = $count_row[0]->COUNTGUEST;
 				$guest_member = "SELECT DISTINCT id_guest, guest_name, guest_surname
 									FROM  `wp_guest` WHERE id_event=".$id_event." and id_member=".$_SESSION['user']['id']."";
+				
+									
 				$guest_row = $wpdb->get_results($guest_member);
+				
         	?>
 			
 			<a href="javascript:void(0)" class="close" onclick="window.location.reload()">x</a>
 			<?php
 				if($total_guest > 1 ){
+					$get_member_1 = "SELECT DISTINCT id
+									FROM  `wp_members` WHERE is_guest=".$guest_row[0]->id_guest."";
+					$member_row_1 = $wpdb->get_results($get_member_1);
+					$get_member_2 = "SELECT DISTINCT id
+									FROM  `wp_members` WHERE is_guest=".$guest_row[1]->id_guest."";
+					$member_row_2 = $wpdb->get_results($get_member_2);
 			?>
 			<div class="guest_rownumber">
 				<h4>GUEST 1</h4>
@@ -29,7 +39,8 @@
 					<input name="guest_name" type="text" value="<?php echo $guest_row[0]->guest_name;?>" class="notedit" disabled=""/>
 					-
 					<input name="guest_surname" type="text" value="<?php echo $guest_row[0]->guest_surname;?>" class="notedit text2" disabled=""/>
-					<a href="#" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[0]->id_guest;?>" data-userid="<?php echo $user['id']; ?>" class="fa linkedit"><span>edit</span></a>      
+					<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[0]->id_guest;?>" data-userid="<?php echo $member_row_1[0]->id; ?>" class="fa linkedit"><span>edit</span></a><span>-</span>
+					<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[0]->id_guest;?>" data-userid="<?php echo $member_row_1[0]->id; ?>" class="fa linkdelete"><span>delete</span></a>
 				</p>
 			</div>
 			<div class="guest_rownumber">
@@ -38,13 +49,17 @@
 					<input name="guest_name" type="text" value="<?php echo $guest_row[1]->guest_name;?>" class="notedit" disabled=""/>
 					-
 					<input name="guest_surname" type="text" value="<?php echo $guest_row[1]->guest_surname;?>" class="notedit text2" disabled=""/>
-					<a href="#" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $user['id']; ?>" class="fa linkedit"><span>edit</span></a>
+					<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $member_row_2[0]->id; ?>" class="fa linkedit"><span>edit</span></a> <span>-</span>
+					<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $member_row_2[0]->id; ?>" class="fa linkdelete"><span>delete</span></a>
 				</p>
 			</div>
 			
 			<?php } else{?>
 				<?php
 					if($total_guest == 1 ){
+						$get_member = "SELECT DISTINCT id
+										FROM  `wp_members` WHERE is_guest=".$guest_row[0]->id_guest."";
+						$member_row = $wpdb->get_results($get_member);
 				?>
 				<div class="guest_rownumber">
 					<h4>GUEST 1</h4>
@@ -52,18 +67,24 @@
 						<input name="guest_name" type="text" value="<?php echo $guest_row[0]->guest_name;?>" class="notedit" disabled=""/>
 						-
 						<input name="guest_surname" type="text" value="<?php echo $guest_row[0]->guest_surname;?>" class="notedit text2" disabled=""/>
-						<a href="#" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $user['id']; ?>" class="fa linkedit"><span>edit</span></a>  
+						<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[0]->id_guest;?>" data-userid="<?php echo $member_row[0]->id; ?>" class="fa linkedit"><span>edit</span></a>  <span>-</span>
+						<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[0]->id_guest;?>" data-userid="<?php echo $member_row[0]->id; ?>" class="fa linkdelete"><span>delete</span></a>
 					</p>
 				</div>
 				
-			<?php }else { if($total_guest == 2) {?>
+			<?php }else { if($total_guest == 2) {
+				$get_member = "SELECT DISTINCT id
+										FROM  `wp_members` WHERE is_guest=".$guest_row[1]->id_guest."";
+						$member_row = $wpdb->get_results($get_member);
+			?>
 				<div class="guest_rownumber">
 					<h4>GUEST 2</h4>
 					<p>
 						<input name="guest_name" type="text" value="<?php echo $guest_row[1]->guest_name;?>" class="notedit" disabled=""/>
 						-
 						<input name="guest_surname" type="text" value="<?php echo $guest_row[1]->guest_surname;?>" class="notedit text2" disabled=""/>
-						<a href="#" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $user['id']; ?>" class="fa linkedit"><span>edit</span></a>
+						<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $member_row[1]->id; ?>" class="fa linkedit"><span>edit</span></a><span>-</span>
+						<a href="javascript:void(0)" data-guestname="guest_name" data-guestsurname="guest_surname" data-guestid="<?php echo $guest_row[1]->id_guest;?>" data-userid="<?php echo $member_row[1]->id; ?>" class="fa linkdelete"><span>delete</span></a>
 						     
 					</p>
 				</div>
