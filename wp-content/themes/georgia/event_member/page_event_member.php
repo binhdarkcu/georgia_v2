@@ -55,6 +55,16 @@ class My_Event_List_Table extends WP_List_Table {
 
   function column_default( $item, $column_name ) {
     switch( $column_name ) {
+		case 'guest_member':
+			if($item[$column_name]!=0){
+				global $wpdb;
+				$m_guest = $wpdb->get_row('SELECT DISTINCT m.p_naam, m.p_voornaam FROM wp_members m where m.id = "'.$item[$column_name].'"');
+				echo $m_guest->p_naam.' '.$m_guest->p_voornaam;
+				break;
+			}else{
+				echo '-';
+				break;
+			}
     	case 'id_event':
 			echo '<a href="'.admin_url().'post.php?post='.$item[$column_name].'&action=edit">'.get_the_title($item[ $column_name ]).'</a>';break;
         case 'p_naam':
@@ -74,6 +84,7 @@ function get_sortable_columns() {
   $sortable_columns = array(
     'p_naam'  => array('p_naam',false),
     'p_voornaam' => array('p_voornaam',false),
+	'guest_member' => array('guest_member',false),
     'p_email' => array('p_email',false),
     'p_telefoon' => array('p_telefoon',false),
     'status'   => array('status',false),
@@ -88,6 +99,7 @@ function get_columns(){
         $columns = array(
             'p_naam' => __( 'Naam', 'mylisttable' ),
             'p_voornaam'    => __( 'Voornaam', 'mylisttable' ),
+			'guest_member'    => __( 'Guest of', 'mylisttable' ),
             'p_email'    => __( 'Email', 'mylisttable' ),
             'p_telefoon'    => __( 'Telefoon', 'mylisttable' ),
             'status'      => __( 'Status', 'mylisttable' ),
@@ -426,14 +438,14 @@ function prepare_items() {
   global $wpdb;
   $id_event = $_GET['id_event'];
   if(!empty($id_event)){
-  	$query = 'SELECT  m.id,m.is_guest, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+  	$query = 'SELECT  m.id, m.is_guest,t.guest_member, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
 				where t.id_event = '.$id_event.' and m.id = t.id_member
 				';
   }else{
-  	$query = 'SELECT  m.id,m.is_guest, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+  	$query = 'SELECT  m.id, m.is_guest,t.guest_member, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m, wp_participate t where m.id = t.id_member
 				
 				';
@@ -454,7 +466,7 @@ function prepare_items() {
         $search = trim($search);
        
         /* Notice how you can search multiple columns for your search term easily, and return one data set */
-        $s_query = "SELECT DISTINCT m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+        $s_query = "SELECT DISTINCT m.id, m.is_guest, t.guest_member, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m
 				JOIN wp_participate t ON m.id = t.id_member
 				JOIN wp_posts p on t.id_event = p.id
