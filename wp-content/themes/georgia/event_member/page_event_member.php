@@ -447,7 +447,6 @@ function prepare_items() {
   }else{
   	$query = 'SELECT  m.id, m.is_guest,t.guest_member, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m, wp_participate t where m.id = t.id_member
-				
 				';
   }
   
@@ -486,7 +485,7 @@ function prepare_items() {
  
   }else{
   	if(empty($id_event)){
-	  	$query = 'SELECT  m.id, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
+	  	$query = 'SELECT  m.id, m.is_guest, t.guest_member, m.p_naam, m.p_telefoon,m.p_email, m.p_voornaam, t.id_event, t.status,t.status_join, t.datejoin
 				FROM wp_members m, wp_participate t where m.id = t.id_member
 				';
 				
