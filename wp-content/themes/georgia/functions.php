@@ -2,6 +2,7 @@
     /*update_option('siteurl','http://georgia-bc.be');
     update_option('home','http://georgia-bc.be');*/
 
+
     function ses_init() {
       if (!session_id())
 	      session_start();
