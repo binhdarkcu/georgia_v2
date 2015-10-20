@@ -5,9 +5,13 @@
             'post_type' 	 => 'post',
             'posts_per_page' => 5,
             'category_name' =>'slider',
-            'order'			 => 'asc'
+            'meta_key'			=> 'datetime',
+            'orderby'           => 'meta_value',
+            'order'             => 'DESC'
         );
-        $querySlider = get_posts($args_slider);
+
+
+     $querySlider = get_posts($args_slider);
 		date_default_timezone_set( 'Europe/Amsterdam' );
 		setlocale(LC_ALL, 'nl_NL');
 		$months = explode( ',', ',januari,februari,maart,april,mei,juni,juli,augustus,september,october,november,december' );
@@ -55,6 +59,7 @@
     </div>
     <?php
         }//end for
-    ?>
+        wp_reset_postdata();
+     ?>
     
 </div>

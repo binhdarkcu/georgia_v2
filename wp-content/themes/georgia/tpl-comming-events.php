@@ -17,11 +17,19 @@
                             <div class="events-loop">
 								<?php
 							        $i = 0;
+                                    $today = date('Y/m/d');
 							        $args_coming = array(
 							            'post_type' 	 => 'post',
 							            'posts_per_page' => 3,
 							            'meta_key' => 'datetime',
-                                        'order'			 => 'asc'
+                                        'order'			 => 'asc',
+                                        'meta_query'     => array(
+                                            array(
+                                                'key'     => 'datetime',
+                                                'value'   => $today,
+                                                'compare' => '>='
+                                            )
+                                        )
 							        );
 							        $queryComing = get_posts($args_coming);
 									date_default_timezone_set( 'Europe/Amsterdam' );
@@ -83,7 +91,7 @@
                                                     </div>
                                                 </div><!-- .tribe-events-event-meta -->
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
