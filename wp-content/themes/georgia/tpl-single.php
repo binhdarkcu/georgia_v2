@@ -59,7 +59,7 @@
                                             <div id="post-2059" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp">
                                                 
                                                 <div class="tribe-events-event-image">
-                                                    <img src="<?php echo $bigImg;?>" class="attachment-large wp-post-image" alt="Eventica Dummy Image 28" />
+                                                    <img src="<?php echo $bigImg;?>" class="attachment-large wp-post-image" alt="<?php echo get_the_title(get_the_ID());?>" />
                                                 </div>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
                                                     <?php echo get_the_content(get_the_ID());?>
@@ -91,7 +91,7 @@
                                                 	<div class="pad">
                                                 		Gelieve <b><?php echo get_field('cost',get_the_ID());?> €</b> per persoon te betalen op rekeningnummer 
 														<b><?php echo $account_number;?></b> op naam van Georgia met 
-														vermelding "Kredietverstrekking <?php echo $day.' '.$month;?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
+														vermelding "<?php echo get_the_title(get_the_ID());?> <?php echo $day.' '.$month;?> - <?php echo $_SESSION['user']['p_voornaam'].' '.$_SESSION['user']['p_naam']?>" ten laatste de dag voor aanvang van het event. 
                                                 	</div>
                                                 </div>
 												<?php } }?>
