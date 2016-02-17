@@ -231,23 +231,28 @@
                                                 		<?php
 															foreach ($joinEvents as $join) {			
                                                 		?>
-	                                                	<li>
-		                                                		<div class="avatar-box">
-																	<?php
-																		if(!empty($join->p_picture)){
-																	?>
-		                                                			<img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>"/>
-																	<?php } else {
-																	?>
-																		<img src="<?php echo get_bloginfo('template_url')?>/images/avatar.jpg"/>
-																	<?php }?>
-		                                                		</div>
-																<?php if(!empty($join->p_email)){?>
-		                                                		<p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
-																<?php } else{ ?>
-																<p class="p_guest"><?php echo $join->p_naam.' '.$join->p_voornaam;?></p>
-																<?php }?>
-		                                                	</li>
+                                                        <li>
+                                                            <div class="avatar-box">
+                                                                <?php
+                                                                if(!empty($join->p_picture)){
+                                                                    ?>
+                                                                    <img src="<?php echo content_url().'/uploads/avatar/'.$join->p_picture; ?>"/>
+                                                                <?php } else {
+                                                                    ?>
+                                                                    <img src="<?php echo get_bloginfo('template_url')?>/images/avatar.jpg"/>
+                                                                <?php }?>
+                                                            </div>
+
+                                                            <p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
+                                                            <?php
+                                                            foreach ($joinEvents as $guest) {
+                                                                if(empty($guest->p_email) && $guest->guest_member == $join->id_member){
+                                                                    ?>
+                                                                    <div class="p_guest"><span>Gast(en)</span><?php echo $guest->p_naam.' '.$guest->p_voornaam;?></div>
+                                                                <?php  } }  ?>
+                                                        </li>
+
+
 	                                                	<?php }?>
 	                                                </ul>
 	                                                <div class="clear"></div>

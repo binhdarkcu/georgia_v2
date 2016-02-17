@@ -197,14 +197,17 @@
             font-style: normal;
             font-weight: 700;
             font-size: 14px;
+            padding-bottom: 10px;
             line-height: 1.1;
             margin-left: 45px;
             color: #827b5e;
             padding-top: 8px;
             span{
-              color: #ddd;
-              font-size: 13px;
-              padding-bottom: 4px;
+              color: #a9a695;
+              font-size: 14px;
+              padding-bottom: 7px;
+              font-weight: 300;
+              font-family: 'Noto Sans', sans-serif;
               display: block;
             }
           }

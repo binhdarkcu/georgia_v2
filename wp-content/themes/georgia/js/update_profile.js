@@ -130,11 +130,11 @@ jQuery(document).ready(function(){
     		rules: {
                 'p_email': { 
                     required: true, 
-                    email: true,
+                    email: true
                 },
                 'p_password': { 
                     required: true, 
-                    minlength: 6, 
+                    minlength: 6
                 }
     		},
     		submitHandler: function(form) {
@@ -170,6 +170,7 @@ jQuery(document).ready(function(){
 	            url : $('.ajaxurl').val(),
 	            data : {action: "user_login", p_email : $p_email, p_password : $p_password},
 	            success: function(response) {
+                    console.log(response);
 					if (response == 'false') {
 						alert('Your account is not activated');
 					}
