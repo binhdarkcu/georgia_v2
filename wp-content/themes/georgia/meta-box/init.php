@@ -14,7 +14,7 @@ $meta_boxes[] = array(
     'title' => 'PHOTOGALLERY IMAGES',
 
     // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
-    'pages' => array( 'post'),
+    'pages' => array( 'post', 'news'),
 
     // Where the meta box appear: normal (default), advanced, side. Optional.
     'context' => 'normal',

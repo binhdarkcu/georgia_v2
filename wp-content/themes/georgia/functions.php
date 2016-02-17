@@ -9,7 +9,7 @@
 	}
 	add_action('init','ses_init');
     //add theme support
-    add_theme_support('post-thumbnails',array('post','page','slider','organisaties','promotion','homeland'));
+    add_theme_support('post-thumbnails',array('post','page','slider','organisaties','promotion','homeland', 'news'));
 	set_post_thumbnail_size( 360, 182, true ); 
     //register post type
     include TEMPLATEPATH.'/post-type/registry-post-type.php';
