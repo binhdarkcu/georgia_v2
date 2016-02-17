@@ -193,7 +193,6 @@
         <?php
             //ARRAY LOCATION
             $region_location_array = get_field('region_location', 'option');
-
             $array_region_location = array();
             foreach($region_location_array as $region_location)
             {
@@ -233,8 +232,10 @@
                 $percentage = $land->{'percentage'};
                 $title = $array_region_location[$no]['title'];
                 $color = $array_region_location[$no]['color'];
-                $strArrayColor1 .= '"'.$title.'": "'.$color.'",';
-                $str_moduleData1 .= '{value: '.$percentage.',color: "'.$color.'",highlight: Colour("'.$color.'", 10),label: "'.$title.'"},';
+                if(!empty($title) && !empty($color)) {
+                    $strArrayColor1 .= '"' . $title . '": "' . $color . '",';
+                    $str_moduleData1 .= '{value: ' . $percentage . ',color: "' . $color . '",highlight: Colour("' . $color . '", 10),label: "' . $title . '"},';
+                }
             }
 
             //SQL FOR LOCATION
@@ -243,13 +244,15 @@
 
             $strArrayColor1 = '';
             $str_moduleData1 = '';
-            foreach($array_land as $land){
+            foreach($array_land as $land) {
                 $no = $land->{'b_land'};
                 $percentage = $land->{'count'};
                 $title = $array_region_location[$no]['title'];
                 $color = $array_region_location[$no]['color'];
-                $strArrayColor1 .= '"'.$title.'": "'.$color.'",';
-                $str_moduleData1 .= '{value: '.$percentage.',color: "'.$color.'",highlight: Colour("'.$color.'", 10),label: "'.$title.'"},';
+                if (!empty($title) && !empty($color)) {
+                    $strArrayColor1 .= '"' . $title . '": "' . $color . '",';
+                    $str_moduleData1 .= '{value: ' . $percentage . ',color: "' . $color . '",highlight: Colour("' . $color . '", 10),label: "' . $title . '"},';
+                }
             }
 
             //SQL FOR BUSINESS
@@ -263,8 +266,11 @@
                 $percentage = $business->{'count'};
                 $title = $array_business_sector[$no]['title'];
                 $color = $array_business_sector[$no]['color'];
-                $strArrayColor2 .= '"'.$title.'": "'.$color.'",';
-                $str_moduleData2 .= '{value: '.$percentage.',color: "'.$color.'",highlight: Colour("'.$color.'", 10),label: "'.$title.'"},';
+                if(!empty($title) && !empty($color)){
+                    $strArrayColor2 .= '"'.$title.'": "'.$color.'",';
+                    $str_moduleData2 .= '{value: '.$percentage.',color: "'.$color.'",highlight: Colour("'.$color.'", 10),label: "'.$title.'"},';
+                }
+
             }
         ?>
 
@@ -321,7 +327,6 @@
                 colours = {
                     <?php echo $strArrayColor1;?>
                 };
-
             var moduleData = [<?php echo $str_moduleData1;?>];
             //
             var moduleDoughnut_2 = new Chart(canvas_2.getContext('2d')).Doughnut(moduleData, {
