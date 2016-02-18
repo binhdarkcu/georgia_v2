@@ -20,7 +20,7 @@ $meta_boxes[] = array(
     'context' => 'normal',
 
     // Order of meta box: high (default), low. Optional.
-    'priority' => 'high',
+    'priority' => 'low',
 
     // List of meta fields
     'fields' => array(
