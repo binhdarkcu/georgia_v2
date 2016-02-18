@@ -142,7 +142,7 @@ function news_added_by_taxonomy() {
         'show_admin_column' => false,
         'query_var'         => true,
     );
-    register_taxonomy( 'taxonomy', array( 'news' ), $args );
+    register_taxonomy( 'added_by', array( 'news' ), $args );
 
 }
 add_action( 'init', 'news_added_by_taxonomy', 0 );
