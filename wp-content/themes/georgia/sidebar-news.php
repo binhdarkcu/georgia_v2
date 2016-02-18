@@ -17,11 +17,7 @@
                     if ($query->have_posts()) {                                   
                         while ($query->have_posts()) {
                             $query->the_post();
-                            $news_image = get_field('news_image', get_the_ID());
-                            $news_posted_date = get_field('news_posted_date', get_the_ID());
-                            $news_posted_date = DateTime::createFromFormat("Ymd", $news_posted_date);
-                            if($news_posted_date)
-                                $news_posted_date = $news_posted_date->format("j F, Y");
+                            $news_image = get_field('news_image', get_the_ID());                            
                     ?>
                     <li class="normal">
                         <a href="<?php echo get_permalink(get_the_ID());?>" title="">
@@ -30,7 +26,7 @@
                         <h3>
                             <a href="<?php echo get_permalink(get_the_ID());?>" title=""><?php echo get_the_title(get_the_ID());?></a>
                         </h3>
-                        <span><?php echo $news_posted_date; ?></span>                        
+                        <span><?php echo get_the_date('j F, Y'); ?></span>                        
                     </li>
                     <?php
                         }
@@ -60,11 +56,15 @@
     }
     .tribe-mini-calendar-wrapper ul li{
         width: 230px;
-        margin-top: 2px;
+        padding-top: 12px;
         float: left;
         position: relative;
         list-style: none;
-        padding-bottom: 10px;
+        padding-bottom: 12px;
+        border-bottom: solid 1px #535251;
+    }
+    .tribe-mini-calendar-wrapper ul li:first-child{
+        padding-top: 0px;
     }
     .tribe-mini-calendar-wrapper ul li img {
         float: left;

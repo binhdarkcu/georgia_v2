@@ -4,10 +4,6 @@
 		while ( have_posts() ) : the_post();
 			//echo get_the_ID();
 			$news_image = get_field('news_image', get_the_ID());
-			$news_posted_date = get_field('news_posted_date', get_the_ID());
-			$news_posted_date = DateTime::createFromFormat("Ymd", $news_posted_date);
-		    if($news_posted_date)
-		    	$news_posted_date = $news_posted_date->format("j F, Y");
 
 		    $str_added_by = "";
 		    $terms_added_by = get_the_terms(get_the_ID(), 'added_by');
@@ -39,13 +35,13 @@
                                 <div class="featured-event-wrap ">
                                     
                                     <div id="tribe-events-content" class="tribe-events-single vevent clearfix">
-                                    	<div>
+                                    	<div class="image">
 											<img src="<?php echo $news_image;?>" class="img-responsive">
                                     	</div>
 										
                                         <div class="events-single-right col-sm-7 col-sm-push-5">
 
-                                            <div id="post-<?echo get_the_ID();?>" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp news-content">
+                                            <div id="post-<?php echo get_the_ID();?>" class="post-2059 tribe_events type-tribe_events status-publish has-post-thumbnail tag-wordpress cat_wordcamp news-content">
                                                 
                                                 <h3><?php echo get_the_title(get_the_ID());?></h3>
                                                 <div class="tribe-events-single-event-description tribe-events-content entry-content description">
@@ -61,7 +57,7 @@
 
                                             <div class="tribe-events-cta">
                                                 <div class="tribe-events-cta-date meta">
-                                                    Datum: <?php echo $news_posted_date;?><br>
+                                                    Datum: <?php echo get_the_date('j F, Y'); ?><br>
 													Gepost door: <?php echo $str_added_by;?>
                                                 </div>
                                                <div class="tribe-events-cta-btn">
@@ -111,6 +107,9 @@
 	#tribe-events-content.tribe-events-single{
 		background: #000 !important;
 	}
+	#tribe-events-content .image{
+		margin-top: 46px;
+	}
 	.tribe-events-cta .meta{
 		max-width: 100% !important;
 	    max-width: calc( 200px );
@@ -119,7 +118,7 @@
     	line-height: 21px !important;
 	}
 	.events-single-right .news-content{
-		margin-top: 46px;
+		margin-top: 0px;
 	}
 	.events-single-right .news-content h3{
 		color: #887554;
