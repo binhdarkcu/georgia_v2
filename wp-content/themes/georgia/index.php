@@ -246,7 +246,7 @@
                                                             <p><a href="<?php echo bloginfo('home')?>/profile/<?php if($join->id_member!=$_SESSION['user']['id']) echo '?user_id='.$join->id_member;?>"><?php echo $join->p_naam.' '.$join->p_voornaam;?></a></p>
                                                             <?php
                                                             foreach ($joinEvents as $guest) {
-                                                                if(empty($guest->p_email) && $guest->guest_member == $join->id_member){
+                                                                if(empty($guest->p_email) && !empty($guest->p_naam) && $guest->guest_member == $join->id_member){
                                                                     ?>
                                                                     <div class="p_guest"><span>Gast(en)</span><?php echo $guest->p_naam.' '.$guest->p_voornaam;?></div>
                                                                 <?php  } }  ?>
