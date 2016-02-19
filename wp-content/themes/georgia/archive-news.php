@@ -1,11 +1,17 @@
 <?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <?php
+    	global $post;
         $args = array(  
             'post_type' => 'news',
             'post_status' => 'publish',
             'posts_per_page' => 1
         ); 
+        if(is_single())
+        {
+	        $args['post__in'] = array($post->ID);
+        }
+        //echo $post->ID;
         $query = new WP_query($args);
         if ($query->have_posts()) :                                  
             while ($query->have_posts()) : $query->the_post();                
