@@ -1,7 +1,14 @@
 <?php get_header();?>
 <body class="tribe-filter-live  tribe-events-uses-geolocation sticky-header-no wpb-js-composer js-comp-ver-4.4.2 vc_responsive events-list events-archive tribe-theme-eventica-wp tribe-events-page-template">
     <?php
-		while ( have_posts() ) : the_post();
+        $args = array(  
+            'post_type' => 'news',
+            'post_status' => 'publish',
+            'posts_per_page' => 1
+        ); 
+        $query = new WP_query($args);
+        if ($query->have_posts()) :                                  
+            while ($query->have_posts()) : $query->the_post();                
 			//echo get_the_ID();
 			$news_image = get_field('news_image', get_the_ID());
 
@@ -101,7 +108,8 @@
         </div>
      </div>
 <?php 	
-	endwhile; 
+	endwhile;
+	endif;
 ?>
 <style type="text/css" media="screen">
 	#tribe-events-content.tribe-events-single{
