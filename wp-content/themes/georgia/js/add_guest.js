@@ -44,6 +44,7 @@ $(document).ready(function() {
 			        $(this).attr('size', $(this).attr('value').length);
 			    });
 			    editGuest();
+                $( ".guest_rownumber .linkdelete").unbind( "click" );
 			    deleteGuest();
 			}            
 		});
@@ -93,16 +94,19 @@ $(document).ready(function() {
 			$guestid = $(this).attr('data-guestid');
 			$memberid = $(this).attr('data-userid');
 			$id_event = $('input[name="id_event"]').val();
-			jQuery.ajax({
-				type : "post",
-				url : $('.ajaxurl').val(),
-				data : {action: "user_delete_guest", id_guest:$guestid, id_event:$id_event, id_member: $memberid },
-				success: function(data) {
-					window.location.reload();
-					
-				}
-			});
+            if (confirm('Are you sure you want to delete this guest?')) {
+                jQuery.ajax({
+                    type: "post",
+                    url: $('.ajaxurl').val(),
+                    data: {action: "user_delete_guest", id_guest: $guestid, id_event: $id_event, id_member: $memberid},
+                    success: function (data) {
+                        window.location.reload();
+
+                    }
+                });
+            }
 		});
+
 	}
 	deleteGuest();
 });
