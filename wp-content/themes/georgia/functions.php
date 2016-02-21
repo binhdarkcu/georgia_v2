@@ -238,4 +238,47 @@ function my_title_count(){
 <?php } }
 add_action( 'admin_head-post.php', 'my_title_count');
 add_action( 'admin_head-post-new.php', 'my_title_count');
+
+/*-------------------------------------------------------------------------------
+	News: Custom Admin Columns
+-------------------------------------------------------------------------------*/
+function news_page_columns($columns)
+{
+	$columns = array(
+		'cb'	 	=> '<input type="checkbox" />',		
+		'title' 	=> 'Title',	
+		'added_by'	=>	'Added By',
+		'date'		=>	'Posted Date',
+		'image'	=>	'Thumbnail',
+	);
+	return $columns;
+}
+function news_custom_columns($column)
+{
+	global $post;
+
+	switch ($column) {
+	    case 'image':
+	        $img = get_field('news_image', $post->ID);
+	        if($img != "")
+	        	echo '<img src="' . $img . '" width="60" />';
+	        break;
+	    case 'added_by':
+	        $str_added_by = "";
+		    $terms_added_by = get_the_terms($post->ID, 'added_by');
+		    if ($terms_added_by) {
+			   foreach ($terms_added_by  as $row ) {
+			   		if($str_added_by != "") $str_added_by .= ", ";
+			   		$str_added_by .= $row->name;
+			   }
+			}
+			echo $str_added_by;
+	        break;
+	    default:
+	        break;
+    } // end switch
+}
+add_action("manage_news_posts_custom_column", "news_custom_columns");
+add_filter("manage_edit-news_columns", "news_page_columns");
+
 ?>
