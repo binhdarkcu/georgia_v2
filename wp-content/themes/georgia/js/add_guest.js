@@ -32,14 +32,8 @@ $(document).ready(function() {
 			success: function(response) {
 				$('.guest_result').append(response);
 				$form.get(0).reset();
-				if($('.guest_rownumber').length == 1){
-					$('.guest_rownumber_1 h4').html('GUEST 1');
-					$('.guest_form_ajax h4').html('GUEST 2');
-				}
-				if($('.guest_rownumber').length == 2){
-					$('.guest_form_ajax h4, .guest_rownumber_2 h4').html('GUEST 2');
-					$('.guest_form_ajax').empty();
-				}
+                var numguest = $('.guest_rownumber').length + 1;
+                $('.guest_form_ajax h4').html('GUEST ' + numguest);
 				$(".add_guest_popup p input").each(function () {
 			        $(this).attr('size', $(this).attr('value').length);
 			    });
@@ -94,7 +88,7 @@ $(document).ready(function() {
 			$guestid = $(this).attr('data-guestid');
 			$memberid = $(this).attr('data-userid');
 			$id_event = $('input[name="id_event"]').val();
-            if (confirm('Are you sure you want to delete this guest?')) {
+            if (confirm('Bent u zeker dat u deze gast uit de lijst te verwijderen')) {
                 jQuery.ajax({
                     type: "post",
                     url: $('.ajaxurl').val(),

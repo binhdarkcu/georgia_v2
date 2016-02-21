@@ -28,7 +28,7 @@
 			}
 	?>
     
-    <div id="site-container" class="site-container sb-site-container">
+    <div id="site-container" class="site-container news-container sb-site-container">
     	<?php get_template_part('tpl','menu');?>
 		 <section id="page-title" class="page-title events-title">
             <div class="container">				
@@ -68,9 +68,9 @@
 
                                         <div class="events-single-left col-sm-5 col-sm-pull-7">
 
-                                            <div class="tribe-events-cta">
+                                            <div class="tribe-events-cta date-info">
                                                 <div class="tribe-events-cta-date meta">
-                                                    Datum: <?php echo get_the_date('j F, Y'); ?><br>
+                                                    <span>Datum: <?php echo get_the_date('j F, Y'); ?></span>
 													Gepost door: <?php echo $str_added_by;?>
                                                 </div>
                                                <div class="tribe-events-cta-btn">
@@ -79,17 +79,19 @@
                                             </div>
 
                                             <div class="tribe-events-meta-group tribe-events-meta-group-details news-gallery">
-                                                <ul>
-	                                                <?php
-														$galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
-														foreach($galleryPhoto as $photo){
-															$bigImg = wp_get_attachment_image_src( $photo,'full' );
-													?>
-															<li>
-																<a class="fresco" data-fresco-group='galleryphoto' href="<?php echo $bigImg[0];?>"><div class="bg-thumb" style="background: url(<?php echo $bigImg[0]; ?>); background-size: cover;"></div></a>
-															</li>
-													<?php } ?>
-	                                            </ul>
+                                                <div class="scrollbar news-list-box">
+                                                    <ul>
+                                                        <?php
+                                                            $galleryPhoto = get_post_meta(get_the_ID(), 'tt_image_gallery', false);
+                                                            foreach($galleryPhoto as $photo){
+                                                                $bigImg = wp_get_attachment_image_src( $photo,'full' );
+                                                        ?>
+                                                                <li>
+                                                                    <a class="fresco" data-fresco-group='galleryphoto' href="<?php echo $bigImg[0];?>"><div class="bg-thumb" style="background: url(<?php echo $bigImg[0]; ?>); background-size: cover;"></div></a>
+                                                                </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -139,12 +141,22 @@
 	    font-family: 'Raleway', sans-serif;
 	    font-style: normal;
 	    font-weight: 700;
-	    font-size: 18px;
+	    font-size: 20px;
 	    line-height: 1.1;
 	    padding-bottom: 15px;
 	}
+    .news-container .events-single-right{
+        padding-top: 37px!important;
+    }
+    .news-container .tribe-events-meta-group-details{
+        padding-top: 37px!important;
+    }
+    .news-container .events-single-left{
+        margin-top: 41px!important;
+    }
 	.events-single-right .news-content p{
 		color: #FFF !important;
+        line-height: 1.2;
 	}
 	.news-gallery ul{
         width: 100%;

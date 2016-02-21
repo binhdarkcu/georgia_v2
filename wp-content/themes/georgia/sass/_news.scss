@@ -6,3 +6,19 @@
     background: #000;
   }
 }
+.news-list-box.scrollbar {
+  max-height: 528px;
+  width: 97%;
+}
+.date-info .meta{
+  @include NotoSansRegular(12px);
+  span{
+    display: block;
+    padding-bottom: 6px;
+  }
+}
+.news-content{
+  h3{
+
+  }
+}

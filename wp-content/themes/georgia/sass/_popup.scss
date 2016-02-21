@@ -125,7 +125,9 @@
       }
   }
 }
-
+.scrollbarGuest{
+  max-height: 220px;
+}
 .add_guest_popup{
   .guest_rownumber{
     padding-bottom: 20px;
@@ -133,8 +135,9 @@
   .popup-content{
     background: #1b1a19;
       text-align: left;
-        width: 537px;
-  margin-left: -268px;
+        width: 565px;
+    margin-left: -276px;
+    margin-top: -105px;
     a.close{
       color: #fff;
         top: 2px;
