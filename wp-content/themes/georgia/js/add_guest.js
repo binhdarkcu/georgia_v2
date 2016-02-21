@@ -21,28 +21,34 @@ $(document).ready(function() {
 	});
 	$("#guest_form").on('submit',(function(e){
 		$form = $(this);
-		$.ajax({
-			type : "post",
-			url : $('.ajaxurl').val(),
-			//data : {action: "user_contact_form", u_name : $u_name, u_firstname : $u_firstname, u_email : $u_email, u_phone : $u_phone, u_gender : $u_gender, u_birthday : $u_birthday, u_postalcode : $u_postalcode, u_country : $u_country, p_files : $p_files},
-			data: new FormData(this),
-			contentType: false,
-			cache: false,
-			processData:false,
-			success: function(response) {
-				$('.guest_result').append(response);
-				$form.get(0).reset();
-                var numguest = $('.guest_rownumber').length + 1;
-                $('.guest_form_ajax h4').html('GUEST ' + numguest);
-				$(".add_guest_popup p input").each(function () {
-			        $(this).attr('size', $(this).attr('value').length);
-			    });
-                $('.scrollbar.scrollbarGuest').mCustomScrollbar("scrollTo", "bottom");
-			    editGuest();
-                $( ".guest_rownumber .linkdelete").unbind( "click" );
-			    deleteGuest();
-			}            
-		});
+        console.log($form);
+        if($form.find('input').hasClass('error')){
+            console.log('error');
+        }else{
+            $.ajax({
+                type : "post",
+                url : $('.ajaxurl').val(),
+                //data : {action: "user_contact_form", u_name : $u_name, u_firstname : $u_firstname, u_email : $u_email, u_phone : $u_phone, u_gender : $u_gender, u_birthday : $u_birthday, u_postalcode : $u_postalcode, u_country : $u_country, p_files : $p_files},
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(response) {
+                    $('.guest_result').append(response);
+                    $form.get(0).reset();
+                    var numguest = $('.guest_rownumber').length + 1;
+                    $('.guest_form_ajax h4').html('GUEST ' + numguest);
+                    $(".add_guest_popup p input").each(function () {
+                        $(this).attr('size', $(this).attr('value').length);
+                    });
+                    $('.scrollbar.scrollbarGuest').mCustomScrollbar("scrollTo", "bottom");
+                    editGuest();
+                    $( ".guest_rownumber .linkdelete").unbind( "click" );
+                    deleteGuest();
+                }
+            });
+        }
+
 	}));
 	
 	function editGuest(){
