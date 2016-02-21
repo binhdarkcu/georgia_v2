@@ -106,4 +106,5 @@ jQuery(document).ready( function() {
 });
 jQuery(window).load(function(){
 	SiteMain.createScrollbar();
+    $('.scrollbar.scrollbarGuest').mCustomScrollbar("scrollTo", "bottom");
 });

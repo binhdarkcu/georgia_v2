@@ -37,6 +37,7 @@ $(document).ready(function() {
 				$(".add_guest_popup p input").each(function () {
 			        $(this).attr('size', $(this).attr('value').length);
 			    });
+                $('.scrollbar.scrollbarGuest').mCustomScrollbar("scrollTo", "bottom");
 			    editGuest();
                 $( ".guest_rownumber .linkdelete").unbind( "click" );
 			    deleteGuest();
@@ -88,7 +89,7 @@ $(document).ready(function() {
 			$guestid = $(this).attr('data-guestid');
 			$memberid = $(this).attr('data-userid');
 			$id_event = $('input[name="id_event"]').val();
-            if (confirm('Bent u zeker dat u deze gast uit de lijst te verwijderen')) {
+            if (confirm('Bent u zeker dat u deze gast uit de lijst te verwijderen?')) {
                 jQuery.ajax({
                     type: "post",
                     url: $('.ajaxurl').val(),

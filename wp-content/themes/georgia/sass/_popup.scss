@@ -126,7 +126,7 @@
   }
 }
 .scrollbarGuest{
-  max-height: 220px;
+  max-height: 300px;
 }
 .add_guest_popup{
   .guest_rownumber{
@@ -137,14 +137,13 @@
       text-align: left;
         width: 565px;
     margin-left: -276px;
-    margin-top: -105px;
+    margin-top: -155px;
     a.close{
       color: #fff;
         top: 2px;
       right: 7px;
     }
     .guest_form{
-      padding-bottom: 25px;
     }
     h4{
       @include RalewayBold(18px);
